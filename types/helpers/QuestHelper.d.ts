@@ -161,6 +161,13 @@ export declare class QuestHelper {
      */
     getQuestFromDb(questId: string, pmcData: IPmcData): IQuest;
     /**
+     * Get a quests startedMessageText key from db, if no startedMessageText key found, use description key instead
+     * @param startedMessageTextId startedMessageText property from IQuest
+     * @param questDescriptionId description property from IQuest
+     * @returns message id
+     */
+    getMessageIdForQuestStart(startedMessageTextId: string, questDescriptionId: string): string;
+    /**
      * Get the locale Id from locale db for a quest message
      * @param questMessageId Quest message id to look up
      * @returns Locale Id from locale db

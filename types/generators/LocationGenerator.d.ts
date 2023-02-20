@@ -2,7 +2,7 @@ import { ContainerHelper } from "../helpers/ContainerHelper";
 import { ItemHelper } from "../helpers/ItemHelper";
 import { PresetHelper } from "../helpers/PresetHelper";
 import { RagfairServerHelper } from "../helpers/RagfairServerHelper";
-import { ILooseLoot, SpawnpointsForced, SpawnpointTemplate } from "../models/eft/common/ILooseLoot";
+import { ILooseLoot, Spawnpoint, SpawnpointsForced, SpawnpointTemplate } from "../models/eft/common/ILooseLoot";
 import { Item } from "../models/eft/common/tables/IItem";
 import { IStaticAmmoDetails, IStaticContainerProps, IStaticForcedProps, IStaticLootDetails } from "../models/eft/common/tables/ILootBase";
 import { ILocationConfig } from "../models/spt/config/ILocationConfig";
@@ -52,5 +52,5 @@ export declare class LocationGenerator {
      * @param name of map currently generating forced loot for
      */
     protected addForcedLoot(loot: SpawnpointTemplate[], forcedSpawnPoints: SpawnpointsForced[], locationName: string): void;
-    protected createItem(tpl: string, staticAmmoDist: Record<string, IStaticAmmoDetails[]>, parentId?: string): IContainerItem;
+    protected createItem(tpl: string, staticAmmoDist: Record<string, IStaticAmmoDetails[]>, parentId?: string, spawnPoint?: Spawnpoint): IContainerItem;
 }
