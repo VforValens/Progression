@@ -26,290 +26,6 @@ export class PMCs
 
     private generatePmcs()
     {
-        // Reduce Custom PMC Boss Chances
-        const pmcBoss = this.locationConfig.customWaves.boss;
-        pmcBoss.factory4_day = [{
-            "sptId": "sptBearFactoryDayBossSpawn",
-            "BossName": "sptBear",
-            "BossChance": 15,
-            "BossZone": "BotZone",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "1",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptBear",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }, {
-            "sptId": "sptUsecFactoryDayBossSpawn",
-            "BossName": "sptUsec",
-            "BossChance": 15,
-            "BossZone": "BotZone",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "1",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptUsec",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }
-        ];
-
-        pmcBoss.bigmap = 
-        [{
-            "sptId": "sptBearCustomsScavBaseNormalSpawn",
-            "BossName": "sptBear",
-            "BossChance": 15,
-            "BossZone": "ZoneScavBase",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "2",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptBear",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "2"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }, {
-            "sptId": "sptUsecCustomsScavBaseNormalSpawn",
-            "BossName": "sptUsec",
-            "BossChance": 15,
-            "BossZone": "ZoneScavBase",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "2",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptUsec",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "2"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }
-        ];
-
-        pmcBoss.woods =
-        [{
-            "sptId": "sptBearWoodScavBaseNormalSpawn",
-            "BossName": "sptBear",
-            "BossChance": 15,
-            "BossZone": "ZoneScavBase2",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "2",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptBear",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "2"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }, {
-            "sptId": "sptUsecWoodScavBaseNormalSpawn",
-            "BossName": "sptUsec",
-            "BossChance": 15,
-            "BossZone": "ZoneScavBase2",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "2",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptUsec",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "2"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }];
-
-        pmcBoss.shoreline =
-        [{
-            "sptId": "sptBearShorelinePortNormalSpawn",
-            "BossName": "sptBear",
-            "BossChance": 15,
-            "BossZone": "ZonePort",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "2",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptBear",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }, {
-            "sptId": "sptUsecShorelinePortNormalSpawn",
-            "BossName": "sptUsec",
-            "BossChance": 15,
-            "BossZone": "ZonePort",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "2",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptUsec",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        },
-        {
-            "sptId": "sptUsecShorelineSanatorium1NormalSpawn",
-            "BossName": "sptUsec",
-            "BossChance": 10,
-            "BossZone": "ZoneSanatorium1",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "1",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptUsec",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        },
-        {
-            "sptId": "sptBearShorelineSanatorium1NormalSpawn",
-            "BossName": "sptBear",
-            "BossChance": 10,
-            "BossZone": "ZoneSanatorium1",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "1",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptBear",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        },
-        {
-            "sptId": "sptUsecShorelineSanatorium2NormalSpawn",
-            "BossName": "sptUsec",
-            "BossChance": 10,
-            "BossZone": "ZoneSanatorium2",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "1",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptUsec",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        },
-        {
-            "sptId": "sptBearShorelineSanatorium2NormalSpawn",
-            "BossName": "sptBear",
-            "BossChance": 10,
-            "BossZone": "ZoneSanatorium2",
-            "BossPlayer": false,
-            "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
-            "BossEscortDifficult": "normal",
-            "BossEscortAmount": "1",
-            "Time": -1,
-            "Supports": [{
-                "BossEscortType": "sptBear",
-                "BossEscortDifficult": [
-                    "normal"
-                ],
-                "BossEscortAmount": "1"
-            }
-            ],
-            "RandomTimeSpawn": false,
-            "TriggerId": "",
-            "TriggerName": ""
-        }];
-
-
         // Gear Arrays
         // Primary Weapon Array
         const primaryWeaponArrayLL1 = ["5926bb2186f7744b1c6c6e60", "574d967124597745970e7c94", "57dc2fa62459775949412633", "57f3c6bd24597738e730fa2f", "5839a40f24597726f856b511", "57d14d2524597714373db789", "57f4c844245977379d5c14d1", "59984ab886f7743e98271174", "5ea03f7400685063ec28bfa8", "5a7828548dc32e5a9c28b516", "5bfd297f0db834001a669119", "59d6088586f774275f37482f", "583990e32459771419544dd2", "59e6152586f77473dc057aa1", "5c07c60e0db834002330051f", "5a38e6bac4a2826c6e06d79b", "56dee2bdd2720bc8328b4567", "5447a9cd4bdc2dbd208b4567", "5d2f0d8048f0356c925bc3b0", "5d2f0d8048f0356c925bc3b0", "5fc3e272f8b6a877a729eac5", "58948c8e86f77409493f7266", "59e6687d86f77411d949b251", "54491c4f4bdc2db1078b4568", "5ba26383d4351e00334c93d9", "587e02ff24597743df3deaeb", "5c501a4d2e221602b412b540", "60db29ce99594040e04c4a27", "5580223e4bdc2d1c128b457f", "61f7c9e189e6fb1a5e3ea78d", "5e870397991fd70db46995c8", "5de652c31b7e3716273428be"];
@@ -326,7 +42,7 @@ export class PMCs
         // Backpack Array
         const backpackArrayLL1 = [ "60a2828e8689911a226117f9", "5ab8ee7786f7742d8f33f0b9", "544a5cde4bdc2d39388b456b", "5e9dcf5986f7746c417435b3", "56e33680d2720be2748b4576", "5ab8f04f86f774585f4237d8", "5ca20d5986f774331e7c9602"];
         const backpackArrayLL2 = backpackArrayLL1.concat(...["5d5d940f86f7742797262046", "6038d614d10cbf667352dd44", "618bb76513f5097c8d5aa2d5"]);
-        const backpackArrayLL3 = backpackArrayLL2.concat(...["619cf0335771dd3c390269ae", "545cdae64bdc2d39198b4568", "5ab8ebf186f7742d8b372e80", "5f5e467b0bc58666c37e7821", "5f5e46b96bdad616ad46d613", "618cfae774bb2d036a049e7c", "62a1b7fbc30cfa1d366af586", "5df8a4d786f77412672a1e3b"]);
+        const backpackArrayLL3 = backpackArrayLL2.concat(...["5c0e774286f77468413cc5b2", "639346cc1c8f182ad90c8972", "619cf0335771dd3c390269ae", "545cdae64bdc2d39198b4568", "5ab8ebf186f7742d8b372e80", "5f5e467b0bc58666c37e7821", "5f5e46b96bdad616ad46d613", "618cfae774bb2d036a049e7c", "62a1b7fbc30cfa1d366af586", "5df8a4d786f77412672a1e3b"]);
         
         
         // Tacvest Array
@@ -338,7 +54,7 @@ export class PMCs
         // Earpiece Array
         const earpieceArrayLL1 = ["5b432b965acfc47a8774094e", "6033fa48ffd42c541047f728"];
         const earpieceArrayLL2 = earpieceArrayLL1.concat(...["5645bcc04bdc2d363b8b4572", "5aa2ba71e5b5b000137b758f"]);
-        const earpieceArrayLL3 = earpieceArrayLL2.concat(...["5a16b9fffcdbcb0176308b34"]);
+        const earpieceArrayLL3 = earpieceArrayLL2.concat(...["5f60cd6cf2bcbb675b00dac6", "628e4e576d783146b124c64d", "5a16b9fffcdbcb0176308b34"]);
        
         
         // Headwear Array
@@ -349,8 +65,8 @@ export class PMCs
        
         // Armor Vest Array
         const armorVestArrayLL1 = ["5c0e5bab86f77461f55ed1f3", "5c0e5edb86f77461f55ed1f7", "5648a7494bdc2d9d488b4583", "5ab8e4ed86f7742d8e50c7fa", "5df8a2ca86f7740bfe6df777"];
-        const armorVestArrayLL2 = armorVestArrayLL1.concat(...["5b44d22286f774172b0c9de8", "5c0e51be86f774598e797894"])
-        const armorVestArrayLL3 = armorVestArrayLL2.concat(...["5f5f41476bdad616ad46d631", "545cdb794bdc2d3a198b456a", "5ab8e79e86f7742d8b372e78", "5b44d0de86f774503d30cba8", "5ca2151486f774244a3b8d30", "609e8540d5c319764c2bc2e9", "5c0e57ba86f7747fa141986d",  "5c0e53c886f7747fa54205c7"]);
+        const armorVestArrayLL2 = armorVestArrayLL1.concat(...["5c0e655586f774045612eeb2", "5b44d22286f774172b0c9de8", "5c0e51be86f774598e797894"])
+        const armorVestArrayLL3 = armorVestArrayLL2.concat(...["5e4abb5086f77406975c9342", "5ca21c6986f77479963115a7", "5e9dacf986f774054d6b89f4", "63737f448b28897f2802b874", "5f5f41476bdad616ad46d631", "545cdb794bdc2d3a198b456a", "5ab8e79e86f7742d8b372e78", "5b44d0de86f774503d30cba8", "5ca2151486f774244a3b8d30", "609e8540d5c319764c2bc2e9", "5c0e57ba86f7747fa141986d",  "5c0e53c886f7747fa54205c7"]);
        
         
         // Eyewear Array
@@ -362,7 +78,7 @@ export class PMCs
         // Armband Array
         const armBandArrayLL1 = ["5b3f16c486f7747c327f55f7", "5b3f3ade86f7746b6b790d8e", "5b3f3af486f774679e752c1f", "5b3f3b0186f774021a2afef7", "5b3f3b0e86f7746752107cda"];
         const armBandArrayLL2 = armBandArrayLL1;
-        const armBandArrayLL3 = armBandArrayLL2.concat(...["619bdf9cc9546643a67df6f8", "619bc61e86e01e16f839a999", "619bdfd4c9546643a67df6fa", "619bdd8886e01e16f839a99c", "60b0f988c4449e4cb624c1da", "5f9949d869e2777a0e779ba5"]);
+        const armBandArrayLL3 = armBandArrayLL2.concat(...["619bdef8c9546643a67df6f6", "619bddc6c9546643a67df6ee", "619bdf9cc9546643a67df6f8", "619bc61e86e01e16f839a999", "619bdfd4c9546643a67df6fa", "619bdd8886e01e16f839a99c", "60b0f988c4449e4cb624c1da", "5f9949d869e2777a0e779ba5"]);
 
         // Face Cover Array
         const faceCoverArrayLL1 = ["572b7f1624597762ae139822"];
@@ -497,17 +213,19 @@ export class PMCs
         // PMC Armband Weighting
         pmcEquipment.ArmBand =
         {
-            "5b3f16c486f7747c327f55f7": 1, 
-            "5b3f3ade86f7746b6b790d8e": 1, 
-            "5b3f3af486f774679e752c1f": 1, 
-            "5b3f3b0186f774021a2afef7": 1, 
-            "5b3f3b0e86f7746752107cda": 1,
-            "619bdf9cc9546643a67df6f8": 1, 
-            "619bc61e86e01e16f839a999": 1, 
-            "619bdfd4c9546643a67df6fa": 1, 
-            "619bdd8886e01e16f839a99c": 1, 
-            "60b0f988c4449e4cb624c1da": 1, 
-            "5f9949d869e2777a0e779ba5": 1
+            "5b3f16c486f7747c327f55f7": 15, 
+            "5b3f3ade86f7746b6b790d8e": 15, 
+            "5b3f3af486f774679e752c1f": 15, 
+            "5b3f3b0186f774021a2afef7": 15, 
+            "5b3f3b0e86f7746752107cda": 15,
+            "619bdf9cc9546643a67df6f8": 4, 
+            "619bc61e86e01e16f839a999": 3, 
+            "619bdfd4c9546643a67df6fa": 5, 
+            "619bdd8886e01e16f839a99c": 5, 
+            "60b0f988c4449e4cb624c1da": 2, 
+            "5f9949d869e2777a0e779ba5": 3,
+            "619bdef8c9546643a67df6f6": 2,
+            "619bddc6c9546643a67df6ee": 1
         };
         
         this.databaseServer.bots.types.usec.inventory.equipment.ArmBand = pmcEquipment.ArmBand;
@@ -517,21 +235,26 @@ export class PMCs
         // PMC Armor Vest Weighting
         pmcEquipment.ArmorVest = 
         {
-            "5c0e5bab86f77461f55ed1f3": 1, 
-            "5c0e5edb86f77461f55ed1f7": 1, 
-            "5648a7494bdc2d9d488b4583": 1, 
-            "5ab8e4ed86f7742d8e50c7fa": 1, 
-            "5df8a2ca86f7740bfe6df777": 1,
-            "5b44d22286f774172b0c9de8": 1, 
-            "5c0e51be86f774598e797894": 1,
-            "5f5f41476bdad616ad46d631": 1, 
-            "545cdb794bdc2d3a198b456a": 1, 
-            "5ab8e79e86f7742d8b372e78": 1, 
-            "5b44d0de86f774503d30cba8": 1, 
-            "5ca2151486f774244a3b8d30": 1, 
-            "609e8540d5c319764c2bc2e9": 1, 
-            "5c0e57ba86f7747fa141986d": 1,  
-            "5c0e53c886f7747fa54205c7": 1 
+            "5648a7494bdc2d9d488b4583": 100,
+            "5df8a2ca86f7740bfe6df777": 175,
+            "5ab8e4ed86f7742d8e50c7fa": 200,
+            "5c0e5edb86f77461f55ed1f7": 225,
+            "5c0e5bab86f77461f55ed1f3": 200,
+            "5b44d22286f774172b0c9de8": 300,
+            "5c0e655586f774045612eeb2": 300,
+            "5c0e51be86f774598e797894": 300,
+            "5c0e53c886f7747fa54205c7": 300,
+            "5c0e57ba86f7747fa141986d": 300,
+            "63737f448b28897f2802b874": 400,
+            "5f5f41476bdad616ad46d631": 400,
+            "5ca2151486f774244a3b8d30": 400,
+            "5b44d0de86f774503d30cba8": 350,
+            "5ab8e79e86f7742d8b372e78": 400,
+            "5e9dacf986f774054d6b89f4": 400,
+            "5ca21c6986f77479963115a7": 400,
+            "5e4abb5086f77406975c9342": 400,
+            "60a283193cb70855c43a381d": 150,
+            "545cdb794bdc2d3a198b456a": 160
         };
 
         this.databaseServer.bots.types.usec.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
@@ -541,24 +264,26 @@ export class PMCs
         // PMC Backpack Weighting
         pmcEquipment.Backpack =
         {
-            "60a2828e8689911a226117f9": 1, 
-            "5ab8ee7786f7742d8f33f0b9": 1, 
-            "544a5cde4bdc2d39388b456b": 1, 
-            "5e9dcf5986f7746c417435b3": 1, 
-            "56e33680d2720be2748b4576": 1, 
-            "5ab8f04f86f774585f4237d8": 1, 
-            "5ca20d5986f774331e7c9602": 1,
-            "5d5d940f86f7742797262046": 1, 
-            "6038d614d10cbf667352dd44": 1, 
-            "618bb76513f5097c8d5aa2d5": 1,
-            "619cf0335771dd3c390269ae": 1, 
-            "545cdae64bdc2d39198b4568": 1, 
-            "5ab8ebf186f7742d8b372e80": 1, 
-            "5f5e467b0bc58666c37e7821": 1, 
-            "5f5e46b96bdad616ad46d613": 1, 
-            "618cfae774bb2d036a049e7c": 1, 
-            "62a1b7fbc30cfa1d366af586": 1, 
-            "5df8a4d786f77412672a1e3b": 1        
+            "5ab8ee7786f7742d8f33f0b9": 6, 
+            "56e33680d2720be2748b4576": 6, 
+            "5ab8f04f86f774585f4237d8": 6, 
+            "544a5cde4bdc2d39388b456b": 10, 
+            "5e9dcf5986f7746c417435b3": 14, 
+            "60a2828e8689911a226117f9": 14, 
+            "5ca20d5986f774331e7c9602": 14,
+            "5d5d940f86f7742797262046": 14, 
+            "6038d614d10cbf667352dd44": 8, 
+            "618bb76513f5097c8d5aa2d5": 14,
+            "619cf0335771dd3c390269ae": 14, 
+            "545cdae64bdc2d39198b4568": 14, 
+            "5ab8ebf186f7742d8b372e80": 14, 
+            "5f5e467b0bc58666c37e7821": 14, 
+            "5f5e46b96bdad616ad46d613": 14, 
+            "618cfae774bb2d036a049e7c": 14, 
+            "62a1b7fbc30cfa1d366af586": 14,
+            "639346cc1c8f182ad90c8972": 8,
+            "5c0e774286f77468413cc5b2": 8,
+            "5df8a4d786f77412672a1e3b": 10        
         };
         
         this.databaseServer.bots.types.usec.inventory.equipment.Backpack = pmcEquipment.Backpack;
@@ -570,8 +295,10 @@ export class PMCs
          {
              "5b432b965acfc47a8774094e": 1, 
              "6033fa48ffd42c541047f728": 1,
-             "5645bcc04bdc2d363b8b4572": 1, 
+             "5645bcc04bdc2d363b8b4572": 1,
+             "5f60cd6cf2bcbb675b00dac6": 1,
              "5aa2ba71e5b5b000137b758f": 1,
+             "628e4e576d783146b124c64d": 1,
              "5a16b9fffcdbcb0176308b34": 1
          };
          
@@ -586,7 +313,7 @@ export class PMCs
             "5aa2b986e5b5b00014028f4c": 1, 
             "557ff21e4bdc2d89578b4586": 1,
             "5d5fca1ea4b93635fd598c07": 1,
-            "603409c80ca681766b6a0fb2": 1, 
+            "603409c80ca681766b6a0fb2": 3, 
             "5d6d2e22a4b9361bd5780d05": 1, 
             "5c0d32fcd174af02a1659c75": 1
         };
@@ -598,11 +325,11 @@ export class PMCs
         // PMC FaceCover Weighting
         pmcEquipment.FaceCover =
         {
-            "572b7f1624597762ae139822": 1,
-            "5ab8f39486f7745cd93a1cca": 1, 
-            "5b4325355acfc40019478126": 1,
-            "5ab8f85d86f7745cd93a1cf5": 1, 
-            "5b432f3d5acfc4704b4a1dfb": 1
+            "572b7f1624597762ae139822": 2,
+            "5ab8f39486f7745cd93a1cca": 10, 
+            "5b4325355acfc40019478126": 4,
+            "5ab8f85d86f7745cd93a1cf5": 4, 
+            "5b432f3d5acfc4704b4a1dfb": 10
         };
          
         this.databaseServer.bots.types.usec.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
@@ -612,76 +339,76 @@ export class PMCs
         // PMC FirstPrimaryWeapon Weighting
         pmcEquipment.FirstPrimaryWeapon =
         {
-            "5926bb2186f7744b1c6c6e60": 1, 
-            "574d967124597745970e7c94": 1, 
-            "57dc2fa62459775949412633": 1, 
-            "57f3c6bd24597738e730fa2f": 1, 
-            "5839a40f24597726f856b511": 1, 
-            "57d14d2524597714373db789": 1, 
-            "57f4c844245977379d5c14d1": 1, 
-            "59984ab886f7743e98271174": 1, 
-            "5ea03f7400685063ec28bfa8": 1, 
-            "5a7828548dc32e5a9c28b516": 1, 
-            "5bfd297f0db834001a669119": 1, 
-            "59d6088586f774275f37482f": 1, 
-            "583990e32459771419544dd2": 1, 
-            "59e6152586f77473dc057aa1": 1, 
-            "5c07c60e0db834002330051f": 1, 
-            "5a38e6bac4a2826c6e06d79b": 1, 
-            "56dee2bdd2720bc8328b4567": 1, 
-            "5447a9cd4bdc2dbd208b4567": 1, 
-            "5d2f0d8048f0356c925bc3b0": 1, 
-            "5fc3e272f8b6a877a729eac5": 1, 
-            "58948c8e86f77409493f7266": 1, 
-            "59e6687d86f77411d949b251": 1, 
-            "54491c4f4bdc2db1078b4568": 1, 
-            "5ba26383d4351e00334c93d9": 1,
-            "587e02ff24597743df3deaeb": 1, 
-            "5c501a4d2e221602b412b540": 1, 
-            "60db29ce99594040e04c4a27": 1, 
-            "5580223e4bdc2d1c128b457f": 1, 
-            "61f7c9e189e6fb1a5e3ea78d": 1, 
-            "5e870397991fd70db46995c8": 1, 
-            "5de652c31b7e3716273428be": 1,
-            "5644bd2b4bdc2d3b4c8b4572": 1, 
-            "59ff346386f77477562ff5e2": 1, 
-            "5ab8e9fcd8ce870019439434": 1, 
-            "5ac4cd105acfc40016339859": 1, 
-            "5bf3e03b0db834001d2c4a9c": 1, 
-            "55801eed4bdc2d89578b4588": 1, 
-            "5fbcc1d9016cce60e8341ab3": 1, 
-            "628b5638ad252a16da6dd245": 1, 
-            "628b9c37a733087d0d7fe84b": 1, 
-            "5f2a9575926fd9352339381f": 1, 
-            "60339954d62c9b14ed777c06": 1, 
-            "62e7c4fba689e8c9c50dfc38": 1, 
-            "623063e994fc3f7b302a9696": 1, 
-            "5cc82d76e24e8d00134b4b83": 1, 
-            "5aafa857e5b5b00018480968": 1, 
-            "5bfea6e90db834001b7347f3": 1, 
-            "576165642459773c7a400233": 1, 
-            "618428466ef05c2ce828f218": 1,
-            "5ac66d725acfc43b321d4b60": 1, 
-            "5ac66d2e5acfc43b321d4b53": 1, 
-            "5ac66d9b5acfc4001633997a": 1, 
-            "5beed0f50db834001c062b12": 1, 
-            "57838ad32459774a17445cd2": 1, 
-            "5c46fbd72e2216398b5a8c9c": 1, 
-            "5e848cc2988a8701445df1e8": 1, 
-            "62e14904c2699c0ec93adc47": 1, 
-            "588892092459774ac91d4b11": 1, 
-            "5c488a752e221602b412af63": 1, 
-            "5b0bbe4e5acfc40dc528a72d": 1, 
-            "6184055050224f204c1da540": 1, 
-            "63171672192e68c5460cebc5": 1, 
-            "5a367e5dc4a282000e49738f": 1, 
-            "5df8ce05b11454561e39243b": 1, 
-            "6176aca650224f204c1da3fb": 1, 
-            "5ac66cb05acfc40198510a10": 1, 
-            "5d43021ca4b9362eab4b5e25": 1, 
-            "5fc3f2d5900b1d5091531e57": 1, 
-            "5fb64bc92b1b027b1f50bcf2": 1, 
-            "5df24cf80dee1b22f862e9bc": 1
+            "5926bb2186f7744b1c6c6e60": 20, 
+            "574d967124597745970e7c94": 20, 
+            "57dc2fa62459775949412633": 20, 
+            "57f3c6bd24597738e730fa2f": 20, 
+            "5839a40f24597726f856b511": 20, 
+            "57d14d2524597714373db789": 20, 
+            "57f4c844245977379d5c14d1": 20, 
+            "59984ab886f7743e98271174": 20, 
+            "5ea03f7400685063ec28bfa8": 20, 
+            "5a7828548dc32e5a9c28b516": 25, 
+            "5bfd297f0db834001a669119": 30, 
+            "59d6088586f774275f37482f": 20, 
+            "583990e32459771419544dd2": 20, 
+            "59e6152586f77473dc057aa1": 20, 
+            "5c07c60e0db834002330051f": 20, 
+            "5a38e6bac4a2826c6e06d79b": 20, 
+            "56dee2bdd2720bc8328b4567": 20, 
+            "5447a9cd4bdc2dbd208b4567": 28, 
+            "5d2f0d8048f0356c925bc3b0": 10, 
+            "5fc3e272f8b6a877a729eac5": 30, 
+            "58948c8e86f77409493f7266": 30, 
+            "59e6687d86f77411d949b251": 25, 
+            "54491c4f4bdc2db1078b4568": 20, 
+            "5ba26383d4351e00334c93d9": 15,
+            "587e02ff24597743df3deaeb": 20, 
+            "5c501a4d2e221602b412b540": 25, 
+            "60db29ce99594040e04c4a27": 20, 
+            "5580223e4bdc2d1c128b457f": 20, 
+            "61f7c9e189e6fb1a5e3ea78d": 20, 
+            "5e870397991fd70db46995c8": 20, 
+            "5de652c31b7e3716273428be": 25,
+            "5644bd2b4bdc2d3b4c8b4572": 20, 
+            "59ff346386f77477562ff5e2": 20, 
+            "5ab8e9fcd8ce870019439434": 20, 
+            "5ac4cd105acfc40016339859": 20, 
+            "5bf3e03b0db834001d2c4a9c": 20, 
+            "55801eed4bdc2d89578b4588": 20, 
+            "5fbcc1d9016cce60e8341ab3": 30, 
+            "628b5638ad252a16da6dd245": 30, 
+            "628b9c37a733087d0d7fe84b": 20, 
+            "5f2a9575926fd9352339381f": 20, 
+            "60339954d62c9b14ed777c06": 5, 
+            "62e7c4fba689e8c9c50dfc38": 10, 
+            "623063e994fc3f7b302a9696": 20, 
+            "5cc82d76e24e8d00134b4b83": 20, 
+            "5aafa857e5b5b00018480968": 20, 
+            "5bfea6e90db834001b7347f3": 20, 
+            "576165642459773c7a400233": 10, 
+            "618428466ef05c2ce828f218": 10,
+            "5ac66d725acfc43b321d4b60": 10, 
+            "5ac66d2e5acfc43b321d4b53": 10, 
+            "5ac66d9b5acfc4001633997a": 10, 
+            "5beed0f50db834001c062b12": 20, 
+            "57838ad32459774a17445cd2": 20, 
+            "5c46fbd72e2216398b5a8c9c": 20, 
+            "5e848cc2988a8701445df1e8": 20, 
+            "62e14904c2699c0ec93adc47": 20, 
+            "588892092459774ac91d4b11": 20, 
+            "5c488a752e221602b412af63": 20, 
+            "5b0bbe4e5acfc40dc528a72d": 20, 
+            "6184055050224f204c1da540": 20, 
+            "63171672192e68c5460cebc5": 20, 
+            "5a367e5dc4a282000e49738f": 20, 
+            "5df8ce05b11454561e39243b": 20, 
+            "6176aca650224f204c1da3fb": 20, 
+            "5ac66cb05acfc40198510a10": 20, 
+            "5d43021ca4b9362eab4b5e25": 20, 
+            "5fc3f2d5900b1d5091531e57": 20, 
+            "5fb64bc92b1b027b1f50bcf2": 20, 
+            "5df24cf80dee1b22f862e9bc": 20
         };
         
         this.databaseServer.bots.types.usec.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;
@@ -691,22 +418,22 @@ export class PMCs
         // PMC Headwear Weighting
         pmcEquipment.Headwear =
         {
-            "5a7c4850e899ef00150be885": 1, 
-            "5aa7d193e5b5b000171d063f": 1, 
-            "5c06c6a80db834001b735491": 1, 
-            "5645bc214bdc2d363b8b4571": 1, 
-            "59e7711e86f7746cae05fbe1": 1,
-            "5aa7d03ae5b5b00016327db5": 1, 
-            "5d5e7d28a4b936645d161203": 1, 
-            "5b432d215acfc4771e1c6624": 1, 
-            "5aa7e454e5b5b0214e506fa2": 1,
-            "5e00c1ad86f774747333222c": 1, 
-            "5ac8d6885acfc400180ae7b0": 1, 
-            "5b40e3f35acfc40016388218": 1, 
-            "5b40e4035acfc47a87740943": 1, 
-            "5b4329f05acfc47a86086aa1": 1, 
-            "5c091a4e0db834001d5addc8": 1, 
-            "5d6d3716a4b9361bc8618872": 1  
+            "5a7c4850e899ef00150be885": 6,
+            "5aa7d193e5b5b000171d063f": 2,
+            "5c06c6a80db834001b735491": 3,
+            "5645bc214bdc2d363b8b4571": 2,
+            "59e7711e86f7746cae05fbe1": 3,
+            "5aa7d03ae5b5b00016327db5": 2,
+            "5d5e7d28a4b936645d161203": 4,
+            "5b432d215acfc4771e1c6624": 6,
+            "5aa7e454e5b5b0214e506fa2": 3,
+            "5e00c1ad86f774747333222c": 6,
+            "5ac8d6885acfc400180ae7b0": 6,
+            "5b40e3f35acfc40016388218": 3,
+            "5b40e4035acfc47a87740943": 3,
+            "5b4329f05acfc47a86086aa1": 3,
+            "5c091a4e0db834001d5addc8": 3,
+            "5d6d3716a4b9361bc8618872": 3
         };
          
         this.databaseServer.bots.types.usec.inventory.equipment.Headwear = pmcEquipment.Headwear;
@@ -721,19 +448,19 @@ export class PMCs
             "56e0598dd2720bb5668b45a6": 1, 
             "571a12c42459771f627b58a0": 1, 
             "576a581d2459771e7b1bc4f1": 1, 
-            "602a9740da11d6478d5a06dc": 1, 
-            "5a17f98cfcdbcb0980087290": 1, 
-            "5e81c3cbac2bb513793cdc75": 1, 
-            "5cadc190ae921500103bb3b6": 1, 
-            "56d59856d2720bd8418b456a": 1, 
-            "5a7ae0c351dfba0017554310": 1,
-            "59f98b4986f7746f546d2cef": 1, 
+            "602a9740da11d6478d5a06dc": 6, 
+            "5a17f98cfcdbcb0980087290": 4, 
+            "5e81c3cbac2bb513793cdc75": 4, 
+            "5cadc190ae921500103bb3b6": 4, 
+            "56d59856d2720bd8418b456a": 6, 
+            "5a7ae0c351dfba0017554310": 6,
+            "59f98b4986f7746f546d2cef": 3, 
             "5abccb7dd8ce87001773e277": 1, 
-            "63088377b5cd696784087147": 1, 
-            "5d3eb3b0a4b93615055e84d2": 1, 
-            "6193a720f8ee7e52e42109ed": 1, 
-            "61a4c8884f95bc3b2c5dc96f": 1,
-            "633ec7c2a6918cb895019c6c": 1
+            "63088377b5cd696784087147": 4, 
+            "5d3eb3b0a4b93615055e84d2": 6, 
+            "6193a720f8ee7e52e42109ed": 6, 
+            "61a4c8884f95bc3b2c5dc96f": 2,
+            "633ec7c2a6918cb895019c6c": 6
         };
         
         this.databaseServer.bots.types.usec.inventory.equipment.Holster = pmcEquipment.Holster;
@@ -743,35 +470,35 @@ export class PMCs
         // PMC Tactical Vest Weighting
         pmcEquipment.TacticalVest =
         {
-            "5c0e446786f7742013381639": 1, 
-            "5929a2a086f7744f4b234d43": 1, 
-            "59e7643b86f7742cbf2c109a": 1, 
-            "5e4abc1f86f774069619fbaa": 1, 
-            "6034d0230ca681766b6a0fb5": 1, 
-            "6034cf5fffd42c541047f72e": 1, 
-            "572b7adb24597762ae139821": 1,
-            "544a5caa4bdc2d1a388b4568": 1, 
-            "5d5d646386f7742797261fd9": 1, 
-            "61bc85697113f767765c7fe7": 1, 
-            "5d5d8ca986f7742798716522": 1, 
-            "5d5d85c586f774279a21cbdb": 1, 
-            "592c2d1a86f7746dbe2af32a": 1, 
-            "5fd4c60f875c30179f5d04c2": 1, 
-            "5ca20abf86f77418567a43f2": 1, 
-            "5b44c8ea86f7742d1627baf1": 1, 
-            "603648ff5a45383c122086ac": 1, 
-            "60a6220e953894617404b00a": 1, 
-            "5e4abfed86f77406a2713cf7": 1,
-            "60a3c70cde5f453f634816a3": 1, 
-            "639343fce101f4caa40a4ef3": 1, 
-            "5648a69d4bdc2ded0b8b457b": 1, 
-            "5ab8dced86f774646209ec87": 1, 
-            "5c0e722886f7740458316a57": 1, 
-            "5d5d87f786f77427997cfaef": 1, 
-            "628dc750b910320f4c27a732": 1, 
-            "61bcc89aef0f505f0c6cd0fc": 1, 
-            "628d0618d1ba6e4fa07ce5a4": 1, 
-            "5df8a42886f77412640e2e75": 1
+            "5c0e446786f7742013381639": 6, 
+            "5929a2a086f7744f4b234d43": 4, 
+            "59e7643b86f7742cbf2c109a": 4, 
+            "5e4abc1f86f774069619fbaa": 2, 
+            "6034d0230ca681766b6a0fb5": 2, 
+            "6034cf5fffd42c541047f72e": 4, 
+            "572b7adb24597762ae139821": 2,
+            "544a5caa4bdc2d1a388b4568": 4, 
+            "5d5d646386f7742797261fd9": 8, 
+            "61bc85697113f767765c7fe7": 8, 
+            "5d5d8ca986f7742798716522": 2, 
+            "5d5d85c586f774279a21cbdb": 6, 
+            "592c2d1a86f7746dbe2af32a": 4, 
+            "5fd4c60f875c30179f5d04c2": 6, 
+            "5ca20abf86f77418567a43f2": 4, 
+            "5b44c8ea86f7742d1627baf1": 4, 
+            "603648ff5a45383c122086ac": 4, 
+            "60a6220e953894617404b00a": 4, 
+            "5e4abfed86f77406a2713cf7": 2,
+            "60a3c70cde5f453f634816a3": 6, 
+            "639343fce101f4caa40a4ef3": 8, 
+            "5648a69d4bdc2ded0b8b457b": 8, 
+            "5ab8dced86f774646209ec87": 6, 
+            "5c0e722886f7740458316a57": 8, 
+            "5d5d87f786f77427997cfaef": 5, 
+            "628dc750b910320f4c27a732": 6, 
+            "61bcc89aef0f505f0c6cd0fc": 6, 
+            "628d0618d1ba6e4fa07ce5a4": 8, 
+            "5df8a42886f77412640e2e75": 8
         };
          
         this.databaseServer.bots.types.usec.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
@@ -786,22 +513,22 @@ export class PMCs
         pmcAmmo.Caliber127x55 = 
         {
             "5cadf6e5ae921500113bb973": 1,
-            "5cadf6eeae921500134b2799": 1
+            "5cadf6eeae921500134b2799": 2
         };
 
         pmcAmmo.Caliber762x54R = 
         {
             "5887431f2459777e1612938f": 1,
             "5e023cf8186a883be655e54f": 1,
-            "59e77a2386f7742ee578960a": 1,
-            "560d61e84bdc2da74d8b4571": 1
+            "59e77a2386f7742ee578960a": 2,
+            "560d61e84bdc2da74d8b4571": 2
         };
                 
         pmcAmmo.Caliber762x51 =
         {
             "5e023e6e34d52a55c3304f71": 1,
             "5e023e53d4353e3302577c4c": 1,
-            "5a6086ea4f39f99cd479502f": 1   
+            "5a6086ea4f39f99cd479502f": 2  
         };
 
         pmcAmmo.Caliber762x39 =
@@ -809,16 +536,16 @@ export class PMCs
             "59e4d3d286f774176a36250a": 1,
             "5656d7c34bdc2d9d198b4587": 1,
             "59e4cf5286f7741778269d8a": 1,
-            "59e4d24686f7741776641ac7": 1,
-            "59e0d99486f7744a32234762": 1
+            "59e4d24686f7741776641ac7": 2,
+            "59e0d99486f7744a32234762": 2
         };
 
         pmcAmmo.Caliber762x35 =
         {
             "5fbe3ffdf8b6a877a729ea82": 1,
             "6196365d58ef8c428c287da1": 1,
-            "619636be6db0f2477964e710": 1,
-            "5fd20ff893a8961fc660a954": 1
+            "619636be6db0f2477964e710": 2,
+            "5fd20ff893a8961fc660a954": 2
         };
         
         pmcAmmo.Caliber762x25TT =
@@ -827,16 +554,16 @@ export class PMCs
             "5735ff5c245977640e39ba7e": 1,
             "573601b42459776410737435": 1,
             "573602322459776445391df1": 1,
-            "573603c924597764442bd9cb": 1,
-            "573603562459776430731618": 1
+            "573603c924597764442bd9cb": 2,
+            "573603562459776430731618": 2
         };
 
         pmcAmmo.Caliber366TKM =
         {
             "59e6542b86f77411dc52a77a": 1,
             "59e655cb86f77411dc52a77b": 1,
-            "59e6658b86f77411d949b250": 1,
-            "5f0596629e22f464da6bbdd9": 1   
+            "59e6658b86f77411d949b250": 2,
+            "5f0596629e22f464da6bbdd9": 2  
         };
         
         pmcAmmo.Caliber556x45NATO =
@@ -845,8 +572,8 @@ export class PMCs
             "59e6918f86f7746c9f75e849": 1,
             "54527a984bdc2d4e668b4567": 1,
             "59e68f6f86f7746c9f75e846": 1,
-            "60194943740c5d77f6705eea": 1,
-            "59e690b686f7746c9f75e848": 1
+            "60194943740c5d77f6705eea": 2,
+            "59e690b686f7746c9f75e848": 2
         };
         
                 
@@ -861,8 +588,8 @@ export class PMCs
             "56dff421d2720b5f5a8b4567": 1,
             "56dfef82d2720bbd668b4567": 1,
             "56dff061d2720bb5668b4567": 1,
-            "56dff026d2720bb8668b4567": 1,
-            "5c0d5e4486f77478390952fe": 1
+            "56dff026d2720bb8668b4567": 2,
+            "5c0d5e4486f77478390952fe": 2
         };
 
                 
@@ -871,16 +598,16 @@ export class PMCs
             "5cc80f79e4a949033c7343b2": 1,
             "5cc80f8fe4a949033b0224a2": 1,
             "5cc80f53e4a949000e1ea4f8": 1,
-            "5cc86840d7f00c002412c56c": 1,
-            "5cc80f38e4a949001152b560": 1
+            "5cc86840d7f00c002412c56c": 2,
+            "5cc80f38e4a949001152b560": 2
         };
         
         pmcAmmo.Caliber46x30 =
         {
             "5ba26812d4351e003201fef1": 1,
             "5ba2678ad4351e44f824b344": 1,
-            "5ba26844d4351e00334c9475": 1,
-            "5ba26835d4351e0035628ff5": 1
+            "5ba26844d4351e00334c9475": 2,
+            "5ba26835d4351e0035628ff5": 2
         };
         
         pmcAmmo.Caliber9x18PM =
@@ -896,8 +623,8 @@ export class PMCs
             "573718ba2459775a75491131": 1,
             "57371aab2459775a77142f22": 1,
             "573720e02459776143012541": 1,
-            "5737218f245977612125ba51": 1,
-            "573719df2459775a626ccbc2":1
+            "5737218f245977612125ba51": 2,
+            "573719df2459775a626ccbc2": 2
         };
 
         
@@ -907,21 +634,21 @@ export class PMCs
             "5c3df7d588a4501f290594e5": 1,
             "56d59d3ad2720bdb418b4577": 1,
             "5c925fa22e221601da359b7b": 1,
-            "5efb0e16aeb21837e749c7ff": 1,
-            "5efb0da7a29a85116f6ea05f": 1
+            "5efb0e16aeb21837e749c7ff": 2,
+            "5efb0da7a29a85116f6ea05f": 2
         };
                 
         pmcAmmo.Caliber9x21 =
         {
             "5a26abfac4a28232980eabff": 1,
-            "5a26ac06c4a282000c5a90a8": 1,
-            "5a26ac0ec4a28200741e1e18": 1
+            "5a26ac06c4a282000c5a90a8": 2,
+            "5a26ac0ec4a28200741e1e18": 2
         };
              
         pmcAmmo.Caliber9x39 = 
         {
             "57a0dfb82459774d3078b56c": 1,
-            "57a0e5022459774d1673f889": 1
+            "57a0e5022459774d1673f889": 2
         };
 
         
@@ -930,7 +657,7 @@ export class PMCs
             "62330b3ed4dc74626d570b95": 1,
             "62330bfadc5883093563729b": 1,
             "62330c40bdd19b369e1e53d1": 1,
-            "62330c18744e5e31df12f516": 1
+            "62330c18744e5e31df12f516": 2
         };
 
         pmcAmmo.Caliber1143x23ACP =
@@ -938,7 +665,7 @@ export class PMCs
             "5e81f423763d9f754677bf2e": 1,
             "5efb0d4f4bc50b58e81710f3": 1, 
             "5efb0fc6aeb21837e749c801": 1,
-            "5efb0cabfb3e451d70735af5": 1
+            "5efb0cabfb3e451d70735af5": 2
         };
         
         pmcAmmo.Caliber12g =
@@ -953,8 +680,8 @@ export class PMCs
             "5d6e68e6a4b9361c140bcfe0": 1,
             "5d6e68b3a4b9361bca7e50b5": 1, 
             "5d6e68dea4b9361bcc29e659": 1, 
-            "5d6e6911a4b9361bd5780d52": 1, 
-            "5d6e68c4a4b9361b93413f79": 1
+            "5d6e6911a4b9361bd5780d52": 2, 
+            "5d6e68c4a4b9361b93413f79": 2
         };
         
         pmcAmmo.Caliber20g = 
@@ -966,14 +693,14 @@ export class PMCs
             "5d6e6a53a4b9361bd473feec": 1, 
             "5d6e69b9a4b9361bc8618958": 1, 
             "5d6e69c7a4b9360b6c0d54e4": 1,
-            "5d6e6a05a4b93618084f58d0": 1, 
-            "5d6e6a5fa4b93614ec501745": 1
+            "5d6e6a05a4b93618084f58d0": 2, 
+            "5d6e6a5fa4b93614ec501745": 2
         };
         
         pmcAmmo.Caliber23x75 = 
         {
-            "5e85a9a6eacf8c039e4e2ac1": 1, 
-            "5f647f31b6238e5dd066e196": 1
+            "5e85a9a6eacf8c039e4e2ac1": 2, 
+            "5f647f31b6238e5dd066e196": 2
         };
 
 
@@ -1278,7 +1005,7 @@ export class PMCs
             "levelRange": 
             {
                 "min": 31,
-                "max": 37
+                "max": 39
             },
             "equipment": 
             {

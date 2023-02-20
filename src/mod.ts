@@ -6,6 +6,7 @@ import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { DependencyContainer } from "tsyringe";
 //import { Scavs } from "./scavs";
 import { ILocationConfig } from "@spt-aki/models/spt/config/ILocationConfig";
+import { Boss } from "./boss";
 import { PMCs } from "./pmc";
 
 
@@ -17,6 +18,7 @@ class ValensProgression implements IPostDBLoadMod
     private databaseServer: DatabaseServer;
     // private scavs: Scavs;
     private pmcs: PMCs;
+    private boss: Boss;
 
     public postDBLoad(container: DependencyContainer): void
     {
@@ -29,6 +31,9 @@ class ValensProgression implements IPostDBLoadMod
 
         // this.scavs = new Scavs(this.botConfig, this.databaseServer);
         // this.scavs.updateScavs();
+
+        this.boss = new Boss(this.locationConfig);
+        this.boss.updateBoss();
 
         this.pmcs = new PMCs(this.locationConfig, this.botConfig, this.databaseServer);
         this.pmcs.updatePmcs();
