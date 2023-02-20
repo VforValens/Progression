@@ -26,6 +26,12 @@ export class PMCs
 
     private generatePmcs()
     {
+
+        // Set Bot Level Delta to 1 from Default of 10
+        // Doing this fixes the issue with bots being up to 10 levels higher than character level, by default, and thus generating with gear they **should not** have.
+        this.botConfig.pmc.botRelativeLevelDeltaMax = 1;
+        
+        
         // Gear Arrays
         // Primary Weapon Array
         const primaryWeaponArrayLL1 = ["5926bb2186f7744b1c6c6e60", "574d967124597745970e7c94", "57dc2fa62459775949412633", "57f3c6bd24597738e730fa2f", "5839a40f24597726f856b511", "57d14d2524597714373db789", "57f4c844245977379d5c14d1", "59984ab886f7743e98271174", "5ea03f7400685063ec28bfa8", "5a7828548dc32e5a9c28b516", "5bfd297f0db834001a669119", "59d6088586f774275f37482f", "583990e32459771419544dd2", "59e6152586f77473dc057aa1", "5c07c60e0db834002330051f", "5a38e6bac4a2826c6e06d79b", "56dee2bdd2720bc8328b4567", "5447a9cd4bdc2dbd208b4567", "5d2f0d8048f0356c925bc3b0", "5d2f0d8048f0356c925bc3b0", "5fc3e272f8b6a877a729eac5", "58948c8e86f77409493f7266", "59e6687d86f77411d949b251", "54491c4f4bdc2db1078b4568", "5ba26383d4351e00334c93d9", "587e02ff24597743df3deaeb", "5c501a4d2e221602b412b540", "60db29ce99594040e04c4a27", "5580223e4bdc2d1c128b457f", "61f7c9e189e6fb1a5e3ea78d", "5e870397991fd70db46995c8", "5de652c31b7e3716273428be"];
