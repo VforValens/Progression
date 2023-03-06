@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { EquipmentFilterDetails, EquipmentFilters, IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
-import { ILocationConfig } from "@spt-aki/models/spt/config/ILocationConfig";
 import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 
@@ -8,13 +7,11 @@ export class PMCs
 {
     private botConfig: IBotConfig;
     private databaseServer: IDatabaseTables;
-    private locationConfig: ILocationConfig;
 
 
-    constructor (locationConfig: ILocationConfig, botConfig: IBotConfig, databaseServer: DatabaseServer)
+    constructor (botConfig: IBotConfig, databaseServer: DatabaseServer)
     {
         this.botConfig = botConfig;
-        this.locationConfig = locationConfig;
         this.databaseServer = databaseServer.getTables();
     }
 
@@ -37,70 +34,70 @@ export class PMCs
         const primaryWeaponArrayLL1 = ["5926bb2186f7744b1c6c6e60", "574d967124597745970e7c94", "57dc2fa62459775949412633", "57f3c6bd24597738e730fa2f", "5839a40f24597726f856b511", "57d14d2524597714373db789", "57f4c844245977379d5c14d1", "59984ab886f7743e98271174", "5ea03f7400685063ec28bfa8", "5a7828548dc32e5a9c28b516", "5bfd297f0db834001a669119", "59d6088586f774275f37482f", "583990e32459771419544dd2", "59e6152586f77473dc057aa1", "5c07c60e0db834002330051f", "5a38e6bac4a2826c6e06d79b", "56dee2bdd2720bc8328b4567", "5447a9cd4bdc2dbd208b4567", "5d2f0d8048f0356c925bc3b0", "5d2f0d8048f0356c925bc3b0", "5fc3e272f8b6a877a729eac5", "58948c8e86f77409493f7266", "59e6687d86f77411d949b251", "54491c4f4bdc2db1078b4568", "5ba26383d4351e00334c93d9", "587e02ff24597743df3deaeb", "5c501a4d2e221602b412b540", "60db29ce99594040e04c4a27", "5580223e4bdc2d1c128b457f", "61f7c9e189e6fb1a5e3ea78d", "5e870397991fd70db46995c8", "5de652c31b7e3716273428be"];
         const primaryWeaponArrayLL2 = primaryWeaponArrayLL1.concat(...["5644bd2b4bdc2d3b4c8b4572", "59ff346386f77477562ff5e2", "5ab8e9fcd8ce870019439434", "5ac4cd105acfc40016339859", "5bf3e03b0db834001d2c4a9c", "55801eed4bdc2d89578b4588", "5fbcc1d9016cce60e8341ab3", "628b5638ad252a16da6dd245", "628b9c37a733087d0d7fe84b", "5f2a9575926fd9352339381f", "60339954d62c9b14ed777c06", "62e7c4fba689e8c9c50dfc38", "623063e994fc3f7b302a9696", "5cc82d76e24e8d00134b4b83", "5aafa857e5b5b00018480968", "5bfea6e90db834001b7347f3", "576165642459773c7a400233", "618428466ef05c2ce828f218"]);
         const primaryWeaponArrayLL3 = primaryWeaponArrayLL2.concat(...["5ac66d725acfc43b321d4b60", "5ac4cd105acfc40016339859", "5ac66d2e5acfc43b321d4b53", "5ac66d9b5acfc4001633997a", "5beed0f50db834001c062b12", "57838ad32459774a17445cd2", "5c46fbd72e2216398b5a8c9c", "5e848cc2988a8701445df1e8", "62e14904c2699c0ec93adc47", "588892092459774ac91d4b11", "5c488a752e221602b412af63", "5b0bbe4e5acfc40dc528a72d", "6184055050224f204c1da540", "63171672192e68c5460cebc5", "5a367e5dc4a282000e49738f", "5df8ce05b11454561e39243b", "6176aca650224f204c1da3fb", "5ac66cb05acfc40198510a10", "5d43021ca4b9362eab4b5e25", "5fc3f2d5900b1d5091531e57", "5fb64bc92b1b027b1f50bcf2", "5df24cf80dee1b22f862e9bc"]);
-        const primaryWeaponArrayLL4 = ;
+        const primaryWeaponArrayLL4 = ["576165642459773c7a400233", "606dae0ab0e443224b421bb7", "5e848cc2988a8701445df1e8", "58948c8e86f77409493f7266", "5fc3f2d5900b1d5091531e57", "5fb64bc92b1b027b1f50bcf2", "62e14904c2699c0ec93adc47", "5cc82d76e24e8d00134b4b83", "5ba26383d4351e00334c93d9", "57c44b372459772d2b39b8ce", "59e6687d86f77411d949b251", "5beed0f50db834001c062b12", "5bf3e03b0db834001d2c4a9c", "5447a9cd4bdc2dbd208b4567", "5bb2475ed4351e00853264e3", "5d43021ca4b9362eab4b5e25", "5fbcc1d9016cce60e8341ab3", "606587252535c57a13424cfd", "5dcbd56fdbd3d91b3e5468d5", "6183afd850224f204c1da514", "6165ac306ef05c2ce828ef74", "5bfea6e90db834001b7347f3", "588892092459774ac91d4b11", "5aafa857e5b5b00018480968", "5a367e5dc4a282000e49738f", "6176aca650224f204c1da3fb", "5df8ce05b11454561e39243b", "5c46fbd72e2216398b5a8c9c", "55801eed4bdc2d89578b4588", "5fc22d7c187fea44d52eda44", "627e14b21713922ded6f2c15"];
 
         
         // Holster Array
         const holsterArrayLL1 = ["624c2e8614da335f1e034d8c", "5448bd6b4bdc2dfc2f8b4569", "56e0598dd2720bb5668b45a6", "571a12c42459771f627b58a0", "576a581d2459771e7b1bc4f1", "602a9740da11d6478d5a06dc", "5a17f98cfcdbcb0980087290", "5e81c3cbac2bb513793cdc75", "5cadc190ae921500103bb3b6", "56d59856d2720bd8418b456a", "5a7ae0c351dfba0017554310"];
         const holsterArrayLL2 = holsterArrayLL1.concat(...["59f98b4986f7746f546d2cef", "5abccb7dd8ce87001773e277", "63088377b5cd696784087147", "5d3eb3b0a4b93615055e84d2", "6193a720f8ee7e52e42109ed", "61a4c8884f95bc3b2c5dc96f"]);
         const holsterArrayLL3 = holsterArrayLL2.concat(...["633ec7c2a6918cb895019c6c"]);
-        const holsterArrayLL4 = ;
+        const holsterArrayLL4 = ["56d59856d2720bd8418b456a", "6193a720f8ee7e52e42109ed", "633ec7c2a6918cb895019c6c", "5a7ae0c351dfba0017554310", "5e81c3cbac2bb513793cdc75"];
         
         
         // Backpack Array
         const backpackArrayLL1 = [ "60a2828e8689911a226117f9", "5ab8ee7786f7742d8f33f0b9", "544a5cde4bdc2d39388b456b", "5e9dcf5986f7746c417435b3", "56e33680d2720be2748b4576", "5ab8f04f86f774585f4237d8", "5ca20d5986f774331e7c9602"];
         const backpackArrayLL2 = backpackArrayLL1.concat(...["5d5d940f86f7742797262046", "6038d614d10cbf667352dd44", "618bb76513f5097c8d5aa2d5"]);
         const backpackArrayLL3 = backpackArrayLL2.concat(...["5c0e774286f77468413cc5b2", "639346cc1c8f182ad90c8972", "619cf0335771dd3c390269ae", "545cdae64bdc2d39198b4568", "5ab8ebf186f7742d8b372e80", "5f5e467b0bc58666c37e7821", "5f5e46b96bdad616ad46d613", "618cfae774bb2d036a049e7c", "62a1b7fbc30cfa1d366af586", "5df8a4d786f77412672a1e3b"]);
-        const backpackArrayLL4 = ;
+        const backpackArrayLL4 = ["5df8a4d786f77412672a1e3b", "5c0e774286f77468413cc5b2", "5ab8ebf186f7742d8b372e80", "639346cc1c8f182ad90c8972", "59e763f286f7742ee57895da", "5b44c6ae86f7742d1627baea", "62a1b7fbc30cfa1d366af586", "628e1ffc83ec92260c0f437f", "545cdae64bdc2d39198b4568", "618cfae774bb2d036a049e7c", ];
         
         
         // Tacvest Array
         const tacticalVestArrayLL1 = ["5c0e446786f7742013381639", "5c0e446786f7742013381639", "5929a2a086f7744f4b234d43", "59e7643b86f7742cbf2c109a", "5e4abc1f86f774069619fbaa", "6034d0230ca681766b6a0fb5", "6034cf5fffd42c541047f72e", "572b7adb24597762ae139821"];
         const tacticalVestArrayLL2 = tacticalVestArrayLL1.concat(...["544a5caa4bdc2d1a388b4568", "5d5d646386f7742797261fd9", "61bc85697113f767765c7fe7", "5d5d8ca986f7742798716522", "5d5d85c586f774279a21cbdb", "592c2d1a86f7746dbe2af32a", "5fd4c60f875c30179f5d04c2", "5ca20abf86f77418567a43f2", "5b44c8ea86f7742d1627baf1", "603648ff5a45383c122086ac", "60a6220e953894617404b00a", "5e4abfed86f77406a2713cf7"]);
         const tacticalVestArrayLL3 = tacticalVestArrayLL2.concat(...["60a3c70cde5f453f634816a3", "639343fce101f4caa40a4ef3", "5648a69d4bdc2ded0b8b457b", "5ab8dced86f774646209ec87", "5ab8dced86f774646209ec87", "5c0e722886f7740458316a57", "5d5d87f786f77427997cfaef", "628dc750b910320f4c27a732", "61bcc89aef0f505f0c6cd0fc", "628d0618d1ba6e4fa07ce5a4", "5df8a42886f77412640e2e75"]);
-        const tacticalVestArrayLL4 = ;
+        const tacticalVestArrayLL4 = ["628cd624459354321c4b7fa2", "609e860ebd219504d8507525", "5b44cad286f77402a54ae7e5", "5e4ac41886f77406a511c9a8", "628b9c7d45122232a872358f", "628d0618d1ba6e4fa07ce5a4", "61bc85697113f767765c7fe7", "639343fce101f4caa40a4ef3", "5c0e746986f7741453628fe5", "61bcc89aef0f505f0c6cd0fc", "628dc750b910320f4c27a732", "5df8a42886f77412640e2e75", "5c0e722886f7740458316a57", "5648a69d4bdc2ded0b8b457b", "592c2d1a86f7746dbe2af32a", "603648ff5a45383c122086ac", "5e9db13186f7742f845ee9d3", "628baf0b967de16aab5a4f36", "5f5f41f56760b4138443b352"];
 
         
         // Earpiece Array
         const earpieceArrayLL1 = ["5b432b965acfc47a8774094e", "6033fa48ffd42c541047f728"];
         const earpieceArrayLL2 = earpieceArrayLL1.concat(...["5645bcc04bdc2d363b8b4572", "5aa2ba71e5b5b000137b758f"]);
         const earpieceArrayLL3 = earpieceArrayLL2.concat(...["5f60cd6cf2bcbb675b00dac6", "628e4e576d783146b124c64d", "5a16b9fffcdbcb0176308b34"]);
-       const earpieceArrayLL4 = ;
+        const earpieceArrayLL4 = ["5a16b9fffcdbcb0176308b34", "5aa2ba71e5b5b000137b758f", "5645bcc04bdc2d363b8b4572", "628e4e576d783146b124c64d", "5f60cd6cf2bcbb675b00dac6"];
        
         
         // Headwear Array
         const headwearArrayLL1 = ["5a7c4850e899ef00150be885", "5aa7d193e5b5b000171d063f", "5c06c6a80db834001b735491", "5645bc214bdc2d363b8b4571", "59e7711e86f7746cae05fbe1"];
         const headwearArrayLL2 = headwearArrayLL1.concat(...["5aa7d03ae5b5b00016327db5", "5d5e7d28a4b936645d161203", "5b432d215acfc4771e1c6624", "5aa7e454e5b5b0214e506fa2"]);
         const headwearArrayLL3 = headwearArrayLL2.concat(...["5e00c1ad86f774747333222c", "5ac8d6885acfc400180ae7b0", "5b40e3f35acfc40016388218", "5b40e4035acfc47a87740943", "5b4329f05acfc47a86086aa1", "5c091a4e0db834001d5addc8", "5d6d3716a4b9361bc8618872"]);
-        const headwearArrayLL4 = ;
+        const headwearArrayLL4 = ["5ca20ee186f774799474abc2", "5aa7e276e5b5b000171d0647", "5f60c74e3b85f6263c145586", "5d5e9c74a4b9364855191c40", "5ea17ca01412a1425304d1c0", "5a154d5cfcdbcb001a3b00da", "5ac8d6885acfc400180ae7b0", "5e00c1ad86f774747333222c", "5e01ef6886f77445f643baa4", "5c17a7ed2e2216152142459c", "5b40e1525acfc4771e1c6611", "5b40e2bc5acfc40016388216"];
         
        
         // Armor Vest Array
         const armorVestArrayLL1 = ["5c0e5bab86f77461f55ed1f3", "5c0e5edb86f77461f55ed1f7", "5648a7494bdc2d9d488b4583", "5ab8e4ed86f7742d8e50c7fa", "5df8a2ca86f7740bfe6df777"];
         const armorVestArrayLL2 = armorVestArrayLL1.concat(...["5c0e655586f774045612eeb2", "5b44d22286f774172b0c9de8", "5c0e51be86f774598e797894"])
         const armorVestArrayLL3 = armorVestArrayLL2.concat(...["5e4abb5086f77406975c9342", "5ca21c6986f77479963115a7", "5e9dacf986f774054d6b89f4", "63737f448b28897f2802b874", "5f5f41476bdad616ad46d631", "545cdb794bdc2d3a198b456a", "5ab8e79e86f7742d8b372e78", "5b44d0de86f774503d30cba8", "5ca2151486f774244a3b8d30", "609e8540d5c319764c2bc2e9", "5c0e57ba86f7747fa141986d",  "5c0e53c886f7747fa54205c7"]);
-        const armorVestArrayLL4 = ;
+        const armorVestArrayLL4 = ["5fd4c474dd870108a754b241", "5e4abb5086f77406975c9342", "6038b4ca92ec1c3103795a0d", "6038b4b292ec1c3103795a0b", "5c0e625a86f7742d77340f62", "60a283193cb70855c43a381d", "545cdb794bdc2d3a198b456a", "63737f448b28897f2802b874",  "5f5f41476bdad616ad46d631", "5ca2151486f774244a3b8d30", "5c0e541586f7747fa54205c9", "5b44d0de86f774503d30cba8", "5e9dacf986f774054d6b89f4", "5ca21c6986f77479963115a7", "5c0e655586f774045612eeb2"];
         
         
         // Eyewear Array
         const eyewearArrayLL1 = ["5b432be65acfc433000ed01f", "5aa2b986e5b5b00014028f4c", "557ff21e4bdc2d89578b4586"];
         const eyewearArrayLL2 = eyewearArrayLL1.concat(...["5d5fca1ea4b93635fd598c07"]);
         const eyewearArrayLL3 = eyewearArrayLL2.concat(...["603409c80ca681766b6a0fb2", "5d6d2e22a4b9361bd5780d05", "5c0d32fcd174af02a1659c75"]);
-        const eyewearArrayLL4 = ;
+        const eyewearArrayLL4 = ["62a61c988ec41a51b34758d5", "603409c80ca681766b6a0fb2", "62a09e410b9d3c46de5b6e78", "61c18d83b00456371a66814b"];
        
         
         // Armband Array
         const armBandArrayLL1 = ["5b3f16c486f7747c327f55f7", "5b3f3ade86f7746b6b790d8e", "5b3f3af486f774679e752c1f", "5b3f3b0186f774021a2afef7", "5b3f3b0e86f7746752107cda"];
         const armBandArrayLL2 = armBandArrayLL1;
         const armBandArrayLL3 = armBandArrayLL2.concat(...["619bdef8c9546643a67df6f6", "619bddc6c9546643a67df6ee", "619bdf9cc9546643a67df6f8", "619bc61e86e01e16f839a999", "619bdfd4c9546643a67df6fa", "619bdd8886e01e16f839a99c", "60b0f988c4449e4cb624c1da", "5f9949d869e2777a0e779ba5"]);
-        const armBandArrayLL4 = ;
+        const armBandArrayLL4 = ["619bddc6c9546643a67df6ee", "60b0f988c4449e4cb624c1da", "619bc61e86e01e16f839a999", "619bdef8c9546643a67df6f6"];
         
         
         // Face Cover Array
         const faceCoverArrayLL1 = ["572b7f1624597762ae139822"];
         const faceCoverArrayLL2 = faceCoverArrayLL1.concat(...["5ab8f39486f7745cd93a1cca", "5b4325355acfc40019478126"]);
         const faceCoverArrayLL3 = faceCoverArrayLL2.concat(...["5ab8f85d86f7745cd93a1cf5", "5b432f3d5acfc4704b4a1dfb"]);
-        const faceCoverArrayLL4 = ;
+        const faceCoverArrayLL4 = ["5e54f79686f7744022011103", "5fd8d28367cb5e077335170f", "5e54f76986f7740366043752", "62a09dd4621468534a797ac7", "5b432f3d5acfc4704b4a1dfb", "60a7ad3a0c5cb24b0134664a", "60a7ad2a2198820d95707a2e", "62963c18dbc8ab5f0d382d0b", "62a09e08de7ac81993580532"];
         
 
         ///////////////////////////////////////////////////////////////////////////
@@ -270,7 +267,12 @@ export class PMCs
             "5ca21c6986f77479963115a7": 400,
             "5e4abb5086f77406975c9342": 400,
             "60a283193cb70855c43a381d": 150,
-            "545cdb794bdc2d3a198b456a": 160
+            "545cdb794bdc2d3a198b456a": 160,
+            "5fd4c474dd870108a754b241": 160,
+            "6038b4ca92ec1c3103795a0d": 160, 
+            "6038b4b292ec1c3103795a0b": 160,
+            "5c0e625a86f7742d77340f62": 160,
+            "5c0e541586f7747fa54205c9": 160,      
         };
 
         this.databaseServer.bots.types.usec.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
@@ -299,7 +301,10 @@ export class PMCs
             "62a1b7fbc30cfa1d366af586": 14,
             "639346cc1c8f182ad90c8972": 8,
             "5c0e774286f77468413cc5b2": 8,
-            "5df8a4d786f77412672a1e3b": 10        
+            "5df8a4d786f77412672a1e3b": 10,
+            "59e763f286f7742ee57895da": 14, 
+            "5b44c6ae86f7742d1627baea": 14, 
+            "628e1ffc83ec92260c0f437f": 14      
         };
         
         this.databaseServer.bots.types.usec.inventory.equipment.Backpack = pmcEquipment.Backpack;
@@ -315,7 +320,7 @@ export class PMCs
              "5f60cd6cf2bcbb675b00dac6": 1,
              "5aa2ba71e5b5b000137b758f": 1,
              "628e4e576d783146b124c64d": 1,
-             "5a16b9fffcdbcb0176308b34": 1
+             "5a16b9fffcdbcb0176308b34": 1       
          };
          
         this.databaseServer.bots.types.usec.inventory.equipment.Earpiece = pmcEquipment.Earpiece;
@@ -331,7 +336,10 @@ export class PMCs
             "5d5fca1ea4b93635fd598c07": 1,
             "603409c80ca681766b6a0fb2": 3, 
             "5d6d2e22a4b9361bd5780d05": 1, 
-            "5c0d32fcd174af02a1659c75": 1
+            "5c0d32fcd174af02a1659c75": 1,
+            "62a61c988ec41a51b34758d5": 3,
+            "62a09e410b9d3c46de5b6e78": 1, 
+            "61c18d83b00456371a66814b": 2      
         };
         
         this.databaseServer.bots.types.usec.inventory.equipment.Eyewear = pmcEquipment.Eyewear;
@@ -345,7 +353,15 @@ export class PMCs
             "5ab8f39486f7745cd93a1cca": 10, 
             "5b4325355acfc40019478126": 4,
             "5ab8f85d86f7745cd93a1cf5": 4, 
-            "5b432f3d5acfc4704b4a1dfb": 10
+            "5b432f3d5acfc4704b4a1dfb": 10,
+            "5e54f79686f7744022011103": 1, 
+            "5fd8d28367cb5e077335170f": 1, 
+            "5e54f76986f7740366043752": 1, 
+            "62a09dd4621468534a797ac7": 1, 
+            "60a7ad3a0c5cb24b0134664a": 1, 
+            "60a7ad2a2198820d95707a2e": 1, 
+            "62963c18dbc8ab5f0d382d0b": 1, 
+            "62a09e08de7ac81993580532": 1        
         };
          
         this.databaseServer.bots.types.usec.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
@@ -424,7 +440,16 @@ export class PMCs
             "5d43021ca4b9362eab4b5e25": 20, 
             "5fc3f2d5900b1d5091531e57": 20, 
             "5fb64bc92b1b027b1f50bcf2": 20, 
-            "5df24cf80dee1b22f862e9bc": 20
+            "5df24cf80dee1b22f862e9bc": 20,
+            "606dae0ab0e443224b421bb7": 20,
+            "57c44b372459772d2b39b8ce": 20,
+            "5bb2475ed4351e00853264e3": 20,
+            "606587252535c57a13424cfd": 20,             
+            "5dcbd56fdbd3d91b3e5468d5": 20,
+            "6183afd850224f204c1da514": 20,
+            "6165ac306ef05c2ce828ef74": 20, 
+            "5fc22d7c187fea44d52eda44": 20, 
+            "627e14b21713922ded6f2c15": 20
         };
         
         this.databaseServer.bots.types.usec.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;
@@ -449,7 +474,17 @@ export class PMCs
             "5b40e4035acfc47a87740943": 3,
             "5b4329f05acfc47a86086aa1": 3,
             "5c091a4e0db834001d5addc8": 3,
-            "5d6d3716a4b9361bc8618872": 3
+            "5d6d3716a4b9361bc8618872": 3,
+            "5ca20ee186f774799474abc2": 3, 
+            "5aa7e276e5b5b000171d0647": 3, 
+            "5f60c74e3b85f6263c145586": 3, 
+            "5d5e9c74a4b9364855191c40": 3, 
+            "5ea17ca01412a1425304d1c0": 3, 
+            "5a154d5cfcdbcb001a3b00da": 3, 
+            "5e01ef6886f77445f643baa4": 3, 
+            "5c17a7ed2e2216152142459c": 3, 
+            "5b40e1525acfc4771e1c6611": 3, 
+            "5b40e2bc5acfc40016388216": 3        
         };
          
         this.databaseServer.bots.types.usec.inventory.equipment.Headwear = pmcEquipment.Headwear;
@@ -514,7 +549,16 @@ export class PMCs
             "628dc750b910320f4c27a732": 6, 
             "61bcc89aef0f505f0c6cd0fc": 6, 
             "628d0618d1ba6e4fa07ce5a4": 8, 
-            "5df8a42886f77412640e2e75": 8
+            "5df8a42886f77412640e2e75": 8,
+            "628cd624459354321c4b7fa2": 8, 
+            "609e860ebd219504d8507525": 8, 
+            "5b44cad286f77402a54ae7e5": 8, 
+            "5e4ac41886f77406a511c9a8": 8, 
+            "628b9c7d45122232a872358f": 8, 
+            "5c0e746986f7741453628fe5": 8, 
+            "5e9db13186f7742f845ee9d3": 8, 
+            "628baf0b967de16aab5a4f36": 8, 
+            "5f5f41f56760b4138443b352": 8
         };
          
         this.databaseServer.bots.types.usec.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
@@ -778,7 +822,7 @@ export class PMCs
                     },
                     "magazines": {
                         "min": 1,
-                        "max": 2
+                        "max": 3
                     },
                     "stims": {
                         "min": 0,
@@ -859,7 +903,7 @@ export class PMCs
                     },
                     "magazines": {
                         "min": 1,
-                        "max": 3
+                        "max": 4
                     },
                     "stims": {
                         "min": 0,
@@ -906,8 +950,8 @@ export class PMCs
                         "max": 12
                     },
                     "magazines": {
-                        "min": 1,
-                        "max": 4
+                        "min": 2,
+                        "max": 5
                     },
                     "stims": {
                         "min": 0,
@@ -977,7 +1021,7 @@ export class PMCs
             "levelRange": 
             {
                 "min": 15,
-                "max": 32
+                "max": 31
             },
             "equipment": 
             {
@@ -1020,8 +1064,8 @@ export class PMCs
         {
             "levelRange": 
             {
-                "min": 33,
-                "max": 40
+                "min": 32,
+                "max": 38
             },
             "equipment": 
             {
@@ -1066,8 +1110,8 @@ export class PMCs
         {
             "levelRange": 
             {
-                "min": 33,
-                "max": 40
+                "min": 39,
+                "max": 100
             },
             "equipment": 
             {

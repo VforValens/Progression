@@ -35,7 +35,7 @@ class ValensProgression implements IPostDBLoadMod
         this.boss = new Boss(this.locationConfig);
         this.boss.updateBoss();
 
-        this.pmcs = new PMCs(this.locationConfig, this.botConfig, this.databaseServer);
+        this.pmcs = new PMCs(this.botConfig, this.databaseServer);
         this.pmcs.updatePmcs();
     }
 }
