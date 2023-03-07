@@ -833,9 +833,10 @@ export class PMCs
                     "ArmBand": 90,
                     "FirstPrimaryWeapon": 80,
                     "Holster": 5,
-                    "Earpiece": 35,
+                    "Earpiece": 90,
                     "Eyewear": 5,
-                    "Backpack": 30,
+                    "Backpack": 80,
+                    "Headwear": 75,
                     "FaceCover": 5
                 },
                 "mods": {
@@ -917,6 +918,7 @@ export class PMCs
                     "Earpiece": 95,
                     "Eyewear": 35,
                     "Backpack": 90,
+                    "Headwear": 100,
                     "FaceCover": 100
                 },                
                 "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
@@ -965,6 +967,7 @@ export class PMCs
                     "Earpiece": 100,
                     "Eyewear": 85,
                     "Backpack": 100,
+                    "Headwear": 100,
                     "FaceCover": 100
                 },      
                 "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
