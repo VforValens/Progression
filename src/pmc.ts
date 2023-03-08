@@ -2,11 +2,13 @@
 import { EquipmentFilterDetails, EquipmentFilters, IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
 import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { PmcConfig } from "../config/ts/pmc";
 
 export class PMCs
 {
     private botConfig: IBotConfig;
     private databaseServer: IDatabaseTables;
+    private modConfig: PmcConfig = require("../config/pmc.json");
 
 
     constructor (botConfig: IBotConfig, databaseServer: DatabaseServer)
@@ -26,7 +28,8 @@ export class PMCs
 
         // Set Bot Level Delta to 1 from Default of 10
         // Doing this fixes the issue with bots being up to 10 levels higher than character level, by default, and thus generating with gear they **should not** have.
-        this.botConfig.pmc.botRelativeLevelDeltaMax = 1;
+        const botRelativeDelta = this.modConfig.botRelativeDelta;
+        this.botConfig.pmc.botRelativeLevelDeltaMax = botRelativeDelta;
         
         
         // Gear Arrays
@@ -775,7 +778,7 @@ export class PMCs
 
         
         // Progression Loyalty Level List Start
-
+        const levelRange = this.modConfig.levelRange;
 
         const progressionWhitelistLL1PMC: EquipmentFilters =
         {
@@ -983,8 +986,8 @@ export class PMCs
             "whitelist": [{
                 "levelRange": 
             {
-                "min": 1,
-                "max": 14
+                "min": levelRange.loyalty1.min,
+                "max": levelRange.loyalty1.max
             },
                 "equipment": 
             {
@@ -1023,8 +1026,8 @@ export class PMCs
         {
             "levelRange": 
             {
-                "min": 15,
-                "max": 31
+                "min": levelRange.loyalty2.min,
+                "max": levelRange.loyalty2.max
             },
             "equipment": 
             {
@@ -1067,8 +1070,8 @@ export class PMCs
         {
             "levelRange": 
             {
-                "min": 32,
-                "max": 38
+                "min": levelRange.loyalty3.min,
+                "max": levelRange.loyalty3.max
             },
             "equipment": 
             {
@@ -1113,8 +1116,8 @@ export class PMCs
         {
             "levelRange": 
             {
-                "min": 39,
-                "max": 100
+                "min": levelRange.loyalty4.min,
+                "max": levelRange.loyalty4.max
             },
             "equipment": 
             {

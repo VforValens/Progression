@@ -1,0 +1,31 @@
+{
+    "botRelativeDelta": 1,
+    
+    "levelRange": 
+    {
+        "loyalty1": 
+        {
+            "min": 1,
+            "max": 14
+        },
+
+        "loyalty2": 
+        {
+            "min": 15,
+            "max": 31
+        },
+
+        "loyalty3": 
+        {
+            "min": 32,
+            "max": 38
+        },
+
+        "loyalty4": 
+        {
+            "min": 39,
+            "max": 100,
+            "do not touch max of 100 for loyalty level 4": 100
+        }
+    }
+}
