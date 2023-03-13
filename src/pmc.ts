@@ -51,7 +51,7 @@ export class PMCs
         const backpackArrayLL1 = [ "60a2828e8689911a226117f9", "5ab8ee7786f7742d8f33f0b9", "544a5cde4bdc2d39388b456b", "5e9dcf5986f7746c417435b3", "56e33680d2720be2748b4576", "5ab8f04f86f774585f4237d8", "5ca20d5986f774331e7c9602"];
         const backpackArrayLL2 = backpackArrayLL1.concat(...["5d5d940f86f7742797262046", "6038d614d10cbf667352dd44", "618bb76513f5097c8d5aa2d5"]);
         const backpackArrayLL3 = backpackArrayLL2.concat(...["5c0e774286f77468413cc5b2", "639346cc1c8f182ad90c8972", "619cf0335771dd3c390269ae", "545cdae64bdc2d39198b4568", "5ab8ebf186f7742d8b372e80", "5f5e467b0bc58666c37e7821", "5f5e46b96bdad616ad46d613", "618cfae774bb2d036a049e7c", "62a1b7fbc30cfa1d366af586", "5df8a4d786f77412672a1e3b"]);
-        const backpackArrayLL4 = ["5df8a4d786f77412672a1e3b", "5c0e774286f77468413cc5b2", "5ab8ebf186f7742d8b372e80", "639346cc1c8f182ad90c8972", "59e763f286f7742ee57895da", "5b44c6ae86f7742d1627baea", "62a1b7fbc30cfa1d366af586", "628e1ffc83ec92260c0f437f", "545cdae64bdc2d39198b4568", "618cfae774bb2d036a049e7c", ];
+        const backpackArrayLL4 = ["5df8a4d786f77412672a1e3b", "5c0e774286f77468413cc5b2", "5ab8ebf186f7742d8b372e80", "639346cc1c8f182ad90c8972", "59e763f286f7742ee57895da", "5b44c6ae86f7742d1627baea", "62a1b7fbc30cfa1d366af586", "628e1ffc83ec92260c0f437f", "545cdae64bdc2d39198b4568", "618cfae774bb2d036a049e7c" ];
         
         
         // Tacvest Array
@@ -275,7 +275,7 @@ export class PMCs
             "6038b4ca92ec1c3103795a0d": 160, 
             "6038b4b292ec1c3103795a0b": 160,
             "5c0e625a86f7742d77340f62": 160,
-            "5c0e541586f7747fa54205c9": 160,      
+            "5c0e541586f7747fa54205c9": 160      
         };
 
         this.databaseServer.bots.types.usec.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
@@ -576,22 +576,22 @@ export class PMCs
         pmcAmmo.Caliber127x55 = 
         {
             "5cadf6e5ae921500113bb973": 1,
-            "5cadf6eeae921500134b2799": 2
+            "5cadf6eeae921500134b2799": 3
         };
 
         pmcAmmo.Caliber762x54R = 
         {
             "5887431f2459777e1612938f": 1,
             "5e023cf8186a883be655e54f": 1,
-            "59e77a2386f7742ee578960a": 2,
-            "560d61e84bdc2da74d8b4571": 2
+            "59e77a2386f7742ee578960a": 3,
+            "560d61e84bdc2da74d8b4571": 3
         };
                 
         pmcAmmo.Caliber762x51 =
         {
             "5e023e6e34d52a55c3304f71": 1,
             "5e023e53d4353e3302577c4c": 1,
-            "5a6086ea4f39f99cd479502f": 2  
+            "5a6086ea4f39f99cd479502f": 3  
         };
 
         pmcAmmo.Caliber762x39 =
@@ -599,16 +599,16 @@ export class PMCs
             "59e4d3d286f774176a36250a": 1,
             "5656d7c34bdc2d9d198b4587": 1,
             "59e4cf5286f7741778269d8a": 1,
-            "59e4d24686f7741776641ac7": 2,
-            "59e0d99486f7744a32234762": 2
+            "59e4d24686f7741776641ac7": 3,
+            "59e0d99486f7744a32234762": 3
         };
 
         pmcAmmo.Caliber762x35 =
         {
             "5fbe3ffdf8b6a877a729ea82": 1,
             "6196365d58ef8c428c287da1": 1,
-            "619636be6db0f2477964e710": 2,
-            "5fd20ff893a8961fc660a954": 2
+            "619636be6db0f2477964e710": 3,
+            "5fd20ff893a8961fc660a954": 3
         };
         
         pmcAmmo.Caliber762x25TT =
@@ -617,16 +617,16 @@ export class PMCs
             "5735ff5c245977640e39ba7e": 1,
             "573601b42459776410737435": 1,
             "573602322459776445391df1": 1,
-            "573603c924597764442bd9cb": 2,
-            "573603562459776430731618": 2
+            "573603c924597764442bd9cb": 3,
+            "573603562459776430731618": 3
         };
 
         pmcAmmo.Caliber366TKM =
         {
             "59e6542b86f77411dc52a77a": 1,
             "59e655cb86f77411dc52a77b": 1,
-            "59e6658b86f77411d949b250": 2,
-            "5f0596629e22f464da6bbdd9": 2  
+            "59e6658b86f77411d949b250": 3,
+            "5f0596629e22f464da6bbdd9": 3  
         };
         
         pmcAmmo.Caliber556x45NATO =
@@ -635,8 +635,8 @@ export class PMCs
             "59e6918f86f7746c9f75e849": 1,
             "54527a984bdc2d4e668b4567": 1,
             "59e68f6f86f7746c9f75e846": 1,
-            "60194943740c5d77f6705eea": 2,
-            "59e690b686f7746c9f75e848": 2
+            "60194943740c5d77f6705eea": 3,
+            "59e690b686f7746c9f75e848": 3
         };
         
                 
@@ -651,8 +651,8 @@ export class PMCs
             "56dff421d2720b5f5a8b4567": 1,
             "56dfef82d2720bbd668b4567": 1,
             "56dff061d2720bb5668b4567": 1,
-            "56dff026d2720bb8668b4567": 2,
-            "5c0d5e4486f77478390952fe": 2
+            "56dff026d2720bb8668b4567": 3,
+            "5c0d5e4486f77478390952fe": 3
         };
 
                 
@@ -661,16 +661,16 @@ export class PMCs
             "5cc80f79e4a949033c7343b2": 1,
             "5cc80f8fe4a949033b0224a2": 1,
             "5cc80f53e4a949000e1ea4f8": 1,
-            "5cc86840d7f00c002412c56c": 2,
-            "5cc80f38e4a949001152b560": 2
+            "5cc86840d7f00c002412c56c": 3,
+            "5cc80f38e4a949001152b560": 3
         };
         
         pmcAmmo.Caliber46x30 =
         {
             "5ba26812d4351e003201fef1": 1,
             "5ba2678ad4351e44f824b344": 1,
-            "5ba26844d4351e00334c9475": 2,
-            "5ba26835d4351e0035628ff5": 2
+            "5ba26844d4351e00334c9475": 3,
+            "5ba26835d4351e0035628ff5": 3
         };
         
         pmcAmmo.Caliber9x18PM =
@@ -686,8 +686,8 @@ export class PMCs
             "573718ba2459775a75491131": 1,
             "57371aab2459775a77142f22": 1,
             "573720e02459776143012541": 1,
-            "5737218f245977612125ba51": 2,
-            "573719df2459775a626ccbc2": 2
+            "5737218f245977612125ba51": 3,
+            "573719df2459775a626ccbc2": 3
         };
 
         
@@ -697,21 +697,21 @@ export class PMCs
             "5c3df7d588a4501f290594e5": 1,
             "56d59d3ad2720bdb418b4577": 1,
             "5c925fa22e221601da359b7b": 1,
-            "5efb0e16aeb21837e749c7ff": 2,
-            "5efb0da7a29a85116f6ea05f": 2
+            "5efb0e16aeb21837e749c7ff": 3,
+            "5efb0da7a29a85116f6ea05f": 3
         };
                 
         pmcAmmo.Caliber9x21 =
         {
             "5a26abfac4a28232980eabff": 1,
-            "5a26ac06c4a282000c5a90a8": 2,
-            "5a26ac0ec4a28200741e1e18": 2
+            "5a26ac06c4a282000c5a90a8": 3,
+            "5a26ac0ec4a28200741e1e18": 3
         };
              
         pmcAmmo.Caliber9x39 = 
         {
             "57a0dfb82459774d3078b56c": 1,
-            "57a0e5022459774d1673f889": 2
+            "57a0e5022459774d1673f889": 3
         };
 
         
@@ -720,7 +720,7 @@ export class PMCs
             "62330b3ed4dc74626d570b95": 1,
             "62330bfadc5883093563729b": 1,
             "62330c40bdd19b369e1e53d1": 1,
-            "62330c18744e5e31df12f516": 2
+            "62330c18744e5e31df12f516": 3
         };
 
         pmcAmmo.Caliber1143x23ACP =
@@ -728,7 +728,7 @@ export class PMCs
             "5e81f423763d9f754677bf2e": 1,
             "5efb0d4f4bc50b58e81710f3": 1, 
             "5efb0fc6aeb21837e749c801": 1,
-            "5efb0cabfb3e451d70735af5": 2
+            "5efb0cabfb3e451d70735af5": 3
         };
         
         pmcAmmo.Caliber12g =
@@ -743,8 +743,8 @@ export class PMCs
             "5d6e68e6a4b9361c140bcfe0": 1,
             "5d6e68b3a4b9361bca7e50b5": 1, 
             "5d6e68dea4b9361bcc29e659": 1, 
-            "5d6e6911a4b9361bd5780d52": 2, 
-            "5d6e68c4a4b9361b93413f79": 2
+            "5d6e6911a4b9361bd5780d52": 3, 
+            "5d6e68c4a4b9361b93413f79": 3
         };
         
         pmcAmmo.Caliber20g = 
@@ -756,14 +756,14 @@ export class PMCs
             "5d6e6a53a4b9361bd473feec": 1, 
             "5d6e69b9a4b9361bc8618958": 1, 
             "5d6e69c7a4b9360b6c0d54e4": 1,
-            "5d6e6a05a4b93618084f58d0": 2, 
-            "5d6e6a5fa4b93614ec501745": 2
+            "5d6e6a05a4b93618084f58d0": 3, 
+            "5d6e6a5fa4b93614ec501745": 3
         };
         
         pmcAmmo.Caliber23x75 = 
         {
-            "5e85a9a6eacf8c039e4e2ac1": 2, 
-            "5f647f31b6238e5dd066e196": 2
+            "5e85a9a6eacf8c039e4e2ac1": 1,
+            "5f647f31b6238e5dd066e196": 1
         };
 
 
@@ -800,7 +800,7 @@ export class PMCs
             },
             "nvgIsActiveChancePercent": 50,
             "faceShieldIsActiveChancePercent": 85,
-            "lightLaserIsActiveChancePercent": 75,
+            "lightLaserIsActiveChancePercent": 65,
             "randomisation": [{
                 "levelRange": {
                     "min": 1,
@@ -834,7 +834,7 @@ export class PMCs
                 },
                 "equipment": {
                     "ArmBand": 90,
-                    "FirstPrimaryWeapon": 80,
+                    "FirstPrimaryWeapon": 100,
                     "Holster": 5,
                     "Earpiece": 90,
                     "Eyewear": 5,
@@ -914,6 +914,14 @@ export class PMCs
                         "max": 1
                     }
                 },
+                "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
+                    "mod_handguard", "mod_magazine", "mod_muzzle", "mod_bipod",
+                    "mod_muzzle_000", "mod_charge", "mod_reciever",
+                    "mod_trigger", "mod_gas_block", "mod_pistol_grip", "mod_pistol_grip_akms", "mod_foregrip",
+                    "mod_stock", "mod_stock_000", "mod_stock_001", "mod_stock_akms", "mod_stock_axis",
+                    "mod_mount_000", "mod_mount_001", "mod_mount_002", "mod_mount_003", "mod_mount_004", "mod_mount_005", "mod_mount_006",
+                    "mod_tactical", "mod_tactical_2", "mod_tactical_000", "mod_tactical_001", "mod_tactical_002", "mod_tactical_003"],
+                "randomisedArmorSlots": ["Headwear"],
                 "equipment": {
                     "ArmBand": 100,
                     "FirstPrimaryWeapon": 100,
@@ -923,14 +931,7 @@ export class PMCs
                     "Backpack": 90,
                     "Headwear": 100,
                     "FaceCover": 100
-                },                
-                "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
-                    "mod_handguard", "mod_magazine", "mod_muzzle", "mod_bipod",
-                    "mod_muzzle_000", "mod_charge", "mod_reciever",
-                    "mod_trigger", "mod_gas_block", "mod_pistol_grip", "mod_pistol_grip_akms", "mod_foregrip",
-                    "mod_stock", "mod_stock_000", "mod_stock_001", "mod_stock_akms", "mod_stock_axis",
-                    "mod_mount_000", "mod_mount_001", "mod_mount_002", "mod_mount_003", "mod_mount_004", "mod_mount_005", "mod_mount_006",
-                    "mod_tactical", "mod_tactical_2", "mod_tactical_000", "mod_tactical_001", "mod_tactical_002", "mod_tactical_003"]
+                }            
             },
             {
                 "levelRange": {
@@ -963,6 +964,14 @@ export class PMCs
                         "max": 2
                     }
                 },
+                "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
+                    "mod_handguard", "mod_magazine", "mod_muzzle", "mod_bipod",
+                    "mod_muzzle_000", "mod_charge", "mod_reciever",
+                    "mod_trigger", "mod_gas_block", "mod_pistol_grip", "mod_pistol_grip_akms", "mod_foregrip",
+                    "mod_stock", "mod_stock_000", "mod_stock_001", "mod_stock_akms", "mod_stock_axis",
+                    "mod_mount_000", "mod_mount_001", "mod_mount_002", "mod_mount_003", "mod_mount_004", "mod_mount_005", "mod_mount_006",
+                    "mod_tactical", "mod_tactical_2", "mod_tactical_000", "mod_tactical_001", "mod_tactical_002", "mod_tactical_003"],
+                "randomisedArmorSlots": ["Headwear"],                
                 "equipment": {
                     "ArmBand": 100,
                     "FirstPrimaryWeapon": 100,
@@ -972,14 +981,7 @@ export class PMCs
                     "Backpack": 100,
                     "Headwear": 100,
                     "FaceCover": 100
-                },      
-                "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
-                    "mod_handguard", "mod_magazine", "mod_muzzle", "mod_bipod",
-                    "mod_muzzle_000", "mod_charge", "mod_reciever",
-                    "mod_trigger", "mod_gas_block", "mod_pistol_grip", "mod_pistol_grip_akms", "mod_foregrip",
-                    "mod_stock", "mod_stock_000", "mod_stock_001", "mod_stock_akms", "mod_stock_axis",
-                    "mod_mount_000", "mod_mount_001", "mod_mount_002", "mod_mount_003", "mod_mount_004", "mod_mount_005", "mod_mount_006",
-                    "mod_tactical", "mod_tactical_2", "mod_tactical_000", "mod_tactical_001", "mod_tactical_002", "mod_tactical_003"]
+                }
             }],
             "blacklist": [],
             "weightingAdjustments": [],
