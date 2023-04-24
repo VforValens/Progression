@@ -809,27 +809,37 @@ export class PMCs
                 "generation": {
                     "drugs": {
                         "min": 0,
-                        "max": 1
+                        "max": 1,
+                        "whitelist": []
                     },
                     "grenades": {
                         "min": 0,
-                        "max": 1
+                        "max": 1,
+                        "whitelist": [
+                            "5710c24ad2720bc3458b45a3",
+                            "58d3db5386f77426186285a0",
+                            "5448be9a4bdc2dfd2f8b456a"
+                        ]
                     },
                     "healing": {
                         "min": 0,
-                        "max": 1
+                        "max": 1,
+                        "whitelist": []
                     },
                     "looseLoot": {
                         "min": 0,
-                        "max": 5
+                        "max": 5,
+                        "whitelist": []
                     },
                     "magazines": {
                         "min": 1,
-                        "max": 3
+                        "max": 3,
+                        "whitelist": []
                     },
                     "stims": {
                         "min": 0,
-                        "max": 0
+                        "max": 0,
+                        "whitelist": []
                     }
                 },
                 "equipment": {
@@ -891,27 +901,37 @@ export class PMCs
                 "generation": {
                     "drugs": {
                         "min": 0,
-                        "max": 2
+                        "max": 2,
+                        "whitelist": []
                     },
                     "grenades": {
                         "min": 0,
-                        "max": 3
+                        "max": 3,
+                        "whitelist": [
+                            "5710c24ad2720bc3458b45a3",
+                            "58d3db5386f77426186285a0",
+                            "5448be9a4bdc2dfd2f8b456a"
+                        ]
                     },
                     "healing": {
                         "min": 0,
-                        "max": 2
+                        "max": 2,
+                        "whitelist": []
                     },
                     "looseLoot": {
                         "min": 0,
-                        "max": 8
+                        "max": 8,
+                        "whitelist": []
                     },
                     "magazines": {
                         "min": 1,
-                        "max": 4
+                        "max": 4,
+                        "whitelist": []
                     },
                     "stims": {
                         "min": 0,
-                        "max": 1
+                        "max": 1,
+                        "whitelist": []
                     }
                 },
                 "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
@@ -941,27 +961,37 @@ export class PMCs
                 "generation": {
                     "drugs": {
                         "min": 0,
-                        "max": 2
+                        "max": 2,
+                        "whitelist": []
                     },
                     "grenades": {
                         "min": 0,
-                        "max": 4
+                        "max": 4,
+                        "whitelist": [
+                            "5710c24ad2720bc3458b45a3",
+                            "58d3db5386f77426186285a0",
+                            "5448be9a4bdc2dfd2f8b456a"
+                        ]
                     },
                     "healing": {
                         "min": 0,
-                        "max": 3
+                        "max": 3,
+                        "whitelist": []
                     },
                     "looseLoot": {
                         "min": 0,
-                        "max": 12
+                        "max": 12,
+                        "whitelist": []
                     },
                     "magazines": {
                         "min": 2,
-                        "max": 5
+                        "max": 5,
+                        "whitelist": []
                     },
                     "stims": {
                         "min": 0,
-                        "max": 2
+                        "max": 2,
+                        "whitelist": []
                     }
                 },
                 "randomisedWeaponModSlots": ["mod_scope", "mod_scope_000", "mod_scope_001", "mod_scope_002", "mod_scope_003",
@@ -1119,7 +1149,7 @@ export class PMCs
             "levelRange": 
             {
                 "min": levelRange.loyalty4.min,
-                "max": levelRange.loyalty4.max
+                "max": 100
             },
             "equipment": 
             {

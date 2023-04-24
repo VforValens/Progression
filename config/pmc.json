@@ -23,9 +23,7 @@
 
         "loyalty4": 
         {
-            "min": 39,
-            "max": 100,
-            "do not touch max of 100 for loyalty level 4": 100
+            "min": 39
         }
     }
 }
