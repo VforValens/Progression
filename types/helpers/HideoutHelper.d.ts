@@ -36,7 +36,6 @@ export declare class HideoutHelper {
     static bitcoin: string;
     static expeditionaryFuelTank: string;
     static maxSkillPoint: number;
-    private static generatorOffMultipler;
     protected hideoutConfig: IHideoutConfig;
     constructor(logger: ILogger, hashUtil: HashUtil, timeUtil: TimeUtil, databaseServer: DatabaseServer, eventOutputHolder: EventOutputHolder, httpResponse: HttpResponseUtil, profileHelper: ProfileHelper, inventoryHelper: InventoryHelper, playerService: PlayerService, localisationService: LocalisationService, configServer: ConfigServer);
     registerProduction(pmcData: IPmcData, body: IHideoutSingleProductionStartRequestData | IHideoutContinuousProductionStartRequestData, sessionID: string): IItemEventRouterResponse;
@@ -131,9 +130,35 @@ export declare class HideoutHelper {
      * @returns Updated HideoutArea object
      */
     protected updateWaterFilters(waterFilterArea: HideoutArea, production: Production, isGeneratorOn: boolean, pmcData: IPmcData): HideoutArea;
+    /**
+     * Get the water filter drain rate based on hideout bonues player has
+     * @param pmcData Player profile
+     * @returns Drain rate
+     */
+    protected getWaterFilterDrainRate(pmcData: IPmcData): number;
+    /**
+     * Get the production time in seconds for the desired production
+     * @param prodId Id, e.g. Water collector id
+     * @returns seconds to produce item
+     */
+    protected getProductionTimeSeconds(prodId: string): number;
+    /**
+     * Create a upd object using passed in parameters
+     * @param stackCount
+     * @param resourceValue
+     * @param resourceUnitsConsumed
+     * @returns Upd
+     */
     protected getAreaUpdObject(stackCount: number, resourceValue: number, resourceUnitsConsumed: number): Upd;
     protected updateAirFilters(airFilterArea: HideoutArea, pmcData: IPmcData): void;
     protected updateBitcoinFarm(pmcData: IPmcData, btcFarmCGs: number, isGeneratorOn: boolean): Production;
+    /**
+     * Get number of ticks that have passed since hideout areas were last processed, reduced when generator is off
+     * @param pmcData Player profile
+     * @param isGeneratorOn Is the generator on for the duration of elapsed time
+     * @returns Amount of time elapsed in seconds
+     */
+    protected getTimeElapsedSinceLastServerTick(pmcData: IPmcData, isGeneratorOn: boolean): number;
     /**
      * Get a count of how many BTC can be gathered by the profile
      * @param pmcData Profile to look up

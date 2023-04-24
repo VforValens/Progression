@@ -2,7 +2,7 @@ import { PMCLootGenerator } from "../generators/PMCLootGenerator";
 import { ItemHelper } from "../helpers/ItemHelper";
 import { IBotType } from "../models/eft/common/tables/IBotType";
 import { ITemplateItem, Props } from "../models/eft/common/tables/ITemplateItem";
-import { BotLootCache, LootCacheType } from "../models/spt/bots/BotLootCache";
+import { IBotLootCache, LootCacheType } from "../models/spt/bots/IBotLootCache";
 import { ILogger } from "../models/spt/utils/ILogger";
 import { DatabaseServer } from "../servers/DatabaseServer";
 import { JsonUtil } from "../utils/JsonUtil";
@@ -16,10 +16,10 @@ export declare class BotLootCacheService {
     protected pmcLootGenerator: PMCLootGenerator;
     protected localisationService: LocalisationService;
     protected ragfairPriceService: RagfairPriceService;
-    protected lootCache: Record<string, BotLootCache>;
+    protected lootCache: Record<string, IBotLootCache>;
     constructor(logger: ILogger, jsonUtil: JsonUtil, itemHelper: ItemHelper, databaseServer: DatabaseServer, pmcLootGenerator: PMCLootGenerator, localisationService: LocalisationService, ragfairPriceService: RagfairPriceService);
     /**
-     * Remove all cached bot loot data
+     * Remove cached bot loot data
      */
     clearCache(): void;
     /**
