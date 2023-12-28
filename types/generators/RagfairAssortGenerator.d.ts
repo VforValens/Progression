@@ -1,12 +1,12 @@
-import { ItemHelper } from "../helpers/ItemHelper";
-import { Preset } from "../models/eft/common/IGlobals";
-import { Item } from "../models/eft/common/tables/IItem";
-import { IRagfairConfig } from "../models/spt/config/IRagfairConfig";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { SeasonalEventService } from "../services/SeasonalEventService";
-import { HashUtil } from "../utils/HashUtil";
-import { JsonUtil } from "../utils/JsonUtil";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { IPreset } from "@spt-aki/models/eft/common/IGlobals";
+import { Item } from "@spt-aki/models/eft/common/tables/IItem";
+import { IRagfairConfig } from "@spt-aki/models/spt/config/IRagfairConfig";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { SeasonalEventService } from "@spt-aki/services/SeasonalEventService";
+import { HashUtil } from "@spt-aki/utils/HashUtil";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
 export declare class RagfairAssortGenerator {
     protected jsonUtil: JsonUtil;
     protected hashUtil: HashUtil;
@@ -36,12 +36,12 @@ export declare class RagfairAssortGenerator {
      * Get presets from globals.json
      * @returns Preset object array
      */
-    protected getPresets(): Preset[];
+    protected getPresets(): IPreset[];
     /**
      * Get default presets from globals.json
      * @returns Preset object array
      */
-    protected getDefaultPresets(): Preset[];
+    protected getDefaultPresets(): IPreset[];
     /**
      * Create a base assort item and return it with populated values + 999999 stack count + unlimited count = true
      * @param tplId tplid to add to item

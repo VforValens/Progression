@@ -1,3 +1,4 @@
+import { Ixyz } from "@spt-aki/models/eft/common/Ixyz";
 export interface ITemplateItem {
     _id: string;
     _name: string;
@@ -8,6 +9,7 @@ export interface ITemplateItem {
 }
 export interface Props {
     AllowSpawnOnLocations?: any[];
+    BeltMagazineRefreshCount?: number;
     ChangePriceCoef?: number;
     FixedPrice?: boolean;
     SendToClient?: boolean;
@@ -36,6 +38,7 @@ export interface Props {
     IsUnremovable?: boolean;
     IsLockedafterEquip?: boolean;
     IsSpecialSlotOnly?: boolean;
+    IsStationaryWeapon?: boolean;
     QuestItem?: boolean;
     QuestStashMaxCount?: number;
     LootExperience?: number;
@@ -81,6 +84,7 @@ export interface Props {
     Velocity?: number;
     RaidModdable?: boolean;
     ToolModdable?: boolean;
+    UniqueAnimationModID?: number;
     BlocksFolding?: boolean;
     BlocksCollapsible?: boolean;
     IsAnimated?: boolean;
@@ -104,10 +108,12 @@ export interface Props {
     Intensity?: number;
     Mask?: string;
     MaskSize?: number;
+    IsMagazineForStationaryWeapon?: boolean;
     NoiseIntensity?: number;
     NoiseScale?: number;
     Color?: IColor;
     DiffuseIntensity?: number;
+    MagazineWithBelt?: boolean;
     HasHinge?: boolean;
     RampPalette?: string;
     DepthFade?: number;
@@ -200,16 +206,17 @@ export interface Props {
     CameraSnap?: number;
     ReloadMode?: string;
     AimPlane?: number;
-    TacticalReloadStiffnes?: Xyz;
+    TacticalReloadStiffnes?: Ixyz;
     TacticalReloadFixation?: number;
-    RecoilCenter?: Xyz;
-    RotationCenter?: Xyz;
-    RotationCenterNoStock?: Xyz;
+    RecoilCenter?: Ixyz;
+    RotationCenter?: Ixyz;
+    RotationCenterNoStock?: Ixyz;
     FoldedSlot?: string;
     CompactHandling?: boolean;
     MinRepairDegradation?: number;
     MaxRepairDegradation?: number;
     IronSightRange?: number;
+    IsBeltMachineGun?: boolean;
     IsFlareGun?: boolean;
     IsGrenadeLauncher?: boolean;
     IsOneoff?: boolean;
@@ -246,7 +253,7 @@ export interface Props {
     FaceShieldComponent?: boolean;
     FaceShieldMask?: string;
     MaterialType?: string;
-    RicochetParams?: Xyz;
+    RicochetParams?: Ixyz;
     DeafStrength?: string;
     BlindnessProtection?: number;
     Distortion?: number;
@@ -256,9 +263,12 @@ export interface Props {
     CompressorGain?: number;
     CutoffFreq?: number;
     Resonance?: number;
+    RolloffMultiplier?: number;
+    ReverbVolume?: number;
     CompressorVolume?: number;
     AmbientVolume?: number;
     DryVolume?: number;
+    HighFrequenciesGain?: number;
     foodUseTime?: number;
     foodEffectType?: string;
     StimulatorBuffs?: string;
@@ -279,12 +289,12 @@ export interface Props {
     PrimaryConsumption?: number;
     SecondryConsumption?: number;
     DeflectionConsumption?: number;
-    AppliedTrunkRotation?: Xyz;
-    AppliedHeadRotation?: Xyz;
+    AppliedTrunkRotation?: Ixyz;
+    AppliedHeadRotation?: Ixyz;
     DisplayOnModel?: boolean;
     AdditionalAnimationLayer?: number;
     StaminaBurnRate?: number;
-    ColliderScaleMultiplier?: Xyz;
+    ColliderScaleMultiplier?: Ixyz;
     ConfigPathStr?: string;
     MaxMarkersCount?: number;
     scaleMin?: number;
@@ -349,9 +359,9 @@ export interface Props {
     ShowHitEffectOnExplode?: boolean;
     ExplosionType?: string;
     AmmoLifeTimeSec?: number;
-    Contusion?: Xyz;
-    ArmorDistanceDistanceDamage?: Xyz;
-    Blindness?: Xyz;
+    Contusion?: Ixyz;
+    ArmorDistanceDistanceDamage?: Ixyz;
+    Blindness?: Ixyz;
     IsLightAndSoundShot?: boolean;
     LightAndSoundShotAngle?: number;
     LightAndSoundShotSelfContusionTime?: number;
@@ -375,6 +385,7 @@ export interface Props {
     ExplosionEffectType?: string;
     LinkedWeapon?: string;
     UseAmmoWithoutShell?: boolean;
+    RandomLootSettings?: IRandomLootSettings;
 }
 export interface IHealthEffect {
     type: string;
@@ -410,8 +421,8 @@ export interface Slot {
     _parent: string;
     _props: SlotProps;
     _max_count?: number;
-    _required: boolean;
-    _mergeSlotWithChildren: boolean;
+    _required?: boolean;
+    _mergeSlotWithChildren?: boolean;
     _proto: string;
 }
 export interface SlotProps {
@@ -421,11 +432,6 @@ export interface SlotFilter {
     Shift?: number;
     Filter: string[];
     AnimationIndex?: number;
-}
-export interface Xyz {
-    x: number;
-    y: number;
-    z: number;
 }
 export interface StackSlot {
     _name?: string;
@@ -438,6 +444,21 @@ export interface StackSlot {
 }
 export interface StackSlotProps {
     filters: SlotFilter[];
+}
+export interface IRandomLootSettings {
+    allowToSpawnIdenticalItems: boolean;
+    allowToSpawnQuestItems: boolean;
+    countByRarity: any[];
+    excluded: IRandomLootExcluded;
+    filters: any[];
+    findInRaid: boolean;
+    maxCount: number;
+    minCount: number;
+}
+export interface IRandomLootExcluded {
+    categoryTemplates: any[];
+    rarity: string[];
+    templates: any[];
 }
 export interface EffectsHealth {
     Energy: EffectsHealthProps;

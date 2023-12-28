@@ -1,24 +1,25 @@
-import { ILogger } from "../models/spt/utils/ILogger";
-import { JsonUtil } from "./JsonUtil";
-import { MathUtil } from "./MathUtil";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { MathUtil } from "@spt-aki/utils/MathUtil";
 /**
-     * Array of ProbabilityObjectArray which allow to randomly draw of the contained objects
-     * based on the relative probability of each of its elements.
-     * The probabilities of the contained element is not required to be normalized.
-     *
-     * Example:
-     *   po = new ProbabilityObjectArray(
-     *          new ProbabilityObject("a", 5),
-     *          new ProbabilityObject("b", 1),
-     *          new ProbabilityObject("c", 1)
-     *   );
-     *   res = po.draw(10000);
-     *   // count the elements which should be distributed according to the relative probabilities
-     *   res.filter(x => x==="b").reduce((sum, x) => sum + 1 , 0)
-     */
+ * Array of ProbabilityObjectArray which allow to randomly draw of the contained objects
+ * based on the relative probability of each of its elements.
+ * The probabilities of the contained element is not required to be normalized.
+ *
+ * Example:
+ *   po = new ProbabilityObjectArray(
+ *          new ProbabilityObject("a", 5),
+ *          new ProbabilityObject("b", 1),
+ *          new ProbabilityObject("c", 1)
+ *   );
+ *   res = po.draw(10000);
+ *   // count the elements which should be distributed according to the relative probabilities
+ *   res.filter(x => x==="b").reduce((sum, x) => sum + 1 , 0)
+ */
 export declare class ProbabilityObjectArray<K, V = undefined> extends Array<ProbabilityObject<K, V>> {
     private mathUtil;
-    constructor(mathUtil: MathUtil, ...items: ProbabilityObject<K, V>[]);
+    private jsonUtil;
+    constructor(mathUtil: MathUtil, jsonUtil: JsonUtil, ...items: ProbabilityObject<K, V>[]);
     filter(callbackfn: (value: ProbabilityObject<K, V>, index: number, array: ProbabilityObject<K, V>[]) => any): ProbabilityObjectArray<K, V>;
     /**
      * Calculates the normalized cumulative probability of the ProbabilityObjectArray's elements normalized to 1
@@ -78,28 +79,27 @@ export declare class ProbabilityObjectArray<K, V = undefined> extends Array<Prob
     /**
      * Draw random element of the ProbabilityObject N times to return an array of N keys.
      * Drawing can be with or without replacement
-     *
-     * @param       {integer}                       count                   The number of times we want to draw
-     * @param       {boolean}                       replacement             Draw with or without replacement from the input dict
-     * @param       {array}                         locklist                list keys which shall be replaced even if drawing without replacement
-     * @return      {array}                                                 Array consisting of N random keys for this ProbabilityObjectArray
+     * @param count The number of times we want to draw
+     * @param replacement Draw with or without replacement from the input dict (true = dont remove after drawing)
+     * @param locklist list keys which shall be replaced even if drawing without replacement
+     * @returns Array consisting of N random keys for this ProbabilityObjectArray
      */
     draw(count?: number, replacement?: boolean, locklist?: Array<K>): K[];
 }
 /**
-     * A ProbabilityObject which is use as an element to the ProbabilityObjectArray array
-     * It contains a key, the relative probability as well as optional data.
-     */
+ * A ProbabilityObject which is use as an element to the ProbabilityObjectArray array
+ * It contains a key, the relative probability as well as optional data.
+ */
 export declare class ProbabilityObject<K, V = undefined> {
     key: K;
     relativeProbability: number;
     data: V;
     /**
-      * Constructor for the ProbabilityObject
-      * @param       {string}                        key                         The key of the element
-      * @param       {number}                        relativeProbability         The relative probability of this element
-      * @param       {any}                           data                        Optional data attached to the element
-      */
+     * Constructor for the ProbabilityObject
+     * @param       {string}                        key                         The key of the element
+     * @param       {number}                        relativeProbability         The relative probability of this element
+     * @param       {any}                           data                        Optional data attached to the element
+     */
     constructor(key: K, relativeProbability: number, data?: V);
 }
 export declare class RandomUtil {
@@ -111,6 +111,13 @@ export declare class RandomUtil {
     getFloat(min: number, max: number): number;
     getBool(): boolean;
     getPercentOfValue(percent: number, number: number, toFixed?: number): number;
+    /**
+     * Reduce a value by a percentage
+     * @param number Value to reduce
+     * @param percentage Percentage to reduce value by
+     * @returns Reduced value
+     */
+    reduceValueByPercent(number: number, percentage: number): number;
     /**
      * Check if number passes a check out of 100
      * @param chancePercent value check needs to be above
@@ -143,7 +150,7 @@ export declare class RandomUtil {
      * Drawing can be with or without replacement
      * @param   {array}     list            The array we want to draw randomly from
      * @param   {integer}   count               The number of times we want to draw
-     * @param   {boolean}   replacement     Draw with or without replacement from the input array
+     * @param   {boolean}   replacement     Draw with or without replacement from the input array(defult true)
      * @return  {array}                     Array consisting of N random elements
      */
     drawRandomFromList<T>(list: Array<T>, count?: number, replacement?: boolean): Array<T>;

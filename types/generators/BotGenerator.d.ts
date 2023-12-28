@@ -1,22 +1,24 @@
-import { BotDifficultyHelper } from "../helpers/BotDifficultyHelper";
-import { BotHelper } from "../helpers/BotHelper";
-import { ProfileHelper } from "../helpers/ProfileHelper";
-import { WeightedRandomHelper } from "../helpers/WeightedRandomHelper";
-import { Health as PmcHealth, IBaseJsonSkills, IBaseSkill, IBotBase, Info, Skills as botSkills } from "../models/eft/common/tables/IBotBase";
-import { Health, IBotType } from "../models/eft/common/tables/IBotType";
-import { BotGenerationDetails } from "../models/spt/bots/BotGenerationDetails";
-import { IBotConfig } from "../models/spt/config/IBotConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { BotEquipmentFilterService } from "../services/BotEquipmentFilterService";
-import { SeasonalEventService } from "../services/SeasonalEventService";
-import { HashUtil } from "../utils/HashUtil";
-import { JsonUtil } from "../utils/JsonUtil";
-import { RandomUtil } from "../utils/RandomUtil";
-import { TimeUtil } from "../utils/TimeUtil";
-import { BotInventoryGenerator } from "./BotInventoryGenerator";
-import { BotLevelGenerator } from "./BotLevelGenerator";
+import { BotInventoryGenerator } from "@spt-aki/generators/BotInventoryGenerator";
+import { BotLevelGenerator } from "@spt-aki/generators/BotLevelGenerator";
+import { BotDifficultyHelper } from "@spt-aki/helpers/BotDifficultyHelper";
+import { BotHelper } from "@spt-aki/helpers/BotHelper";
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import { WeightedRandomHelper } from "@spt-aki/helpers/WeightedRandomHelper";
+import { Health as PmcHealth, IBaseJsonSkills, IBaseSkill, IBotBase, Info, Skills as botSkills } from "@spt-aki/models/eft/common/tables/IBotBase";
+import { Appearance, Health, IBotType } from "@spt-aki/models/eft/common/tables/IBotType";
+import { BotGenerationDetails } from "@spt-aki/models/spt/bots/BotGenerationDetails";
+import { IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
+import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { BotEquipmentFilterService } from "@spt-aki/services/BotEquipmentFilterService";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { SeasonalEventService } from "@spt-aki/services/SeasonalEventService";
+import { HashUtil } from "@spt-aki/utils/HashUtil";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
+import { TimeUtil } from "@spt-aki/utils/TimeUtil";
 export declare class BotGenerator {
     protected logger: ILogger;
     protected hashUtil: HashUtil;
@@ -32,9 +34,11 @@ export declare class BotGenerator {
     protected botHelper: BotHelper;
     protected botDifficultyHelper: BotDifficultyHelper;
     protected seasonalEventService: SeasonalEventService;
+    protected localisationService: LocalisationService;
     protected configServer: ConfigServer;
     protected botConfig: IBotConfig;
-    constructor(logger: ILogger, hashUtil: HashUtil, randomUtil: RandomUtil, timeUtil: TimeUtil, jsonUtil: JsonUtil, profileHelper: ProfileHelper, databaseServer: DatabaseServer, botInventoryGenerator: BotInventoryGenerator, botLevelGenerator: BotLevelGenerator, botEquipmentFilterService: BotEquipmentFilterService, weightedRandomHelper: WeightedRandomHelper, botHelper: BotHelper, botDifficultyHelper: BotDifficultyHelper, seasonalEventService: SeasonalEventService, configServer: ConfigServer);
+    protected pmcConfig: IPmcConfig;
+    constructor(logger: ILogger, hashUtil: HashUtil, randomUtil: RandomUtil, timeUtil: TimeUtil, jsonUtil: JsonUtil, profileHelper: ProfileHelper, databaseServer: DatabaseServer, botInventoryGenerator: BotInventoryGenerator, botLevelGenerator: BotLevelGenerator, botEquipmentFilterService: BotEquipmentFilterService, weightedRandomHelper: WeightedRandomHelper, botHelper: BotHelper, botDifficultyHelper: BotDifficultyHelper, seasonalEventService: SeasonalEventService, localisationService: LocalisationService, configServer: ConfigServer);
     /**
      * Generate a player scav bot object
      * @param role e.g. assault / pmcbot
@@ -65,13 +69,20 @@ export declare class BotGenerator {
      */
     protected generateBot(sessionId: string, bot: IBotBase, botJsonTemplate: IBotType, botGenerationDetails: BotGenerationDetails): IBotBase;
     /**
+     * Choose various appearance settings for a bot using weights
+     * @param bot Bot to adjust
+     * @param appearance Appearance settings to choose from
+     * @param botGenerationDetails Generation details
+     */
+    protected setBotAppearance(bot: IBotBase, appearance: Appearance, botGenerationDetails: BotGenerationDetails): void;
+    /**
      * Create a bot nickname
      * @param botJsonTemplate x.json from database
      * @param isPlayerScav Will bot be player scav
      * @param botRole role of bot e.g. assault
      * @returns Nickname for bot
      */
-    protected generateBotNickname(botJsonTemplate: IBotType, isPlayerScav: boolean, botRole: string): string;
+    protected generateBotNickname(botJsonTemplate: IBotType, isPlayerScav: boolean, botRole: string, sessionId: string): string;
     /**
      * Log the number of PMCs generated to the debug console
      * @param output Generated bot array, ready to send to client
@@ -93,9 +104,10 @@ export declare class BotGenerator {
     /**
      * Randomise the progress value of passed in skills based on the min/max value
      * @param skills Skills to randomise
+     * @param isCommonSkills Are the skills 'common' skills
      * @returns Skills with randomised progress values as an array
      */
-    protected getSkillsWithRandomisedProgressValue(skills: IBaseSkill[]): IBaseSkill[];
+    protected getSkillsWithRandomisedProgressValue(skills: Record<string, IBaseSkill>, isCommonSkills: boolean): IBaseSkill[];
     /**
      * Generate a random Id for a bot and apply to bots _id and aid value
      * @param bot bot to update

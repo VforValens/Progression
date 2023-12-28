@@ -1,9 +1,9 @@
-import { RaidMode } from "../../enums/RaidMode";
+import { RaidMode } from "@spt-aki/models/enums/RaidMode";
 export interface IGetGroupStatusRequestData {
     location: string;
     savage: boolean;
     dt: string;
     keyId: string;
     raidMode: RaidMode;
-    startInGroup: boolean;
+    spawnPlace: string;
 }

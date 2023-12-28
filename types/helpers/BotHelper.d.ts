@@ -1,12 +1,13 @@
-import { MinMax } from "../models/common/MinMax";
-import { Difficulty, IBotType } from "../models/eft/common/tables/IBotType";
-import { EquipmentFilters, IBotConfig, RandomisationDetails } from "../models/spt/config/IBotConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { LocalisationService } from "../services/LocalisationService";
-import { JsonUtil } from "../utils/JsonUtil";
-import { RandomUtil } from "../utils/RandomUtil";
+import { MinMax } from "@spt-aki/models/common/MinMax";
+import { Difficulty, IBotType } from "@spt-aki/models/eft/common/tables/IBotType";
+import { EquipmentFilters, IBotConfig, RandomisationDetails } from "@spt-aki/models/spt/config/IBotConfig";
+import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
 export declare class BotHelper {
     protected logger: ILogger;
     protected jsonUtil: JsonUtil;
@@ -15,6 +16,7 @@ export declare class BotHelper {
     protected localisationService: LocalisationService;
     protected configServer: ConfigServer;
     protected botConfig: IBotConfig;
+    protected pmcConfig: IPmcConfig;
     constructor(logger: ILogger, jsonUtil: JsonUtil, databaseServer: DatabaseServer, randomUtil: RandomUtil, localisationService: LocalisationService, configServer: ConfigServer);
     /**
      * Get a template object for the specified botRole from bots.types db
@@ -70,7 +72,7 @@ export declare class BotHelper {
      */
     getBotRandomizationDetails(botLevel: number, botEquipConfig: EquipmentFilters): RandomisationDetails;
     /**
-     * Choose between sptBear and sptUsec at random based on the % defined in botConfig.pmc.isUsec
+     * Choose between sptBear and sptUsec at random based on the % defined in pmcConfig.isUsec
      * @returns pmc role
      */
     getRandomizedPmcRole(): string;

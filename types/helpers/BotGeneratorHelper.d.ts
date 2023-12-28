@@ -1,15 +1,16 @@
-import { ApplicationContext } from "../context/ApplicationContext";
-import { DurabilityLimitsHelper } from "../helpers/DurabilityLimitsHelper";
-import { Item, Repairable, Upd } from "../models/eft/common/tables/IItem";
-import { ITemplateItem } from "../models/eft/common/tables/ITemplateItem";
-import { EquipmentFilters, IBotConfig } from "../models/spt/config/IBotConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { LocalisationService } from "../services/LocalisationService";
-import { JsonUtil } from "../utils/JsonUtil";
-import { RandomUtil } from "../utils/RandomUtil";
-import { ItemHelper } from "./ItemHelper";
+import { ApplicationContext } from "@spt-aki/context/ApplicationContext";
+import { DurabilityLimitsHelper } from "@spt-aki/helpers/DurabilityLimitsHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { Item, Repairable, Upd } from "@spt-aki/models/eft/common/tables/IItem";
+import { ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
+import { EquipmentFilters, IBotConfig, IRandomisedResourceValues } from "@spt-aki/models/spt/config/IBotConfig";
+import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
 export declare class BotGeneratorHelper {
     protected logger: ILogger;
     protected randomUtil: RandomUtil;
@@ -20,6 +21,7 @@ export declare class BotGeneratorHelper {
     protected localisationService: LocalisationService;
     protected configServer: ConfigServer;
     protected botConfig: IBotConfig;
+    protected pmcConfig: IPmcConfig;
     constructor(logger: ILogger, randomUtil: RandomUtil, databaseServer: DatabaseServer, durabilityLimitsHelper: DurabilityLimitsHelper, itemHelper: ItemHelper, applicationContext: ApplicationContext, localisationService: LocalisationService, configServer: ConfigServer);
     /**
      * Adds properties to an item
@@ -28,9 +30,16 @@ export declare class BotGeneratorHelper {
      * @param botRole Used by weapons to randomize the durability values. Null for non-equipped items
      * @returns Item Upd object with extra properties
      */
-    generateExtraPropertiesForItem(itemTemplate: ITemplateItem, botRole?: string): {
+    generateExtraPropertiesForItem(itemTemplate: ITemplateItem, botRole?: any): {
         upd?: Upd;
     };
+    /**
+     * Randomize the HpResource for bots e.g (245/400 resources)
+     * @param maxResource Max resource value of medical items
+     * @param randomizationValues Value provided from config
+     * @returns Randomized value from maxHpResource
+     */
+    protected getRandomizedResourceValue(maxResource: number, randomizationValues: IRandomisedResourceValues): number;
     /**
      * Get the chance for the weapon attachment or helmet equipment to be set as activated
      * @param botRole role of bot with weapon/helmet

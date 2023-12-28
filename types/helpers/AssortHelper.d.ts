@@ -1,11 +1,11 @@
-import { IPmcData } from "../models/eft/common/IPmcData";
-import { ITraderAssort } from "../models/eft/common/tables/ITrader";
-import { QuestStatus } from "../models/enums/QuestStatus";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { LocalisationService } from "../services/LocalisationService";
-import { ItemHelper } from "./ItemHelper";
-import { QuestHelper } from "./QuestHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { QuestHelper } from "@spt-aki/helpers/QuestHelper";
+import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { ITraderAssort } from "@spt-aki/models/eft/common/tables/ITrader";
+import { QuestStatus } from "@spt-aki/models/enums/QuestStatus";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
 export declare class AssortHelper {
     protected logger: ILogger;
     protected itemHelper: ItemHelper;
@@ -14,12 +14,12 @@ export declare class AssortHelper {
     protected questHelper: QuestHelper;
     constructor(logger: ILogger, itemHelper: ItemHelper, databaseServer: DatabaseServer, localisationService: LocalisationService, questHelper: QuestHelper);
     /**
-     * Remove assorts from a trader that have not been unlocked yet
-     * @param pmcProfile player profile
-     * @param traderId traders id the assort belongs to
+     * Remove assorts from a trader that have not been unlocked yet (via player completing corrisponding quest)
+     * @param pmcProfile Player profile
+     * @param traderId Traders id the assort belongs to
      * @param traderAssorts All assort items from same trader
-     * @param mergedQuestAssorts Dict of quest assort to quest id unlocks for all traders
-     * @returns assort items minus locked quest assorts
+     * @param mergedQuestAssorts Dict of quest assort to quest id unlocks for all traders (key = started/failed/complete)
+     * @returns Assort items minus locked quest assorts
      */
     stripLockedQuestAssort(pmcProfile: IPmcData, traderId: string, traderAssorts: ITraderAssort, mergedQuestAssorts: Record<string, Record<string, string>>, flea?: boolean): ITraderAssort;
     /**

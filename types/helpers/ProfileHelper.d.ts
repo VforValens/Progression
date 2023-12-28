@@ -1,15 +1,17 @@
-import { IPmcData } from "../models/eft/common/IPmcData";
-import { Stats } from "../models/eft/common/tables/IBotBase";
-import { IAkiProfile } from "../models/eft/profile/IAkiProfile";
-import { IValidateNicknameRequestData } from "../models/eft/profile/IValidateNicknameRequestData";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { SaveServer } from "../servers/SaveServer";
-import { ProfileSnapshotService } from "../services/ProfileSnapshotService";
-import { JsonUtil } from "../utils/JsonUtil";
-import { TimeUtil } from "../utils/TimeUtil";
-import { Watermark } from "../utils/Watermark";
-import { ItemHelper } from "./ItemHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { Common, CounterKeyValue, Stats } from "@spt-aki/models/eft/common/tables/IBotBase";
+import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
+import { IValidateNicknameRequestData } from "@spt-aki/models/eft/profile/IValidateNicknameRequestData";
+import { SkillTypes } from "@spt-aki/models/enums/SkillTypes";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { SaveServer } from "@spt-aki/servers/SaveServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { ProfileSnapshotService } from "@spt-aki/services/ProfileSnapshotService";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { TimeUtil } from "@spt-aki/utils/TimeUtil";
+import { Watermark } from "@spt-aki/utils/Watermark";
 export declare class ProfileHelper {
     protected logger: ILogger;
     protected jsonUtil: JsonUtil;
@@ -19,13 +21,14 @@ export declare class ProfileHelper {
     protected databaseServer: DatabaseServer;
     protected itemHelper: ItemHelper;
     protected profileSnapshotService: ProfileSnapshotService;
-    constructor(logger: ILogger, jsonUtil: JsonUtil, watermark: Watermark, timeUtil: TimeUtil, saveServer: SaveServer, databaseServer: DatabaseServer, itemHelper: ItemHelper, profileSnapshotService: ProfileSnapshotService);
+    protected localisationService: LocalisationService;
+    constructor(logger: ILogger, jsonUtil: JsonUtil, watermark: Watermark, timeUtil: TimeUtil, saveServer: SaveServer, databaseServer: DatabaseServer, itemHelper: ItemHelper, profileSnapshotService: ProfileSnapshotService, localisationService: LocalisationService);
     /**
-     * Remove/reset started quest condtions in player profile
+     * Remove/reset a completed quest condtion from players profile quest data
      * @param sessionID Session id
-     * @param conditionIds Condition ids that need to be reset/removed
+     * @param questConditionId Quest with condition to remove
      */
-    resetProfileQuestCondition(sessionID: string, conditionIds: string[]): void;
+    removeCompletedQuestConditionFromProfile(pmcData: IPmcData, questConditionId: Record<string, string>): void;
     /**
      * Get all profiles from server
      * @returns Dictionary of profiles
@@ -68,6 +71,10 @@ export declare class ProfileHelper {
     getFullProfile(sessionID: string): IAkiProfile;
     getPmcProfile(sessionID: string): IPmcData;
     getScavProfile(sessionID: string): IPmcData;
+    /**
+     * Get baseline counter values for a fresh profile
+     * @returns Stats
+     */
     getDefaultCounters(): Stats;
     protected isWiped(sessionID: string): boolean;
     protected getServerVersion(): string;
@@ -77,4 +84,41 @@ export declare class ProfileHelper {
      * @returns profile without secure container
      */
     removeSecureContainer(profile: IPmcData): IPmcData;
+    /**
+     *  Flag a profile as having received a gift
+     * Store giftid in profile aki object
+     * @param playerId Player to add gift flag to
+     * @param giftId Gift player received
+     */
+    addGiftReceivedFlagToProfile(playerId: string, giftId: string): void;
+    /**
+     * Check if profile has recieved a gift by id
+     * @param playerId Player profile to check for gift
+     * @param giftId Gift to check for
+     * @returns True if player has recieved gift previously
+     */
+    playerHasRecievedGift(playerId: string, giftId: string): boolean;
+    /**
+     * Find Stat in profile counters and increment by one
+     * @param counters Counters to search for key
+     * @param keyToIncrement Key
+     */
+    incrementStatCounter(counters: CounterKeyValue[], keyToIncrement: string): void;
+    /**
+     * Check if player has a skill at elite level
+     * @param skillType Skill to check
+     * @param pmcProfile Profile to find skill in
+     * @returns True if player has skill at elite level
+     */
+    hasEliteSkillLevel(skillType: SkillTypes, pmcProfile: IPmcData): boolean;
+    /**
+     * Add points to a specific skill in player profile
+     * @param skill Skill to add points to
+     * @param pointsToAdd Points to add
+     * @param pmcProfile Player profile with skill
+     * @param useSkillProgressRateMultipler Skills are multiplied by a value in globals, default is off to maintain compatibility with legacy code
+     * @returns
+     */
+    addSkillPointsToPlayer(pmcProfile: IPmcData, skill: SkillTypes, pointsToAdd: number, useSkillProgressRateMultipler?: boolean): void;
+    getSkillFromProfile(pmcData: IPmcData, skill: SkillTypes): Common;
 }

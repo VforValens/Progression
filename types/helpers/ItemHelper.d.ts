@@ -1,20 +1,21 @@
-import { IPmcData } from "../models/eft/common/IPmcData";
-import { InsuredItem } from "../models/eft/common/tables/IBotBase";
-import { Item, Repairable } from "../models/eft/common/tables/IItem";
-import { IStaticAmmoDetails } from "../models/eft/common/tables/ILootBase";
-import { ITemplateItem } from "../models/eft/common/tables/ITemplateItem";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { ItemBaseClassService } from "../services/ItemBaseClassService";
-import { LocaleService } from "../services/LocaleService";
-import { LocalisationService } from "../services/LocalisationService";
-import { HashUtil } from "../utils/HashUtil";
-import { JsonUtil } from "../utils/JsonUtil";
-import { MathUtil } from "../utils/MathUtil";
-import { ObjectId } from "../utils/ObjectId";
-import { RandomUtil } from "../utils/RandomUtil";
-import { HandbookHelper } from "./HandbookHelper";
-declare class ItemHelper {
+import { HandbookHelper } from "@spt-aki/helpers/HandbookHelper";
+import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { InsuredItem } from "@spt-aki/models/eft/common/tables/IBotBase";
+import { Item, Repairable } from "@spt-aki/models/eft/common/tables/IItem";
+import { IStaticAmmoDetails } from "@spt-aki/models/eft/common/tables/ILootBase";
+import { ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { ItemBaseClassService } from "@spt-aki/services/ItemBaseClassService";
+import { ItemFilterService } from "@spt-aki/services/ItemFilterService";
+import { LocaleService } from "@spt-aki/services/LocaleService";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { HashUtil } from "@spt-aki/utils/HashUtil";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { MathUtil } from "@spt-aki/utils/MathUtil";
+import { ObjectId } from "@spt-aki/utils/ObjectId";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
+export declare class ItemHelper {
     protected logger: ILogger;
     protected hashUtil: HashUtil;
     protected jsonUtil: JsonUtil;
@@ -24,9 +25,11 @@ declare class ItemHelper {
     protected databaseServer: DatabaseServer;
     protected handbookHelper: HandbookHelper;
     protected itemBaseClassService: ItemBaseClassService;
+    protected itemFilterService: ItemFilterService;
     protected localisationService: LocalisationService;
     protected localeService: LocaleService;
-    constructor(logger: ILogger, hashUtil: HashUtil, jsonUtil: JsonUtil, randomUtil: RandomUtil, objectId: ObjectId, mathUtil: MathUtil, databaseServer: DatabaseServer, handbookHelper: HandbookHelper, itemBaseClassService: ItemBaseClassService, localisationService: LocalisationService, localeService: LocaleService);
+    protected readonly defaultInvalidBaseTypes: string[];
+    constructor(logger: ILogger, hashUtil: HashUtil, jsonUtil: JsonUtil, randomUtil: RandomUtil, objectId: ObjectId, mathUtil: MathUtil, databaseServer: DatabaseServer, handbookHelper: HandbookHelper, itemBaseClassService: ItemBaseClassService, itemFilterService: ItemFilterService, localisationService: LocalisationService, localeService: LocaleService);
     /**
      * Checks if an id is a valid item. Valid meaning that it's an item that be stored in stash
      * @param       {string}    tpl       the template id / tpl
@@ -51,11 +54,34 @@ declare class ItemHelper {
     /**
      * Returns the item price based on the handbook or as a fallback from the prices.json if the item is not
      * found in the handbook. If the price can't be found at all return 0
-     *
-     * @param {string}      tpl           the item template to check
-     * @returns {integer}                   The price of the item or 0 if not found
+     * @param tpl Item to look price up of
+     * @returns Price in roubles
      */
     getItemPrice(tpl: string): number;
+    /**
+     * Returns the item price based on the handbook or as a fallback from the prices.json if the item is not
+     * found in the handbook. If the price can't be found at all return 0
+     * @param tpl Item to look price up of
+     * @returns Price in roubles
+     */
+    getItemMaxPrice(tpl: string): number;
+    /**
+     * Get the static (handbook) price in roubles for an item by tpl
+     * @param tpl Items tpl id to look up price
+     * @returns Price in roubles (0 if not found)
+     */
+    getStaticItemPrice(tpl: string): number;
+    /**
+     * Get the dynamic (flea) price in roubles for an item by tpl
+     * @param tpl Items tpl id to look up price
+     * @returns Price in roubles (undefined if not found)
+     */
+    getDynamicItemPrice(tpl: string): number;
+    /**
+     * Update items upd.StackObjectsCount to be 1 if its upd is missing or StackObjectsCount is undefined
+     * @param item Item to update
+     * @returns Fixed item
+     */
     fixItemStackCount(item: Item): Item;
     /**
      * AmmoBoxes contain StackSlots which need to be filled for the AmmoBox to have content.
@@ -105,6 +131,7 @@ declare class ItemHelper {
      * @returns bool - is valid + template item object as array
      */
     getItem(tpl: string): [boolean, ITemplateItem];
+    isItemInDb(tpl: string): boolean;
     /**
      * get normalized value (0-1) based on item condition
      * @param item
@@ -113,19 +140,19 @@ declare class ItemHelper {
     getItemQualityModifier(item: Item): number;
     /**
      * Get a quality value based on a repairable items (weapon/armor) current state between current and max durability
-     * @param itemDetails
-     * @param repairable repairable object
-     * @param item
-     * @returns a number between 0 and 1
+     * @param itemDetails Db details for item we want quality value for
+     * @param repairable Repairable properties
+     * @param item Item quality value is for
+     * @returns A number between 0 and 1
      */
     protected getRepairableItemQualityValue(itemDetails: ITemplateItem, repairable: Repairable, item: Item): number;
     /**
      * Recursive function that looks at every item from parameter and gets their childrens Ids + includes parent item in results
-     * @param items
-     * @param itemID
+     * @param items Array of items (item + possible children)
+     * @param itemId Parent items id
      * @returns an array of strings
      */
-    findAndReturnChildrenByItems(items: Item[], itemID: string): string[];
+    findAndReturnChildrenByItems(items: Item[], itemId: string): string[];
     /**
      * A variant of findAndReturnChildren where the output is list of item objects instead of their ids.
      * @param items
@@ -153,12 +180,6 @@ declare class ItemHelper {
      */
     isDogtag(tpl: string): boolean;
     /**
-     * Can the item passed in be sold to a trader because it is raw money
-     * @param tpl Item template id to check
-     * @returns true if unsellable
-     */
-    isNotSellable(tpl: string): boolean;
-    /**
      * Gets the identifier for a child using slotId, locationX and locationY.
      * @param item
      * @returns "slotId OR slotid,locationX,locationY"
@@ -171,28 +192,28 @@ declare class ItemHelper {
      */
     isItemTplStackable(tpl: string): boolean;
     /**
-     * split item stack if it exceeds its StackMaxSize property
-     * @param itemToSplit item being split into smaller stacks
+     * split item stack if it exceeds its items StackMaxSize property
+     * @param itemToSplit Item to split into smaller stacks
      * @returns Array of split items
      */
     splitStack(itemToSplit: Item): Item[];
     /**
-     * Find Barter items in the inventory
+     * Find Barter items from array of items
      * @param {string} by tpl or id
-     * @param {Object} pmcData
+     * @param {Item[]} items Array of items to iterate over
      * @param {string} barterItemId
      * @returns Array of Item objects
      */
-    findBarterItems(by: "tpl" | "id", pmcData: IPmcData, barterItemId: string): Item[];
+    findBarterItems(by: "tpl" | "id", items: Item[], barterItemId: string): Item[];
     /**
-     *
-     * @param pmcData
-     * @param items
+     * Regenerate all guids with new ids, exceptions are for items that cannot be altered (e.g. stash/sorting table)
+     * @param pmcData Player profile
+     * @param items Items to adjust ID values of
      * @param insuredItems insured items to not replace ids for
      * @param fastPanel
-     * @returns
+     * @returns Item[]
      */
-    replaceIDs(pmcData: IPmcData, items: Item[], insuredItems?: InsuredItem[], fastPanel?: any): any[];
+    replaceIDs(pmcData: IPmcData, items: Item[], insuredItems?: InsuredItem[], fastPanel?: any): Item[];
     /**
      * WARNING, SLOW. Recursively loop down through an items hierarchy to see if any of the ids match the supplied list, return true if any do
      * @param {string} tpl Items tpl to check parents of
@@ -206,6 +227,48 @@ declare class ItemHelper {
      * @returns true if item is flagged as quest item
      */
     isQuestItem(tpl: string): boolean;
+    /**
+     * Checks to see if the item is *actually* moddable in-raid. Checks include the items existence in the database, the
+     * parent items existence in the database, the existence (and value) of the items RaidModdable property, and that
+     * the parents slot-required property exists, matches that of the item, and it's value.
+     *
+     * Note: this function does not preform any checks to see if the item and parent are *actually* related.
+     *
+     * @param item The item to be checked
+     * @param parent The parent of the item to be checked
+     * @returns True if the item is actually moddable, false if it is not, and null if the check cannot be performed.
+     */
+    isRaidModdable(item: Item, parent: Item): boolean | null;
+    /**
+     * Retrieves the main parent item for a given attachment item.
+     *
+     * This method traverses up the hierarchy of items starting from a given `itemId`, until it finds the main parent
+     * item that is not an attached attachment itself. In other words, if you pass it an item id of a suppressor, it
+     * will traverse up the muzzle brake, barrel, upper receiver, and return the gun that the suppressor is ultimately
+     * attached to, even if that gun is located within multiple containers.
+     *
+     * It's important to note that traversal is expensive, so this method requires that you pass it a Map of the items
+     * to traverse, where the keys are the item IDs and the values are the corresponding Item objects. This alleviates
+     * some of the performance concerns, as it allows for quick lookups of items by ID.
+     *
+     * To generate the map:
+     * ```
+     * const itemsMap = new Map<string, Item>();
+     * items.forEach(item => itemsMap.set(item._id, item));
+     * ```
+     *
+     * @param itemId - The unique identifier of the item for which to find the main parent.
+     * @param itemsMap - A Map containing item IDs mapped to their corresponding Item objects for quick lookup.
+     * @returns The Item object representing the top-most parent of the given item, or `null` if no such parent exists.
+     */
+    getAttachmentMainParent(itemId: string, itemsMap: Map<string, Item>): Item | null;
+    /**
+     * Determines if an item is an attachment that is currently attached to it's parent item.
+     *
+     * @param item The item to check.
+     * @returns true if the item is attached attachment, otherwise false.
+     */
+    isAttachmentAttached(item: Item): boolean;
     /**
      * Get the inventory size of an item
      * @param items Item with children
@@ -226,6 +289,14 @@ declare class ItemHelper {
      */
     addCartridgesToAmmoBox(ammoBox: Item[], ammoBoxDetails: ITemplateItem): void;
     /**
+     * Check if item is stored inside of a container
+     * @param item Item to check is inside of container
+     * @param desiredContainerSlotId Name of slot to check item is in e.g. SecuredContainer/Backpack
+     * @param items Inventory with child parent items to check
+     * @returns True when item is in container
+     */
+    itemIsInsideContainer(item: Item, desiredContainerSlotId: string, items: Item[]): boolean;
+    /**
      * Add child items (cartridges) to a magazine
      * @param magazine Magazine to add child items to
      * @param magTemplate Db template of magazine
@@ -242,10 +313,21 @@ declare class ItemHelper {
      * @param minSizePercent % the magazine must be filled to
      */
     fillMagazineWithCartridge(magazine: Item[], magTemplate: ITemplateItem, cartridgeTpl: string, minSizePercent?: number): void;
+    /**
+     * Choose a random bullet type from the list of possible a magazine has
+     * @param magTemplate Magazine template from Db
+     * @returns Tpl of cartridge
+     */
     protected getRandomValidCaliber(magTemplate: ITemplateItem): string;
+    /**
+     * Chose a randomly weighted cartridge that fits
+     * @param caliber Desired caliber
+     * @param staticAmmoDist Cartridges and thier weights
+     * @returns Tpl of cartridge
+     */
     protected drawAmmoTpl(caliber: string, staticAmmoDist: Record<string, IStaticAmmoDetails[]>): string;
     /**
-     *
+     * Create a basic cartrige object
      * @param parentId container cartridges will be placed in
      * @param ammoTpl Cartridge to insert
      * @param stackCount Count of cartridges inside parent
@@ -265,6 +347,7 @@ declare class ItemHelper {
      * @returns Name of item
      */
     getItemName(itemTpl: string): string;
+    getItemTplsOfBaseType(desiredBaseType: string): string[];
 }
 declare namespace ItemHelper {
     interface ItemSize {
@@ -272,4 +355,4 @@ declare namespace ItemHelper {
         height: number;
     }
 }
-export { ItemHelper };
+export {};

@@ -1,12 +1,12 @@
-import { ApplicationContext } from "../context/ApplicationContext";
-import { WeightedRandomHelper } from "../helpers/WeightedRandomHelper";
-import { IWeather, IWeatherData } from "../models/eft/weather/IWeatherData";
-import { WindDirection } from "../models/enums/WindDirection";
-import { IWeatherConfig } from "../models/spt/config/IWeatherConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { RandomUtil } from "../utils/RandomUtil";
-import { TimeUtil } from "../utils/TimeUtil";
+import { ApplicationContext } from "@spt-aki/context/ApplicationContext";
+import { WeightedRandomHelper } from "@spt-aki/helpers/WeightedRandomHelper";
+import { IWeather, IWeatherData } from "@spt-aki/models/eft/weather/IWeatherData";
+import { WindDirection } from "@spt-aki/models/enums/WindDirection";
+import { IWeatherConfig } from "@spt-aki/models/spt/config/IWeatherConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
+import { TimeUtil } from "@spt-aki/utils/TimeUtil";
 export declare class WeatherGenerator {
     protected weightedRandomHelper: WeightedRandomHelper;
     protected logger: ILogger;
@@ -16,6 +16,11 @@ export declare class WeatherGenerator {
     protected configServer: ConfigServer;
     protected weatherConfig: IWeatherConfig;
     constructor(weightedRandomHelper: WeightedRandomHelper, logger: ILogger, randomUtil: RandomUtil, timeUtil: TimeUtil, applicationContext: ApplicationContext, configServer: ConfigServer);
+    /**
+     * Get current + raid datetime and format into correct BSG format and return
+     * @param data Weather data
+     * @returns IWeatherData
+     */
     calculateGameTime(data: IWeatherData): IWeatherData;
     /**
      * Get server uptime seconds multiplied by a multiplier and add to current time as seconds
@@ -33,7 +38,7 @@ export declare class WeatherGenerator {
     /**
      * Get current time formatted to fit BSGs requirement
      * @param date date to format into bsg style
-     * @returns
+     * @returns Time formatted in BSG format
      */
     protected getBSGFormattedTime(date: Date): string;
     /**
@@ -47,6 +52,7 @@ export declare class WeatherGenerator {
      */
     protected setCurrentDateTime(weather: IWeather): void;
     protected getWeightedWindDirection(): WindDirection;
+    protected getWeightedClouds(): number;
     protected getWeightedWindSpeed(): number;
     protected getWeightedFog(): number;
     protected getWeightedRain(): number;

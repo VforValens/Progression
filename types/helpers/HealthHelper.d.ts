@@ -1,12 +1,12 @@
-import { IPmcData } from "../models/eft/common/IPmcData";
-import { ISyncHealthRequestData } from "../models/eft/health/ISyncHealthRequestData";
-import { Effects, IAkiProfile } from "../models/eft/profile/IAkiProfile";
-import { IHealthConfig } from "../models/spt/config/IHealthConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { SaveServer } from "../servers/SaveServer";
-import { JsonUtil } from "../utils/JsonUtil";
-import { TimeUtil } from "../utils/TimeUtil";
+import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { ISyncHealthRequestData } from "@spt-aki/models/eft/health/ISyncHealthRequestData";
+import { Effects, IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
+import { IHealthConfig } from "@spt-aki/models/spt/config/IHealthConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { SaveServer } from "@spt-aki/servers/SaveServer";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { TimeUtil } from "@spt-aki/utils/TimeUtil";
 export declare class HealthHelper {
     protected jsonUtil: JsonUtil;
     protected logger: ILogger;
@@ -27,6 +27,7 @@ export declare class HealthHelper {
      * @param request Heal request
      * @param sessionID Session id
      * @param addEffects Should effects be added or removed (default - add)
+     * @param deleteExistingEffects Should all prior effects be removed before apply new ones
      */
     saveVitality(pmcData: IPmcData, request: ISyncHealthRequestData, sessionID: string, addEffects?: boolean, deleteExistingEffects?: boolean): void;
     /**
@@ -53,5 +54,7 @@ export declare class HealthHelper {
      * @param duration How long the effect has left in seconds (-1 by default, no duration).
      */
     protected addEffect(pmcData: IPmcData, effectBodyPart: string, effectType: string, duration?: number): void;
-    protected isEmpty(map: any): boolean;
+    protected isEmpty(map: Record<string, {
+        Time: number;
+    }>): boolean;
 }

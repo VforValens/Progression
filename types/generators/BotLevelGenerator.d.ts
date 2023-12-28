@@ -1,11 +1,11 @@
-import { MinMax } from "../models/common/MinMax";
-import { IRandomisedBotLevelResult } from "../models/eft/bot/IRandomisedBotLevelResult";
-import { ExpTable } from "../models/eft/common/IGlobals";
-import { IBotBase } from "../models/eft/common/tables/IBotBase";
-import { BotGenerationDetails } from "../models/spt/bots/BotGenerationDetails";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { RandomUtil } from "../utils/RandomUtil";
+import { MinMax } from "@spt-aki/models/common/MinMax";
+import { IRandomisedBotLevelResult } from "@spt-aki/models/eft/bot/IRandomisedBotLevelResult";
+import { IExpTable } from "@spt-aki/models/eft/common/IGlobals";
+import { IBotBase } from "@spt-aki/models/eft/common/tables/IBotBase";
+import { BotGenerationDetails } from "@spt-aki/models/spt/bots/BotGenerationDetails";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
 export declare class BotLevelGenerator {
     protected logger: ILogger;
     protected randomUtil: RandomUtil;
@@ -25,5 +25,5 @@ export declare class BotLevelGenerator {
      * @param relativeDeltaMax max delta above player level to go
      * @returns highest level possible for bot
      */
-    protected getHighestRelativeBotLevel(playerLevel: number, relativeDeltaMax: number, levelDetails: MinMax, expTable: ExpTable[]): number;
+    protected getHighestRelativeBotLevel(playerLevel: number, relativeDeltaMax: number, levelDetails: MinMax, expTable: IExpTable[]): number;
 }

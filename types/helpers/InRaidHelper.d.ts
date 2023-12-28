@@ -1,38 +1,46 @@
-import { IPmcData } from "../models/eft/common/IPmcData";
-import { Victim } from "../models/eft/common/tables/IBotBase";
-import { Item } from "../models/eft/common/tables/IItem";
-import { ISaveProgressRequestData } from "../models/eft/inRaid/ISaveProgressRequestData";
-import { ILostOnDeathConfig } from "../models/spt/config/ILostOnDeathConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { SaveServer } from "../servers/SaveServer";
-import { LocalisationService } from "../services/LocalisationService";
-import { ProfileFixerService } from "../services/ProfileFixerService";
-import { JsonUtil } from "../utils/JsonUtil";
-import { InventoryHelper } from "./InventoryHelper";
-import { ItemHelper } from "./ItemHelper";
-import { PaymentHelper } from "./PaymentHelper";
+import { InventoryHelper } from "@spt-aki/helpers/InventoryHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { PaymentHelper } from "@spt-aki/helpers/PaymentHelper";
+import { QuestHelper } from "@spt-aki/helpers/QuestHelper";
+import { IPmcData, IPostRaidPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { IQuestStatus, TraderInfo, Victim } from "@spt-aki/models/eft/common/tables/IBotBase";
+import { Item } from "@spt-aki/models/eft/common/tables/IItem";
+import { ISaveProgressRequestData } from "@spt-aki/models/eft/inRaid/ISaveProgressRequestData";
+import { IInRaidConfig } from "@spt-aki/models/spt/config/IInRaidConfig";
+import { ILostOnDeathConfig } from "@spt-aki/models/spt/config/ILostOnDeathConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { SaveServer } from "@spt-aki/servers/SaveServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { ProfileFixerService } from "@spt-aki/services/ProfileFixerService";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { TimeUtil } from "@spt-aki/utils/TimeUtil";
+import { ProfileHelper } from "./ProfileHelper";
 export declare class InRaidHelper {
     protected logger: ILogger;
+    protected timeUtil: TimeUtil;
     protected saveServer: SaveServer;
     protected jsonUtil: JsonUtil;
     protected itemHelper: ItemHelper;
     protected databaseServer: DatabaseServer;
     protected inventoryHelper: InventoryHelper;
+    protected profileHelper: ProfileHelper;
+    protected questHelper: QuestHelper;
     protected paymentHelper: PaymentHelper;
     protected localisationService: LocalisationService;
     protected profileFixerService: ProfileFixerService;
     protected configServer: ConfigServer;
     protected lostOnDeathConfig: ILostOnDeathConfig;
-    constructor(logger: ILogger, saveServer: SaveServer, jsonUtil: JsonUtil, itemHelper: ItemHelper, databaseServer: DatabaseServer, inventoryHelper: InventoryHelper, paymentHelper: PaymentHelper, localisationService: LocalisationService, profileFixerService: ProfileFixerService, configServer: ConfigServer);
+    protected inRaidConfig: IInRaidConfig;
+    constructor(logger: ILogger, timeUtil: TimeUtil, saveServer: SaveServer, jsonUtil: JsonUtil, itemHelper: ItemHelper, databaseServer: DatabaseServer, inventoryHelper: InventoryHelper, profileHelper: ProfileHelper, questHelper: QuestHelper, paymentHelper: PaymentHelper, localisationService: LocalisationService, profileFixerService: ProfileFixerService, configServer: ConfigServer);
     /**
-     * Should quest items be removed from player inventory on death
+     * Lookup quest item loss from lostOnDeath config
      * @returns True if items should be removed from inventory
      */
     removeQuestItemsOnDeath(): boolean;
     /**
-     * Check an array of items and add an upd object to money items with a stack count of 1
+     * Check items array and add an upd object to money with a stack count of 1
      * Single stack money items have no upd object and thus no StackObjectsCount, causing issues
      * @param items Items array to check
      */
@@ -49,18 +57,46 @@ export declare class InRaidHelper {
      * @param victim Who was killed by player
      * @returns a numerical standing gain or loss
      */
-    protected getStandingChangeForKill(victim: Victim): number;
+    protected getFenceStandingChangeForKillAsScav(victim: Victim): number;
     /**
      * Reset a profile to a baseline, used post-raid
      * Reset points earned during session property
      * Increment exp
-     * Remove Labs keycard
      * @param profileData Profile to update
      * @param saveProgressRequest post raid save data request data
      * @param sessionID Session id
      * @returns Reset profile object
      */
-    updateProfileBaseStats(profileData: IPmcData, saveProgressRequest: ISaveProgressRequestData, sessionID: string): IPmcData;
+    updateProfileBaseStats(profileData: IPmcData, saveProgressRequest: ISaveProgressRequestData, sessionID: string): void;
+    /**
+     * Reset the skill points earned in a raid to 0, ready for next raid
+     * @param profile Profile to update
+     */
+    protected resetSkillPointsEarnedDuringRaid(profile: IPmcData): void;
+    /** Check counters are correct in profile */
+    protected validateBackendCounters(saveProgressRequest: ISaveProgressRequestData, profileData: IPmcData): void;
+    /**
+     * Update various serverPMC profile values; quests/limb hp/trader standing with values post-raic
+     * @param pmcData Server PMC profile
+     * @param saveProgressRequest Post-raid request data
+     * @param sessionId Session id
+     */
+    updatePmcProfileDataPostRaid(pmcData: IPmcData, saveProgressRequest: ISaveProgressRequestData, sessionId: string): void;
+    /**
+     * Update scav quest values on server profile with updated values post-raid
+     * @param scavData Server scav profile
+     * @param saveProgressRequest Post-raid request data
+     * @param sessionId Session id
+     */
+    updateScavProfileDataPostRaid(scavData: IPmcData, saveProgressRequest: ISaveProgressRequestData, sessionId: string): void;
+    /**
+     * Look for quests with a status different from what it began the raid with
+     * @param sessionId Player id
+     * @param pmcData Player profile
+     * @param preRaidQuests Quests prior to starting raid
+     * @param postRaidProfile Profile sent by client with post-raid quests
+     */
+    protected processAlteredQuests(sessionId: string, pmcData: IPmcData, preRaidQuests: IQuestStatus[], postRaidProfile: IPostRaidPmcData): void;
     /**
      * Take body part effects from client profile and apply to server profile
      * @param saveProgressRequest post-raid request
@@ -68,44 +104,34 @@ export declare class InRaidHelper {
      */
     protected transferPostRaidLimbEffectsToProfile(saveProgressRequest: ISaveProgressRequestData, profileData: IPmcData): void;
     /**
-     * Some maps have one-time-use keys (e.g. Labs
-     * Remove the relevant key from an inventory based on the post-raid request data passed in
-     * @param offraidData post-raid data
-     * @param sessionID Session id
+     * Adjust server trader settings if they differ from data sent by client
+     * @param tradersServerProfile Server
+     * @param tradersClientProfile Client
      */
-    protected removeMapAccessKey(offraidData: ISaveProgressRequestData, sessionID: string): void;
+    protected applyTraderStandingAdjustments(tradersServerProfile: Record<string, TraderInfo>, tradersClientProfile: Record<string, TraderInfo>): void;
     /**
      * Set the SPT inraid location Profile property to 'none'
      * @param sessionID Session id
      */
     protected setPlayerInRaidLocationStatusToNone(sessionID: string): void;
     /**
-     * Adds SpawnedInSession property to items found in a raid
-     * Removes SpawnedInSession for non-scav players if item was taken into raid with SpawnedInSession = true
-     * @param preRaidProfile profile to update
-     * @param postRaidProfile profile to update inventory contents of
-     * @param isPlayerScav Was this a p scav raid
-     * @returns profile with FiR items properly tagged
-     */
-    addSpawnedInSessionPropertyToItems(preRaidProfile: IPmcData, postRaidProfile: IPmcData, isPlayerScav: boolean): IPmcData;
-    /**
      * Iterate over inventory items and remove the property that defines an item as Found in Raid
      * Only removes property if item had FiR when entering raid
      * @param postRaidProfile profile to update items for
      * @returns Updated profile with SpawnedInSession removed
      */
-    removeSpawnedInSessionPropertyFromItems(postRaidProfile: IPmcData): IPmcData;
+    removeSpawnedInSessionPropertyFromItems(postRaidProfile: IPostRaidPmcData): IPostRaidPmcData;
     /**
      * Update a players inventory post-raid
      * Remove equipped items from pre-raid
      * Add new items found in raid to profile
      * Store insurance items in profile
      * @param sessionID Session id
-     * @param pmcData Profile to update
+     * @param serverProfile Profile to update
      * @param postRaidProfile Profile returned by client after a raid
      * @returns Updated profile
      */
-    setInventory(sessionID: string, pmcData: IPmcData, postRaidProfile: IPmcData): IPmcData;
+    setInventory(sessionID: string, serverProfile: IPmcData, postRaidProfile: IPmcData): IPmcData;
     /**
      * Clear pmc inventory of all items except those that are exempt
      * Used post-raid to remove items after death

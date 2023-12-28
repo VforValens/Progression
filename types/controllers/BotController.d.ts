@@ -1,20 +1,21 @@
-import { ApplicationContext } from "../context/ApplicationContext";
-import { BotGenerator } from "../generators/BotGenerator";
-import { BotDifficultyHelper } from "../helpers/BotDifficultyHelper";
-import { BotHelper } from "../helpers/BotHelper";
-import { ProfileHelper } from "../helpers/ProfileHelper";
-import { IGenerateBotsRequestData } from "../models/eft/bot/IGenerateBotsRequestData";
-import { IBotBase } from "../models/eft/common/tables/IBotBase";
-import { IBotCore } from "../models/eft/common/tables/IBotCore";
-import { Difficulty } from "../models/eft/common/tables/IBotType";
-import { IBotConfig } from "../models/spt/config/IBotConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { BotGenerationCacheService } from "../services/BotGenerationCacheService";
-import { LocalisationService } from "../services/LocalisationService";
-import { MatchBotDetailsCacheService } from "../services/MatchBotDetailsCacheService";
-import { JsonUtil } from "../utils/JsonUtil";
+import { ApplicationContext } from "@spt-aki/context/ApplicationContext";
+import { BotGenerator } from "@spt-aki/generators/BotGenerator";
+import { BotDifficultyHelper } from "@spt-aki/helpers/BotDifficultyHelper";
+import { BotHelper } from "@spt-aki/helpers/BotHelper";
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import { IGenerateBotsRequestData } from "@spt-aki/models/eft/bot/IGenerateBotsRequestData";
+import { IBotBase } from "@spt-aki/models/eft/common/tables/IBotBase";
+import { IBotCore } from "@spt-aki/models/eft/common/tables/IBotCore";
+import { Difficulty } from "@spt-aki/models/eft/common/tables/IBotType";
+import { IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
+import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { BotGenerationCacheService } from "@spt-aki/services/BotGenerationCacheService";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { MatchBotDetailsCacheService } from "@spt-aki/services/MatchBotDetailsCacheService";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
 export declare class BotController {
     protected logger: ILogger;
     protected databaseServer: DatabaseServer;
@@ -29,7 +30,7 @@ export declare class BotController {
     protected applicationContext: ApplicationContext;
     protected jsonUtil: JsonUtil;
     protected botConfig: IBotConfig;
-    static readonly pmcTypeLabel = "PMC";
+    protected pmcConfig: IPmcConfig;
     constructor(logger: ILogger, databaseServer: DatabaseServer, botGenerator: BotGenerator, botHelper: BotHelper, botDifficultyHelper: BotDifficultyHelper, botGenerationCacheService: BotGenerationCacheService, matchBotDetailsCacheService: MatchBotDetailsCacheService, localisationService: LocalisationService, profileHelper: ProfileHelper, configServer: ConfigServer, applicationContext: ApplicationContext, jsonUtil: JsonUtil);
     /**
      * Return the number of bot loadout varieties to be generated
@@ -38,6 +39,7 @@ export declare class BotController {
      */
     getBotPresetGenerationLimit(type: string): number;
     /**
+     * Handle singleplayer/settings/bot/difficulty
      * Get the core.json difficulty settings from database\bots
      * @returns IBotCore
      */
@@ -69,5 +71,5 @@ export declare class BotController {
      * @returns cap number
      */
     getBotCap(): number;
-    getPmcBotTypes(): Record<string, Record<string, Record<string, number>>>;
+    getAiBotBrainTypes(): any;
 }

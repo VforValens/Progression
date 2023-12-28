@@ -1,12 +1,12 @@
-import { Difficulty } from "../models/eft/common/tables/IBotType";
-import { IBotConfig } from "../models/spt/config/IBotConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { LocalisationService } from "../services/LocalisationService";
-import { JsonUtil } from "../utils/JsonUtil";
-import { RandomUtil } from "../utils/RandomUtil";
-import { BotHelper } from "./BotHelper";
+import { BotHelper } from "@spt-aki/helpers/BotHelper";
+import { Difficulty } from "@spt-aki/models/eft/common/tables/IBotType";
+import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
 export declare class BotDifficultyHelper {
     protected logger: ILogger;
     protected jsonUtil: JsonUtil;
@@ -15,7 +15,7 @@ export declare class BotDifficultyHelper {
     protected localisationService: LocalisationService;
     protected botHelper: BotHelper;
     protected configServer: ConfigServer;
-    protected botConfig: IBotConfig;
+    protected pmcConfig: IPmcConfig;
     constructor(logger: ILogger, jsonUtil: JsonUtil, databaseServer: DatabaseServer, randomUtil: RandomUtil, localisationService: LocalisationService, botHelper: BotHelper, configServer: ConfigServer);
     getPmcDifficultySettings(pmcType: "bear" | "usec", difficulty: string, usecType: string, bearType: string): Difficulty;
     /**

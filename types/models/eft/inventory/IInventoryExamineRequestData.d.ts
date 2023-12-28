@@ -1,10 +1,7 @@
-import { IInventoryBaseActionRequestData } from "./IInventoryBaseActionRequestData";
+import { OwnerInfo } from "@spt-aki/models/eft/common/request/IBaseInteractionRequestData";
+import { IInventoryBaseActionRequestData } from "@spt-aki/models/eft/inventory/IInventoryBaseActionRequestData";
 export interface IInventoryExamineRequestData extends IInventoryBaseActionRequestData {
     Action: "Examine";
     item: string;
-    fromOwner: IFromOwner;
-}
-export interface IFromOwner {
-    id: string;
-    type: string;
+    fromOwner: OwnerInfo;
 }

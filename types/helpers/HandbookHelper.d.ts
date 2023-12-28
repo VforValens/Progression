@@ -1,4 +1,6 @@
-import { DatabaseServer } from "../servers/DatabaseServer";
+import { Category } from "@spt-aki/models/eft/common/tables/IHandbookBase";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
 declare class LookupItem<T, I> {
     readonly byId: Map<string, T>;
     readonly byParent: Map<string, I[]>;
@@ -11,9 +13,13 @@ export declare class LookupCollection {
 }
 export declare class HandbookHelper {
     protected databaseServer: DatabaseServer;
+    protected jsonUtil: JsonUtil;
     protected lookupCacheGenerated: boolean;
     protected handbookPriceCache: LookupCollection;
-    constructor(databaseServer: DatabaseServer);
+    constructor(databaseServer: DatabaseServer, jsonUtil: JsonUtil);
+    /**
+     * Create an in-memory cache of all items with associated handbook price in handbookPriceCache class
+     */
     hydrateLookup(): void;
     /**
      * Get price from internal cache, if cache empty look up price directly in handbook (expensive)
@@ -23,18 +29,23 @@ export declare class HandbookHelper {
      */
     getTemplatePrice(tpl: string): number;
     /**
-     * all items in template with the given parent category
-     * @param x
+     * Get all items in template with the given parent category
+     * @param parentId
      * @returns string array
      */
-    templatesWithParent(x: string): string[];
+    templatesWithParent(parentId: string): string[];
     /**
      * Does category exist in handbook cache
      * @param category
      * @returns true if exists in cache
      */
     isCategory(category: string): boolean;
-    childrenCategories(x: string): string[];
+    /**
+     * Get all items associated with a categories parent
+     * @param categoryParent
+     * @returns string array
+     */
+    childrenCategories(categoryParent: string): string[];
     /**
      * Convert non-roubles into roubles
      * @param nonRoubleCurrencyCount Currency count to convert
@@ -49,5 +60,6 @@ export declare class HandbookHelper {
      * @returns currency count in desired type
      */
     fromRUB(roubleCurrencyCount: number, currencyTypeTo: string): number;
+    getCategoryById(handbookId: string): Category;
 }
 export {};

@@ -1,18 +1,21 @@
-import { IPmcData } from "../models/eft/common/IPmcData";
-import { ITraderAssort, ITraderBase, LoyaltyLevel } from "../models/eft/common/tables/ITrader";
-import { ITraderConfig } from "../models/spt/config/ITraderConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { SaveServer } from "../servers/SaveServer";
-import { FenceService } from "../services/FenceService";
-import { LocalisationService } from "../services/LocalisationService";
-import { PlayerService } from "../services/PlayerService";
-import { RandomUtil } from "../utils/RandomUtil";
-import { TimeUtil } from "../utils/TimeUtil";
-import { HandbookHelper } from "./HandbookHelper";
-import { ItemHelper } from "./ItemHelper";
-import { ProfileHelper } from "./ProfileHelper";
+import { HandbookHelper } from "@spt-aki/helpers/HandbookHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { Item } from "@spt-aki/models/eft/common/tables/IItem";
+import { ProfileTraderTemplate } from "@spt-aki/models/eft/common/tables/IProfileTemplate";
+import { ITraderAssort, ITraderBase, LoyaltyLevel } from "@spt-aki/models/eft/common/tables/ITrader";
+import { Traders } from "@spt-aki/models/enums/Traders";
+import { ITraderConfig } from "@spt-aki/models/spt/config/ITraderConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { SaveServer } from "@spt-aki/servers/SaveServer";
+import { FenceService } from "@spt-aki/services/FenceService";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { PlayerService } from "@spt-aki/services/PlayerService";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
+import { TimeUtil } from "@spt-aki/utils/TimeUtil";
 export declare class TraderHelper {
     protected logger: ILogger;
     protected databaseServer: DatabaseServer;
@@ -32,8 +35,27 @@ export declare class TraderHelper {
     /** Dictionary of item tpl and the highest trader buy back rouble price */
     protected highestTraderBuyPriceItems: Record<string, number>;
     constructor(logger: ILogger, databaseServer: DatabaseServer, saveServer: SaveServer, profileHelper: ProfileHelper, handbookHelper: HandbookHelper, itemHelper: ItemHelper, playerService: PlayerService, localisationService: LocalisationService, fenceService: FenceService, timeUtil: TimeUtil, randomUtil: RandomUtil, configServer: ConfigServer);
+    /**
+     * Get a trader base object, update profile to reflect players current standing in profile
+     * when trader not found in profile
+     * @param traderID Traders Id to get
+     * @param sessionID Players id
+     * @returns Trader base
+     */
     getTrader(traderID: string, sessionID: string): ITraderBase;
-    getTraderAssortsById(traderId: string): ITraderAssort;
+    /**
+     * Get all assort data for a particular trader
+     * @param traderId Trader to get assorts for
+     * @returns ITraderAssort
+     */
+    getTraderAssortsByTraderId(traderId: string): ITraderAssort;
+    /**
+     * Retrieve the Item from a traders assort data by its id
+     * @param traderId Trader to get assorts for
+     * @param assortId Id of assort to find
+     * @returns Item object
+     */
+    getTraderAssortItemByAssortId(traderId: string, assortId: string): Item;
     /**
      * Reset a profiles trader data back to its initial state as seen by a level 1 player
      * Does NOT take into account different profile levels
@@ -41,6 +63,13 @@ export declare class TraderHelper {
      * @param traderID trader id to reset
      */
     resetTrader(sessionID: string, traderID: string): void;
+    /**
+     * Get the starting standing of a trader based on the current profiles type (e.g. EoD, Standard etc)
+     * @param traderId Trader id to get standing for
+     * @param rawProfileTemplate Raw profile from profiles.json to look up standing from
+     * @returns Standing value
+     */
+    protected getStartingStanding(traderId: string, rawProfileTemplate: ProfileTraderTemplate): number;
     /**
      * Alter a traders unlocked status
      * @param traderId Trader to alter
@@ -64,10 +93,10 @@ export declare class TraderHelper {
     protected addStandingValuesTogether(currentStanding: number, standingToAdd: number): number;
     /**
      * Calculate traders level based on exp amount and increments level if over threshold
-     * @param traderID trader to process
-     * @param sessionID session id
+     * @param traderID trader to check standing of
+     * @param pmcData profile to update trader in
      */
-    lvlUp(traderID: string, sessionID: string): void;
+    lvlUp(traderID: string, pmcData: IPmcData): void;
     /**
      * Get the next update timestamp for a trader
      * @param traderID Trader to look up update value for
@@ -106,4 +135,37 @@ export declare class TraderHelper {
      * @returns Rouble price
      */
     getHighestSellToTraderPrice(tpl: string): number;
+    /**
+     * Get a trader enum key by its value
+     * @param traderId Traders id
+     * @returns Traders key
+     */
+    getTraderById(traderId: string): Traders;
+    /**
+     * Validates that the provided traderEnumValue exists in the Traders enum. If the value is valid, it returns the
+     * same enum value, effectively serving as a trader ID; otherwise, it logs an error and returns an empty string.
+     * This method provides a runtime check to prevent undefined behavior when using the enum as a dictionary key.
+     *
+     * For example, instead of this:
+     * `const traderId = Traders[Traders.PRAPOR];`
+     *
+     * You can use safely use this:
+     * `const traderId = this.traderHelper.getValidTraderIdByEnumValue(Traders.PRAPOR);`
+     *
+     * @param traderEnumValue The trader enum value to validate
+     * @returns The validated trader enum value as a string, or an empty string if invalid
+     */
+    getValidTraderIdByEnumValue(traderEnumValue: Traders): string;
+    /**
+     * Does the 'Traders' enum has a value that matches the passed in parameter
+     * @param key Value to check for
+     * @returns True, values exists in Traders enum as a value
+     */
+    traderEnumHasKey(key: string): boolean;
+    /**
+     * Accepts a trader id
+     * @param traderId Trader id
+     * @returns Ttrue if Traders enum has the param as a value
+     */
+    traderEnumHasValue(traderId: string): boolean;
 }

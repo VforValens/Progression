@@ -1,25 +1,24 @@
-import { BotGeneratorHelper } from "../helpers/BotGeneratorHelper";
-import { BotHelper } from "../helpers/BotHelper";
-import { BotWeaponGeneratorHelper } from "../helpers/BotWeaponGeneratorHelper";
-import { ItemHelper } from "../helpers/ItemHelper";
-import { ProbabilityHelper } from "../helpers/ProbabilityHelper";
-import { ProfileHelper } from "../helpers/ProfileHelper";
-import { Mods, ModsChances } from "../models/eft/common/tables/IBotType";
-import { Item } from "../models/eft/common/tables/IItem";
-import { ITemplateItem, Slot } from "../models/eft/common/tables/ITemplateItem";
-import { EquipmentFilterDetails, IBotConfig } from "../models/spt/config/IBotConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { BotEquipmentFilterService } from "../services/BotEquipmentFilterService";
-import { BotEquipmentModPoolService } from "../services/BotEquipmentModPoolService";
-import { BotModLimits, BotWeaponModLimitService } from "../services/BotWeaponModLimitService";
-import { ItemBaseClassService } from "../services/ItemBaseClassService";
-import { ItemFilterService } from "../services/ItemFilterService";
-import { LocalisationService } from "../services/LocalisationService";
-import { HashUtil } from "../utils/HashUtil";
-import { JsonUtil } from "../utils/JsonUtil";
-import { RandomUtil } from "../utils/RandomUtil";
+import { BotGeneratorHelper } from "@spt-aki/helpers/BotGeneratorHelper";
+import { BotHelper } from "@spt-aki/helpers/BotHelper";
+import { BotWeaponGeneratorHelper } from "@spt-aki/helpers/BotWeaponGeneratorHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { ProbabilityHelper } from "@spt-aki/helpers/ProbabilityHelper";
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import { Mods, ModsChances } from "@spt-aki/models/eft/common/tables/IBotType";
+import { Item } from "@spt-aki/models/eft/common/tables/IItem";
+import { ITemplateItem, Slot } from "@spt-aki/models/eft/common/tables/ITemplateItem";
+import { EquipmentFilterDetails, IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { BotEquipmentFilterService } from "@spt-aki/services/BotEquipmentFilterService";
+import { BotEquipmentModPoolService } from "@spt-aki/services/BotEquipmentModPoolService";
+import { BotModLimits, BotWeaponModLimitService } from "@spt-aki/services/BotWeaponModLimitService";
+import { ItemFilterService } from "@spt-aki/services/ItemFilterService";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { HashUtil } from "@spt-aki/utils/HashUtil";
+import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
 export declare class BotEquipmentModGenerator {
     protected logger: ILogger;
     protected jsonUtil: JsonUtil;
@@ -29,7 +28,6 @@ export declare class BotEquipmentModGenerator {
     protected databaseServer: DatabaseServer;
     protected itemHelper: ItemHelper;
     protected botEquipmentFilterService: BotEquipmentFilterService;
-    protected itemBaseClassService: ItemBaseClassService;
     protected itemFilterService: ItemFilterService;
     protected profileHelper: ProfileHelper;
     protected botWeaponModLimitService: BotWeaponModLimitService;
@@ -40,7 +38,7 @@ export declare class BotEquipmentModGenerator {
     protected botEquipmentModPoolService: BotEquipmentModPoolService;
     protected configServer: ConfigServer;
     protected botConfig: IBotConfig;
-    constructor(logger: ILogger, jsonUtil: JsonUtil, hashUtil: HashUtil, randomUtil: RandomUtil, probabilityHelper: ProbabilityHelper, databaseServer: DatabaseServer, itemHelper: ItemHelper, botEquipmentFilterService: BotEquipmentFilterService, itemBaseClassService: ItemBaseClassService, itemFilterService: ItemFilterService, profileHelper: ProfileHelper, botWeaponModLimitService: BotWeaponModLimitService, botHelper: BotHelper, botGeneratorHelper: BotGeneratorHelper, botWeaponGeneratorHelper: BotWeaponGeneratorHelper, localisationService: LocalisationService, botEquipmentModPoolService: BotEquipmentModPoolService, configServer: ConfigServer);
+    constructor(logger: ILogger, jsonUtil: JsonUtil, hashUtil: HashUtil, randomUtil: RandomUtil, probabilityHelper: ProbabilityHelper, databaseServer: DatabaseServer, itemHelper: ItemHelper, botEquipmentFilterService: BotEquipmentFilterService, itemFilterService: ItemFilterService, profileHelper: ProfileHelper, botWeaponModLimitService: BotWeaponModLimitService, botHelper: BotHelper, botGeneratorHelper: BotGeneratorHelper, botWeaponGeneratorHelper: BotWeaponGeneratorHelper, localisationService: LocalisationService, botEquipmentModPoolService: BotEquipmentModPoolService, configServer: ConfigServer);
     /**
      * Check mods are compatible and add to array
      * @param equipment Equipment item to add mods to
@@ -74,7 +72,7 @@ export declare class BotEquipmentModGenerator {
      * @param modSlot Slot to check
      * @returns true if it's a front/rear sight
      */
-    protected modIsFrontOrRearSight(modSlot: string): boolean;
+    protected modIsFrontOrRearSight(modSlot: string, tpl: string): boolean;
     /**
      * Does the provided mod details show the mod can hold a scope
      * @param modSlot e.g. mod_scope, mod_mount
@@ -83,10 +81,11 @@ export declare class BotEquipmentModGenerator {
      */
     protected modSlotCanHoldScope(modSlot: string, modsParentId: string): boolean;
     /**
-     * Set all scope mod chances to 100%
-     * @param modSpawnChances Chances objet to update
+     * Set mod spawn chances to defined amount
+     * @param modSpawnChances Chance dictionary to update
      */
-    protected setScopeSpawnChancesToFull(modSpawnChances: ModsChances): void;
+    protected adjustSlotSpawnChances(modSpawnChances: ModsChances, modSlotsToAdjust: string[], newChancePercent: number): void;
+    protected modSlotCanHoldMuzzleDevices(modSlot: string, modsParentId: string): boolean;
     protected sortModKeys(unsortedKeys: string[]): string[];
     /**
      * Get a Slot property for an item (chamber/cartridge/slot)
@@ -105,7 +104,6 @@ export declare class BotEquipmentModGenerator {
      */
     protected shouldModBeSpawned(itemSlot: Slot, modSlot: string, modSpawnChances: ModsChances): boolean;
     /**
-     *
      * @param modSlot Slot mod will fit into
      * @param isRandomisableSlot Will generate a randomised mod pool if true
      * @param modsParent Parent slot the item will be a part of
@@ -117,6 +115,13 @@ export declare class BotEquipmentModGenerator {
      * @returns ITemplateItem
      */
     protected chooseModToPutIntoSlot(modSlot: string, isRandomisableSlot: boolean, botWeaponSightWhitelist: Record<string, string[]>, botEquipBlacklist: EquipmentFilterDetails, itemModPool: Record<string, string[]>, weapon: Item[], ammoTpl: string, parentTemplate: ITemplateItem): [boolean, ITemplateItem];
+    /**
+     * Temp fix to prevent certain combinations of weapons with mods that are known to be incompatible
+     * @param weapon Weapon
+     * @param modTpl Mod to check compatibility with weapon
+     * @returns True if incompatible
+     */
+    protected weaponModComboIsIncompatible(weapon: Item[], modTpl: string): boolean;
     /**
      * Create a mod item with parameters as properties
      * @param modId _id
@@ -180,7 +185,7 @@ export declare class BotEquipmentModGenerator {
      * Ammo is not put into the magazine directly but assigned to the magazine's slots: The "camora_xxx" slots.
      * This function is a helper called by generateModsForItem for mods with parent type "CylinderMagazine"
      * @param items The items where the CylinderMagazine's camora are appended to
-     * @param modPool modPool which should include available cartrigdes
+     * @param modPool modPool which should include available cartridges
      * @param parentId The CylinderMagazine's UID
      * @param parentTemplate The CylinderMagazine's template
      */
@@ -193,10 +198,12 @@ export declare class BotEquipmentModGenerator {
     protected mergeCamoraPoolsTogether(camorasWithShells: Record<string, string[]>): string[];
     /**
      * Filter out non-whitelisted weapon scopes
+     * Controlled by bot.json weaponSightWhitelist
+     * e.g. filter out rifle scopes from SMGs
      * @param weapon Weapon scopes will be added to
      * @param scopes Full scope pool
-     * @param botWeaponSightWhitelist whitelist of scope types by weapon base type
-     * @returns array of scope tpls that have been filtered
+     * @param botWeaponSightWhitelist Whitelist of scope types by weapon base type
+     * @returns Array of scope tpls that have been filtered to just ones allowed for that weapon type
      */
     protected filterSightsByWeaponType(weapon: Item, scopes: string[], botWeaponSightWhitelist: Record<string, string[]>): string[];
 }

@@ -1,16 +1,18 @@
-import { MinMax } from "../models/common/MinMax";
-import { Inventory } from "../models/eft/common/tables/IBotBase";
-import { Item } from "../models/eft/common/tables/IItem";
-import { Grid, ITemplateItem } from "../models/eft/common/tables/ITemplateItem";
-import { EquipmentSlots } from "../models/enums/EquipmentSlots";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { LocalisationService } from "../services/LocalisationService";
-import { HashUtil } from "../utils/HashUtil";
-import { RandomUtil } from "../utils/RandomUtil";
-import { ContainerHelper } from "./ContainerHelper";
-import { InventoryHelper } from "./InventoryHelper";
-import { ItemHelper } from "./ItemHelper";
+import { ContainerHelper } from "@spt-aki/helpers/ContainerHelper";
+import { InventoryHelper } from "@spt-aki/helpers/InventoryHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { WeightedRandomHelper } from "@spt-aki/helpers/WeightedRandomHelper";
+import { Inventory } from "@spt-aki/models/eft/common/tables/IBotBase";
+import { GenerationData } from "@spt-aki/models/eft/common/tables/IBotType";
+import { Item } from "@spt-aki/models/eft/common/tables/IItem";
+import { Grid, ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
+import { EquipmentSlots } from "@spt-aki/models/enums/EquipmentSlots";
+import { ItemAddedResult } from "@spt-aki/models/enums/ItemAddedResult";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { HashUtil } from "@spt-aki/utils/HashUtil";
+import { RandomUtil } from "@spt-aki/utils/RandomUtil";
 export declare class BotWeaponGeneratorHelper {
     protected logger: ILogger;
     protected databaseServer: DatabaseServer;
@@ -18,22 +20,23 @@ export declare class BotWeaponGeneratorHelper {
     protected randomUtil: RandomUtil;
     protected hashUtil: HashUtil;
     protected inventoryHelper: InventoryHelper;
+    protected weightedRandomHelper: WeightedRandomHelper;
     protected localisationService: LocalisationService;
     protected containerHelper: ContainerHelper;
-    constructor(logger: ILogger, databaseServer: DatabaseServer, itemHelper: ItemHelper, randomUtil: RandomUtil, hashUtil: HashUtil, inventoryHelper: InventoryHelper, localisationService: LocalisationService, containerHelper: ContainerHelper);
+    constructor(logger: ILogger, databaseServer: DatabaseServer, itemHelper: ItemHelper, randomUtil: RandomUtil, hashUtil: HashUtil, inventoryHelper: InventoryHelper, weightedRandomHelper: WeightedRandomHelper, localisationService: LocalisationService, containerHelper: ContainerHelper);
     /**
      * Get a randomized number of bullets for a specific magazine
-     * @param magCounts min and max count of magazines
+     * @param magCounts Weights of magazines
      * @param magTemplate magazine to generate bullet count for
      * @returns bullet count number
      */
-    getRandomizedBulletCount(magCounts: MinMax, magTemplate: ITemplateItem): number;
+    getRandomizedBulletCount(magCounts: GenerationData, magTemplate: ITemplateItem): number;
     /**
      * Get a randomized count of magazines
      * @param magCounts min and max value returned value can be between
      * @returns numerical value of magazine count
      */
-    getRandomizedMagazineCount(magCounts: MinMax): number;
+    getRandomizedMagazineCount(magCounts: GenerationData): number;
     /**
      * Is this magazine cylinder related (revolvers and grenade launchers)
      * @param magazineParentName the name of the magazines parent
@@ -47,7 +50,7 @@ export declare class BotWeaponGeneratorHelper {
      * @param magTemplate template object of magazine
      * @returns Item array
      */
-    createMagazine(magazineTpl: string, ammoTpl: string, magTemplate: ITemplateItem): Item[];
+    createMagazineWithAmmo(magazineTpl: string, ammoTpl: string, magTemplate: ITemplateItem): Item[];
     /**
      * Add a specific number of cartridges to a bots inventory (defaults to vest and pockets)
      * @param ammoTpl Ammo tpl to add to vest/pockets
@@ -72,12 +75,12 @@ export declare class BotWeaponGeneratorHelper {
      * @param inventory Inventory to add item+children into
      * @returns a `boolean` indicating item was added
      */
-    addItemWithChildrenToEquipmentSlot(equipmentSlots: string[], parentId: string, parentTpl: string, itemWithChildren: Item[], inventory: Inventory): boolean;
+    addItemWithChildrenToEquipmentSlot(equipmentSlots: string[], parentId: string, parentTpl: string, itemWithChildren: Item[], inventory: Inventory): ItemAddedResult;
     /**
-     * is the provided item allowed inside a container
-     * @param slot location item wants to be placed in
-     * @param itemTpl item being placed
-     * @returns true if allowed
+     * Is the provided item allowed inside a container
+     * @param slotGrid Items sub-grid we want to place item inside
+     * @param itemTpl Item tpl being placed
+     * @returns True if allowed
      */
-    protected itemAllowedInContainer(slot: Grid, itemTpl: string): boolean;
+    protected itemAllowedInContainer(slotGrid: Grid, itemTpl: string): boolean;
 }

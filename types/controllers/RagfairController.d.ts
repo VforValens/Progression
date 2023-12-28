@@ -1,41 +1,43 @@
-import { RagfairOfferGenerator } from "../generators/RagfairOfferGenerator";
-import { HandbookHelper } from "../helpers/HandbookHelper";
-import { InventoryHelper } from "../helpers/InventoryHelper";
-import { ItemHelper } from "../helpers/ItemHelper";
-import { PaymentHelper } from "../helpers/PaymentHelper";
-import { ProfileHelper } from "../helpers/ProfileHelper";
-import { RagfairHelper } from "../helpers/RagfairHelper";
-import { RagfairOfferHelper } from "../helpers/RagfairOfferHelper";
-import { RagfairSellHelper } from "../helpers/RagfairSellHelper";
-import { RagfairSortHelper } from "../helpers/RagfairSortHelper";
-import { RagfairTaxHelper } from "../helpers/RagfairTaxHelper";
-import { TraderHelper } from "../helpers/TraderHelper";
-import { IPmcData } from "../models/eft/common/IPmcData";
-import { Item } from "../models/eft/common/tables/IItem";
-import { ITraderAssort } from "../models/eft/common/tables/ITrader";
-import { IItemEventRouterResponse } from "../models/eft/itemEvent/IItemEventRouterResponse";
-import { IAkiProfile } from "../models/eft/profile/IAkiProfile";
-import { IAddOfferRequestData, Requirement } from "../models/eft/ragfair/IAddOfferRequestData";
-import { IExtendOfferRequestData } from "../models/eft/ragfair/IExtendOfferRequestData";
-import { IGetItemPriceResult } from "../models/eft/ragfair/IGetItemPriceResult";
-import { IGetMarketPriceRequestData } from "../models/eft/ragfair/IGetMarketPriceRequestData";
-import { IGetOffersResult } from "../models/eft/ragfair/IGetOffersResult";
-import { IRagfairOffer } from "../models/eft/ragfair/IRagfairOffer";
-import { ISearchRequestData } from "../models/eft/ragfair/ISearchRequestData";
-import { IRagfairConfig } from "../models/spt/config/IRagfairConfig";
-import { ILogger } from "../models/spt/utils/ILogger";
-import { EventOutputHolder } from "../routers/EventOutputHolder";
-import { ConfigServer } from "../servers/ConfigServer";
-import { DatabaseServer } from "../servers/DatabaseServer";
-import { RagfairServer } from "../servers/RagfairServer";
-import { SaveServer } from "../servers/SaveServer";
-import { LocalisationService } from "../services/LocalisationService";
-import { PaymentService } from "../services/PaymentService";
-import { RagfairOfferService } from "../services/RagfairOfferService";
-import { RagfairPriceService } from "../services/RagfairPriceService";
-import { RagfairRequiredItemsService } from "../services/RagfairRequiredItemsService";
-import { HttpResponseUtil } from "../utils/HttpResponseUtil";
-import { TimeUtil } from "../utils/TimeUtil";
+import { RagfairOfferGenerator } from "@spt-aki/generators/RagfairOfferGenerator";
+import { HandbookHelper } from "@spt-aki/helpers/HandbookHelper";
+import { InventoryHelper } from "@spt-aki/helpers/InventoryHelper";
+import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { PaymentHelper } from "@spt-aki/helpers/PaymentHelper";
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import { RagfairHelper } from "@spt-aki/helpers/RagfairHelper";
+import { RagfairOfferHelper } from "@spt-aki/helpers/RagfairOfferHelper";
+import { RagfairSellHelper } from "@spt-aki/helpers/RagfairSellHelper";
+import { RagfairSortHelper } from "@spt-aki/helpers/RagfairSortHelper";
+import { TraderHelper } from "@spt-aki/helpers/TraderHelper";
+import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { Item } from "@spt-aki/models/eft/common/tables/IItem";
+import { ITraderAssort } from "@spt-aki/models/eft/common/tables/ITrader";
+import { IItemEventRouterResponse } from "@spt-aki/models/eft/itemEvent/IItemEventRouterResponse";
+import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
+import { IAddOfferRequestData, Requirement } from "@spt-aki/models/eft/ragfair/IAddOfferRequestData";
+import { IExtendOfferRequestData } from "@spt-aki/models/eft/ragfair/IExtendOfferRequestData";
+import { IGetItemPriceResult } from "@spt-aki/models/eft/ragfair/IGetItemPriceResult";
+import { IGetMarketPriceRequestData } from "@spt-aki/models/eft/ragfair/IGetMarketPriceRequestData";
+import { IGetOffersResult } from "@spt-aki/models/eft/ragfair/IGetOffersResult";
+import { IGetRagfairOfferByIdRequest } from "@spt-aki/models/eft/ragfair/IGetRagfairOfferByIdRequest";
+import { IRagfairOffer } from "@spt-aki/models/eft/ragfair/IRagfairOffer";
+import { ISearchRequestData } from "@spt-aki/models/eft/ragfair/ISearchRequestData";
+import { IProcessBuyTradeRequestData } from "@spt-aki/models/eft/trade/IProcessBuyTradeRequestData";
+import { IRagfairConfig } from "@spt-aki/models/spt/config/IRagfairConfig";
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { EventOutputHolder } from "@spt-aki/routers/EventOutputHolder";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
+import { RagfairServer } from "@spt-aki/servers/RagfairServer";
+import { SaveServer } from "@spt-aki/servers/SaveServer";
+import { LocalisationService } from "@spt-aki/services/LocalisationService";
+import { PaymentService } from "@spt-aki/services/PaymentService";
+import { RagfairOfferService } from "@spt-aki/services/RagfairOfferService";
+import { RagfairPriceService } from "@spt-aki/services/RagfairPriceService";
+import { RagfairRequiredItemsService } from "@spt-aki/services/RagfairRequiredItemsService";
+import { RagfairTaxService } from "@spt-aki/services/RagfairTaxService";
+import { HttpResponseUtil } from "@spt-aki/utils/HttpResponseUtil";
+import { TimeUtil } from "@spt-aki/utils/TimeUtil";
 /**
  * Handle RagfairCallback events
  */
@@ -50,7 +52,7 @@ export declare class RagfairController {
     protected itemHelper: ItemHelper;
     protected saveServer: SaveServer;
     protected ragfairSellHelper: RagfairSellHelper;
-    protected ragfairTaxHelper: RagfairTaxHelper;
+    protected ragfairTaxService: RagfairTaxService;
     protected ragfairSortHelper: RagfairSortHelper;
     protected ragfairOfferHelper: RagfairOfferHelper;
     protected profileHelper: ProfileHelper;
@@ -66,12 +68,19 @@ export declare class RagfairController {
     protected localisationService: LocalisationService;
     protected configServer: ConfigServer;
     protected ragfairConfig: IRagfairConfig;
-    constructor(logger: ILogger, timeUtil: TimeUtil, httpResponse: HttpResponseUtil, eventOutputHolder: EventOutputHolder, ragfairServer: RagfairServer, ragfairPriceService: RagfairPriceService, databaseServer: DatabaseServer, itemHelper: ItemHelper, saveServer: SaveServer, ragfairSellHelper: RagfairSellHelper, ragfairTaxHelper: RagfairTaxHelper, ragfairSortHelper: RagfairSortHelper, ragfairOfferHelper: RagfairOfferHelper, profileHelper: ProfileHelper, paymentService: PaymentService, handbookHelper: HandbookHelper, paymentHelper: PaymentHelper, inventoryHelper: InventoryHelper, traderHelper: TraderHelper, ragfairHelper: RagfairHelper, ragfairOfferService: RagfairOfferService, ragfairRequiredItemsService: RagfairRequiredItemsService, ragfairOfferGenerator: RagfairOfferGenerator, localisationService: LocalisationService, configServer: ConfigServer);
+    constructor(logger: ILogger, timeUtil: TimeUtil, httpResponse: HttpResponseUtil, eventOutputHolder: EventOutputHolder, ragfairServer: RagfairServer, ragfairPriceService: RagfairPriceService, databaseServer: DatabaseServer, itemHelper: ItemHelper, saveServer: SaveServer, ragfairSellHelper: RagfairSellHelper, ragfairTaxService: RagfairTaxService, ragfairSortHelper: RagfairSortHelper, ragfairOfferHelper: RagfairOfferHelper, profileHelper: ProfileHelper, paymentService: PaymentService, handbookHelper: HandbookHelper, paymentHelper: PaymentHelper, inventoryHelper: InventoryHelper, traderHelper: TraderHelper, ragfairHelper: RagfairHelper, ragfairOfferService: RagfairOfferService, ragfairRequiredItemsService: RagfairRequiredItemsService, ragfairOfferGenerator: RagfairOfferGenerator, localisationService: LocalisationService, configServer: ConfigServer);
     getOffers(sessionID: string, searchRequest: ISearchRequestData): IGetOffersResult;
+    /**
+     *  Handle client/ragfair/offer/findbyid
+     * @param sessionId Player id
+     * @param request Request data
+     * @returns IRagfairOffer
+     */
+    getOfferById(sessionId: string, request: IGetRagfairOfferByIdRequest): IRagfairOffer;
     /**
      * Get offers for the client based on type of search being performed
      * @param searchRequest Client search request data
-     * @param itemsToAdd
+     * @param itemsToAdd comes from ragfairHelper.filterCategories()
      * @param traderAssorts Trader assorts
      * @param pmcProfile Player profile
      * @returns array of offers
@@ -83,7 +92,7 @@ export declare class RagfairController {
      * @param offers ragfair offers to get categories for
      * @returns record with tpls + counts
      */
-    protected getSpecificCategories(searchRequest: ISearchRequestData, offers: IRagfairOffer[]): Record<string, number>;
+    protected getSpecificCategories(pmcProfile: IPmcData, searchRequest: ISearchRequestData, offers: IRagfairOffer[]): Record<string, number>;
     /**
      * Add Required offers to offers result
      * @param searchRequest Client search request data
@@ -110,6 +119,9 @@ export declare class RagfairController {
     protected setTraderOfferStackSize(offer: IRagfairOffer): void;
     protected isLinkedSearch(info: ISearchRequestData): boolean;
     protected isRequiredSearch(info: ISearchRequestData): boolean;
+    /**
+     * Check all profiles and sell player offers / send player money for listing if it sold
+     */
     update(): void;
     /**
      * Called when creating an offer on flea, fills values in top right corner
@@ -120,11 +132,23 @@ export declare class RagfairController {
     /**
      * List item(s) on flea for sale
      * @param pmcData Player profile
-     * @param offerRequest Flea list creatio offer
+     * @param offerRequest Flea list creation offer
      * @param sessionID Session id
      * @returns IItemEventRouterResponse
      */
     addPlayerOffer(pmcData: IPmcData, offerRequest: IAddOfferRequestData, sessionID: string): IItemEventRouterResponse;
+    /**
+     * Charge player a listing fee for using flea, pulls charge from data previously sent by client
+     * @param sessionID Player id
+     * @param rootItem Base item being listed (used when client tax cost not found and must be done on server)
+     * @param pmcData Player profile
+     * @param requirementsPriceInRub Rouble cost player chose for listing (used when client tax cost not found and must be done on server)
+     * @param itemStackCount How many items were listed in player (used when client tax cost not found and must be done on server)
+     * @param offerRequest Add offer request object from client
+     * @param output IItemEventRouterResponse
+     * @returns True if charging tax to player failed
+     */
+    protected chargePlayerTaxFee(sessionID: string, rootItem: Item, pmcData: IPmcData, requirementsPriceInRub: number, itemStackCount: number, offerRequest: IAddOfferRequestData, output: IItemEventRouterResponse): boolean;
     /**
      * Is the item to be listed on the flea valid
      * @param offerRequest Client offer request
@@ -149,6 +173,20 @@ export declare class RagfairController {
     createPlayerOffer(profile: IAkiProfile, requirements: Requirement[], items: Item[], sellInOnePiece: boolean, amountToSend: number): IRagfairOffer;
     getAllFleaPrices(): Record<string, number>;
     getStaticPrices(): Record<string, number>;
+    /**
+     * User requested removal of the offer, actually reduces the time to 71 seconds,
+     * allowing for the possibility of extending the auction before it's end time
+     * @param offerId offer to 'remove'
+     * @param sessionID Players id
+     * @returns IItemEventRouterResponse
+     */
     removeOffer(offerId: string, sessionID: string): IItemEventRouterResponse;
     extendOffer(info: IExtendOfferRequestData, sessionID: string): IItemEventRouterResponse;
+    /**
+     * Create a basic trader request object with price and currency type
+     * @param currency What currency: RUB, EURO, USD
+     * @param value Amount of currency
+     * @returns IProcessBuyTradeRequestData
+     */
+    protected createBuyTradeRequestObject(currency: string, value: number): IProcessBuyTradeRequestData;
 }
