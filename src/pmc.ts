@@ -4,6 +4,7 @@ import {
     EquipmentFilters,
     IBotConfig
 } from "@spt-aki/models/spt/config/IBotConfig";
+import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
 import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { PmcConfig } from "../config/ts/pmc";
@@ -11,12 +12,14 @@ import { PmcConfig } from "../config/ts/pmc";
 export class PMCs 
 {
     private botConfig: IBotConfig;
+    private pmcConfig: IPmcConfig;
     private databaseServer: IDatabaseTables;
     private modConfig: PmcConfig = require("../config/pmc.json");
 
-    constructor(botConfig: IBotConfig, databaseServer: DatabaseServer) 
+    constructor(botConfig: IBotConfig, pmcConfig: IPmcConfig, databaseServer: DatabaseServer) 
     {
         this.botConfig = botConfig;
+        this.pmcConfig = pmcConfig;
         this.databaseServer = databaseServer.getTables();
     }
 
@@ -30,7 +33,7 @@ export class PMCs
     // Set Bot Level Delta to 1 from Default of 10
     // Doing this fixes the issue with bots being up to 10 levels higher than character level, by default, and thus generating with gear they **should not** have.
         const botRelativeDelta = this.modConfig.botRelativeDelta;
-        this.botConfig.pmc.botRelativeLevelDeltaMax = botRelativeDelta;
+        this.pmcConfig.botRelativeLevelDeltaMax = botRelativeDelta;
 
         // Gear Arrays
         // Primary Weapon Array
@@ -1331,13 +1334,18 @@ export class PMCs
                     },
                     generation: {
                         drugs: {
-                            min: 0,
-                            max: 1,
+                            weights: {
+                                0: 1,
+                                1: 1
+                            },
+
                             whitelist: []
                         },
                         grenades: {
-                            min: 0,
-                            max: 1,
+                            weights: {
+                                0: 2,
+                                1: 1
+                            },
                             whitelist: [
                                 "5710c24ad2720bc3458b45a3",
                                 "58d3db5386f77426186285a0",
@@ -1345,23 +1353,62 @@ export class PMCs
                             ]
                         },
                         healing: {
-                            min: 0,
-                            max: 1,
+                            weights: {
+                                0: 1,
+                                1: 2
+                            },
+                            whitelist: [
+                                "5e831507ea0a7c419c2f9bd9",
+                                "5755356824597772cb798962",
+                                "590c661e86f7741e566b646a",
+                                "590c657e86f77412b013051d",
+                                "544fb37f4bdc2dee738b4567",
+                                "544fb3364bdc2d34748b456a",
+                                "544fb25a4bdc2dfb738b4567"
+                            ]
+                        },
+                        backpackLoot: {
+                            weights: {
+                                0: 1,
+                                1: 2,
+                                2: 4,
+                                3: 2,
+                                4: 1,
+                                5: 1
+                            },
                             whitelist: []
                         },
-                        looseLoot: {
-                            min: 0,
-                            max: 5,
+                        pocketLoot: {
+                            weights: {
+                                0: 3,
+                                1: 4,
+                                2: 1,
+                                3: 1
+                            },
+                            whitelist: []
+                        },
+                        vestLoot: {
+                            weights: {
+                                0: 2,
+                                1: 5,
+                                2: 1,
+                                3: 1,
+                                4: 1
+                            },
                             whitelist: []
                         },
                         magazines: {
-                            min: 1,
-                            max: 3,
+                            weights: {
+                                0: 0,
+                                1: 2,
+                                2: 1
+                            },
                             whitelist: []
                         },
                         stims: {
-                            min: 0,
-                            max: 0,
+                            weights: {
+                                0: 1
+                            },
                             whitelist: []
                         }
                     },
@@ -1423,13 +1470,18 @@ export class PMCs
                     },
                     generation: {
                         drugs: {
-                            min: 0,
-                            max: 2,
+                            weights: {
+                                0: 1,
+                                1: 1
+                            },
+
                             whitelist: []
                         },
                         grenades: {
-                            min: 0,
-                            max: 3,
+                            weights: {
+                                0: 2,
+                                1: 1
+                            },
                             whitelist: [
                                 "5710c24ad2720bc3458b45a3",
                                 "58d3db5386f77426186285a0",
@@ -1437,64 +1489,65 @@ export class PMCs
                             ]
                         },
                         healing: {
-                            min: 0,
-                            max: 2,
+                            weights: {
+                                0: 1,
+                                1: 2
+                            },
+                            whitelist: [
+                                "5e831507ea0a7c419c2f9bd9",
+                                "5755356824597772cb798962",
+                                "590c661e86f7741e566b646a",
+                                "590c657e86f77412b013051d",
+                                "544fb37f4bdc2dee738b4567",
+                                "544fb3364bdc2d34748b456a",
+                                "544fb25a4bdc2dfb738b4567"
+                            ]
+                        },
+                        backpackLoot: {
+                            weights: {
+                                0: 1,
+                                1: 2,
+                                2: 4,
+                                3: 2,
+                                4: 1,
+                                5: 1
+                            },
                             whitelist: []
                         },
-                        looseLoot: {
-                            min: 0,
-                            max: 8,
+                        pocketLoot: {
+                            weights: {
+                                0: 3,
+                                1: 4,
+                                2: 1,
+                                3: 1
+                            },
+                            whitelist: []
+                        },
+                        vestLoot: {
+                            weights: {
+                                0: 2,
+                                1: 5,
+                                2: 1,
+                                3: 1,
+                                4: 1
+                            },
                             whitelist: []
                         },
                         magazines: {
-                            min: 1,
-                            max: 4,
+                            weights: {
+                                0: 0,
+                                1: 2,
+                                2: 1
+                            },
                             whitelist: []
                         },
                         stims: {
-                            min: 0,
-                            max: 1,
+                            weights: {
+                                0: 1
+                            },
                             whitelist: []
                         }
                     },
-                    randomisedWeaponModSlots: [
-                        "mod_scope",
-                        "mod_scope_000",
-                        "mod_scope_001",
-                        "mod_scope_002",
-                        "mod_scope_003",
-                        "mod_handguard",
-                        "mod_magazine",
-                        "mod_muzzle",
-                        "mod_bipod",
-                        "mod_muzzle_000",
-                        "mod_charge",
-                        "mod_reciever",
-                        "mod_trigger",
-                        "mod_gas_block",
-                        "mod_pistol_grip",
-                        "mod_pistol_grip_akms",
-                        "mod_foregrip",
-                        "mod_stock",
-                        "mod_stock_000",
-                        "mod_stock_001",
-                        "mod_stock_akms",
-                        "mod_stock_axis",
-                        "mod_mount_000",
-                        "mod_mount_001",
-                        "mod_mount_002",
-                        "mod_mount_003",
-                        "mod_mount_004",
-                        "mod_mount_005",
-                        "mod_mount_006",
-                        "mod_tactical",
-                        "mod_tactical_2",
-                        "mod_tactical_000",
-                        "mod_tactical_001",
-                        "mod_tactical_002",
-                        "mod_tactical_003"
-                    ],
-                    randomisedArmorSlots: ["Headwear"],
                     equipment: {
                         ArmBand: 100,
                         FirstPrimaryWeapon: 100,
@@ -1504,48 +1557,6 @@ export class PMCs
                         Backpack: 90,
                         Headwear: 100,
                         FaceCover: 100
-                    }
-                },
-                {
-                    levelRange: {
-                        min: 31,
-                        max: 100
-                    },
-                    generation: {
-                        drugs: {
-                            min: 0,
-                            max: 2,
-                            whitelist: []
-                        },
-                        grenades: {
-                            min: 0,
-                            max: 4,
-                            whitelist: [
-                                "5710c24ad2720bc3458b45a3",
-                                "58d3db5386f77426186285a0",
-                                "5448be9a4bdc2dfd2f8b456a"
-                            ]
-                        },
-                        healing: {
-                            min: 0,
-                            max: 3,
-                            whitelist: []
-                        },
-                        looseLoot: {
-                            min: 0,
-                            max: 12,
-                            whitelist: []
-                        },
-                        magazines: {
-                            min: 2,
-                            max: 5,
-                            whitelist: []
-                        },
-                        stims: {
-                            min: 0,
-                            max: 2,
-                            whitelist: []
-                        }
                     },
                     randomisedWeaponModSlots: [
                         "mod_scope",
@@ -1584,7 +1595,93 @@ export class PMCs
                         "mod_tactical_002",
                         "mod_tactical_003"
                     ],
-                    randomisedArmorSlots: ["Headwear"],
+                    randomisedArmorSlots: ["Headwear"]
+                },
+                {
+                    levelRange: {
+                        min: 31,
+                        max: 100
+                    },
+                    generation: {
+                        drugs: {
+                            weights: {
+                                0: 1,
+                                1: 1
+                            },
+
+                            whitelist: []
+                        },
+                        grenades: {
+                            weights: {
+                                0: 2,
+                                1: 1
+                            },
+                            whitelist: [
+                                "5710c24ad2720bc3458b45a3",
+                                "58d3db5386f77426186285a0",
+                                "5448be9a4bdc2dfd2f8b456a"
+                            ]
+                        },
+                        healing: {
+                            weights: {
+                                0: 1,
+                                1: 2
+                            },
+                            whitelist: [
+                                "5e831507ea0a7c419c2f9bd9",
+                                "5755356824597772cb798962",
+                                "590c661e86f7741e566b646a",
+                                "590c657e86f77412b013051d",
+                                "544fb37f4bdc2dee738b4567",
+                                "544fb3364bdc2d34748b456a",
+                                "544fb25a4bdc2dfb738b4567"
+                            ]
+                        },
+                        backpackLoot: {
+                            weights: {
+                                0: 1,
+                                1: 2,
+                                2: 4,
+                                3: 2,
+                                4: 1,
+                                5: 1
+                            },
+                            whitelist: []
+                        },
+                        pocketLoot: {
+                            weights: {
+                                0: 3,
+                                1: 4,
+                                2: 1,
+                                3: 1
+                            },
+                            whitelist: []
+                        },
+                        vestLoot: {
+                            weights: {
+                                0: 2,
+                                1: 5,
+                                2: 1,
+                                3: 1,
+                                4: 1
+                            },
+                            whitelist: []
+                        },
+                        magazines: {
+                            weights: {
+                                0: 0,
+                                1: 2,
+                                2: 1
+                            },
+                            whitelist: []
+                        },
+                        stims: {
+                            weights: {
+                                0: 1
+                            },
+                            whitelist: []
+                        }
+                    },
                     equipment: {
                         ArmBand: 100,
                         FirstPrimaryWeapon: 100,
@@ -1593,8 +1690,47 @@ export class PMCs
                         Eyewear: 85,
                         Backpack: 100,
                         Headwear: 100,
-                        FaceCover: 100
-                    }
+                        FaceCover: 100,
+                        clothing: 0
+                    },
+                    randomisedWeaponModSlots: [
+                        "mod_scope",
+                        "mod_scope_000",
+                        "mod_scope_001",
+                        "mod_scope_002",
+                        "mod_scope_003",
+                        "mod_handguard",
+                        "mod_magazine",
+                        "mod_muzzle",
+                        "mod_bipod",
+                        "mod_muzzle_000",
+                        "mod_charge",
+                        "mod_reciever",
+                        "mod_trigger",
+                        "mod_gas_block",
+                        "mod_pistol_grip",
+                        "mod_pistol_grip_akms",
+                        "mod_foregrip",
+                        "mod_stock",
+                        "mod_stock_000",
+                        "mod_stock_001",
+                        "mod_stock_akms",
+                        "mod_stock_axis",
+                        "mod_mount_000",
+                        "mod_mount_001",
+                        "mod_mount_002",
+                        "mod_mount_003",
+                        "mod_mount_004",
+                        "mod_mount_005",
+                        "mod_mount_006",
+                        "mod_tactical",
+                        "mod_tactical_2",
+                        "mod_tactical_000",
+                        "mod_tactical_001",
+                        "mod_tactical_002",
+                        "mod_tactical_003"
+                    ],
+                    randomisedArmorSlots: ["Headwear"]
                 }
             ],
             blacklist: [
@@ -1607,7 +1743,7 @@ export class PMCs
                     cartridge: {}
                 }
             ],
-            weightingAdjustments: [],
+            weightingAdjustmentsByPlayerLevel: [],
             whitelist: [
                 {
                     levelRange: {
@@ -1643,7 +1779,8 @@ export class PMCs
                     }
                 }
             ],
-            clothing: []
+            weightingAdjustmentsByBotLevel: [],
+            forceStock: false
         };
 
         const progressionWhitelistLL2PMC: EquipmentFilterDetails = {
