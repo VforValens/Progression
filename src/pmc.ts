@@ -39,6 +39,7 @@ export class PMCs
         // Primary Weapon Array
         const primaryWeaponArrayLL1 = [
             "5926bb2186f7744b1c6c6e60",
+            "5ae08f0a5acfc408fb1398a1",
             "574d967124597745970e7c94",
             "57dc2fa62459775949412633",
             "57f3c6bd24597738e730fa2f",
@@ -56,15 +57,13 @@ export class PMCs
             "5a38e6bac4a2826c6e06d79b",
             "56dee2bdd2720bc8328b4567",
             "5447a9cd4bdc2dbd208b4567",
-            "5d2f0d8048f0356c925bc3b0",
-            "5d2f0d8048f0356c925bc3b0",
+            "5d2f0d8048f0356c925bc3b0",            
             "5fc3e272f8b6a877a729eac5",
             "58948c8e86f77409493f7266",
             "59e6687d86f77411d949b251",
             "54491c4f4bdc2db1078b4568",
             "5ba26383d4351e00334c93d9",
             "587e02ff24597743df3deaeb",
-            "5c501a4d2e221602b412b540",
             "60db29ce99594040e04c4a27",
             "5580223e4bdc2d1c128b457f",
             "61f7c9e189e6fb1a5e3ea78d",
@@ -73,6 +72,7 @@ export class PMCs
         ];
         const primaryWeaponArrayLL2 = primaryWeaponArrayLL1.concat(
             ...[
+                "643ea5b23db6f9f57107d9fd",
                 "5644bd2b4bdc2d3b4c8b4572",
                 "59ff346386f77477562ff5e2",
                 "5ab8e9fcd8ce870019439434",
@@ -90,19 +90,22 @@ export class PMCs
                 "5aafa857e5b5b00018480968",
                 "5bfea6e90db834001b7347f3",
                 "576165642459773c7a400233",
-                "618428466ef05c2ce828f218"
+                "5c501a4d2e221602b412b540",
+                "606dae0ab0e443224b421bb7"
             ]
         );
         const primaryWeaponArrayLL3 = primaryWeaponArrayLL2.concat(
             ...[
+                "5a0ec13bfcdbcb00165aa685",
                 "5ac66d725acfc43b321d4b60",
-                "5ac4cd105acfc40016339859",
+                "5abcbc27d8ce8700182eceeb",
                 "5ac66d2e5acfc43b321d4b53",
                 "5ac66d9b5acfc4001633997a",
+                "6499849fc93611967b034949",
                 "5beed0f50db834001c062b12",
                 "57838ad32459774a17445cd2",
-                "5c46fbd72e2216398b5a8c9c",
                 "5e848cc2988a8701445df1e8",
+                "5c46fbd72e2216398b5a8c9c",
                 "62e14904c2699c0ec93adc47",
                 "588892092459774ac91d4b11",
                 "5c488a752e221602b412af63",
@@ -112,17 +115,17 @@ export class PMCs
                 "5a367e5dc4a282000e49738f",
                 "5df8ce05b11454561e39243b",
                 "6176aca650224f204c1da3fb",
-                "5ac66cb05acfc40198510a10",
                 "5d43021ca4b9362eab4b5e25",
                 "5fc3f2d5900b1d5091531e57",
-                "5fb64bc92b1b027b1f50bcf2",
-                "5df24cf80dee1b22f862e9bc"
+                "5df24cf80dee1b22f862e9bc",
+                "6165ac306ef05c2ce828ef74",
+                "6183afd850224f204c1da514"
             ]
         );
         const primaryWeaponArrayLL4 = [
+            "5ac66cb05acfc40198510a10",
             "576165642459773c7a400233",
             "606dae0ab0e443224b421bb7",
-            "5e848cc2988a8701445df1e8",
             "58948c8e86f77409493f7266",
             "5fc3f2d5900b1d5091531e57",
             "5fb64bc92b1b027b1f50bcf2",
@@ -155,16 +158,15 @@ export class PMCs
 
         // Holster Array
         const holsterArrayLL1 = [
-            "624c2e8614da335f1e034d8c",
             "5448bd6b4bdc2dfc2f8b4569",
             "56e0598dd2720bb5668b45a6",
             "571a12c42459771f627b58a0",
             "576a581d2459771e7b1bc4f1",
-            "602a9740da11d6478d5a06dc",
             "5a17f98cfcdbcb0980087290",
-            "5e81c3cbac2bb513793cdc75",
-            "5cadc190ae921500103bb3b6",
+            "602a9740da11d6478d5a06dc",
             "56d59856d2720bd8418b456a",
+            "5cadc190ae921500103bb3b6",
+            "5e81c3cbac2bb513793cdc75",
             "5a7ae0c351dfba0017554310"
         ];
         const holsterArrayLL2 = holsterArrayLL1.concat(
@@ -174,18 +176,21 @@ export class PMCs
                 "63088377b5cd696784087147",
                 "5d3eb3b0a4b93615055e84d2",
                 "6193a720f8ee7e52e42109ed",
-                "61a4c8884f95bc3b2c5dc96f"
+                "61a4c8884f95bc3b2c5dc96f",
+                "64748cb8de82c85eaf0a273a"
             ]
         );
         const holsterArrayLL3 = holsterArrayLL2.concat(
-            ...["633ec7c2a6918cb895019c6c"]
+            ...["633ec7c2a6918cb895019c6c",
+                "5b1fa9b25acfc40018633c01"]
         );
         const holsterArrayLL4 = [
             "56d59856d2720bd8418b456a",
             "6193a720f8ee7e52e42109ed",
             "633ec7c2a6918cb895019c6c",
             "5a7ae0c351dfba0017554310",
-            "5e81c3cbac2bb513793cdc75"
+            "5e81c3cbac2bb513793cdc75",
+            "5b1fa9b25acfc40018633c01"
         ];
 
         // Backpack Array
@@ -202,7 +207,9 @@ export class PMCs
             ...[
                 "5d5d940f86f7742797262046",
                 "6038d614d10cbf667352dd44",
-                "618bb76513f5097c8d5aa2d5"
+                "618bb76513f5097c8d5aa2d5",
+                "60a272cc93ef783291411d8e",
+                "59e763f286f7742ee57895da"
             ]
         );
         const backpackArrayLL3 = backpackArrayLL2.concat(
@@ -216,7 +223,8 @@ export class PMCs
                 "5f5e46b96bdad616ad46d613",
                 "618cfae774bb2d036a049e7c",
                 "62a1b7fbc30cfa1d366af586",
-                "5df8a4d786f77412672a1e3b"
+                "5df8a4d786f77412672a1e3b",
+                "59e763f286f7742ee57895da"
             ]
         );
         const backpackArrayLL4 = [
@@ -234,17 +242,18 @@ export class PMCs
 
         // Tacvest Array
         const tacticalVestArrayLL1 = [
-            "5c0e446786f7742013381639",
-            "5c0e446786f7742013381639",
             "5929a2a086f7744f4b234d43",
             "59e7643b86f7742cbf2c109a",
             "5e4abc1f86f774069619fbaa",
             "6034d0230ca681766b6a0fb5",
+            "64be7095047e826eae02b0c1",
+            "64be7110bf597ba84a0a41ea",
             "6034cf5fffd42c541047f72e",
             "572b7adb24597762ae139821"
         ];
         const tacticalVestArrayLL2 = tacticalVestArrayLL1.concat(
             ...[
+                "5c0e446786f7742013381639",
                 "544a5caa4bdc2d1a388b4568",
                 "5d5d646386f7742797261fd9",
                 "61bc85697113f767765c7fe7",
@@ -264,7 +273,6 @@ export class PMCs
                 "60a3c70cde5f453f634816a3",
                 "639343fce101f4caa40a4ef3",
                 "5648a69d4bdc2ded0b8b457b",
-                "5ab8dced86f774646209ec87",
                 "5ab8dced86f774646209ec87",
                 "5c0e722886f7740458316a57",
                 "5d5d87f786f77427997cfaef",
@@ -367,13 +375,15 @@ export class PMCs
             "5c0e5edb86f77461f55ed1f7",
             "5648a7494bdc2d9d488b4583",
             "5ab8e4ed86f7742d8e50c7fa",
-            "5df8a2ca86f7740bfe6df777"
+            "5df8a2ca86f7740bfe6df777",
+            "64be79c487d1510151095552"
         ];
         const armorVestArrayLL2 = armorVestArrayLL1.concat(
             ...[
                 "5c0e655586f774045612eeb2",
                 "5b44d22286f774172b0c9de8",
-                "5c0e51be86f774598e797894"
+                "5c0e51be86f774598e797894",
+                "64abd93857958b4249003418"
             ]
         );
         const armorVestArrayLL3 = armorVestArrayLL2.concat(
@@ -485,15 +495,19 @@ export class PMCs
 
         // Ammo Arrays
         // 12.7x55mm Ammo Arrays
+        const ammo127x55ArrayLL2 = [
+            "5cadf6e5ae921500113bb973"
+        ];
+
         const ammo127x55ArrayLL3 = [
-            "5cadf6e5ae921500113bb973",
+            "5cadf6ddae9215051e1c23b2",
             "5cadf6eeae921500134b2799"
         ];
 
         // 7.62x54R Ammo Arrays
-        const ammo762x54ArrayLL1 = ["5887431f2459777e1612938f"];
+        const ammo762x54ArrayLL1 = ["64b8f7968532cf95ee0a0dbf", "64b8f7b5389d7ffd620ccba2", "64b8f7c241772715af0f9c3d"];
         const ammo762x54ArrayLL2 = ammo762x54ArrayLL1.concat(
-            ...["5e023cf8186a883be655e54f"]
+            ...["5887431f2459777e1612938f", "5e023cf8186a883be655e54f"]
         );
         const ammo762x54ArrayLL3 = ammo762x54ArrayLL2.concat(
             ...["59e77a2386f7742ee578960a", "560d61e84bdc2da74d8b4571"]
@@ -505,25 +519,26 @@ export class PMCs
             ...["5e023e53d4353e3302577c4c"]
         );
         const ammo762x51ArrayLL3 = ammo762x51ArrayLL2.concat(
-            ...["5a6086ea4f39f99cd479502f"]
+            ...["5a6086ea4f39f99cd479502f", "58dd3ad986f77403051cba8f", "5a608bf24f39f98ffc77720e"]
         );
 
         // 7.62x39mm Ammo Arrays
-        const ammo762x39ArrayLL1 = ["59e4d3d286f774176a36250a"];
+        const ammo762x39ArrayLL1 = ["64b7af5a8532cf95ee0a0dbd", "64b7af734b75259c590fa895", "59e4d3d286f774176a36250a"];
         const ammo762x39ArrayLL2 = ammo762x39ArrayLL1.concat(
             ...["5656d7c34bdc2d9d198b4587", "59e4cf5286f7741778269d8a"]
         );
         const ammo762x39ArrayLL3 = ammo762x39ArrayLL2.concat(
-            ...["59e4d24686f7741776641ac7", "59e0d99486f7744a32234762"]
+            ...["59e4d24686f7741776641ac7", "59e0d99486f7744a32234762", "64b7af434b75259c590fa893"]
         );
 
         // 7.62x35mm or .300BLKOUT Ammo Arrays
-        const ammo762x35ArrayLL2 = ["5fbe3ffdf8b6a877a729ea82"];
+        const ammo762x35ArrayLL1 = ["5fbe3ffdf8b6a877a729ea82"];
+        const ammo762x35ArrayLL2 = ["6196364158ef8c428c287d9f", "6196365d58ef8c428c287da1"];
         const ammo762x35ArrayLL3 = ammo762x35ArrayLL2.concat(
             ...[
-                "6196365d58ef8c428c287da1",
                 "619636be6db0f2477964e710",
-                "5fd20ff893a8961fc660a954"
+                "5fd20ff893a8961fc660a954",
+                "64b8725c4b75259c590fa899"
             ]
         );
 
@@ -535,11 +550,9 @@ export class PMCs
             "573602322459776445391df1"
         ];
         const ammo762x25TTArrayLL2 = ammo762x25TTArrayLL1.concat(
-            ...["5736026a245977644601dc61", "573603c924597764442bd9cb"]
+            ...["5736026a245977644601dc61", "573603c924597764442bd9cb", "573603562459776430731618"]
         );
-        const ammo762x25TTArrayLL3 = ammo762x25TTArrayLL2.concat(
-            ...["573603562459776430731618"]
-        );
+        const ammo762x25TTArrayLL3 = ammo762x25TTArrayLL2;
 
         // 366 TKM Ammo Arrays.
         const ammo366TKMArrayLL1 = [
@@ -556,27 +569,28 @@ export class PMCs
         // 5.56 Ammo Arrays
         const ammo556x45ArrayLL1 = [
             "59e6920f86f77411d82aa167",
-            "59e6918f86f7746c9f75e849"
+            "59e6918f86f7746c9f75e849",
+            "59e68f6f86f7746c9f75e846",
+            "59e6927d86f77411da468256"
         ];
         const ammo556x45ArrayLL2 = ammo556x45ArrayLL1.concat(
-            ...["54527a984bdc2d4e668b4567", "59e68f6f86f7746c9f75e846"]
+            ...["54527a984bdc2d4e668b4567", "59e6906286f7746c9f75e847"]
         );
         const ammo556x45ArrayLL3 = ammo556x45ArrayLL2.concat(
-            ...["60194943740c5d77f6705eea", "59e690b686f7746c9f75e848"]
+            ...["60194943740c5d77f6705eea", "54527ac44bdc2d36668b4567", "59e690b686f7746c9f75e848"]
         );
 
         // 5.45 Ammo Arrays
         const ammo545x39ArrayLL1 = [
             "56dff338d2720bbd668b4569",
             "56dff4a2d2720bbd668b456a",
-            "56dff0bed2720bb0668b4567",
+            "56dff421d2720b5f5a8b4567",
             "56dff216d2720bbd668b4568"
         ];
         const ammo545x39ArrayLL2 = ammo545x39ArrayLL1.concat(
             ...[
                 "56dff2ced2720bb4668b4567",
-                "56dff4ecd2720b5f5a8b4568",
-                "56dff421d2720b5f5a8b4567"
+                "56dff4ecd2720b5f5a8b4568"
             ]
         );
         const ammo545x39ArrayLL3 = ammo545x39ArrayLL2.concat(
@@ -638,7 +652,8 @@ export class PMCs
         // 9x19mm Ammo Arrays
         const ammo9x19ArrayLL1 = [
             "58864a4f2459770fcc257101",
-            "5c3df7d588a4501f290594e5"
+            "5c3df7d588a4501f290594e5",
+            "64b7bbb74b75259c590fa897"
         ];
         const ammo9x19ArrayLL2 = ammo9x19ArrayLL1.concat(
             ...["56d59d3ad2720bdb418b4577"]
@@ -766,21 +781,24 @@ export class PMCs
             "5c0e51be86f774598e797894": 300,
             "5c0e53c886f7747fa54205c7": 300,
             "5c0e57ba86f7747fa141986d": 300,
-            "63737f448b28897f2802b874": 400,
-            "5f5f41476bdad616ad46d631": 400,
-            "5ca2151486f774244a3b8d30": 400,
-            "5b44d0de86f774503d30cba8": 350,
-            "5ab8e79e86f7742d8b372e78": 400,
-            "5e9dacf986f774054d6b89f4": 400,
-            "5ca21c6986f77479963115a7": 400,
-            "5e4abb5086f77406975c9342": 400,
+            "63737f448b28897f2802b874": 415,
+            "5f5f41476bdad616ad46d631": 420,
+            "5ca2151486f774244a3b8d30": 415,
+            "5b44d0de86f774503d30cba8": 375,
+            "5ab8e79e86f7742d8b372e78": 300,
+            "5e9dacf986f774054d6b89f4": 425,
+            "5ca21c6986f77479963115a7": 450,
+            "5e4abb5086f77406975c9342": 350,
             "60a283193cb70855c43a381d": 150,
-            "545cdb794bdc2d3a198b456a": 160,
+            "545cdb794bdc2d3a198b456a": 300,
             "5fd4c474dd870108a754b241": 160,
             "6038b4ca92ec1c3103795a0d": 160,
             "6038b4b292ec1c3103795a0b": 160,
             "5c0e625a86f7742d77340f62": 160,
-            "5c0e541586f7747fa54205c9": 160
+            "5c0e541586f7747fa54205c9": 160,
+            "64be79c487d1510151095552": 160,
+            "64abd93857958b4249003418": 180,
+            "609e8540d5c319764c2bc2e9": 350
         };
 
         this.databaseServer.bots.types.usec.inventory.equipment.ArmorVest =
@@ -797,22 +815,23 @@ export class PMCs
             "5e9dcf5986f7746c417435b3": 14,
             "60a2828e8689911a226117f9": 14,
             "5ca20d5986f774331e7c9602": 14,
-            "5d5d940f86f7742797262046": 14,
+            "5d5d940f86f7742797262046": 5,
             "6038d614d10cbf667352dd44": 8,
             "618bb76513f5097c8d5aa2d5": 14,
             "619cf0335771dd3c390269ae": 14,
             "545cdae64bdc2d39198b4568": 14,
-            "5ab8ebf186f7742d8b372e80": 14,
+            "5ab8ebf186f7742d8b372e80": 16,
             "5f5e467b0bc58666c37e7821": 14,
-            "5f5e46b96bdad616ad46d613": 14,
-            "618cfae774bb2d036a049e7c": 14,
+            "5f5e46b96bdad616ad46d613": 12,
+            "618cfae774bb2d036a049e7c": 16,
             "62a1b7fbc30cfa1d366af586": 14,
-            "639346cc1c8f182ad90c8972": 8,
-            "5c0e774286f77468413cc5b2": 8,
-            "5df8a4d786f77412672a1e3b": 10,
+            "639346cc1c8f182ad90c8972": 14,
+            "5c0e774286f77468413cc5b2": 16,
+            "5df8a4d786f77412672a1e3b": 14,
             "59e763f286f7742ee57895da": 14,
             "5b44c6ae86f7742d1627baea": 14,
-            "628e1ffc83ec92260c0f437f": 14
+            "628e1ffc83ec92260c0f437f": 14,
+            "60a272cc93ef783291411d8e": 14
         };
 
         this.databaseServer.bots.types.usec.inventory.equipment.Backpack =
@@ -880,6 +899,7 @@ export class PMCs
         // PMC FirstPrimaryWeapon Weighting
         pmcEquipment.FirstPrimaryWeapon = {
             "5926bb2186f7744b1c6c6e60": 20,
+            "5ae08f0a5acfc408fb1398a1": 20,
             "574d967124597745970e7c94": 20,
             "57dc2fa62459775949412633": 20,
             "57f3c6bd24597738e730fa2f": 20,
@@ -896,13 +916,13 @@ export class PMCs
             "5c07c60e0db834002330051f": 20,
             "5a38e6bac4a2826c6e06d79b": 20,
             "56dee2bdd2720bc8328b4567": 20,
-            "5447a9cd4bdc2dbd208b4567": 28,
+            "5447a9cd4bdc2dbd208b4567": 22,
             "5d2f0d8048f0356c925bc3b0": 10,
             "5fc3e272f8b6a877a729eac5": 30,
-            "58948c8e86f77409493f7266": 30,
+            "58948c8e86f77409493f7266": 22,
             "59e6687d86f77411d949b251": 25,
             "54491c4f4bdc2db1078b4568": 20,
-            "5ba26383d4351e00334c93d9": 15,
+            "5ba26383d4351e00334c93d9": 17,
             "587e02ff24597743df3deaeb": 20,
             "5c501a4d2e221602b412b540": 25,
             "60db29ce99594040e04c4a27": 20,
@@ -910,6 +930,7 @@ export class PMCs
             "61f7c9e189e6fb1a5e3ea78d": 20,
             "5e870397991fd70db46995c8": 20,
             "5de652c31b7e3716273428be": 25,
+            "643ea5b23db6f9f57107d9fd": 20,
             "5644bd2b4bdc2d3b4c8b4572": 20,
             "59ff346386f77477562ff5e2": 20,
             "5ab8e9fcd8ce870019439434": 20,
@@ -927,10 +948,14 @@ export class PMCs
             "5aafa857e5b5b00018480968": 20,
             "5bfea6e90db834001b7347f3": 20,
             "576165642459773c7a400233": 10,
+            "606dae0ab0e443224b421bb7": 15,
             "618428466ef05c2ce828f218": 10,
+            "5a0ec13bfcdbcb00165aa685": 15,
             "5ac66d725acfc43b321d4b60": 10,
+            "5abcbc27d8ce8700182eceeb": 15,
             "5ac66d2e5acfc43b321d4b53": 10,
             "5ac66d9b5acfc4001633997a": 10,
+            "6499849fc93611967b034949": 15,
             "5beed0f50db834001c062b12": 20,
             "57838ad32459774a17445cd2": 20,
             "5c46fbd72e2216398b5a8c9c": 20,
@@ -949,7 +974,6 @@ export class PMCs
             "5fc3f2d5900b1d5091531e57": 20,
             "5fb64bc92b1b027b1f50bcf2": 20,
             "5df24cf80dee1b22f862e9bc": 20,
-            "606dae0ab0e443224b421bb7": 20,
             "57c44b372459772d2b39b8ce": 20,
             "5bb2475ed4351e00853264e3": 20,
             "606587252535c57a13424cfd": 20,
@@ -1019,7 +1043,9 @@ export class PMCs
             "5d3eb3b0a4b93615055e84d2": 6,
             "6193a720f8ee7e52e42109ed": 6,
             "61a4c8884f95bc3b2c5dc96f": 2,
-            "633ec7c2a6918cb895019c6c": 6
+            "633ec7c2a6918cb895019c6c": 6,
+            "64748cb8de82c85eaf0a273a": 2,
+            "5b1fa9b25acfc40018633c01": 6
         };
 
         this.databaseServer.bots.types.usec.inventory.equipment.Holster =
@@ -1034,6 +1060,8 @@ export class PMCs
             "59e7643b86f7742cbf2c109a": 4,
             "5e4abc1f86f774069619fbaa": 2,
             "6034d0230ca681766b6a0fb5": 2,
+            "64be7095047e826eae02b0c1": 4,
+            "64be7110bf597ba84a0a41ea": 4,
             "6034cf5fffd42c541047f72e": 4,
             "572b7adb24597762ae139821": 2,
             "544a5caa4bdc2d1a388b4568": 4,
@@ -1056,7 +1084,7 @@ export class PMCs
             "5d5d87f786f77427997cfaef": 5,
             "628dc750b910320f4c27a732": 6,
             "61bcc89aef0f505f0c6cd0fc": 6,
-            "628d0618d1ba6e4fa07ce5a4": 8,
+            "628d0618d1ba6e4fa07ce5a4": 10,
             "5df8a42886f77412640e2e75": 8,
             "628cd624459354321c4b7fa2": 8,
             "609e860ebd219504d8507525": 8,
@@ -1080,36 +1108,47 @@ export class PMCs
         );
 
         pmcAmmo.Caliber127x55 = {
-            "5cadf6e5ae921500113bb973": 1,
-            "5cadf6eeae921500134b2799": 3
+            "5cadf6e5ae921500113bb973": 2,
+            "5cadf6eeae921500134b2799": 3,
+            "5cadf6ddae9215051e1c23b2": 2
         };
 
         pmcAmmo.Caliber762x54R = {
-            "5887431f2459777e1612938f": 1,
+            "64b8f7968532cf95ee0a0dbf": 1, 
+            "64b8f7b5389d7ffd620ccba2": 1, 
+            "64b8f7c241772715af0f9c3d": 1,
+            "5887431f2459777e1612938f": 1, 
             "5e023cf8186a883be655e54f": 1,
-            "59e77a2386f7742ee578960a": 3,
+            "59e77a2386f7742ee578960a": 1, 
             "560d61e84bdc2da74d8b4571": 3
         };
 
         pmcAmmo.Caliber762x51 = {
             "5e023e6e34d52a55c3304f71": 1,
-            "5e023e53d4353e3302577c4c": 1,
-            "5a6086ea4f39f99cd479502f": 3
+            "5e023e53d4353e3302577c4c": 3,
+            "5a6086ea4f39f99cd479502f": 8,
+            "58dd3ad986f77403051cba8f": 6, 
+            "5a608bf24f39f98ffc77720e": 6
         };
 
         pmcAmmo.Caliber762x39 = {
+            "64b7af5a8532cf95ee0a0dbd": 1,
+            "64b7af734b75259c590fa895": 1,
             "59e4d3d286f774176a36250a": 1,
             "5656d7c34bdc2d9d198b4587": 1,
             "59e4cf5286f7741778269d8a": 1,
             "59e4d24686f7741776641ac7": 3,
-            "59e0d99486f7744a32234762": 3
+            "59e0d99486f7744a32234762": 3,
+            "64b7af434b75259c590fa893": 3
         };
 
         pmcAmmo.Caliber762x35 = {
             "5fbe3ffdf8b6a877a729ea82": 1,
+            "6196364158ef8c428c287d9f": 1,
             "6196365d58ef8c428c287da1": 1,
             "619636be6db0f2477964e710": 3,
-            "5fd20ff893a8961fc660a954": 3
+            "5fd20ff893a8961fc660a954": 3,
+            "64b8725c4b75259c590fa899": 3
         };
 
         pmcAmmo.Caliber762x25TT = {
@@ -1117,6 +1156,7 @@ export class PMCs
             "5735ff5c245977640e39ba7e": 1,
             "573601b42459776410737435": 1,
             "573602322459776445391df1": 1,
+            "5736026a245977644601dc61": 3,
             "573603c924597764442bd9cb": 3,
             "573603562459776430731618": 3
         };
@@ -1124,7 +1164,7 @@ export class PMCs
         pmcAmmo.Caliber366TKM = {
             "59e6542b86f77411dc52a77a": 1,
             "59e655cb86f77411dc52a77b": 1,
-            "59e6658b86f77411d949b250": 3,
+            "59e6658b86f77411d949b250": 1,
             "5f0596629e22f464da6bbdd9": 3
         };
 
@@ -1132,9 +1172,12 @@ export class PMCs
             "59e6920f86f77411d82aa167": 1,
             "59e6918f86f7746c9f75e849": 1,
             "54527a984bdc2d4e668b4567": 1,
+            "59e6906286f7746c9f75e847": 3,
             "59e68f6f86f7746c9f75e846": 1,
-            "60194943740c5d77f6705eea": 3,
-            "59e690b686f7746c9f75e848": 3
+            "59e6927d86f77411da468256": 1,
+            "60194943740c5d77f6705eea": 1,
+            "54527ac44bdc2d36668b4567": 3,
+            "59e690b686f7746c9f75e848": 2
         };
 
         pmcAmmo.Caliber545x39 = {
@@ -1142,11 +1185,11 @@ export class PMCs
             "56dff4a2d2720bbd668b456a": 1,
             "56dff0bed2720bb0668b4567": 1,
             "56dff216d2720bbd668b4568": 1,
-            "56dff2ced2720bb4668b4567": 1,
+            "56dff2ced2720bb4668b4567": 6,
             "56dff4ecd2720b5f5a8b4568": 1,
             "56dff421d2720b5f5a8b4567": 1,
             "56dfef82d2720bbd668b4567": 1,
-            "56dff061d2720bb5668b4567": 1,
+            "56dff061d2720bb5668b4567": 3,
             "56dff026d2720bb8668b4567": 3,
             "5c0d5e4486f77478390952fe": 3
         };
@@ -1185,6 +1228,7 @@ export class PMCs
         pmcAmmo.Caliber9x19PARA = {
             "58864a4f2459770fcc257101": 1,
             "5c3df7d588a4501f290594e5": 1,
+            "64b7bbb74b75259c590fa897": 2,
             "56d59d3ad2720bdb418b4577": 1,
             "5c925fa22e221601da359b7b": 1,
             "5efb0e16aeb21837e749c7ff": 3,
@@ -1766,6 +1810,7 @@ export class PMCs
                         Caliber762x54R: [...ammo762x54ArrayLL1],
                         Caliber762x51: [...ammo762x51ArrayLL1],
                         Caliber762x39: [...ammo762x39ArrayLL1],
+                        Caliber762x35: [...ammo762x35ArrayLL1],
                         Caliber762x25TT: [...ammo762x25TTArrayLL1],
                         Caliber366TKM: [...ammo366TKMArrayLL1],
                         Caliber556x45NATO: [...ammo556x45ArrayLL1],
@@ -1801,6 +1846,7 @@ export class PMCs
                 FaceCover: [...faceCoverArrayLL2]
             },
             cartridge: {
+                Caliber127x55: [...ammo127x55ArrayLL2],
                 Caliber762x54R: [...ammo762x54ArrayLL2],
                 Caliber762x51: [...ammo762x51ArrayLL2],
                 Caliber762x39: [...ammo762x39ArrayLL2],
