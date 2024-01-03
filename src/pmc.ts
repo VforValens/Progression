@@ -1523,13 +1523,18 @@ export class PMCs
                         },
                         grenades: {
                             weights: {
-                                0: 2,
-                                1: 1
+                                0: 0,
+                                1: 1,
+                                2: 3
                             },
                             whitelist: [
                                 "5710c24ad2720bc3458b45a3",
                                 "58d3db5386f77426186285a0",
-                                "5448be9a4bdc2dfd2f8b456a"
+                                "5448be9a4bdc2dfd2f8b456a",
+                                "617fd91e5539a84ec44ce155",
+                                "618a431df1eb8e24b8741deb",
+                                "5e32f56fcb6d5863cc5e5ee4",
+                                "5e340dcdcb6d5863cc5e5efb"
                             ]
                         },
                         healing: {
@@ -1657,13 +1662,19 @@ export class PMCs
                         },
                         grenades: {
                             weights: {
-                                0: 2,
-                                1: 1
+                                0: 0,
+                                1: 2,
+                                2: 2,
+                                3: 3
                             },
                             whitelist: [
                                 "5710c24ad2720bc3458b45a3",
                                 "58d3db5386f77426186285a0",
-                                "5448be9a4bdc2dfd2f8b456a"
+                                "5448be9a4bdc2dfd2f8b456a",
+                                "617fd91e5539a84ec44ce155",
+                                "618a431df1eb8e24b8741deb",
+                                "5e32f56fcb6d5863cc5e5ee4",
+                                "5e340dcdcb6d5863cc5e5efb"
                             ]
                         },
                         healing: {
