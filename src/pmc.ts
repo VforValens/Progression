@@ -32,8 +32,8 @@ export class PMCs
     {
     // Set Bot Level Delta to 1 from Default of 10
     // Doing this fixes the issue with bots being up to 10 levels higher than character level, by default, and thus generating with gear they **should not** have.
-        const botRelativeDelta = this.modConfig.botRelativeDelta;
-        this.pmcConfig.botRelativeLevelDeltaMax = botRelativeDelta;
+        const botRelativeLevelDeltaMax = this.modConfig.botRelativeLevelDeltaMax;
+        this.pmcConfig.botRelativeLevelDeltaMax = botRelativeLevelDeltaMax;
 
         // Gear Arrays
         // Primary Weapon Array

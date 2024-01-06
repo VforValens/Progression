@@ -1,5 +1,6 @@
 import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
 import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
+import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
 import { IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
 import { ConfigServer } from "@spt-aki/servers/ConfigServer";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
@@ -9,9 +10,10 @@ import { ILocationConfig } from "@spt-aki/models/spt/config/ILocationConfig";
 import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
 import { Boss } from "./boss";
 import { PMCs } from "./pmc";
+import { ValensBotLevelGen } from "./valensbotlevelgen";
 
 
-class ValensProgression implements IPostDBLoadMod
+class ValensProgression implements IPostDBLoadMod, IPreAkiLoadMod
 {
     private configServer: ConfigServer;
     private locationConfig: ILocationConfig
@@ -21,6 +23,12 @@ class ValensProgression implements IPostDBLoadMod
     // private scavs: Scavs;
     private pmcs: PMCs;
     private boss: Boss;
+
+    public preAkiLoad(container: DependencyContainer): void 
+    {
+        container.register("ValensBotLevelGen",ValensBotLevelGen);
+        container.register("BotLevelGenerator",{useToken:"ValensBotLevelGen"})
+    }
 
     public postDBLoad(container: DependencyContainer): void
     {

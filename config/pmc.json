@@ -1,5 +1,6 @@
 {
-    "botRelativeDelta": 10,
+    "botRelativeLevelDeltaMax": 10,
+    "botRelativeLevelDeltaMin": 10,
     
     "levelRange": 
     {

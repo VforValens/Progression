@@ -5,7 +5,8 @@ export interface PmcConfig
     pocketLoot: GenerationData;
     backpackLoot: GenerationData;
     vestLoot: GenerationData;
-    botRelativeDelta: number;
+    botRelativeLevelDeltaMax: number;
+    botRelativeLevelDeltaMin: number;
     levelRange: levelRange;
 }
 
