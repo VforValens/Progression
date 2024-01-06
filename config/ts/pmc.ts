@@ -1,5 +1,10 @@
+import { GenerationData } from "@spt-aki/models/eft/common/tables/IBotType";
+
 export interface PmcConfig
 {
+    pocketLoot: GenerationData;
+    backpackLoot: GenerationData;
+    vestLoot: GenerationData;
     botRelativeDelta: number;
     levelRange: levelRange;
 }

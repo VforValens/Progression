@@ -358,7 +358,6 @@ export class PMCs
             "5ca20ee186f774799474abc2",
             "5aa7e276e5b5b000171d0647",
             "5f60c74e3b85f6263c145586",
-            "5d5e9c74a4b9364855191c40",
             "5ea17ca01412a1425304d1c0",
             "5a154d5cfcdbcb001a3b00da",
             "5ac8d6885acfc400180ae7b0",
@@ -1120,7 +1119,7 @@ export class PMCs
             "5887431f2459777e1612938f": 1, 
             "5e023cf8186a883be655e54f": 1,
             "59e77a2386f7742ee578960a": 1, 
-            "560d61e84bdc2da74d8b4571": 3
+            "560d61e84bdc2da74d8b4571": 6
         };
 
         pmcAmmo.Caliber762x51 = {
@@ -1137,18 +1136,18 @@ export class PMCs
             "59e4d3d286f774176a36250a": 1,
             "5656d7c34bdc2d9d198b4587": 1,
             "59e4cf5286f7741778269d8a": 1,
-            "59e4d24686f7741776641ac7": 3,
-            "59e0d99486f7744a32234762": 3,
-            "64b7af434b75259c590fa893": 3
+            "59e4d24686f7741776641ac7": 5,
+            "59e0d99486f7744a32234762": 5,
+            "64b7af434b75259c590fa893": 5
         };
 
         pmcAmmo.Caliber762x35 = {
             "5fbe3ffdf8b6a877a729ea82": 1,
             "6196364158ef8c428c287d9f": 1,
             "6196365d58ef8c428c287da1": 1,
-            "619636be6db0f2477964e710": 3,
-            "5fd20ff893a8961fc660a954": 3,
-            "64b8725c4b75259c590fa899": 3
+            "619636be6db0f2477964e710": 5,
+            "5fd20ff893a8961fc660a954": 5,
+            "64b8725c4b75259c590fa899": 5
         };
 
         pmcAmmo.Caliber762x25TT = {
@@ -1156,27 +1155,27 @@ export class PMCs
             "5735ff5c245977640e39ba7e": 1,
             "573601b42459776410737435": 1,
             "573602322459776445391df1": 1,
-            "5736026a245977644601dc61": 3,
-            "573603c924597764442bd9cb": 3,
-            "573603562459776430731618": 3
+            "5736026a245977644601dc61": 6,
+            "573603c924597764442bd9cb": 6,
+            "573603562459776430731618": 6
         };
 
         pmcAmmo.Caliber366TKM = {
             "59e6542b86f77411dc52a77a": 1,
             "59e655cb86f77411dc52a77b": 1,
             "59e6658b86f77411d949b250": 1,
-            "5f0596629e22f464da6bbdd9": 3
+            "5f0596629e22f464da6bbdd9": 6
         };
 
         pmcAmmo.Caliber556x45NATO = {
             "59e6920f86f77411d82aa167": 1,
             "59e6918f86f7746c9f75e849": 1,
             "54527a984bdc2d4e668b4567": 1,
-            "59e6906286f7746c9f75e847": 3,
+            "59e6906286f7746c9f75e847": 6,
             "59e68f6f86f7746c9f75e846": 1,
             "59e6927d86f77411da468256": 1,
             "60194943740c5d77f6705eea": 1,
-            "54527ac44bdc2d36668b4567": 3,
+            "54527ac44bdc2d36668b4567": 6,
             "59e690b686f7746c9f75e848": 2
         };
 
@@ -1189,24 +1188,24 @@ export class PMCs
             "56dff4ecd2720b5f5a8b4568": 1,
             "56dff421d2720b5f5a8b4567": 1,
             "56dfef82d2720bbd668b4567": 1,
-            "56dff061d2720bb5668b4567": 3,
-            "56dff026d2720bb8668b4567": 3,
-            "5c0d5e4486f77478390952fe": 3
+            "56dff061d2720bb5668b4567": 6,
+            "56dff026d2720bb8668b4567": 6,
+            "5c0d5e4486f77478390952fe": 6
         };
 
         pmcAmmo.Caliber57x28 = {
             "5cc80f79e4a949033c7343b2": 1,
             "5cc80f8fe4a949033b0224a2": 1,
             "5cc80f53e4a949000e1ea4f8": 1,
-            "5cc86840d7f00c002412c56c": 3,
-            "5cc80f38e4a949001152b560": 3
+            "5cc86840d7f00c002412c56c": 6,
+            "5cc80f38e4a949001152b560": 6
         };
 
         pmcAmmo.Caliber46x30 = {
             "5ba26812d4351e003201fef1": 1,
             "5ba2678ad4351e44f824b344": 1,
-            "5ba26844d4351e00334c9475": 3,
-            "5ba26835d4351e0035628ff5": 3
+            "5ba26844d4351e00334c9475": 6,
+            "5ba26835d4351e0035628ff5": 6
         };
 
         pmcAmmo.Caliber9x18PM = {
@@ -1221,8 +1220,8 @@ export class PMCs
             "573718ba2459775a75491131": 1,
             "57371aab2459775a77142f22": 1,
             "573720e02459776143012541": 1,
-            "5737218f245977612125ba51": 3,
-            "573719df2459775a626ccbc2": 3
+            "5737218f245977612125ba51": 6,
+            "573719df2459775a626ccbc2": 6
         };
 
         pmcAmmo.Caliber9x19PARA = {
@@ -1231,33 +1230,33 @@ export class PMCs
             "64b7bbb74b75259c590fa897": 2,
             "56d59d3ad2720bdb418b4577": 1,
             "5c925fa22e221601da359b7b": 1,
-            "5efb0e16aeb21837e749c7ff": 3,
-            "5efb0da7a29a85116f6ea05f": 3
+            "5efb0e16aeb21837e749c7ff": 6,
+            "5efb0da7a29a85116f6ea05f": 6
         };
 
         pmcAmmo.Caliber9x21 = {
             "5a26abfac4a28232980eabff": 1,
-            "5a26ac06c4a282000c5a90a8": 3,
-            "5a26ac0ec4a28200741e1e18": 3
+            "5a26ac06c4a282000c5a90a8": 6,
+            "5a26ac0ec4a28200741e1e18": 6
         };
 
         pmcAmmo.Caliber9x39 = {
             "57a0dfb82459774d3078b56c": 1,
-            "57a0e5022459774d1673f889": 3
+            "57a0e5022459774d1673f889": 6
         };
 
         pmcAmmo.Caliber9x33R = {
             "62330b3ed4dc74626d570b95": 1,
             "62330bfadc5883093563729b": 1,
             "62330c40bdd19b369e1e53d1": 1,
-            "62330c18744e5e31df12f516": 3
+            "62330c18744e5e31df12f516": 6
         };
 
         pmcAmmo.Caliber1143x23ACP = {
             "5e81f423763d9f754677bf2e": 1,
             "5efb0d4f4bc50b58e81710f3": 1,
             "5efb0fc6aeb21837e749c801": 1,
-            "5efb0cabfb3e451d70735af5": 3
+            "5efb0cabfb3e451d70735af5": 6
         };
 
         pmcAmmo.Caliber12g = {
@@ -1271,8 +1270,8 @@ export class PMCs
             "5d6e68e6a4b9361c140bcfe0": 1,
             "5d6e68b3a4b9361bca7e50b5": 1,
             "5d6e68dea4b9361bcc29e659": 1,
-            "5d6e6911a4b9361bd5780d52": 3,
-            "5d6e68c4a4b9361b93413f79": 3
+            "5d6e6911a4b9361bd5780d52": 6,
+            "5d6e68c4a4b9361b93413f79": 6
         };
 
         pmcAmmo.Caliber20g = {
@@ -1283,8 +1282,8 @@ export class PMCs
             "5d6e6a53a4b9361bd473feec": 1,
             "5d6e69b9a4b9361bc8618958": 1,
             "5d6e69c7a4b9360b6c0d54e4": 1,
-            "5d6e6a05a4b93618084f58d0": 3,
-            "5d6e6a5fa4b93614ec501745": 3
+            "5d6e6a05a4b93618084f58d0": 6,
+            "5d6e6a5fa4b93614ec501745": 6
         };
 
         pmcAmmo.Caliber23x75 = {
@@ -1297,6 +1296,9 @@ export class PMCs
 
         // Progression Loyalty Level List Start
         const levelRange = this.modConfig.levelRange;
+        const pocketLoot = this.modConfig.pocketLoot;
+        const backpackLoot = this.modConfig.backpackLoot;
+        const vestLoot = this.modConfig.vestLoot;
 
         const progressionWhitelistLL1PMC: EquipmentFilters = {
             weaponModLimits: {
@@ -1365,11 +1367,11 @@ export class PMCs
                 ]
             },
             "nvgIsActiveChanceDayPercent": 20,
-            "nvgIsActiveChanceNightPercent": 95,
+            "nvgIsActiveChanceNightPercent": 100,
             "faceShieldIsActiveChancePercent": 85,
             "lightIsActiveDayChancePercent": 25,
             "lightIsActiveNightChancePercent": 95,
-            "laserIsActiveChancePercent": 85,
+            "laserIsActiveChancePercent": 100,
             randomisation: [
                 {
                     levelRange: {
@@ -1380,10 +1382,27 @@ export class PMCs
                         drugs: {
                             weights: {
                                 0: 1,
-                                1: 1
+                                1: 1,
+                                2: 1,
+                                3: 1
                             },
 
-                            whitelist: []
+                            whitelist: [
+                                "5c0e531d86f7747fa23f4d42",
+                                "637b60c3b7afa97bfc3d7001",
+                                "5ed515e03a40a50460332579",
+                                "5ed5160a87bb8443d10680b5",
+                                "637b620db7afa97bfc3d7009",
+                                "5c0e530286f7747fa1419862",
+                                "5c10c8fd86f7743d7d706df3",
+                                "5c0e534186f7747fa1419867",
+                                "5ed515f6915ec335206e4152",
+                                "5c0e533786f7747fa23f4d47",
+                                "5c0e531286f7747fa54205c2",
+                                "5ed515c8d380ab312177c0fa",
+                                "5ed51652f6c34d2cc26336a1",
+                                "637b612fb7afa97bfc3d7005"
+                            ]
                         },
                         grenades: {
                             weights: {
@@ -1398,8 +1417,12 @@ export class PMCs
                         },
                         healing: {
                             weights: {
-                                0: 1,
-                                1: 2
+                                0: 0,
+                                1: 1,
+                                2: 1,
+                                3: 3,
+                                4: 2,
+                                5: 1
                             },
                             whitelist: [
                                 "5e831507ea0a7c419c2f9bd9",
@@ -1408,38 +1431,47 @@ export class PMCs
                                 "590c657e86f77412b013051d",
                                 "544fb37f4bdc2dee738b4567",
                                 "544fb3364bdc2d34748b456a",
-                                "544fb25a4bdc2dfb738b4567"
+                                "544fb25a4bdc2dfb738b4567",
+                                "5e8488fa988a8701445df1e4",
+                                "60098ad7c2240c0fe85c570a",
+                                "590c678286f77426c9660122",
+                                "5af0454c86f7746bf20992e8",
+                                "5d02778e86f774203e7dedbe",
+                                "5d02797c86f774203f38e30a",
+                                "5755383e24597772cb798966",
+                                "5af0548586f7743a532b7e99",
+                                "544fb45d4bdc2dee738b4568"
                             ]
                         },
                         backpackLoot: {
                             weights: {
-                                0: 1,
-                                1: 2,
-                                2: 4,
-                                3: 2,
-                                4: 1,
-                                5: 1
+                                0: backpackLoot.weights[0],
+                                1: backpackLoot.weights[1],
+                                2: backpackLoot.weights[2],
+                                3: backpackLoot.weights[3],
+                                4: backpackLoot.weights[4],
+                                5: backpackLoot.weights[5]
                             },
-                            whitelist: []
+                            whitelist: backpackLoot.whitelist
                         },
                         pocketLoot: {
                             weights: {
-                                0: 3,
-                                1: 4,
-                                2: 1,
-                                3: 1
+                                0: pocketLoot.weights[0],
+                                1: pocketLoot.weights[1],
+                                2: pocketLoot.weights[2],
+                                3: pocketLoot.weights[3]
                             },
-                            whitelist: []
+                            whitelist: pocketLoot.whitelist
                         },
                         vestLoot: {
                             weights: {
-                                0: 2,
-                                1: 5,
-                                2: 1,
-                                3: 1,
-                                4: 1
+                                0: vestLoot.weights[0],
+                                1: vestLoot.weights[1],
+                                2: vestLoot.weights[2],
+                                3: vestLoot.weights[3],
+                                4: vestLoot.weights[4]
                             },
-                            whitelist: []
+                            whitelist: vestLoot.whitelist
                         },
                         magazines: {
                             weights: {
@@ -1554,33 +1586,33 @@ export class PMCs
                         },
                         backpackLoot: {
                             weights: {
-                                0: 1,
-                                1: 2,
-                                2: 4,
-                                3: 2,
-                                4: 1,
-                                5: 1
+                                0: backpackLoot.weights[0],
+                                1: backpackLoot.weights[1],
+                                2: backpackLoot.weights[2],
+                                3: backpackLoot.weights[3],
+                                4: backpackLoot.weights[4],
+                                5: backpackLoot.weights[5]
                             },
-                            whitelist: []
+                            whitelist: backpackLoot.whitelist
                         },
                         pocketLoot: {
                             weights: {
-                                0: 3,
-                                1: 4,
-                                2: 1,
-                                3: 1
+                                0: pocketLoot.weights[0],
+                                1: pocketLoot.weights[1],
+                                2: pocketLoot.weights[2],
+                                3: pocketLoot.weights[3]
                             },
-                            whitelist: []
+                            whitelist: pocketLoot.whitelist
                         },
                         vestLoot: {
                             weights: {
-                                0: 2,
-                                1: 5,
-                                2: 1,
-                                3: 1,
-                                4: 1
+                                0: vestLoot.weights[0],
+                                1: vestLoot.weights[1],
+                                2: vestLoot.weights[2],
+                                3: vestLoot.weights[3],
+                                4: vestLoot.weights[4]
                             },
-                            whitelist: []
+                            whitelist: vestLoot.whitelist
                         },
                         magazines: {
                             weights: {
@@ -1694,33 +1726,33 @@ export class PMCs
                         },
                         backpackLoot: {
                             weights: {
-                                0: 1,
-                                1: 2,
-                                2: 4,
-                                3: 2,
-                                4: 1,
-                                5: 1
+                                0: backpackLoot.weights[0],
+                                1: backpackLoot.weights[1],
+                                2: backpackLoot.weights[2],
+                                3: backpackLoot.weights[3],
+                                4: backpackLoot.weights[4],
+                                5: backpackLoot.weights[5]
                             },
-                            whitelist: []
+                            whitelist: backpackLoot.whitelist
                         },
                         pocketLoot: {
                             weights: {
-                                0: 3,
-                                1: 4,
-                                2: 1,
-                                3: 1
+                                0: pocketLoot.weights[0],
+                                1: pocketLoot.weights[1],
+                                2: pocketLoot.weights[2],
+                                3: pocketLoot.weights[3]
                             },
-                            whitelist: []
+                            whitelist: pocketLoot.whitelist
                         },
                         vestLoot: {
                             weights: {
-                                0: 2,
-                                1: 5,
-                                2: 1,
-                                3: 1,
-                                4: 1
+                                0: vestLoot.weights[0],
+                                1: vestLoot.weights[1],
+                                2: vestLoot.weights[2],
+                                3: vestLoot.weights[3],
+                                4: vestLoot.weights[4]
                             },
-                            whitelist: []
+                            whitelist: vestLoot.whitelist
                         },
                         magazines: {
                             weights: {

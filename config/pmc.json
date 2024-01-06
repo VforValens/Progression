@@ -1,5 +1,5 @@
 {
-    "botRelativeDelta": 1,
+    "botRelativeDelta": 10,
     
     "levelRange": 
     {
@@ -25,5 +25,43 @@
         {
             "min": 39
         }
+    },
+
+    "backpackLoot": {
+        "weights": {
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1
+        },
+        "whitelist": [
+            "59fb023c86f7746d0d4b423c",
+            "5aafbde786f774389d0cbc0f",
+            "5c127c4486f7745625356c13",
+            "59fb042886f7746c5005a7b2"
+        ]
+    },
+
+    "pocketLoot": {
+        "weights": {
+            "0": 3,
+            "1": 4,
+            "2": 1,
+            "3": 1
+        },
+        "whitelist": []
+    },
+
+    "vestLoot": {
+        "weights": {
+            "0": 2,
+            "1": 5,
+            "2": 1,
+            "3": 1,
+            "4": 1
+        },
+        "whitelist": []
     }
 }
