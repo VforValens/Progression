@@ -33,7 +33,6 @@ export class ValensBotLevelGen extends BotLevelGenerator
     {
         // Some bots have a max level of 1
         const minPossibleLevel = Math.min(levelDetails.min, expTable.length);
-
         let level = playerLevel - relativeDeltaMin;
         if (level < minPossibleLevel)
         {
@@ -45,7 +44,6 @@ export class ValensBotLevelGen extends BotLevelGenerator
     public override generateBotLevel(levelDetails: MinMax, botGenerationDetails: BotGenerationDetails, bot: IBotBase): IRandomisedBotLevelResult 
     {
         const expTable = this.databaseServer.getTables().globals.config.exp.level.exp_table;
-        this.logger.info(`Setting botRelativeLevelDeltaMin to: ${this.modConfig.botRelativeLevelDeltaMin}`);
         const highestLevel = this.getHighestRelativeBotLevel(
             botGenerationDetails.playerLevel,
             botGenerationDetails.botRelativeLevelDeltaMax,
