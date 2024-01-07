@@ -1,8 +1,10 @@
 import { ILocationConfig } from "@spt-aki/models/spt/config/ILocationConfig";
+import { BossConfig } from "../config/ts/boss";
 
 export class Boss
 {
     private locationConfig: ILocationConfig;
+    private bossConfig: BossConfig = require("../config/boss.json");
 
     constructor (locationConfig: ILocationConfig)
     {
@@ -13,10 +15,12 @@ export class Boss
     {
         // Reduce Custom PMC Boss Chances
         const pmcBoss = this.locationConfig.customWaves.boss;
+        const bossConfig = this.bossConfig;
+
         pmcBoss.factory4_day = [{
             "sptId": "sptBearFactoryDayBossSpawn",
             "BossName": "sptBear",
-            "BossChance": 7,
+            "BossChance": bossConfig.factoryDayChance,
             "BossZone": "BotZone",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -38,7 +42,7 @@ export class Boss
         }, {
             "sptId": "sptUsecFactoryDayBossSpawn",
             "BossName": "sptUsec",
-            "BossChance": 7,
+            "BossChance": bossConfig.factoryDayChance,
             "BossZone": "BotZone",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -64,7 +68,7 @@ export class Boss
         [{
             "sptId": "sptBearCustomsScavBaseNormalSpawn",
             "BossName": "sptBear",
-            "BossChance": 7,
+            "BossChance": bossConfig.customsChance,
             "BossZone": "ZoneScavBase",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -86,7 +90,7 @@ export class Boss
         }, {
             "sptId": "sptUsecCustomsScavBaseNormalSpawn",
             "BossName": "sptUsec",
-            "BossChance": 7,
+            "BossChance": bossConfig.customsChance,
             "BossZone": "ZoneScavBase",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -112,7 +116,7 @@ export class Boss
         [{
             "sptId": "sptBearWoodScavBaseNormalSpawn",
             "BossName": "sptBear",
-            "BossChance": 7,
+            "BossChance": bossConfig.woodsChance,
             "BossZone": "ZoneScavBase2",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -134,7 +138,7 @@ export class Boss
         }, {
             "sptId": "sptUsecWoodScavBaseNormalSpawn",
             "BossName": "sptUsec",
-            "BossChance": 7,
+            "BossChance": bossConfig.woodsChance,
             "BossZone": "ZoneScavBase2",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -159,7 +163,7 @@ export class Boss
         [{
             "sptId": "sptBearShorelinePortNormalSpawn",
             "BossName": "sptBear",
-            "BossChance": 7,
+            "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZonePort",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -181,7 +185,7 @@ export class Boss
         }, {
             "sptId": "sptUsecShorelinePortNormalSpawn",
             "BossName": "sptUsec",
-            "BossChance": 7,
+            "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZonePort",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -204,7 +208,7 @@ export class Boss
         {
             "sptId": "sptUsecShorelineSanatorium1NormalSpawn",
             "BossName": "sptUsec",
-            "BossChance": 7,
+            "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium1",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -227,7 +231,7 @@ export class Boss
         {
             "sptId": "sptBearShorelineSanatorium1NormalSpawn",
             "BossName": "sptBear",
-            "BossChance": 7,
+            "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium1",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -250,7 +254,7 @@ export class Boss
         {
             "sptId": "sptUsecShorelineSanatorium2NormalSpawn",
             "BossName": "sptUsec",
-            "BossChance": 7,
+            "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium2",
             "BossPlayer": false,
             "BossDifficult": "normal",
@@ -273,7 +277,7 @@ export class Boss
         {
             "sptId": "sptBearShorelineSanatorium2NormalSpawn",
             "BossName": "sptBear",
-            "BossChance": 7,
+            "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium2",
             "BossPlayer": false,
             "BossDifficult": "normal",
