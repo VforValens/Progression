@@ -358,6 +358,7 @@ export class PMCs
 
         // Armor Vest Array
         const armorVestArrayLL1 = [
+            "59e7635f86f7742cbf2c1095",
             "5c0e5bab86f77461f55ed1f3",
             "5c0e5edb86f77461f55ed1f7",
             "5648a7494bdc2d9d488b4583",
@@ -367,7 +368,6 @@ export class PMCs
         ];
         const armorVestArrayLL2 = armorVestArrayLL1.concat(
             ...[
-                "5c0e655586f774045612eeb2",
                 "5b44d22286f774172b0c9de8",
                 "5c0e51be86f774598e797894",
                 "64abd93857958b4249003418"
@@ -616,11 +616,12 @@ export class PMCs
 
         // PMC Armor Vest Weighting
         pmcEquipment.ArmorVest = {
-            "5648a7494bdc2d9d488b4583": 100,
-            "5df8a2ca86f7740bfe6df777": 150,
-            "5ab8e4ed86f7742d8e50c7fa": 150,
-            "5c0e5edb86f77461f55ed1f7": 250,
-            "5c0e5bab86f77461f55ed1f3": 300,
+            "5648a7494bdc2d9d488b4583": 115,
+            "59e7635f86f7742cbf2c1095": 100,
+            "5df8a2ca86f7740bfe6df777": 100,
+            "5ab8e4ed86f7742d8e50c7fa": 115,
+            "5c0e5edb86f77461f55ed1f7": 110,
+            "5c0e5bab86f77461f55ed1f3": 115,
             "5b44d22286f774172b0c9de8": 300,
             "5c0e655586f774045612eeb2": 500,
             "5c0e51be86f774598e797894": 500,
@@ -1231,12 +1232,12 @@ export class PMCs
                     "55818add4bdc2d5b648b456f"
                 ]
             },
-            "nvgIsActiveChanceDayPercent": 15,
-            "nvgIsActiveChanceNightPercent": 100,
-            "faceShieldIsActiveChancePercent": 60,
-            "lightIsActiveDayChancePercent": 25,
-            "lightIsActiveNightChancePercent": 70,
-            "laserIsActiveChancePercent": 100,
+            nvgIsActiveChanceDayPercent: 5,
+            nvgIsActiveChanceNightPercent: 95,
+            faceShieldIsActiveChancePercent: 90,
+            lightIsActiveDayChancePercent: 15,
+            lightIsActiveNightChancePercent: 60,
+            laserIsActiveChancePercent: 100,
             randomisation: [
                 {
                     levelRange: {
@@ -2106,6 +2107,9 @@ export class PMCs
         };
 
         const pmc = this.botConfig.equipment.pmc.whitelist;
+        this.botConfig.equipment.pmc.weightingAdjustmentsByBotLevel = null;
+        this.botConfig.equipment.pmc.weightingAdjustmentsByPlayerLevel = null;
+        this.botConfig.equipment.pmc = null;
         this.botConfig.equipment.pmc = progressionWhitelistLL1PMC;
         pmc.push(progressionWhitelistLL2PMC);
         pmc.push(progressionWhitelistLL3PMC);
