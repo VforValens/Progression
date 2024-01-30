@@ -536,7 +536,7 @@ export class PMCs
         // 5.45 Ammo Arrays
         const ammo545x39ArrayLL1 = ["56dff216d2720bbd668b4568", "56dff338d2720bbd668b4569", "56dff421d2720b5f5a8b4567", "56dff0bed2720bb0668b4567"];
         const ammo545x39ArrayLL2 = ammo545x39ArrayLL1.concat(...["56dff4ecd2720b5f5a8b4568", "56dff4a2d2720bbd668b456a", "56dff2ced2720bb4668b4567"]);
-        const ammo545x39ArrayLL3 = ["56dff3afd2720bba668b4567", "61962b617c6c7b169525f168", "56dfef82d2720bbd668b4567"];
+        const ammo545x39ArrayLL3 = ["56dff2ced2720bb4668b4567", "56dff061d2720bb5668b4567", "56dff3afd2720bba668b4567", "61962b617c6c7b169525f168", "56dfef82d2720bbd668b4567"];
         const ammo545x39ArrayLL4 = ["56dff061d2720bb5668b4567", "61962b617c6c7b169525f168", "56dff026d2720bb8668b4567", "5c0d5e4486f77478390952fe"];
 
         // 5.7mm Ammo Arrays
@@ -1071,9 +1071,9 @@ export class PMCs
             "56dff3afd2720bba668b4567": 1,
             "61962b617c6c7b169525f168": 3,
             "56dfef82d2720bbd668b4567": 1,
-            "56dff061d2720bb5668b4567": 1,
+            "56dff061d2720bb5668b4567": 3,
             "56dff026d2720bb8668b4567": 2,
-            "5c0d5e4486f77478390952fe": 3
+            "5c0d5e4486f77478390952fe": 5
         };
 
         pmcAmmo.Caliber57x28 = {
