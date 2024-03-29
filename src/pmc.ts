@@ -1,26 +1,25 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import {
-    EquipmentFilterDetails,
-    EquipmentFilters,
-    IBotConfig
-} from "@spt-aki/models/spt/config/IBotConfig";
+import { EquipmentFilterDetails, EquipmentFilters, IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
 import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
 import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { PmcConfig } from "../config/ts/pmc";
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
 
 export class PMCs 
 {
     private botConfig: IBotConfig;
     private pmcConfig: IPmcConfig;
     private databaseServer: IDatabaseTables;
+    private profileHelper: ProfileHelper;
     private modConfig: PmcConfig = require("../config/pmc.json");
 
-    constructor(botConfig: IBotConfig, pmcConfig: IPmcConfig, databaseServer: DatabaseServer) 
+    constructor(botConfig: IBotConfig, pmcConfig: IPmcConfig, databaseServer: DatabaseServer, profileHelper: ProfileHelper) 
     {
         this.botConfig = botConfig;
         this.pmcConfig = pmcConfig;
         this.databaseServer = databaseServer.getTables();
+        this.profileHelper = profileHelper;
     }
 
     public updatePmcs(): void 
@@ -28,12 +27,13 @@ export class PMCs
         this.generatePmcs();
     }
 
-    private generatePmcs() 
+    private generatePmcs()
     {
     // Set Bot Level Delta to 1 from Default of 10
     // Doing this fixes the issue with bots being up to 10 levels higher than character level, by default, and thus generating with gear they **should not** have.
-        const botRelativeLevelDeltaMax = this.modConfig.botRelativeLevelDeltaMax;
-        this.pmcConfig.botRelativeLevelDeltaMax = botRelativeLevelDeltaMax;
+        this.pmcConfig.botRelativeLevelDeltaMax = this.modConfig.botRelativeLevelDeltaMax;
+        this.pmcConfig.botRelativeLevelDeltaMinx = this.modConfig.botRelativeLevelDeltaMin;
+        
 
         // Gear Arrays
         // Primary Weapon Array
@@ -965,7 +965,7 @@ export class PMCs
         const pmcAmmo = JSON.parse(
             JSON.stringify(this.databaseServer.bots.types.usec.inventory.Ammo)
         );
-        
+
         pmcAmmo.Caliber86x70 = {
             "5fc382b6d6fa9c00c571bbc3": 1,
             "5fc382c1016cce60e8341b20": 3,
