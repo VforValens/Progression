@@ -1,10 +1,10 @@
 {
     "name": "Valens-Progression",
-    "version": "1.6.2",
+    "version": "2.0.0",
     "main": "src/mod.js",
     "license": "CC BY-NC-ND 4.0",
     "author": "Valens",
-    "akiVersion": ">=3.7.*",
+    "akiVersion": ">=3.8.*",
     "scripts": {
         "setup:environment": "npm i",
         "build:unzipped": "copyfiles -e \"./node_modules/**/*.*\" -e \"./dist/**/*.*\" -e \"./package-lock.json\" -e \"./tsconfig.json\" -e \"./README.txt\" -e \"./mod.code-workspace\" \"./**/*.*\" ./dist",
