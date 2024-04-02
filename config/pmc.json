@@ -1,6 +1,6 @@
 {
-    "botRelativeLevelDeltaMax": 10,
-    "botRelativeLevelDeltaMin": 5,
+    "botRelativeLevelDeltaMax": 7,
+    "botRelativeLevelDeltaMin": 6,
     
     "levelRange": 
     {
@@ -37,12 +37,12 @@
             "4": 1,
             "5": 1
         },
-        "whitelist": [
-            "59fb023c86f7746d0d4b423c",
-            "5aafbde786f774389d0cbc0f",
-            "5c127c4486f7745625356c13",
-            "59fb042886f7746c5005a7b2"
-        ]
+        "whitelist": {
+            "59fb023c86f7746d0d4b423c": 1,
+            "5aafbde786f774389d0cbc0f": 1,
+            "5c127c4486f7745625356c13": 1,
+            "59fb042886f7746c5005a7b2": 1
+        }
     },
 
     "pocketLoot": {
