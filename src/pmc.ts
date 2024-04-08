@@ -1181,6 +1181,179 @@ export class PMCs
         this.databaseServer.bots.types.bear.inventory.Ammo = {};
         this.databaseServer.bots.types.bear.inventory.Ammo = pmcAmmo;
 
+
+        /* Armor Plate Weighting. Fix from (this.botConfig.equipment.pmc.armorPlateWeighting as any) = 
+        when the IArmorPlates[] interface is updated off of Issue #614. Also, Fuck the Rules.
+        https://dev.sp-tarkov.com/SPT-AKI/Issues/issues/614 */
+        const level = this.modConfig.levelRange;
+        (this.botConfig.equipment.pmc.armorPlateWeighting as any) = [
+            {
+                "levelRange": {
+                    "min": level.loyalty1.min,
+                    "max": level.loyalty1.max
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 85,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 85,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                }
+            },
+            {
+                "levelRange": {
+                    "min": level.loyalty2.min,
+                    "max": level.loyalty2.max
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 94,
+                    "4": 6,
+                    "5": 0,
+                    "6": 0
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 94,
+                    "4": 6,
+                    "5": 0,
+                    "6": 0
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 90,
+                    "6": 10
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 90,
+                    "6": 10
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 90,
+                    "6": 10
+                }
+            },
+            {
+                "levelRange": {
+                    "min": level.loyalty3.min,
+                    "max": level.loyalty3.max
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                }
+            },
+            {
+                "levelRange": {
+                    "min": level.loyalty4.min,
+                    "max": 100
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                }
+            }
+        ];
+
+
         // Progression Loyalty Level List Start
         const levelRange = this.modConfig.levelRange;
         const pocketLoot = this.modConfig.pocketLoot;
@@ -1188,11 +1361,11 @@ export class PMCs
         const vestLoot = this.modConfig.vestLoot;
 
         const progressionWhitelistLL1PMC: EquipmentFilters = {
-            weaponModLimits: {
-                scopeLimit: 1,
-                lightLaserLimit: 1
+            "weaponModLimits": {
+                "scopeLimit": 1,
+                "lightLaserLimit": 1
             },
-            weaponSightWhitelist: {
+            "weaponSightWhitelist": {
                 "5447b5fc4bdc2d87278b4567": [
                     "55818ad54bdc2ddc698b4569",
                     "55818acf4bdc2dde698b456b",
@@ -1253,51 +1426,58 @@ export class PMCs
                     "55818add4bdc2d5b648b456f"
                 ]
             },
-            nvgIsActiveChanceDayPercent: 5,
-            nvgIsActiveChanceNightPercent: 95,
-            faceShieldIsActiveChancePercent: 90,
-            lightIsActiveDayChancePercent: 15,
-            lightIsActiveNightChancePercent: 60,
-            laserIsActiveChancePercent: 100,
-            randomisation: [
+            "nvgIsActiveChanceDayPercent": 5,
+            "nvgIsActiveChanceNightPercent": 95,
+            "faceShieldIsActiveChancePercent": 95,
+            "lightIsActiveDayChancePercent": 15,
+            "lightIsActiveNightChancePercent": 95,
+            "laserIsActiveChancePercent": 100,
+            "forceOnlyArmoredRigWhenNoArmor": true,
+            "filterPlatesByLevel": true,
+            "weaponSlotIdsToMakeRequired": [
+                "mod_reciever",
+                "mod_stock",
+                "mod_muzzle"
+            ],
+            "randomisation": [
                 {
-                    levelRange: {
-                        min: 1,
-                        max: 15
+                    "levelRange": {
+                        "min": levelRange.loyalty1.min,
+                        "max": levelRange.loyalty1.max
                     },
-                    generation: {
-                        drugs: {
-                            weights: {
+                    "generation": {
+                        "drugs": {
+                            "weights": {
                                 0: 1,
                                 1: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"544fb37f4bdc2dee738b4567" Analgin
                                 //"590c695186f7741e566b64a2" Augmentin
                                 "544fb37f4bdc2dee738b4567": 1,
                                 "590c695186f7741e566b64a2": 3
                             }
                         },
-                        grenades: {
-                            weights: {
+                        "grenades": {
+                            "weights": {
                                 0: 1,
                                 1: 2,
                                 2: 2
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5710c24ad2720bc3458b45a3" F-1 grenade
                                 "5710c24ad2720bc3458b45a3": 10
                             }
                         },
-                        healing: {
-                            weights: {
+                        "healing": {
+                            "weights": {
                                 0: 0,
                                 1: 1,
                                 2: 2,
                                 3: 3,
                                 4: 3
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5e831507ea0a7c419c2f9bd9" esmarch
                                 //"5755356824597772cb798962" AI-2
                                 //"590c661e86f7741e566b646a" Car first aid kit
@@ -1312,8 +1492,8 @@ export class PMCs
                                 "5d02778e86f774203e7dedbe": 2
                             }
                         },
-                        backpackLoot: {
-                            weights: {
+                        "backpackLoot": {
+                            "weights": {
                                 0: backpackLoot.weights[0],
                                 1: backpackLoot.weights[1],
                                 2: backpackLoot.weights[2],
@@ -1321,166 +1501,143 @@ export class PMCs
                                 4: backpackLoot.weights[4],
                                 5: backpackLoot.weights[5]
                             },
-                            whitelist: backpackLoot.whitelist
+                            "whitelist": backpackLoot.whitelist
                         },
-                        pocketLoot: {
-                            weights: {
+                        "pocketLoot": {
+                            "weights": {
                                 0: pocketLoot.weights[0],
                                 1: pocketLoot.weights[1],
                                 2: pocketLoot.weights[2],
                                 3: pocketLoot.weights[3]
                             },
-                            whitelist: pocketLoot.whitelist
+                            "whitelist": pocketLoot.whitelist
                         },
-                        vestLoot: {
-                            weights: {
+                        "vestLoot": {
+                            "weights": {
                                 0: vestLoot.weights[0],
                                 1: vestLoot.weights[1],
                                 2: vestLoot.weights[2],
                                 3: vestLoot.weights[3],
                                 4: vestLoot.weights[4]
                             },
-                            whitelist: vestLoot.whitelist
+                            "whitelist": vestLoot.whitelist
                         },
-                        magazines: {
-                            weights: {
+                        "magazines": {
+                            "weights": {
                                 0: 0,
                                 1: 1,
                                 2: 2,
                                 3: 3
                             },
-                            whitelist: {}
+                            "whitelist": {}
                         },
-                        stims: {
-                            weights: {
+                        "stims": {
+                            "weights": {
                                 0: 1
                             },
-                            whitelist: {}
+                            "whitelist": {}
                         }
                     },
-                    equipment: {
-                        ArmBand: 100,
-                        FirstPrimaryWeapon: 100,
-                        Holster: 35,
-                        Earpiece: 100,
-                        Eyewear: 50,
-                        Backpack: 69,
-                        Headwear: 100,
-                        FaceCover: 100,
-                        clothing: 100
+                    "equipment": {
+                        "ArmBand": 100,
+                        "FirstPrimaryWeapon": 100,
+                        "SecondPrimaryWeapon": 0,
+                        "Holster": 30,
+                        "Earpiece": 90,
+                        "Eyewear": 20,
+                        "Backpack": 69,
+                        "Headwear": 85,
+                        "FaceCover": 100,
+                        "TacticalVest": 70,
+                        "clothing": 100
                     },
-                    weaponMods: {
-                        mod_barrel: 85,
-                        mod_bipod: 20,
-                        mod_flashlight: 90,
-                        mod_foregrip: 100,
-                        mod_handguard: 80,
-                        mod_launcher: 0,
-                        mod_magazine: 75,
-                        mod_mount: 50,
-                        mod_mount_000: 25,
-                        mod_mount_001: 25,
-                        mod_mount_002: 25,
-                        mod_mount_003: 25,
-                        mod_mount_004: 25,
-                        mod_mount_005: 25,
-                        mod_mount_006: 25,
-                        mod_muzzle: 60,
-                        mod_muzzle_000: 20,
-                        mod_muzzle_001: 20,
-                        mod_equipment: 60,
-                        mod_equipment_000: 20,
-                        mod_equipment_001: 20,
-                        mod_equipment_002: 20,
-                        mod_nvg: 50,
-                        mod_pistol_grip_akms: 15,
-                        mod_pistol_grip: 70,
-                        mod_scope: 100,
-                        mod_scope_000: 25,
-                        mod_scope_001: 25,
-                        mod_scope_002: 25,
-                        mod_scope_003: 25,
-                        mod_tactical: 100,
-                        mod_tactical001: 30,
-                        mod_tactical002: 30,
-                        mod_tactical_000: 30,
-                        mod_tactical_001: 30,
-                        mod_tactical_002: 30,
-                        mod_tactical_003: 30,
-                        mod_tactical_2: 50
+                    "randomisedArmorSlots": ["Headwear"],
+                    "randomisedWeaponModSlots": [],
+                    "equipmentMods": {
+                        "back_plate": 70,
+                        "left_side_plate": 0,
+                        "right_side_plate": 0,
+                        "mod_equipment": 3,
+                        "mod_equipment_000": 3,
+                        "mod_equipment_001": 3,
+                        "mod_equipment_002": 3,
+                        "mod_nvg": 3
                     },
-                    randomisedWeaponModSlots: [
-                        "mod_scope",
-                        "mod_scope_000",
-                        "mod_scope_001",
-                        "mod_scope_002",
-                        "mod_scope_003",
-                        "mod_handguard",
-                        "mod_magazine",
-                        "mod_muzzle",
-                        "mod_bipod",
-                        "mod_muzzle_000",
-                        "mod_charge",
-                        "mod_reciever",
-                        "mod_trigger",
-                        "mod_gas_block",
-                        "mod_pistol_grip",
-                        "mod_pistol_grip_akms",
-                        "mod_foregrip",
-                        "mod_stock",
-                        "mod_stock_000",
-                        "mod_stock_001",
-                        "mod_stock_akms",
-                        "mod_stock_axis",
-                        "mod_mount_000",
-                        "mod_mount_001",
-                        "mod_mount_002",
-                        "mod_mount_003",
-                        "mod_mount_004",
-                        "mod_mount_005",
-                        "mod_mount_006",
-                        "mod_tactical",
-                        "mod_tactical_2",
-                        "mod_tactical_000",
-                        "mod_tactical_001",
-                        "mod_tactical_002",
-                        "mod_tactical_003"
-                    ],
-                    randomisedArmorSlots: ["Headwear"]
+                    "weaponMods": {
+                        "mod_barrel": 5,
+                        "mod_bipod": 10,
+                        "mod_flashlight": 10,
+                        "mod_foregrip": 10,
+                        "mod_handguard": 10,
+                        "mod_launcher": 0,
+                        "mod_reciever": 10,
+                        "mod_magazine": 10,
+                        "mod_mount": 15,
+                        "mod_mount_000": 10,
+                        "mod_mount_001": 10,
+                        "mod_mount_002": 10,
+                        "mod_mount_003": 10,
+                        "mod_mount_004": 10,
+                        "mod_mount_005": 10,
+                        "mod_mount_006": 10,
+                        "mod_muzzle": 10,
+                        "mod_muzzle_000": 10,
+                        "mod_muzzle_001": 10,
+                        "mod_equipment": 5,
+                        "mod_equipment_000": 10,
+                        "mod_equipment_001": 5,
+                        "mod_equipment_002": 0,
+                        "mod_nvg": 0,
+                        "mod_pistol_grip_akms": 10,
+                        "mod_pistol_grip": 10,
+                        "mod_scope": 10,
+                        "mod_scope_000": 15,
+                        "mod_scope_001": 15,
+                        "mod_scope_002": 15,
+                        "mod_scope_003": 15,
+                        "mod_tactical": 10,
+                        "mod_tactical001": 10,
+                        "mod_tactical002": 10,
+                        "mod_tactical_000": 10,
+                        "mod_tactical_001": 10,
+                        "mod_tactical_002": 10,
+                        "mod_tactical_003": 10,
+                        "mod_tactical_2": 10
+                    }
                 },
                 {
-                    levelRange: {
-                        min: 16,
-                        max: 33
+                    "levelRange": {
+                        "min": levelRange.loyalty2.min,
+                        "max": levelRange.loyalty2.max
                     },
-                    generation: {
-                        drugs: {
-                            weights: {
+                    "generation": {
+                        "drugs": {
+                            "weights": {
                                 0: 1,
                                 1: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"590c695186f7741e566b64a2" Augmentin
                                 //"5755383e24597772cb798966" Vaseline
                                 "590c695186f7741e566b64a2": 3,
                                 "5755383e24597772cb798966": 1                                
                             }
                         },
-                        grenades: {
-                            weights: {
+                        "grenades": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 1,
                                 3: 2,
                                 4: 2
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5710c24ad2720bc3458b45a3" F-1 Hand grenade
                                 "5710c24ad2720bc3458b45a3": 10
                             }
                         },
-                        healing: {
-                            weights: {
+                        "healing": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 2,
@@ -1488,7 +1645,7 @@ export class PMCs
                                 4: 5,
                                 5: 2
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"60098af40accd37ef2175f27" CAT tourniquet
                                 //"5751a25924597722c463c472" Army bandage
                                 //"5af0454c86f7746bf20992e8" Aluminum splint
@@ -1503,8 +1660,8 @@ export class PMCs
                                 "5d02778e86f774203e7dedbe": 30
                             }
                         },
-                        backpackLoot: {
-                            weights: {
+                        "backpackLoot": {
+                            "weights": {
                                 0: backpackLoot.weights[0],
                                 1: backpackLoot.weights[1],
                                 2: backpackLoot.weights[2],
@@ -1512,43 +1669,43 @@ export class PMCs
                                 4: backpackLoot.weights[4],
                                 5: backpackLoot.weights[5]
                             },
-                            whitelist: backpackLoot.whitelist
+                            "whitelist": backpackLoot.whitelist
                         },
-                        pocketLoot: {
-                            weights: {
+                        "pocketLoot": {
+                            "weights": {
                                 0: pocketLoot.weights[0],
                                 1: pocketLoot.weights[1],
                                 2: pocketLoot.weights[2],
                                 3: pocketLoot.weights[3]
                             },
-                            whitelist: pocketLoot.whitelist
+                            "whitelist": pocketLoot.whitelist
                         },
-                        vestLoot: {
-                            weights: {
+                        "vestLoot": {
+                            "weights": {
                                 0: vestLoot.weights[0],
                                 1: vestLoot.weights[1],
                                 2: vestLoot.weights[2],
                                 3: vestLoot.weights[3],
                                 4: vestLoot.weights[4]
                             },
-                            whitelist: vestLoot.whitelist
+                            "whitelist": vestLoot.whitelist
                         },
-                        magazines: {
-                            weights: {
+                        "magazines": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 2,
                                 3: 3,
                                 4: 1
                             },
-                            whitelist: {}
+                            "whitelist": {}
                         },
-                        stims: {
-                            weights: {
+                        "stims": {
+                            "weights": {
                                 0: 3,
                                 1: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"544fb3f34bdc2d03748b456a" Morphine
                                 //"5c0e531286f7747fa54205c2" SJ1
                                 //"5fca138c2a7b221b2852a5c6" x-TG-12 antidote
@@ -1572,18 +1729,22 @@ export class PMCs
                             }
                         }
                     },
-                    equipment: {
-                        ArmBand: 100,
-                        FirstPrimaryWeapon: 100,
-                        Holster: 30,
-                        Earpiece: 100,
-                        Eyewear: 50,
-                        Backpack: 90,
-                        Headwear: 100,
-                        FaceCover: 100,
-                        clothing: 100
+                    "equipment": {
+                        "ArmBand": 100,
+                        "FirstPrimaryWeapon": 100,
+                        "SecondPrimaryWeapon": 10,
+                        "Holster": 30,
+                        "Earpiece": 100,
+                        "Eyewear": 50,
+                        "Backpack": 90,
+                        "Headwear": 100,
+                        "FaceCover": 100,
+                        "Scabbard": 100,
+                        "TacticalVest": 90,
+                        "clothing": 100
                     },
-                    randomisedWeaponModSlots: [
+                    "randomisedArmorSlots": ["Headwear"],
+                    "randomisedWeaponModSlots": [
                         "mod_scope",
                         "mod_scope_000",
                         "mod_scope_001",
@@ -1620,20 +1781,65 @@ export class PMCs
                         "mod_tactical_002",
                         "mod_tactical_003"
                     ],
-                    randomisedArmorSlots: ["Headwear"]
+                    "equipmentMods": {
+                        "back_plate": 100,
+                        "left_side_plate": 20,
+                        "right_side_plate": 20,
+                        "mod_equipment": 10,
+                        "mod_equipment_000": 10,
+                        "mod_equipment_001": 10,
+                        "mod_equipment_002": 5,
+                        "mod_nvg": 15
+                    },
+                    "weaponMods": {
+                        "mod_barrel": 50,
+                        "mod_bipod": 15,
+                        "mod_flashlight": 35,
+                        "mod_foregrip": 45,
+                        "mod_handguard": 25,
+                        "mod_launcher": 5,
+                        "mod_magazine": 50,
+                        "mod_mount": 45,
+                        "mod_mount_000": 35,
+                        "mod_mount_001": 35,
+                        "mod_mount_002": 35,
+                        "mod_mount_003": 35,
+                        "mod_mount_004": 35,
+                        "mod_mount_005": 35,
+                        "mod_mount_006": 35,
+                        "mod_muzzle": 20,
+                        "mod_muzzle_000": 20,
+                        "mod_muzzle_001": 20,
+                        "mod_pistol_grip_akms": 35,
+                        "mod_pistol_grip": 40,
+                        "mod_reciever": 20,
+                        "mod_scope": 15,
+                        "mod_scope_000": 45,
+                        "mod_scope_001": 35,
+                        "mod_scope_002": 35,
+                        "mod_scope_003": 25,
+                        "mod_tactical": 15,
+                        "mod_tactical001": 40,
+                        "mod_tactical002": 30,
+                        "mod_tactical_000": 40,
+                        "mod_tactical_001": 30,
+                        "mod_tactical_002": 30,
+                        "mod_tactical_003": 30,
+                        "mod_tactical_2": 15
+                    }
                 },
                 {
-                    levelRange: {
-                        min: 34,
-                        max: 42
+                    "levelRange": {
+                        "min": levelRange.loyalty3.min,
+                        "max": levelRange.loyalty3.max
                     },
-                    generation: {
-                        drugs: {
-                            weights: {
+                    "generation": {
+                        "drugs": {
+                            "weights": {
                                 0: 1,
                                 1: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5af0548586f7743a532b7e99" Ibuprofen
                                 //"5755383e24597772cb798966" Vaseline
                                 //"5751a89d24597722aa0e8db0" Golden star
@@ -1642,15 +1848,15 @@ export class PMCs
                                 "5751a89d24597722aa0e8db0": 20
                             }
                         },
-                        grenades: {
-                            weights: {
+                        "grenades": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 2,
                                 3: 3,
                                 4: 3
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5710c24ad2720bc3458b45a3" F1 Grenade
                                 //"58d3db5386f77426186285a0" M67 Grenade
                                 //"5448be9a4bdc2dfd2f8b456a" RGD-5
@@ -1667,8 +1873,8 @@ export class PMCs
                                 "5e340dcdcb6d5863cc5e5efb": 30
                             }
                         },
-                        healing: {
-                            weights: {
+                        "healing": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 0,
@@ -1676,7 +1882,7 @@ export class PMCs
                                 4: 1,
                                 5: 3
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5e8488fa988a8701445df1e4" CALOK-B
                                 //"5751a25924597722c463c472" Army bandage
                                 //"5af0454c86f7746bf20992e8" Aluminum splint
@@ -1693,8 +1899,8 @@ export class PMCs
                                 "590c657e86f77412b013051d": 30
                             }
                         },
-                        backpackLoot: {
-                            weights: {
+                        "backpackLoot": {
+                            "weights": {
                                 0: backpackLoot.weights[0],
                                 1: backpackLoot.weights[1],
                                 2: backpackLoot.weights[2],
@@ -1702,29 +1908,29 @@ export class PMCs
                                 4: backpackLoot.weights[4],
                                 5: backpackLoot.weights[5]
                             },
-                            whitelist: backpackLoot.whitelist
+                            "whitelist": backpackLoot.whitelist
                         },
-                        pocketLoot: {
-                            weights: {
+                        "pocketLoot": {
+                            "weights": {
                                 0: pocketLoot.weights[0],
                                 1: pocketLoot.weights[1],
                                 2: pocketLoot.weights[2],
                                 3: pocketLoot.weights[3]
                             },
-                            whitelist: pocketLoot.whitelist
+                            "whitelist": pocketLoot.whitelist
                         },
-                        vestLoot: {
-                            weights: {
+                        "vestLoot": {
+                            "weights": {
                                 0: vestLoot.weights[0],
                                 1: vestLoot.weights[1],
                                 2: vestLoot.weights[2],
                                 3: vestLoot.weights[3],
                                 4: vestLoot.weights[4]
                             },
-                            whitelist: vestLoot.whitelist
+                            "whitelist": vestLoot.whitelist
                         },
-                        magazines: {
-                            weights: {
+                        "magazines": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 0,
@@ -1733,15 +1939,15 @@ export class PMCs
                                 5: 3,
                                 6: 2
                             },
-                            whitelist: {}
+                            "whitelist": {}
                         },
-                        stims: {
-                            weights: {
+                        "stims": {
+                            "weights": {
                                 0: 1,
                                 1: 1,
                                 2: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5c0e531286f7747fa54205c2" SJ1
                                 //"5fca138c2a7b221b2852a5c6" x-TG-12 antidote
                                 //"5c10c8fd86f7743d7d706df3" Adrenaline
@@ -1781,18 +1987,32 @@ export class PMCs
                             }
                         }
                     },
-                    equipment: {
-                        ArmBand: 100,
-                        FirstPrimaryWeapon: 100,
-                        Holster: 60,
-                        Earpiece: 100,
-                        Eyewear: 100,
-                        Backpack: 100,
-                        Headwear: 100,
-                        FaceCover: 100,
-                        clothing: 100
+                    "equipment": {
+                        "ArmBand": 100,
+                        "FirstPrimaryWeapon": 100,
+                        "SecondPrimaryWeapon": 50,
+                        "Holster": 60,
+                        "Earpiece": 100,
+                        "Eyewear": 100,
+                        "Backpack": 100,
+                        "Headwear": 100,
+                        "FaceCover": 100,
+                        "Scabbard": 100,
+                        "TacticalVest": 90,
+                        "clothing": 100
                     },
-                    randomisedWeaponModSlots: [
+                    "equipmentMods": {
+                        "back_plate": 100,
+                        "left_side_plate": 100,
+                        "right_side_plate": 100,
+                        "mod_equipment": 75,
+                        "mod_equipment_000": 80,
+                        "mod_equipment_001": 75,
+                        "mod_equipment_002": 90,
+                        "mod_nvg": 60
+                    },
+                    "randomisedArmorSlots": ["Headwear"],
+                    "randomisedWeaponModSlots": [
                         "mod_scope",
                         "mod_scope_000",
                         "mod_scope_001",
@@ -1803,13 +2023,17 @@ export class PMCs
                         "mod_muzzle",
                         "mod_bipod",
                         "mod_muzzle_000",
+                        "mod_muzzle_001",
                         "mod_charge",
-                        "mod_reciever",
-                        "mod_trigger",
                         "mod_gas_block",
                         "mod_pistol_grip",
+                        "mod_pistolgrip",
                         "mod_pistol_grip_akms",
+                        "mod_pistolgrip_000",
                         "mod_foregrip",
+                        "mod_trigger",
+                        "mod_reciever",
+                        "mod_hammer",
                         "mod_stock",
                         "mod_stock_000",
                         "mod_stock_001",
@@ -1828,21 +2052,20 @@ export class PMCs
                         "mod_tactical_001",
                         "mod_tactical_002",
                         "mod_tactical_003"
-                    ],
-                    randomisedArmorSlots: ["Headwear"]
+                    ]
                 },
                 {
-                    levelRange: {
-                        min: 43,
-                        max: 100
+                    "levelRange": {
+                        "min": levelRange.loyalty4.min,
+                        "max": 100
                     },
-                    generation: {
-                        drugs: {
-                            weights: {
+                    "generation": {
+                        "drugs": {
+                            "weights": {
                                 0: 1,
                                 1: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5755383e24597772cb798966" Vaseline
                                 //"5af0548586f7743a532b7e99" Ibuprofen
                                 //"5751a89d24597722aa0e8db0" Golden star
@@ -1851,8 +2074,8 @@ export class PMCs
                                 "5751a89d24597722aa0e8db0": 1
                             }
                         },
-                        grenades: {
-                            weights: {
+                        "grenades": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 0,
@@ -1860,7 +2083,7 @@ export class PMCs
                                 4: 1,
                                 5: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5710c24ad2720bc3458b45a3" F1 grenade
                                 //"58d3db5386f77426186285a0" M67 grenade
                                 //"5448be9a4bdc2dfd2f8b456a" RGD-5
@@ -1877,8 +2100,8 @@ export class PMCs
                                 "5e340dcdcb6d5863cc5e5efb": 2
                             }
                         },
-                        healing: {
-                            weights: {
+                        "healing": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 0,
@@ -1886,7 +2109,7 @@ export class PMCs
                                 4: 1,
                                 5: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"5e8488fa988a8701445df1e4" CALOK-B
                                 //"5751a25924597722c463c472" Army bandage
                                 //"5af0454c86f7746bf20992e8" Aluminum splint
@@ -1901,8 +2124,8 @@ export class PMCs
                                 "5d02797c86f774203f38e30a": 2
                             }
                         },
-                        backpackLoot: {
-                            weights: {
+                        "backpackLoot": {
+                            "weights": {
                                 0: backpackLoot.weights[0],
                                 1: backpackLoot.weights[1],
                                 2: backpackLoot.weights[2],
@@ -1910,29 +2133,29 @@ export class PMCs
                                 4: backpackLoot.weights[4],
                                 5: backpackLoot.weights[5]
                             },
-                            whitelist: backpackLoot.whitelist
+                            "whitelist": backpackLoot.whitelist
                         },
-                        pocketLoot: {
-                            weights: {
+                        "pocketLoot": {
+                            "weights": {
                                 0: pocketLoot.weights[0],
                                 1: pocketLoot.weights[1],
                                 2: pocketLoot.weights[2],
                                 3: pocketLoot.weights[3]
                             },
-                            whitelist: pocketLoot.whitelist
+                            "whitelist": pocketLoot.whitelist
                         },
-                        vestLoot: {
-                            weights: {
+                        "vestLoot": {
+                            "weights": {
                                 0: vestLoot.weights[0],
                                 1: vestLoot.weights[1],
                                 2: vestLoot.weights[2],
                                 3: vestLoot.weights[3],
                                 4: vestLoot.weights[4]
                             },
-                            whitelist: vestLoot.whitelist
+                            "whitelist": vestLoot.whitelist
                         },
-                        magazines: {
-                            weights: {
+                        "magazines": {
+                            "weights": {
                                 0: 0,
                                 1: 0,
                                 2: 0,
@@ -1943,15 +2166,15 @@ export class PMCs
                                 7: 2,
                                 8: 1
                             },
-                            whitelist: {}
+                            "whitelist": {}
                         },
-                        stims: {
-                            weights: {
+                        "stims": {
+                            "weights": {
                                 0: 1,
                                 1: 1,
                                 2: 1
                             },
-                            whitelist: {
+                            "whitelist": {
                                 //"544fb3f34bdc2d03748b456a" Morphine
                                 //"5c0e531286f7747fa54205c2" SJ1
                                 //"5fca138c2a7b221b2852a5c6" x-TG-12 antidote
@@ -1997,18 +2220,39 @@ export class PMCs
                             }
                         }
                     },
-                    equipment: {
-                        ArmBand: 100,
-                        FirstPrimaryWeapon: 100,
-                        Holster: 80,
-                        Earpiece: 100,
-                        Eyewear: 100,
-                        Backpack: 100,
-                        Headwear: 100,
-                        FaceCover: 100,
-                        clothing: 100
+                    "equipment": {
+                        "ArmBand": 100,
+                        "FirstPrimaryWeapon": 100,
+                        "SecondPrimaryWeapon": 60,
+                        "Holster": 80,
+                        "Earpiece": 100,
+                        "Eyewear": 100,
+                        "Backpack": 100,
+                        "Headwear": 100,
+                        "FaceCover": 100,
+                        "Scabbard": 100,
+                        "TacticalVest": 100,
+                        "clothing": 100
                     },
-                    randomisedWeaponModSlots: [
+                    "equipmentMods": {
+                        "back_plate": 100,
+                        "left_side_plate": 100,
+                        "right_side_plate": 100,
+                        "mod_equipment": 75,
+                        "mod_equipment_000": 80,
+                        "mod_equipment_001": 75,
+                        "mod_equipment_002": 90,
+                        "mod_nvg": 60
+                    },
+                    "weaponMods": {
+                        "mod_scope": 95,
+                        "mod_muzzle": 75,
+                        "mod_muzzle_000": 95,
+                        "mod_muzzle_001": 95
+                    },
+                    
+                    "randomisedArmorSlots": ["Headwear"],
+                    "randomisedWeaponModSlots": [
                         "mod_scope",
                         "mod_scope_000",
                         "mod_scope_001",
@@ -2019,13 +2263,17 @@ export class PMCs
                         "mod_muzzle",
                         "mod_bipod",
                         "mod_muzzle_000",
+                        "mod_muzzle_001",
                         "mod_charge",
-                        "mod_reciever",
-                        "mod_trigger",
                         "mod_gas_block",
                         "mod_pistol_grip",
+                        "mod_pistolgrip",
                         "mod_pistol_grip_akms",
+                        "mod_pistolgrip_000",
                         "mod_foregrip",
+                        "mod_trigger",
+                        "mod_reciever",
+                        "mod_hammer",
                         "mod_stock",
                         "mod_stock_000",
                         "mod_stock_001",
@@ -2044,180 +2292,192 @@ export class PMCs
                         "mod_tactical_001",
                         "mod_tactical_002",
                         "mod_tactical_003"
-                    ],
-                    randomisedArmorSlots: ["Headwear"]
+                    ]
                 }
             ],
-            blacklist: [
+            "blacklist": [
                 {
-                    levelRange: {
-                        min: 1,
-                        max: 100
+                    "levelRange": {
+                        "min": 1,
+                        "max": 100
                     },
-                    equipment: {},
-                    cartridge: {}
+                    "equipment": {},
+                    "cartridge": {}
                 }
             ],
-            weightingAdjustmentsByPlayerLevel: [],
-            whitelist: [
+            "weightingAdjustmentsByPlayerLevel": [],
+            "whitelist": [
                 {
-                    levelRange: {
-                        min: levelRange.loyalty1.min,
-                        max: levelRange.loyalty1.max
+                    "levelRange": {
+                        "min": levelRange.loyalty1.min,
+                        "max": levelRange.loyalty1.max
                     },
-                    equipment: {
-                        FirstPrimaryWeapon: [...primaryWeaponLL1],
-                        Holster: [...holsterLL1],
-                        Backpack: [...backpackLL1],
-                        TacticalVest: [...tacticalVestLL1],
-                        Earpiece: [...earpieceLL1],
-                        Headwear: [...headwearLL1],
-                        ArmorVest: [...armorVestLL1],
-                        Eyewear: [...eyewearLL1],
-                        ArmBand: [...armBandLL1],
-                        FaceCover: [...faceCoverLL1]
+                    "equipment": {
+                        "FirstPrimaryWeapon": [...primaryWeaponLL1],
+                        "SecondPrimaryWeapon": [...primaryWeaponLL1],
+                        "Holster": [...holsterLL1],
+                        "Backpack": [...backpackLL1],
+                        "TacticalVest": [...tacticalVestLL1],
+                        "Earpiece": [...earpieceLL1],
+                        "Headwear": [...headwearLL1],
+                        "ArmorVest": [...armorVestLL1],
+                        "Eyewear": [...eyewearLL1],
+                        "ArmBand": [...armBandLL1],
+                        "FaceCover": [...faceCoverLL1]
                     },
-                    cartridge: {
-                        Caliber762x54R: [...ammo762x54LL1],
-                        Caliber762x51: [...ammo762x51LL1],
-                        Caliber762x39: [...ammo762x39LL1],
-                        Caliber762x35: [...ammo762x35LL1],
-                        Caliber762x25TT: [...ammo762x25TTLL1],
-                        Caliber366TKM: [...ammo366TKMLL1],
-                        Caliber556x45NATO: [...ammo556x45LL1],
-                        Caliber545x39: [...ammo545x39LL1],
-                        Caliber1143x23ACP: [...ammo1143x23ACPLL1],
-                        Caliber9x19PARA: [...ammo9x19LL1],
-                        Caliber9x18PM: [...ammo9x18LL1],
-                        Caliber12g: [...ammo12x70LL1]
+                    "cartridge": {
+                        "Caliber762x54R": [...ammo762x54LL1],
+                        "Caliber762x51": [...ammo762x51LL1],
+                        "Caliber762x39": [...ammo762x39LL1],
+                        "Caliber762x35": [...ammo762x35LL1],
+                        "Caliber762x25TT": [...ammo762x25TTLL1],
+                        "Caliber366TKM": [...ammo366TKMLL1],
+                        "Caliber556x45NATO": [...ammo556x45LL1],
+                        "Caliber545x39": [...ammo545x39LL1],
+                        "Caliber1143x23ACP": [...ammo1143x23ACPLL1],
+                        "Caliber9x19PARA": [...ammo9x19LL1],
+                        "Caliber9x18PM": [...ammo9x18LL1],
+                        "Caliber12g": [...ammo12x70LL1]
                     }
                 }
             ],
-            weightingAdjustmentsByBotLevel: [],
-            forceStock: false
+            "weightingAdjustmentsByBotLevel": [],
+            "forceStock": true
         };
 
         const progressionWhitelistLL2PMC: EquipmentFilterDetails = {
-            levelRange: {
-                min: levelRange.loyalty2.min,
-                max: levelRange.loyalty2.max
+            "levelRange": {
+                "min": levelRange.loyalty2.min,
+                "max": levelRange.loyalty2.max
             },
-            equipment: {
-                FirstPrimaryWeapon: [...primaryWeaponLL2],
-                Holster: [...holsterLL2],
-                Backpack: [...backpackLL2],
-                TacticalVest: [...tacticalVestLL2],
-                Earpiece: [...earpieceLL2],
-                Headwear: [...headwearLL2],
-                ArmorVest: [...armorVestLL2],
-                Eyewear: [...eyewearLL2],
-                ArmBand: [...armBandLL2],
-                FaceCover: [...faceCoverLL2]
+            "equipment": {
+                "FirstPrimaryWeapon": [...primaryWeaponLL2],
+                "SecondPrimaryWeapon": [...primaryWeaponLL2],
+                "Holster": [...holsterLL2],
+                "Backpack": [...backpackLL2],
+                "TacticalVest": [...tacticalVestLL2],
+                "Earpiece": [...earpieceLL2],
+                "Headwear": [...headwearLL2],
+                "ArmorVest": [...armorVestLL2],
+                "Eyewear": [...eyewearLL2],
+                "ArmBand": [...armBandLL2],
+                "FaceCover": [...faceCoverLL2]
             },
-            cartridge: {
-                Caliber127x55: [...ammo127x55LL2],
-                Caliber762x54R: [...ammo762x54LL2],
-                Caliber762x51: [...ammo762x51LL2],
-                Caliber762x39: [...ammo762x39LL2],
-                Caliber762x35: [...ammo762x35LL2],
-                Caliber762x25TT: [...ammo762x25TTLL2],
-                Caliber366TKM: [...ammo366TKMLL2],
-                Caliber556x45NATO: [...ammo556x45LL2],
-                Caliber545x39: [...ammo545x39LL2],
-                Caliber57x28: [...ammo57x28LL2],
-                Caliber1143x23ACP: [...ammo1143x23ACPLL2],
-                Caliber9x33R: [...ammo9x33RLL2],
-                Caliber9x19PARA: [...ammo9x19LL2],
-                Caliber9x18PM: [...ammo9x18LL2],
-                Caliber12g: [...ammo12x70LL2]
+            "cartridge": {
+                "Caliber127x55": [...ammo127x55LL2],
+                "Caliber762x54R": [...ammo762x54LL2],
+                "Caliber762x51": [...ammo762x51LL2],
+                "Caliber762x39": [...ammo762x39LL2],
+                "Caliber762x35": [...ammo762x35LL2],
+                "Caliber762x25TT": [...ammo762x25TTLL2],
+                "Caliber366TKM": [...ammo366TKMLL2],
+                "Caliber556x45NATO": [...ammo556x45LL2],
+                "Caliber545x39": [...ammo545x39LL2],
+                "Caliber57x28": [...ammo57x28LL2],
+                "Caliber1143x23ACP": [...ammo1143x23ACPLL2],
+                "Caliber9x33R": [...ammo9x33RLL2],
+                "Caliber9x19PARA": [...ammo9x19LL2],
+                "Caliber9x18PM": [...ammo9x18LL2],
+                "Caliber12g": [...ammo12x70LL2]
             }
         };
 
         const progressionWhitelistLL3PMC: EquipmentFilterDetails = {
-            levelRange: {
-                min: levelRange.loyalty3.min,
-                max: levelRange.loyalty3.max
+            "levelRange": {
+                "min": levelRange.loyalty3.min,
+                "max": levelRange.loyalty3.max
             },
-            equipment: {
-                FirstPrimaryWeapon: [...primaryWeaponLL3],
-                Holster: [...holsterLL3],
-                Backpack: [...backpackLL3],
-                TacticalVest: [...tacticalVestLL3],
-                Earpiece: [...earpieceLL3],
-                Headwear: [...headwearLL3],
-                ArmorVest: [...armorVestLL3],
-                Eyewear: [...eyewearLL3],
-                ArmBand: [...armBandLL3],
-                FaceCover: [...faceCoverLL3]
+            "equipment": {
+                "FirstPrimaryWeapon": [...primaryWeaponLL3],
+                "SecondPrimaryWeapon": [...primaryWeaponLL3],
+                "Holster": [...holsterLL3],
+                "Backpack": [...backpackLL3],
+                "TacticalVest": [...tacticalVestLL3],
+                "Earpiece": [...earpieceLL3],
+                "Headwear": [...headwearLL3],
+                "ArmorVest": [...armorVestLL3],
+                "Eyewear": [...eyewearLL3],
+                "ArmBand": [...armBandLL3],
+                "FaceCover": [...faceCoverLL3]
             },
-            cartridge: {
-                Caliber127x55: [...ammo127x55LL3],
-                Caliber762x54R: [...ammo762x54LL3],
-                Caliber762x51: [...ammo762x51LL3],
-                Caliber762x39: [...ammo762x39LL3],
-                Caliber762x35: [...ammo762x35LL3],
-                Caliber68x51: [...ammo68x51LL3],
-                Caliber366TKM: [...ammo366TKMLL3],
-                Caliber556x45NATO: [...ammo556x45LL3],
-                Caliber545x39: [...ammo545x39LL3],
-                Caliber57x28: [...ammo57x28LL3],
-                Caliber46x30: [...ammo46x30LL3],
-                Caliber1143x23ACP: [...ammo1143x23ACPLL3],
-                Caliber9x39: [...ammo9x39LL3],
-                Caliber9x33R: [...ammo9x33RLL2],
-                Caliber9x21: [...ammo9x21LL3],
-                Caliber9x19PARA: [...ammo9x19LL3],
-                Caliber9x18PM: [...ammo9x18LL2],
-                Caliber12g: [...ammo12x70LL3],
-                Caliber23x75: [...ammo23x75LL3]
+            "cartridge": {
+                "Caliber127x55": [...ammo127x55LL3],
+                "Caliber762x54R": [...ammo762x54LL3],
+                "Caliber762x51": [...ammo762x51LL3],
+                "Caliber762x39": [...ammo762x39LL3],
+                "Caliber762x35": [...ammo762x35LL3],
+                "Caliber68x51": [...ammo68x51LL3],
+                "Caliber366TKM": [...ammo366TKMLL3],
+                "Caliber556x45NATO": [...ammo556x45LL3],
+                "Caliber545x39": [...ammo545x39LL3],
+                "Caliber57x28": [...ammo57x28LL3],
+                "Caliber46x30": [...ammo46x30LL3],
+                "Caliber1143x23ACP": [...ammo1143x23ACPLL3],
+                "Caliber9x39": [...ammo9x39LL3],
+                "Caliber9x33R": [...ammo9x33RLL2],
+                "Caliber9x21": [...ammo9x21LL3],
+                "Caliber9x19PARA": [...ammo9x19LL3],
+                "Caliber9x18PM": [...ammo9x18LL2],
+                "Caliber12g": [...ammo12x70LL3],
+                "Caliber23x75": [...ammo23x75LL3]
             }
         };
 
         const progressionWhitelistLL4PMC: EquipmentFilterDetails = {
-            levelRange: {
-                min: levelRange.loyalty4.min,
-                max: 100
+            "levelRange": {
+                "min": levelRange.loyalty4.min,
+                "max": 100
             },
-            equipment: {
-                FirstPrimaryWeapon: [...primaryWeaponLL4],
-                Holster: [...holsterLL4],
-                Backpack: [...backpackLL4],
-                TacticalVest: [...tacticalVestLL4],
-                Earpiece: [...earpieceLL4],
-                Headwear: [...headwearLL4],
-                ArmorVest: [...armorVestLL4],
-                Eyewear: [...eyewearLL4],
-                ArmBand: [...armBandLL4],
-                FaceCover: [...faceCoverLL4]
+            "equipment": {
+                "FirstPrimaryWeapon": [...primaryWeaponLL4],
+                "SecondPrimaryWeapon": [...primaryWeaponLL4],
+                "Holster": [...holsterLL4],
+                "Backpack": [...backpackLL4],
+                "TacticalVest": [...tacticalVestLL4],
+                "Earpiece": [...earpieceLL4],
+                "Headwear": [...headwearLL4],
+                "ArmorVest": [...armorVestLL4],
+                "Eyewear": [...eyewearLL4],
+                "ArmBand": [...armBandLL4],
+                "FaceCover": [...faceCoverLL4]
             },
-            cartridge: {
-                Caliber40x46: [...ammo40x46LL4],
-                Caliber127x55: [...ammo127x55LL4],
-                Caliber86x70: [...ammo86x70LL4],
-                Caliber762x54R: [...ammo762x54LL4],
-                Caliber762x51: [...ammo762x51LL4],
-                Caliber762x39: [...ammo762x39LL4],
-                Caliber762x35: [...ammo762x35LL4],
-                Caliber68x51: [...ammo68x51LL4],
-                Caliber366TKM: [...ammo366TKMLL3],
-                Caliber556x45NATO: [...ammo556x45LL4],
-                Caliber545x39: [...ammo545x39LL4],
-                Caliber57x28: [...ammo57x28LL4],
-                Caliber46x30: [...ammo46x30LL4],
-                Caliber1143x23ACP: [...ammo1143x23ACPLL4],
-                Caliber9x39: [...ammo9x39LL4],
-                Caliber9x21: [...ammo9x21LL4],
-                Caliber9x19PARA: [...ammo9x19LL3],
-                Caliber9x18PM: [...ammo9x18LL2],
-                Caliber12g: [...ammo12x70LL3],
-                Caliber23x75: [...ammo23x75LL3]
+            "cartridge": {
+                "Caliber40x46": [...ammo40x46LL4],
+                "Caliber127x55": [...ammo127x55LL4],
+                "Caliber86x70": [...ammo86x70LL4],
+                "Caliber762x54R": [...ammo762x54LL4],
+                "Caliber762x51": [...ammo762x51LL4],
+                "Caliber762x39": [...ammo762x39LL4],
+                "Caliber762x35": [...ammo762x35LL4],
+                "Caliber68x51": [...ammo68x51LL4],
+                "Caliber366TKM": [...ammo366TKMLL3],
+                "Caliber556x45NATO": [...ammo556x45LL4],
+                "Caliber545x39": [...ammo545x39LL4],
+                "Caliber57x28": [...ammo57x28LL4],
+                "Caliber46x30": [...ammo46x30LL4],
+                "Caliber1143x23ACP": [...ammo1143x23ACPLL4],
+                "Caliber9x39": [...ammo9x39LL4],
+                "Caliber9x21": [...ammo9x21LL4],
+                "Caliber9x19PARA": [...ammo9x19LL3],
+                "Caliber9x18PM": [...ammo9x18LL2],
+                "Caliber12g": [...ammo12x70LL3],
+                "Caliber23x75": [...ammo23x75LL3]
             }
         };
 
-        this.botConfig.equipment.pmc.weightingAdjustmentsByBotLevel = [];
-        this.botConfig.equipment.pmc.weightingAdjustmentsByPlayerLevel = [];
-        this.botConfig.equipment.pmc = null;
-        this.botConfig.equipment.pmc = progressionWhitelistLL1PMC;
+        /*Setting a variable, bconfig, to the pmc equipment config.
+        Then setting the weight adjustments by bot and player level to null.
+        Then setting bconfig itself to null and reassigning it 
+        to the LL1 PMC progression whitelist set by the mod.*/
+        let bconfig = this.botConfig.equipment.pmc;
+        bconfig.weightingAdjustmentsByBotLevel = [];
+        bconfig.weightingAdjustmentsByPlayerLevel = [];
+        bconfig = null;
+        bconfig = progressionWhitelistLL1PMC;
+
+        /*Setting a varaible, pmc, to the pmc equipment whitelist.
+        Then pushing LL2, LL3, and LL4 whitelists 
+        into the whitelist of SPT previously established above.*/
         const pmc = this.botConfig.equipment.pmc.whitelist;
         pmc.push(progressionWhitelistLL2PMC);
         pmc.push(progressionWhitelistLL3PMC);
