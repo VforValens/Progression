@@ -1185,12 +1185,12 @@ export class PMCs
         /* Armor Plate Weighting. Fix from (this.botConfig.equipment.pmc.armorPlateWeighting as any) = 
         when the IArmorPlates[] interface is updated off of Issue #614. Also, Fuck the Rules.
         https://dev.sp-tarkov.com/SPT-AKI/Issues/issues/614 */
-        const level = this.modConfig.levelRange;
+        const lvl = this.modConfig.levelRange;
         (this.botConfig.equipment.pmc.armorPlateWeighting as any) = [
             {
                 "levelRange": {
-                    "min": level.loyalty1.min,
-                    "max": level.loyalty1.max
+                    "min": lvl.loyalty1.min,
+                    "max": lvl.loyalty1.max
                 },
                 "front_plate": {
                     "2": 0,
@@ -1230,8 +1230,8 @@ export class PMCs
             },
             {
                 "levelRange": {
-                    "min": level.loyalty2.min,
-                    "max": level.loyalty2.max
+                    "min": lvl.loyalty2.min,
+                    "max": lvl.loyalty2.max
                 },
                 "front_plate": {
                     "2": 0,
@@ -1271,8 +1271,8 @@ export class PMCs
             },
             {
                 "levelRange": {
-                    "min": level.loyalty3.min,
-                    "max": level.loyalty3.max
+                    "min": lvl.loyalty3.min,
+                    "max": lvl.loyalty3.max
                 },
                 "front_plate": {
                     "2": 0,
@@ -1312,7 +1312,7 @@ export class PMCs
             },
             {
                 "levelRange": {
-                    "min": level.loyalty4.min,
+                    "min": lvl.loyalty4.min,
                     "max": 100
                 },
                 "front_plate": {
@@ -1441,8 +1441,8 @@ export class PMCs
             randomisation: [
                 {
                     levelRange: {
-                        min: level.loyalty1.min,
-                        max: level.loyalty1.max
+                        min: lvl.loyalty1.min,
+                        max: lvl.loyalty1.max
                     },
                     generation: {
                         drugs: {
@@ -1606,8 +1606,8 @@ export class PMCs
                 },
                 {
                     levelRange: {
-                        min: level.loyalty2.min,
-                        max: level.loyalty2.max
+                        min: lvl.loyalty2.min,
+                        max: lvl.loyalty2.max
                     },
                     generation: {
                         drugs: {
@@ -1829,8 +1829,8 @@ export class PMCs
                 },
                 {
                     levelRange: {
-                        min: level.loyalty3.min,
-                        max: level.loyalty3.max
+                        min: lvl.loyalty3.min,
+                        max: lvl.loyalty3.max
                     },
                     generation: {
                         drugs: {
@@ -2055,7 +2055,7 @@ export class PMCs
                 },
                 {
                     levelRange: {
-                        min: level.loyalty4.min,
+                        min: lvl.loyalty4.min,
                         max: 100
                     },
                     generation: {
@@ -2308,8 +2308,8 @@ export class PMCs
             whitelist: [
                 {
                     levelRange: {
-                        min: level.loyalty1.min,
-                        max: level.loyalty1.max
+                        min: lvl.loyalty1.min,
+                        max: lvl.loyalty1.max
                     },
                     equipment: {
                         FirstPrimaryWeapon: [...primaryWeaponLL1],
@@ -2346,8 +2346,8 @@ export class PMCs
 
         const progressionWhitelistLL2PMC: EquipmentFilterDetails = {
             levelRange: {
-                min: level.loyalty2.min,
-                max: level.loyalty2.max
+                min: lvl.loyalty2.min,
+                max: lvl.loyalty2.max
             },
             equipment: {
                 FirstPrimaryWeapon: [...primaryWeaponLL2],
@@ -2383,8 +2383,8 @@ export class PMCs
 
         const progressionWhitelistLL3PMC: EquipmentFilterDetails = {
             levelRange: {
-                min: level.loyalty3.min,
-                max: level.loyalty3.max
+                min: lvl.loyalty3.min,
+                max: lvl.loyalty3.max
             },
             equipment: {
                 FirstPrimaryWeapon: [...primaryWeaponLL3],
@@ -2424,7 +2424,7 @@ export class PMCs
 
         const progressionWhitelistLL4PMC: EquipmentFilterDetails = {
             levelRange: {
-                min: level.loyalty4.min,
+                min: lvl.loyalty4.min,
                 max: 100
             },
             equipment: {
@@ -2464,22 +2464,11 @@ export class PMCs
             }
         };
 
-        /*Setting a variable, bconfig, to the pmc equipment config.
-        Then setting the weight adjustments by bot and player level to null.
-        Then setting bconfig itself to null and reassigning it 
-        to the LL1 PMC progression whitelist set by the mod.*/
-        let bconfig = this.botConfig.equipment.pmc;
-        bconfig.weightingAdjustmentsByBotLevel = [];
-        bconfig.weightingAdjustmentsByPlayerLevel = [];
-        bconfig = null;
-        bconfig = progressionWhitelistLL1PMC;
+        this.botConfig.equipment.pmc = progressionWhitelistLL1PMC;
 
-        /*Setting a varaible, pmc, to the pmc equipment whitelist.
-        Then pushing LL2, LL3, and LL4 whitelists 
-        into the whitelist of SPT previously established above.*/
-        const pmc = this.botConfig.equipment.pmc.whitelist;
-        pmc.push(progressionWhitelistLL2PMC);
-        pmc.push(progressionWhitelistLL3PMC);
-        pmc.push(progressionWhitelistLL4PMC);
+        const whitelist = this.botConfig.equipment.pmc.whitelist;
+        whitelist.push(progressionWhitelistLL2PMC);
+        whitelist.push(progressionWhitelistLL3PMC);
+        whitelist.push(progressionWhitelistLL4PMC);
     }
 }
