@@ -1355,6 +1355,7 @@ export class PMCs
 
 
         // Progression Loyalty Level List Start
+        const levelRange = this.modConfig.levelRange;
         const pocketLoot = this.modConfig.pocketLoot;
         const backpackLoot = this.modConfig.backpackLoot;
         const vestLoot = this.modConfig.vestLoot;
@@ -1441,8 +1442,8 @@ export class PMCs
             "randomisation": [
                 {
                     "levelRange": {
-                        "min": level.loyalty1.min,
-                        "max": level.loyalty1.max
+                        "min": levelRange.loyalty1.min,
+                        "max": levelRange.loyalty1.max
                     },
                     "generation": {
                         "drugs": {
@@ -1606,8 +1607,8 @@ export class PMCs
                 },
                 {
                     "levelRange": {
-                        "min": level.loyalty2.min,
-                        "max": level.loyalty2.max
+                        "min": levelRange.loyalty2.min,
+                        "max": levelRange.loyalty2.max
                     },
                     "generation": {
                         "drugs": {
@@ -1829,8 +1830,8 @@ export class PMCs
                 },
                 {
                     "levelRange": {
-                        "min": level.loyalty3.min,
-                        "max": level.loyalty3.max
+                        "min": levelRange.loyalty3.min,
+                        "max": levelRange.loyalty3.max
                     },
                     "generation": {
                         "drugs": {
@@ -2055,7 +2056,7 @@ export class PMCs
                 },
                 {
                     "levelRange": {
-                        "min": level.loyalty4.min,
+                        "min": levelRange.loyalty4.min,
                         "max": 100
                     },
                     "generation": {
@@ -2308,8 +2309,8 @@ export class PMCs
             "whitelist": [
                 {
                     "levelRange": {
-                        "min": level.loyalty1.min,
-                        "max": level.loyalty1.max
+                        "min": levelRange.loyalty1.min,
+                        "max": levelRange.loyalty1.max
                     },
                     "equipment": {
                         "FirstPrimaryWeapon": [...primaryWeaponLL1],
@@ -2346,8 +2347,8 @@ export class PMCs
 
         const progressionWhitelistLL2PMC: EquipmentFilterDetails = {
             "levelRange": {
-                "min": level.loyalty2.min,
-                "max": level.loyalty2.max
+                "min": levelRange.loyalty2.min,
+                "max": levelRange.loyalty2.max
             },
             "equipment": {
                 "FirstPrimaryWeapon": [...primaryWeaponLL2],
@@ -2383,8 +2384,8 @@ export class PMCs
 
         const progressionWhitelistLL3PMC: EquipmentFilterDetails = {
             "levelRange": {
-                "min": level.loyalty3.min,
-                "max": level.loyalty3.max
+                "min": levelRange.loyalty3.min,
+                "max": levelRange.loyalty3.max
             },
             "equipment": {
                 "FirstPrimaryWeapon": [...primaryWeaponLL3],
@@ -2424,7 +2425,7 @@ export class PMCs
 
         const progressionWhitelistLL4PMC: EquipmentFilterDetails = {
             "levelRange": {
-                "min": level.loyalty4.min,
+                "min": levelRange.loyalty4.min,
                 "max": 100
             },
             "equipment": {
