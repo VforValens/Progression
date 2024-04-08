@@ -170,7 +170,7 @@ export class PMCs
                 "6193a720f8ee7e52e42109ed",
                 "5f36a0e5fbf956000b716b65",
                 "61a4c8884f95bc3b2c5dc96f",
-                "5580223e4bdc2d1c128b457f"
+                "5c503ad32e2216398b5aada2"
             ]);
         const holsterLL3 = [
             "59f98b4986f7746f546d2cef",
