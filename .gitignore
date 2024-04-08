@@ -29,5 +29,5 @@ config.json.bk
 desktop.ini
 *.zip
 *.js
-/Valens-Progression_*/**/*.*
-/Valens-Progression_*/*.*
+/user/**/*.*
+/user/*.*
