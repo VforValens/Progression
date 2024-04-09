@@ -1181,183 +1181,11 @@ export class PMCs
         this.databaseServer.bots.types.bear.inventory.Ammo = {};
         this.databaseServer.bots.types.bear.inventory.Ammo = pmcAmmo;
 
-
-        /* Armor Plate Weighting. Fix from (this.botConfig.equipment.pmc.armorPlateWeighting as any) = 
-        when the IArmorPlates[] interface is updated off of Issue #614. Also, Fuck the Rules.
-        https://dev.sp-tarkov.com/SPT-AKI/Issues/issues/614 */
-        const lvl = this.modConfig.levelRange;
-        (this.botConfig.equipment.pmc.armorPlateWeighting as any) = [
-            {
-                "levelRange": {
-                    "min": lvl.loyalty1.min,
-                    "max": lvl.loyalty1.max
-                },
-                "front_plate": {
-                    "2": 0,
-                    "3": 85,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "back_plate": {
-                    "2": 0,
-                    "3": 85,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                }
-            },
-            {
-                "levelRange": {
-                    "min": lvl.loyalty2.min,
-                    "max": lvl.loyalty2.max
-                },
-                "front_plate": {
-                    "2": 0,
-                    "3": 94,
-                    "4": 6,
-                    "5": 0,
-                    "6": 0
-                },
-                "back_plate": {
-                    "2": 0,
-                    "3": 94,
-                    "4": 6,
-                    "5": 0,
-                    "6": 0
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 90,
-                    "6": 10
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 90,
-                    "6": 10
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 90,
-                    "6": 10
-                }
-            },
-            {
-                "levelRange": {
-                    "min": lvl.loyalty3.min,
-                    "max": lvl.loyalty3.max
-                },
-                "front_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 85,
-                    "5": 10,
-                    "6": 5
-                },
-                "back_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 85,
-                    "5": 10,
-                    "6": 5
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 85,
-                    "5": 10,
-                    "6": 5
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 85,
-                    "5": 10,
-                    "6": 5
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 85,
-                    "5": 10,
-                    "6": 5
-                }
-            },
-            {
-                "levelRange": {
-                    "min": lvl.loyalty4.min,
-                    "max": 100
-                },
-                "front_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "back_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                }
-            }
-        ];
-
-
         // Progression Loyalty Level List Start
         const pocketLoot = this.modConfig.pocketLoot;
         const backpackLoot = this.modConfig.backpackLoot;
         const vestLoot = this.modConfig.vestLoot;
+        const lvl = this.modConfig.levelRange;
 
         const progressionWhitelistLL1PMC: EquipmentFilters = {
             weaponModLimits: {
@@ -2470,5 +2298,175 @@ export class PMCs
         whitelist.push(progressionWhitelistLL2PMC);
         whitelist.push(progressionWhitelistLL3PMC);
         whitelist.push(progressionWhitelistLL4PMC);
+
+        /* Armor Plate Weighting. Fix from (this.botConfig.equipment.pmc.armorPlateWeighting as any) = 
+        when the IArmorPlates[] interface is updated off of Issue #614. Also, Fuck the Rules.
+        https://dev.sp-tarkov.com/SPT-AKI/Issues/issues/614 */
+        (this.botConfig.equipment.pmc.armorPlateWeighting as any) = [
+            {
+                "levelRange": {
+                    "min": lvl.loyalty1.min,
+                    "max": lvl.loyalty1.max
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 85,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 85,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                }
+            },
+            {
+                "levelRange": {
+                    "min": lvl.loyalty2.min,
+                    "max": lvl.loyalty2.max
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 94,
+                    "4": 6,
+                    "5": 0,
+                    "6": 0
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 94,
+                    "4": 6,
+                    "5": 0,
+                    "6": 0
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 90,
+                    "6": 10
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 90,
+                    "6": 10
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 90,
+                    "6": 10
+                }
+            },
+            {
+                "levelRange": {
+                    "min": lvl.loyalty3.min,
+                    "max": lvl.loyalty3.max
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 85,
+                    "5": 10,
+                    "6": 5
+                }
+            },
+            {
+                "levelRange": {
+                    "min": lvl.loyalty4.min,
+                    "max": 100
+                },
+                "front_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "back_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "left_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                },
+                "right_side_plate": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 50,
+                    "6": 50
+                }
+            }
+        ];
     }
 }
