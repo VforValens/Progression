@@ -1185,6 +1185,7 @@ export class PMCs
         const pocketLoot = this.modConfig.pocketLoot;
         const backpackLoot = this.modConfig.backpackLoot;
         const vestLoot = this.modConfig.vestLoot;
+        const lvl = this.modConfig.levelRange;
 
         const progressionWhitelistLL1PMC: EquipmentFilters = {
             weaponModLimits: {
@@ -2301,7 +2302,6 @@ export class PMCs
         /* Armor Plate Weighting. Fix from (this.botConfig.equipment.pmc.armorPlateWeighting as any) = 
         when the IArmorPlates[] interface is updated off of Issue #614. Also, Fuck the Rules.
         https://dev.sp-tarkov.com/SPT-AKI/Issues/issues/614 */
-        const lvl = this.modConfig.levelRange;
         (this.botConfig.equipment.pmc.armorPlateWeighting as any) = [
             {
                 "levelRange": {
