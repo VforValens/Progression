@@ -311,10 +311,11 @@ export class PMCs
         const faceCoverLL3 = faceCoverLL2.concat(
             ...[
                 "5ab8f85d86f7745cd93a1cf5", 
-                "5b432f3d5acfc4704b4a1dfb"
+                "5b432f3d5acfc4704b4a1dfb",
+                "60a7ad2a2198820d95707a2e",
+                "60a7ad3a0c5cb24b0134664a"
             ]);
         const faceCoverLL4 = [
-            "5e54f79686f7744022011103",
             "5fd8d28367cb5e077335170f",
             "5e54f76986f7740366043752",
             "62a09dd4621468534a797ac7",
@@ -322,7 +323,10 @@ export class PMCs
             "60a7ad3a0c5cb24b0134664a",
             "60a7ad2a2198820d95707a2e",
             "62963c18dbc8ab5f0d382d0b",
-            "62a09e08de7ac81993580532"
+            "62a09e08de7ac81993580532",
+            "5b432b2f5acfc4771e1c6622",
+            "6570aead4d84f81fd002a033",
+            "657089638db3adca1009f4ca"
         ];
 
         // Headwear Array
@@ -841,14 +845,16 @@ export class PMCs
             "5b4325355acfc40019478126": 10,
             "5ab8f85d86f7745cd93a1cf5": 10, 
             "5b432f3d5acfc4704b4a1dfb": 10,
-            "5e54f79686f7744022011103": 10,
             "5fd8d28367cb5e077335170f": 10,
             "5e54f76986f7740366043752": 10,
             "62a09dd4621468534a797ac7": 10,
             "60a7ad3a0c5cb24b0134664a": 10,
             "60a7ad2a2198820d95707a2e": 10,
             "62963c18dbc8ab5f0d382d0b": 10,
-            "62a09e08de7ac81993580532": 10
+            "62a09e08de7ac81993580532": 10,
+            "5b432b2f5acfc4771e1c6622": 10,
+            "6570aead4d84f81fd002a033": 10,
+            "657089638db3adca1009f4ca": 10
         };
 
         this.databaseServer.bots.types.usec.inventory.equipment.FaceCover = {};
