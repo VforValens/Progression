@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import http, { IncomingMessage, ServerResponse } from "node:http";
+import { IncomingMessage, ServerResponse } from "node:http";
 import { ApplicationContext } from "@spt-aki/context/ApplicationContext";
 import { HttpServerHelper } from "@spt-aki/helpers/HttpServerHelper";
 import { IHttpConfig } from "@spt-aki/models/spt/config/IHttpConfig";
@@ -19,11 +19,19 @@ export declare class HttpServer {
     protected applicationContext: ApplicationContext;
     protected webSocketServer: WebSocketServer;
     protected httpConfig: IHttpConfig;
+    protected started: boolean;
     constructor(logger: ILogger, databaseServer: DatabaseServer, httpServerHelper: HttpServerHelper, localisationService: LocalisationService, httpListeners: IHttpListener[], configServer: ConfigServer, applicationContext: ApplicationContext, webSocketServer: WebSocketServer);
     /**
      * Handle server loading event
      */
     load(): void;
     protected handleRequest(req: IncomingMessage, resp: ServerResponse): void;
-    protected getCookies(req: http.IncomingMessage): Record<string, string>;
+    /**
+     * Check against hardcoded values that determine its from a local address
+     * @param remoteAddress Address to check
+     * @returns True if its local
+     */
+    protected isLocalRequest(remoteAddress: string): boolean;
+    protected getCookies(req: IncomingMessage): Record<string, string>;
+    isStarted(): boolean;
 }
