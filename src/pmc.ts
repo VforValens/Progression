@@ -1,25 +1,30 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { EquipmentFilterDetails, EquipmentFilters, IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
 import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
 import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { PmcConfig } from "../config/ts/pmc";
 import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import { PmcHelper } from "./pmcHelper";
+import { IBotType } from "@spt-aki/models/eft/common/tables/IBotType";
 
 export class PMCs 
 {
     private botConfig: IBotConfig;
     private pmcConfig: IPmcConfig;
-    private databaseServer: IDatabaseTables;
+    private db: IDatabaseTables;
+    private botType: IBotType;
     private profileHelper: ProfileHelper;
     private modConfig: PmcConfig = require("../config/pmc.json");
+    private pmcHelper: PmcHelper;
 
-    constructor(botConfig: IBotConfig, pmcConfig: IPmcConfig, databaseServer: DatabaseServer, profileHelper: ProfileHelper) 
+    constructor(botConfig: IBotConfig, pmcConfig: IPmcConfig, databaseServer: DatabaseServer, profileHelper: ProfileHelper, botType: IBotType) 
     {
         this.botConfig = botConfig;
         this.pmcConfig = pmcConfig;
-        this.databaseServer = databaseServer.getTables();
+        this.db = databaseServer.getTables();
+        this.botType = botType;
         this.profileHelper = profileHelper;
+        this.pmcHelper = new PmcHelper();
     }
 
     public updatePmcs(): void 
@@ -158,7 +163,8 @@ export class PMCs
             "645e0c6b3b381ede770e1cc9",
             "57c44b372459772d2b39b8ce",
             "57838ad32459774a17445cd2",
-            "5fb64bc92b1b027b1f50bcf2"
+            "5fb64bc92b1b027b1f50bcf2",
+            "5cadfbf7ae92152ac412eeef"
         ];
 
         // Holster Array
@@ -537,53 +543,28 @@ export class PMCs
 
         ///////////////////////////////////////////////////////////////////////////
 
-        // Ammo Arrays
-        // 40x46mm Grenade Array - LL4 only.
-        const ammo40x46LL4 = ["5ede475b549eed7c6d5c18fb"];
-
-        // 12.7x55mm Ammo Arrays - LL4 only.
-        const ammo127x55LL2 = ["5cadf6ddae9215051e1c23b2", "5cadf6e5ae921500113bb973"];
-        const ammo127x55LL3 = ammo127x55LL2;
-        const ammo127x55LL4 = ["5cadf6e5ae921500113bb973"];
-
-        // 86x70 Ammo Arrays - LL4 only.
-        const ammo86x70LL4 = ["5fc275cf85fd526b824a571a", "5fc382a9d724d907e2077dab"];
-
         // 7.62x54R Ammo Arrays
         const ammo762x54LL1 = ["64b8f7c241772715af0f9c3d", "64b8f7b5389d7ffd620ccba2"];
-        const ammo762x54LL2 = ["64b8f7968532cf95ee0a0dbf", "5887431f2459777e1612938f"];
-        const ammo762x54LL3 = ["5e023cf8186a883be655e54f", "59e77a2386f7742ee578960a"];
-        const ammo762x54LL4 = ["5e023d34e8a400319a28ed44", "560d61e84bdc2da74d8b4571", "5e023d48186a883be655e551"];
-        const ammo762x54Flea = ["59e77a2386f7742ee578960a", "5e023cf8186a883be655e54f"];
+        const ammo762x54LL2 = ["64b8f7968532cf95ee0a0dbf", "5887431f2459777e1612938f", "59e77a2386f7742ee578960a", "5e023cf8186a883be655e54f"];
 
         // 7.62x51mm Ammo Arrays
         const ammo762x51LL1 = ["5e023e88277cce2b522ff2b1"];
-        const ammo762x51LL2 = ["5e023e6e34d52a55c3304f71"];
-        const ammo762x51LL3 = ["5e023e53d4353e3302577c4c", "58dd3ad986f77403051cba8f"];
-        const ammo762x51LL4 = ["58dd3ad986f77403051cba8f", "5a608bf24f39f98ffc77720e", "5a6086ea4f39f99cd479502f", "5efb0c1bd79ff02a1f5e68d9"];
-        const ammo762x51Flea = ["5e023e53d4353e3302577c4c"];
+        const ammo762x51LL2 = ["5e023e6e34d52a55c3304f71", "5e023e53d4353e3302577c4c"];
 
         // 7.62x39mm Ammo Arrays
         const ammo762x39LL1 = ["59e4d3d286f774176a36250a", "64b7af734b75259c590fa895", "64b7af5a8532cf95ee0a0dbd"];
-        const ammo762x39LL2 = ["64b7af5a8532cf95ee0a0dbd"];
-        const ammo762x39LL3 = ["59e4d24686f7741776641ac7", "59e4cf5286f7741778269d8a", "5656d7c34bdc2d9d198b4587"];
-        const ammo762x39LL4 = ["64b7af434b75259c590fa893", "59e0d99486f7744a32234762", "601aa3d2b2bcb34913271e6d"];
-        const ammo762x39Flea = ["64b7af434b75259c590fa893", "5656d7c34bdc2d9d198b4587", "59e4cf5286f7741778269d8a", "59e4d24686f7741776641ac7"];
+        const ammo762x39LL2 = ["64b7af5a8532cf95ee0a0dbd", "59e4d24686f7741776641ac7", "59e4cf5286f7741778269d8a", "5656d7c34bdc2d9d198b4587", "64b7af434b75259c590fa893"];
 
         // 7.62x35mm aka .300BLKOUT Ammo Arrays
         const ammo762x35LL1 = ["6196365d58ef8c428c287da1"];
-        const ammo762x35LL2 = ["6196364158ef8c428c287d9f"];
-        const ammo762x35LL3 = ["5fbe3ffdf8b6a877a729ea82", "619636be6db0f2477964e710"];
-        const ammo762x35LL4 = ["64b8725c4b75259c590fa899", "5fd20ff893a8961fc660a954"];
-        const ammo762x35Flea = ["64b8725c4b75259c590fa899", "619636be6db0f2477964e710", "5fbe3ffdf8b6a877a729ea82"];
+        const ammo762x35LL2 = ["6196364158ef8c428c287d9f", "5fbe3ffdf8b6a877a729ea82", "619636be6db0f2477964e710", "64b8725c4b75259c590fa899"];
 
         // 7.62x25mm TT Ammo Arrays
         const ammo762x25TTLL1 = ["573602322459776445391df1", "573601b42459776410737435", "5735ff5c245977640e39ba7e", "5735fdcd2459776445391d61"]
         const ammo762x25TTLL2 = ["5736026a245977644601dc61", "573603c924597764442bd9cb", "573603562459776430731618"];
 
         // 6.8x51 Ammo Arrays.
-        const ammo68x51LL3 = ["6529302b8c26af6326029fb7"];
-        const ammo68x51LL4 = ["6529243824cbe3c74a05e5c1"];
+        const ammo68x51LL2 = ["6529302b8c26af6326029fb7"];
 
         // 366 TKM Ammo Arrays.
         const ammo366TKMLL1 = ["59e6658b86f77411d949b250", "59e6542b86f77411dc52a77a"];
@@ -593,26 +574,16 @@ export class PMCs
         // 5.56 Ammo Arrays
         const ammo556x45LL1 = ["59e6927d86f77411da468256", "59e6918f86f7746c9f75e849"];
         const ammo556x45LL2 = ["5c0d5ae286f7741e46554302", "59e68f6f86f7746c9f75e846", "54527a984bdc2d4e668b4567", "60194943740c5d77f6705eea"];
-        const ammo556x45LL3 = ["54527ac44bdc2d36668b4567"];
-        const ammo556x45LL4 = ["54527ac44bdc2d36668b4567", "59e690b686f7746c9f75e848", "601949593ae8f707c4608daa"];
        
         // 5.45 Ammo Arrays
         const ammo545x39LL1 = ["56dff216d2720bbd668b4568", "56dff338d2720bbd668b4569", "56dff421d2720b5f5a8b4567", "56dff4ecd2720b5f5a8b4568"];
-        const ammo545x39LL2 = ["56dff4a2d2720bbd668b456a", "56dff0bed2720bb0668b4567", "56dff2ced2720bb4668b4567"];
-        const ammo545x39LL3 = ["56dff3afd2720bba668b4567", "56dff2ced2720bb4668b4567", "56dff061d2720bb5668b4567"];
-        const ammo545x39LL4 = ["56dff061d2720bb5668b4567", "61962b617c6c7b169525f168", "56dfef82d2720bbd668b4567", "56dff026d2720bb8668b4567", "5c0d5e4486f77478390952fe"];
-        const ammo545x39Flea = ["56dff3afd2720bba668b4567"];
+        const ammo545x39LL2 = ["56dff4a2d2720bbd668b456a", "56dff0bed2720bb0668b4567", "56dff2ced2720bb4668b4567", "56dff3afd2720bba668b4567"];
 
         // 5.7mm Ammo Arrays
-        const ammo57x28LL2 = ["5cc86840d7f00c002412c56c", "5cc80f8fe4a949033b0224a2"];
-        const ammo57x28LL3 = ["5cc86832d7f00c000d3a6e6c", "5cc80f67e4a949035e43bbba", "5cc80f53e4a949000e1ea4f8"];
-        const ammo57x28LL4 = ["5cc80f38e4a949001152b560"];
-        const ammo57x28Flea = ["5cc80f53e4a949000e1ea4f8"];
+        const ammo57x28LL2 = ["5cc86840d7f00c002412c56c", "5cc80f8fe4a949033b0224a2", "5cc80f53e4a949000e1ea4f8"];
 
         // 4.6mm Ammo Arrays
-        const ammo46x30LL3 = ["64b6979341772715af0f9c39"];
-        const ammo46x30LL4 = ["5ba2678ad4351e44f824b344", "5ba26835d4351e0035628ff5"];
-        const ammo46x30Flea = ["5ba2678ad4351e44f824b344", "64b6979341772715af0f9c39"];
+        const ammo46x30LL2 = ["5ba2678ad4351e44f824b344", "64b6979341772715af0f9c39"];
 
         // 9x18mm Ammo Arrays
         const ammo9x18LL1 = ["57371f8d24597761006c6a81", "573720e02459776143012541"];
@@ -621,18 +592,12 @@ export class PMCs
         // 9x19mm Ammo Arrays
         const ammo9x19LL1 = ["58864a4f2459770fcc257101", "5c3df7d588a4501f290594e5"];
         const ammo9x19LL2 = ["64b7bbb74b75259c590fa897", "56d59d3ad2720bdb418b4577"]
-        const ammo9x19LL3 = ["5c0d56a986f774449d5de529", "5c925fa22e221601da359b7b", "5efb0da7a29a85116f6ea05f"];
 
         // 9x21mm Ammo Arrays
-        const ammo9x21LL3 = ["6576f93989f0062e741ba952"];
-        const ammo9x21LL4 = ["5a26ac0ec4a28200741e1e18"];
-        const ammo9x21Flea = ["6576f93989f0062e741ba952"];
+        const ammo9x21LL2 = ["6576f93989f0062e741ba952"];
 
         // 9x39mm Ammo Arrays
-        const ammo9x39LL2 = ["6576f96220d53a5b8f3e395e", "57a0dfb82459774d3078b56c"];
-        const ammo9x39LL3 = ["61962d879bb3d20b0946d385"];
-        const ammo9x39LL4 = ["57a0e5022459774d1673f889", "5c0d688c86f77413ae3407b2"];
-        
+        const ammo9x39LL2 = ["6576f96220d53a5b8f3e395e", "57a0dfb82459774d3078b56c", "61962d879bb3d20b0946d385"];     
 
         // 9x33 Revolver .357 Mag Ammo Arrays
         const ammo9x33RLL2 = ["62330b3ed4dc74626d570b95"];
@@ -641,7 +606,6 @@ export class PMCs
         const ammo1143x23ACPLL1 = ["5efb0d4f4bc50b58e81710f3"];
         const ammo1143x23ACPLL2 = ["5e81f423763d9f754677bf2e"];
         const ammo1143x23ACPLL3 = ["5efb0fc6aeb21837e749c801", "5e81f423763d9f754677bf2e"];
-        const ammo1143x23ACPLL4 = ["5efb0cabfb3e451d70735af5"];
 
         // 12 Gauge Ammo Arrays
         const ammo12x70LL1 = ["560d5e524bdc2d25448b4571", "5d6e67fba4b9361bc73bc779", "5d6e6869a4b9361c140bcfde", "5d6e6891a4b9361bd473feea"];
@@ -652,9 +616,20 @@ export class PMCs
         // 23x75mm KS-23 Ammo Arrays
         const ammo23x75LL3 = ["5f647f31b6238e5dd066e196", "5e85a9a6eacf8c039e4e2ac1", "5e85aa1a988a8701445df1f5"];
 
-        // PMC Weighting Start
-        const pmcEquipment = JSON.parse(JSON.stringify(this.databaseServer.bots.types.usec.inventory.equipment));
-
+        // Clear weightingAdjustmentsByBotLevel and then push new Weights for LL1-4 into the function.
+        this.botConfig.equipment.pmc.weightingAdjustmentsByBotLevel = [];
+        this.botConfig.equipment.pmc.weightingAdjustmentsByBotLevel.push(
+            this.pmcHelper.getPmcWeightsLL1(this.modConfig.levelRange)
+        );
+        this.botConfig.equipment.pmc.weightingAdjustmentsByBotLevel.push(
+            this.pmcHelper.getPmcWeightsLL2(this.modConfig.levelRange)
+        );
+        this.botConfig.equipment.pmc.weightingAdjustmentsByBotLevel.push(
+            this.pmcHelper.getPmcWeightsLL3(this.modConfig.levelRange)
+        );
+        this.botConfig.equipment.pmc.weightingAdjustmentsByBotLevel.push(
+            this.pmcHelper.getPmcWeightsLL4(this.modConfig.levelRange)
+        );
 
         // PMC FirstPrimaryWeapon Weighting
         pmcEquipment.FirstPrimaryWeapon = {
@@ -755,8 +730,8 @@ export class PMCs
             "5ac66d015acfc400180ae6e4": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;
-        this.databaseServer.bots.types.bear.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;        
+        this.db.bots.types.usec.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;
+        this.db.bots.types.bear.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;        
 
         // PMC Holster Weighting
         pmcEquipment.Holster = {
@@ -785,8 +760,8 @@ export class PMCs
             "5b1fa9b25acfc40018633c01": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Holster = pmcEquipment.Holster;
-        this.databaseServer.bots.types.bear.inventory.equipment.Holster = pmcEquipment.Holster;
+        this.db.bots.types.usec.inventory.equipment.Holster = pmcEquipment.Holster;
+        this.db.bots.types.bear.inventory.equipment.Holster = pmcEquipment.Holster;
 
         // PMC Backpack Weighting
         pmcEquipment.Backpack = {
@@ -821,8 +796,8 @@ export class PMCs
             "639346cc1c8f182ad90c8972": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Backpack = pmcEquipment.Backpack;
-        this.databaseServer.bots.types.bear.inventory.equipment.Backpack = pmcEquipment.Backpack;
+        this.db.bots.types.usec.inventory.equipment.Backpack = pmcEquipment.Backpack;
+        this.db.bots.types.bear.inventory.equipment.Backpack = pmcEquipment.Backpack;
 
         // PMC Armor Vest Weighting
         pmcEquipment.ArmorVest = {
@@ -860,8 +835,8 @@ export class PMCs
             "5fd4c474dd870108a754b241": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
-        this.databaseServer.bots.types.bear.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
+        this.db.bots.types.usec.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
+        this.db.bots.types.bear.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
 
         // PMC Eyewear Weighting
         pmcEquipment.Eyewear = {
@@ -877,8 +852,8 @@ export class PMCs
             "62a09e410b9d3c46de5b6e78": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Eyewear = pmcEquipment.Eyewear;
-        this.databaseServer.bots.types.bear.inventory.equipment.Eyewear = pmcEquipment.Eyewear;
+        this.db.bots.types.usec.inventory.equipment.Eyewear = pmcEquipment.Eyewear;
+        this.db.bots.types.bear.inventory.equipment.Eyewear = pmcEquipment.Eyewear;
 
         // PMC FaceCover Weighting
         pmcEquipment.FaceCover = {
@@ -901,8 +876,8 @@ export class PMCs
             "63626d904aa74b8fe30ab426": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
-        this.databaseServer.bots.types.bear.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
+        this.db.bots.types.usec.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
+        this.db.bots.types.bear.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
 
         // PMC Headwear Weighting
         pmcEquipment.Headwear = {
@@ -941,8 +916,8 @@ export class PMCs
             "5ca20ee186f774799474abc2": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Headwear = pmcEquipment.Headwear;
-        this.databaseServer.bots.types.bear.inventory.equipment.Headwear = pmcEquipment.Headwear;
+        this.db.bots.types.usec.inventory.equipment.Headwear = pmcEquipment.Headwear;
+        this.db.bots.types.bear.inventory.equipment.Headwear = pmcEquipment.Headwear;
 
         // PMC Earpiece Weighting
         pmcEquipment.Earpiece = {
@@ -956,8 +931,8 @@ export class PMCs
             "5c165d832e2216398b5a7e36": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Earpiece = pmcEquipment.Earpiece;
-        this.databaseServer.bots.types.bear.inventory.equipment.Earpiece = pmcEquipment.Earpiece;    
+        this.db.bots.types.usec.inventory.equipment.Earpiece = pmcEquipment.Earpiece;
+        this.db.bots.types.bear.inventory.equipment.Earpiece = pmcEquipment.Earpiece;    
 
         // PMC Tactical Vest Weighting
         pmcEquipment.TacticalVest = {
@@ -1015,8 +990,8 @@ export class PMCs
             "609e860ebd219504d8507525": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
-        this.databaseServer.bots.types.bear.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
+        this.db.bots.types.usec.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
+        this.db.bots.types.bear.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
 
         // PMC Armband Weighting
         pmcEquipment.ArmBand = {
@@ -1035,17 +1010,14 @@ export class PMCs
             "619bddc6c9546643a67df6ee": 1
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.ArmBand = pmcEquipment.ArmBand;
-        this.databaseServer.bots.types.bear.inventory.equipment.ArmBand = pmcEquipment.ArmBand;
+        this.db.bots.types.usec.inventory.equipment.ArmBand = pmcEquipment.ArmBand;
+        this.db.bots.types.bear.inventory.equipment.ArmBand = pmcEquipment.ArmBand;
 
         // PMC Ammo Weighting
         const pmcAmmo = JSON.parse(
-            JSON.stringify(this.databaseServer.bots.types.usec.inventory.Ammo)
+            JSON.stringify(this.db.bots.types.usec.inventory.Ammo)
         );
-
-        pmcAmmo.Caliber40x46 = {
-            "5ede475b549eed7c6d5c18fb": 1
-        };       
+  
 
         pmcAmmo.Caliber127x55 = {
             "5cadf6ddae9215051e1c23b2": 800,
@@ -1225,8 +1197,8 @@ export class PMCs
             "5e85aa1a988a8701445df1f5": 100
         };
 
-        this.databaseServer.bots.types.usec.inventory.Ammo = pmcAmmo;
-        this.databaseServer.bots.types.bear.inventory.Ammo = pmcAmmo;
+        this.db.bots.types.usec.inventory.Ammo = pmcAmmo;
+        this.db.bots.types.bear.inventory.Ammo = pmcAmmo;
 
         // Progression Loyalty Level List Start
         const pocketLoot = this.modConfig.pocketLoot;
