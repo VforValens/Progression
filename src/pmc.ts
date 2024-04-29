@@ -326,15 +326,18 @@ export class PMCs
         ];
         const faceCoverLL2 = faceCoverLL1.concat(
             ...[
-                "5ab8f39486f7745cd93a1cca", 
-                "5b4325355acfc40019478126"
+                "5ab8f39486f7745cd93a1cca",
+                "5b4325355acfc40019478126",
+                "63626d904aa74b8fe30ab426",
+                "62963c18dbc8ab5f0d382d0b",
+                "60a7ad2a2198820d95707a2e",
+                "60a7ad3a0c5cb24b0134664a",
+                "635267ab3c89e2112001f826"
             ]);
         const faceCoverLL3 = faceCoverLL2.concat(
             ...[
                 "5ab8f85d86f7745cd93a1cf5", 
-                "5b432f3d5acfc4704b4a1dfb",
-                "60a7ad2a2198820d95707a2e",
-                "60a7ad3a0c5cb24b0134664a"
+                "5b432f3d5acfc4704b4a1dfb"
             ]);
         const faceCoverLL4 = [
             "5fd8d28367cb5e077335170f",
@@ -347,7 +350,9 @@ export class PMCs
             "62a09e08de7ac81993580532",
             "5b432b2f5acfc4771e1c6622",
             "6570aead4d84f81fd002a033",
-            "657089638db3adca1009f4ca"
+            "657089638db3adca1009f4ca",
+            "635267ab3c89e2112001f826",
+            "63626d904aa74b8fe30ab426"
         ];
 
         // Headwear Array
@@ -750,9 +755,7 @@ export class PMCs
             "5ac66d015acfc400180ae6e4": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.FirstPrimaryWeapon = {};
         this.databaseServer.bots.types.usec.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;
-        this.databaseServer.bots.types.bear.inventory.equipment.FirstPrimaryWeapon = {};
         this.databaseServer.bots.types.bear.inventory.equipment.FirstPrimaryWeapon = pmcEquipment.FirstPrimaryWeapon;        
 
         // PMC Holster Weighting
@@ -782,9 +785,7 @@ export class PMCs
             "5b1fa9b25acfc40018633c01": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Holster = {};
         this.databaseServer.bots.types.usec.inventory.equipment.Holster = pmcEquipment.Holster;
-        this.databaseServer.bots.types.bear.inventory.equipment.Holster = {};
         this.databaseServer.bots.types.bear.inventory.equipment.Holster = pmcEquipment.Holster;
 
         // PMC Backpack Weighting
@@ -820,9 +821,7 @@ export class PMCs
             "639346cc1c8f182ad90c8972": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Backpack = {};
         this.databaseServer.bots.types.usec.inventory.equipment.Backpack = pmcEquipment.Backpack;
-        this.databaseServer.bots.types.bear.inventory.equipment.Backpack = {};
         this.databaseServer.bots.types.bear.inventory.equipment.Backpack = pmcEquipment.Backpack;
 
         // PMC Armor Vest Weighting
@@ -861,9 +860,7 @@ export class PMCs
             "5fd4c474dd870108a754b241": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.ArmorVest = {};
         this.databaseServer.bots.types.usec.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
-        this.databaseServer.bots.types.bear.inventory.equipment.ArmorVest = {};
         this.databaseServer.bots.types.bear.inventory.equipment.ArmorVest = pmcEquipment.ArmorVest;
 
         // PMC Eyewear Weighting
@@ -880,9 +877,7 @@ export class PMCs
             "62a09e410b9d3c46de5b6e78": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Eyewear = {};
         this.databaseServer.bots.types.usec.inventory.equipment.Eyewear = pmcEquipment.Eyewear;
-        this.databaseServer.bots.types.bear.inventory.equipment.Eyewear = {};
         this.databaseServer.bots.types.bear.inventory.equipment.Eyewear = pmcEquipment.Eyewear;
 
         // PMC FaceCover Weighting
@@ -901,12 +896,12 @@ export class PMCs
             "62a09e08de7ac81993580532": 10,
             "5b432b2f5acfc4771e1c6622": 10,
             "6570aead4d84f81fd002a033": 10,
-            "657089638db3adca1009f4ca": 10
+            "657089638db3adca1009f4ca": 10,
+            "635267ab3c89e2112001f826": 10,
+            "63626d904aa74b8fe30ab426": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.FaceCover = {};
         this.databaseServer.bots.types.usec.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
-        this.databaseServer.bots.types.bear.inventory.equipment.FaceCover = {};
         this.databaseServer.bots.types.bear.inventory.equipment.FaceCover = pmcEquipment.FaceCover;
 
         // PMC Headwear Weighting
@@ -946,9 +941,7 @@ export class PMCs
             "5ca20ee186f774799474abc2": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Headwear = {};
         this.databaseServer.bots.types.usec.inventory.equipment.Headwear = pmcEquipment.Headwear;
-        this.databaseServer.bots.types.bear.inventory.equipment.Headwear = {};
         this.databaseServer.bots.types.bear.inventory.equipment.Headwear = pmcEquipment.Headwear;
 
         // PMC Earpiece Weighting
@@ -963,9 +956,7 @@ export class PMCs
             "5c165d832e2216398b5a7e36": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.Earpiece = {};
         this.databaseServer.bots.types.usec.inventory.equipment.Earpiece = pmcEquipment.Earpiece;
-        this.databaseServer.bots.types.bear.inventory.equipment.Earpiece  = {};
         this.databaseServer.bots.types.bear.inventory.equipment.Earpiece = pmcEquipment.Earpiece;    
 
         // PMC Tactical Vest Weighting
@@ -1024,9 +1015,7 @@ export class PMCs
             "609e860ebd219504d8507525": 10
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.TacticalVest = {};
         this.databaseServer.bots.types.usec.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
-        this.databaseServer.bots.types.bear.inventory.equipment.TacticalVest = {};
         this.databaseServer.bots.types.bear.inventory.equipment.TacticalVest = pmcEquipment.TacticalVest;
 
         // PMC Armband Weighting
@@ -1046,9 +1035,7 @@ export class PMCs
             "619bddc6c9546643a67df6ee": 1
         };
 
-        this.databaseServer.bots.types.usec.inventory.equipment.ArmBand = {};
         this.databaseServer.bots.types.usec.inventory.equipment.ArmBand = pmcEquipment.ArmBand;
-        this.databaseServer.bots.types.bear.inventory.equipment.ArmBand = {};
         this.databaseServer.bots.types.bear.inventory.equipment.ArmBand = pmcEquipment.ArmBand;
 
         // PMC Ammo Weighting
@@ -1238,9 +1225,7 @@ export class PMCs
             "5e85aa1a988a8701445df1f5": 100
         };
 
-        this.databaseServer.bots.types.usec.inventory.Ammo = {};
         this.databaseServer.bots.types.usec.inventory.Ammo = pmcAmmo;
-        this.databaseServer.bots.types.bear.inventory.Ammo = {};
         this.databaseServer.bots.types.bear.inventory.Ammo = pmcAmmo;
 
         // Progression Loyalty Level List Start
@@ -1248,6 +1233,8 @@ export class PMCs
         const backpackLoot = this.modConfig.backpackLoot;
         const vestLoot = this.modConfig.vestLoot;
         const lvl = this.modConfig.levelRange;
+
+        
 
         const progressionWhitelistLL1PMC: EquipmentFilters = {
             weaponModLimits: {
