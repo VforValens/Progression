@@ -721,7 +721,7 @@ export class PMCs
             "588892092459774ac91d4b11": 10,
             "5df24cf80dee1b22f862e9bc": 10,
             "64637076203536ad5600c990": 10,
-            "64ca3d3954fc657e230529cc": 10,
+            "64ca3d3954fc657e230529cc": 3,
             "57838ad32459774a17445cd2": 10,
             "5e848cc2988a8701445df1e8": 10,
             "5fb64bc92b1b027b1f50bcf2": 10,
@@ -1416,7 +1416,7 @@ export class PMCs
                                 0: 0,
                                 1: 1,
                                 2: 2,
-                                3: 3
+                                3: 1
                             },
                             whitelist: {}
                         },
@@ -1479,6 +1479,9 @@ export class PMCs
                         "mod_nvg": 0,
                         "mod_pistol_grip_akms": 10,
                         "mod_pistol_grip": 10,
+                        "mod_sight": 10,
+                        "mod_sight_front": 15,
+                        "mod_sight_rear": 15,
                         "mod_scope": 10,
                         "mod_scope_000": 15,
                         "mod_scope_001": 15,
@@ -1634,6 +1637,12 @@ export class PMCs
                     },
                     randomisedArmorSlots: ["Headwear"],
                     randomisedWeaponModSlots: [
+                        "mod_sight",
+                        "mod_sight_rear",
+                        "mod_sight_front",
+                        "mod_sight",
+                        "mod_sight_rear",
+                        "mod_sight_front",
                         "mod_scope",
                         "mod_scope_000",
                         "mod_scope_001",
@@ -1702,6 +1711,9 @@ export class PMCs
                         "mod_pistol_grip_akms": 35,
                         "mod_pistol_grip": 40,
                         "mod_reciever": 20,
+                        "mod_sight": 15,
+                        "mod_sight_front": 35,
+                        "mod_sight_rear": 45,
                         "mod_scope": 15,
                         "mod_scope_000": 45,
                         "mod_scope_001": 35,
@@ -1902,6 +1914,9 @@ export class PMCs
                     },
                     randomisedArmorSlots: ["Headwear"],
                     randomisedWeaponModSlots: [
+                        "mod_sight",
+                        "mod_sight_rear",
+                        "mod_sight_front",
                         "mod_scope",
                         "mod_scope_000",
                         "mod_scope_001",
@@ -2134,6 +2149,7 @@ export class PMCs
                         "mod_nvg": 60
                     },
                     weaponMods: {
+                        "mod_sight": 100,
                         "mod_scope": 95,
                         "mod_muzzle": 75,
                         "mod_muzzle_000": 95,
@@ -2142,6 +2158,9 @@ export class PMCs
                     
                     randomisedArmorSlots: ["Headwear"],
                     randomisedWeaponModSlots: [
+                        "mod_sight",
+                        "mod_sight_rear",
+                        "mod_sight_front",
                         "mod_scope",
                         "mod_scope_000",
                         "mod_scope_001",
