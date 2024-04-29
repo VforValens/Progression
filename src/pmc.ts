@@ -82,7 +82,6 @@ export class PMCs
         ];
         const primaryWeaponLL3 = [
             "5a0ec13bfcdbcb00165aa685",
-            "5ac66bea5acfc43b321d4aec",
             "65268d8ecb944ff1e90ea385",
             "5aafa857e5b5b00018480968",
             "5df8ce05b11454561e39243b",
