@@ -2595,9 +2595,5 @@ export class PMCs
         whitelist.push(progressionWhitelistLL2PMC);
         whitelist.push(progressionWhitelistLL3PMC);
         whitelist.push(progressionWhitelistLL4PMC);
-
-        /* Armor Plate Weighting. Fix from (this.botConfig.equipment.pmc.armorPlateWeighting as any) = 
-        when the IArmorPlates[] interface is updated off of Issue #614. Also, Fuck the Rules.
-        https://dev.sp-tarkov.com/SPT-AKI/Issues/issues/614 */
     }
 }
