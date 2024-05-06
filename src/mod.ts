@@ -34,10 +34,6 @@ class ValensProgression implements IPostDBLoadMod
         this.databaseServer = container.resolve<DatabaseServer>("DatabaseServer");
         this.profileHelper = container.resolve<ProfileHelper>("ProfileHelper");
 
-
-        // this.scavs = new Scavs(this.botConfig, this.databaseServer);
-        // this.scavs.updateScavs();
-
         this.boss = new Boss(this.locationConfig);
         this.boss.updateBoss();
 
