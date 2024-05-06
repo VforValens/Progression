@@ -17,12 +17,11 @@ export class PMCs
     private modConfig: PmcConfig = require("../config/pmc.json");
     private pmcHelper: PmcHelper;
 
-    constructor(botConfig: IBotConfig, pmcConfig: IPmcConfig, databaseServer: DatabaseServer, profileHelper: ProfileHelper, botType: IBotType) 
+    constructor(botConfig: IBotConfig, pmcConfig: IPmcConfig, databaseServer: DatabaseServer, profileHelper: ProfileHelper) 
     {
         this.botConfig = botConfig;
         this.pmcConfig = pmcConfig;
         this.db = databaseServer.getTables();
-        this.botType = botType;
         this.profileHelper = profileHelper;
         this.pmcHelper = new PmcHelper();
     }
