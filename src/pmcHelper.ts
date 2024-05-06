@@ -3,12 +3,12 @@ import { levelRange } from "../config/ts/pmc";
 
 export class PmcHelper
 {
-    public getPmcWeightsLL1(levelRange: levelRange): WeightingAdjustmentDetails
+    public getPmcWeightsLL1(levelRangeFromConfig: levelRange): WeightingAdjustmentDetails
     {
         return {
             levelRange: {
-                min: levelRange.loyalty1.min,
-                max: levelRange.loyalty1.max
+                min: levelRangeFromConfig.loyalty1.min,
+                max: levelRangeFromConfig.loyalty1.max
             },
             ammo: {
                 add: {
@@ -88,12 +88,12 @@ export class PmcHelper
         }
     }
 
-    public getPmcWeightsLL2(levelRange: levelRange): WeightingAdjustmentDetails
+    public getPmcWeightsLL2(levelRangeFromConfig: levelRange): WeightingAdjustmentDetails
     {
         return {
             levelRange: {
-                min: levelRange.loyalty2.min,
-                max: levelRange.loyalty2.max
+                min: levelRangeFromConfig.loyalty2.min,
+                max: levelRangeFromConfig.loyalty2.max
             },
             ammo: {
                 add: {
@@ -108,83 +108,88 @@ export class PmcHelper
                         "59e77a2386f7742ee578960a": 7
                     },
                     Caliber762x51: {
-                        "5e023e6e34d52a55c3304f71": ,
-                        "5e023e53d4353e3302577c4c": 
+                        "5e023e6e34d52a55c3304f71": 60,
+                        "5e023e53d4353e3302577c4c": 40
                     },
                     Caliber762x39: {
-                        "64b7af5a8532cf95ee0a0dbd": ,
-                        "59e4d24686f7741776641ac7": ,
-                        "59e4cf5286f7741778269d8a": ,
-                        "5656d7c34bdc2d9d198b4587": ,
-                        "64b7af434b75259c590fa893": 
+                        "64b7af5a8532cf95ee0a0dbd": 50,
+                        "59e4d24686f7741776641ac7": 5,
+                        "59e4cf5286f7741778269d8a": 20,
+                        "5656d7c34bdc2d9d198b4587": 15,
+                        "64b7af434b75259c590fa893": 10
                     },
                     Caliber762x35: {
-                        "6196364158ef8c428c287d9f": ,
-                        "5fbe3ffdf8b6a877a729ea82": ,
-                        "619636be6db0f2477964e710": ,
-                        "64b8725c4b75259c590fa899": 
+                        "6196364158ef8c428c287d9f": 60,
+                        "5fbe3ffdf8b6a877a729ea82": 30,
+                        "619636be6db0f2477964e710": 5,
+                        "64b8725c4b75259c590fa899": 5
                     },
                     Caliber762x25: {
-                        "5736026a245977644601dc61": ,
-                        "573603c924597764442bd9cb": ,
-                        "573603562459776430731618": 
+                        "5735fdcd2459776445391d61": 50,
+                        "5736026a245977644601dc61": 5,
+                        "573603c924597764442bd9cb": 5,
+                        "573603562459776430731618": 40
                     },
                     Caliber68x51: {
-                        "6529302b8c26af6326029fb7": 1
+                        "6529302b8c26af6326029fb7": 100
                     },
                     Caliber366TKM: {
-                        "59e655cb86f77411dc52a77b": ,
-                        "5f0596629e22f464da6bbdd9": 
+                        "59e655cb86f77411dc52a77b": 90,
+                        "5f0596629e22f464da6bbdd9": 10
                     },
                     Caliber556x45: {
-                        "5c0d5ae286f7741e46554302": ,
-                        "59e68f6f86f7746c9f75e846": ,
-                        "54527a984bdc2d4e668b4567": ,
-                        "60194943740c5d77f6705eea": 
+                        "5c0d5ae286f7741e46554302": 5,
+                        "59e6920f86f77411d82aa167": 60,
+                        "59e68f6f86f7746c9f75e846": 5,
+                        "54527a984bdc2d4e668b4567": 20,
+                        "60194943740c5d77f6705eea": 10
                     },
                     Caliber545x39: {
-                        "56dff4a2d2720bbd668b456a": ,
-                        "56dff0bed2720bb0668b4567": ,
-                        "56dff2ced2720bb4668b4567": ,
-                        "56dff3afd2720bba668b4567": 
+                        "56dff4a2d2720bbd668b456a": 1,
+                        "56dff0bed2720bb0668b4567": 50,
+                        "56dff3afd2720bba668b4567": 29,
+                        "56dff2ced2720bb4668b4567": 20
                     },
                     Caliber57x28: {
-                        "5cc86840d7f00c002412c56c": ,
-                        "5cc80f8fe4a949033b0224a2": , 
-                        "5cc80f53e4a949000e1ea4f8": 
+                        "5cc86840d7f00c002412c56c": 5,
+                        "5cc80f8fe4a949033b0224a2": 65,
+                        "5cc80f53e4a949000e1ea4f8": 30
                     },
                     Caliber46x30: {
-                        "5ba2678ad4351e44f824b344": ,
-                        "64b6979341772715af0f9c39": 
+                        "5ba26844d4351e00334c9475": 75,
+                        "5ba2678ad4351e44f824b344": 20,
+                        "64b6979341772715af0f9c39": 5
                     },
                     Caliber9x18: {
-                        "57372140245977611f70ee91": ,
-                        "573719df2459775a626ccbc2": 
+                        "57372140245977611f70ee91": 50,
+                        "573719df2459775a626ccbc2": 50
                     },
                     Caliber9x19: {
-                        "64b7bbb74b75259c590fa897": ,
-                        "56d59d3ad2720bdb418b4577": 
+                        "5c0d56a986f774449d5de529": 50,
+                        "56d59d3ad2720bdb418b4577": 50
                     },
                     Caliber9x21: {
-                        "6576f93989f0062e741ba952": 1
+                        "6576f93989f0062e741ba952": 100
                     },
                     Caliber9x39: {
-                        "6576f96220d53a5b8f3e395e": ,
-                        "57a0dfb82459774d3078b56c": ,
-                        "61962d879bb3d20b0946d385": 
+                        "6576f96220d53a5b8f3e395e": 35,
+                        "57a0dfb82459774d3078b56c": 55,
+                        "61962d879bb3d20b0946d385": 10
                     },
                     Caliber9x33: {
-                        "62330b3ed4dc74626d570b95": 
+                        "62330b3ed4dc74626d570b95": 100
                     },
                     Caliber1143x23ACP: {
-                        "5e81f423763d9f754677bf2e": 
+                        "5e81f423763d9f754677bf2e": 70,
+                        "5ea2a8e200685063ec28c05a": 30
                     },
                     Caliber12x70: {
-                        "5d6e68e6a4b9361c140bcfe0": ,
-                        "64b8ee384b75259c590fa89b": ,
-                        "5d6e6806a4b936088465b17e": ,
-                        "5d6e68c4a4b9361b93413f79": ,
-                        "5c0d591486f7744c505b416f": 
+                        "5d6e68e6a4b9361c140bcfe0": 25,
+                        "64b8ee384b75259c590fa89b": 25,
+                        "5d6e6806a4b936088465b17e": 21,
+                        "5d6e68c4a4b9361b93413f79": 15,
+                        "5c0d591486f7744c505b416f": 7,
+                        "5d6e6911a4b9361bd5780d52": 7
                     }
                 },
                 edit: {}
@@ -209,12 +214,12 @@ export class PmcHelper
         } 
     }
 
-    public getPmcWeightsLL3(levelRange: levelRange): WeightingAdjustmentDetails
+    public getPmcWeightsLL3(levelRangeFromConfig: levelRange): WeightingAdjustmentDetails
     {
         return {
             levelRange: {
-                min: levelRange.loyalty3.min,
-                max: levelRange.loyalty3.max
+                min: levelRangeFromConfig.loyalty3.min,
+                max: levelRangeFromConfig.loyalty3.max
             },
             ammo: {
                 add: {
@@ -314,11 +319,11 @@ export class PmcHelper
         } 
     }
 
-    public getPmcWeightsLL4(levelRange: levelRange): WeightingAdjustmentDetails
+    public getPmcWeightsLL4(levelRangeFromConfig: levelRange): WeightingAdjustmentDetails
     {
         return {
             levelRange: {
-                min: levelRange.loyalty4.min,
+                min: levelRangeFromConfig.loyalty4.min,
                 max: 100
             },
             ammo: {
