@@ -532,7 +532,9 @@ export class PMCs
             "619bddc6c9546643a67df6ee",
             "60b0f988c4449e4cb624c1da",
             "619bc61e86e01e16f839a999",
-            "619bdef8c9546643a67df6f6"
+            "619bdef8c9546643a67df6f6",
+            "619bdfd4c9546643a67df6fa",
+            "619bdd8886e01e16f839a99c"
         ];
 
         ///////////////////////////////////////////////////////////////////////////
@@ -725,7 +727,7 @@ export class PMCs
             "65290f395ae2ae97b80fdf2d": 10,
             "588892092459774ac91d4b11": 10,
             "5df24cf80dee1b22f862e9bc": 10,
-            "64637076203536ad5600c990": 10,
+            "64637076203536ad5600c990": 3,
             "64ca3d3954fc657e230529cc": 3,
             "57838ad32459774a17445cd2": 10,
             "5e848cc2988a8701445df1e8": 10,
@@ -1892,6 +1894,43 @@ export class PMCs
                         "mod_equipment_002": 90,
                         "mod_nvg": 60
                     },
+                    weaponMods: {
+                        "mod_barrel": 50,
+                        "mod_bipod": 15,
+                        "mod_flashlight": 35,
+                        "mod_foregrip": 45,
+                        "mod_handguard": 25,
+                        "mod_launcher": 5,
+                        "mod_magazine": 50,
+                        "mod_mount": 45,
+                        "mod_mount_000": 35,
+                        "mod_mount_001": 35,
+                        "mod_mount_002": 35,
+                        "mod_mount_003": 35,
+                        "mod_mount_004": 35,
+                        "mod_mount_005": 35,
+                        "mod_mount_006": 35,
+                        "mod_muzzle": 20,
+                        "mod_muzzle_000": 20,
+                        "mod_muzzle_001": 20,
+                        "mod_pistol_grip_akms": 35,
+                        "mod_pistol_grip": 40,
+                        "mod_reciever": 20,
+                        "mod_sight": 75,
+                        "mod_scope": 15,
+                        "mod_scope_000": 45,
+                        "mod_scope_001": 35,
+                        "mod_scope_002": 35,
+                        "mod_scope_003": 25,
+                        "mod_tactical": 15,
+                        "mod_tactical001": 40,
+                        "mod_tactical002": 30,
+                        "mod_tactical_000": 40,
+                        "mod_tactical_001": 30,
+                        "mod_tactical_002": 30,
+                        "mod_tactical_003": 30,
+                        "mod_tactical_2": 15
+                    },
                     randomisedArmorSlots: ["Headwear"],
                     randomisedWeaponModSlots: [
                         "mod_sight",
@@ -2129,13 +2168,42 @@ export class PMCs
                         "mod_nvg": 60
                     },
                     weaponMods: {
-                        "mod_sight": 100,
-                        "mod_scope": 95,
+                        "mod_barrel": 50,
+                        "mod_bipod": 15,
+                        "mod_flashlight": 35,
+                        "mod_foregrip": 45,
+                        "mod_handguard": 25,
+                        "mod_launcher": 5,
+                        "mod_magazine": 50,
+                        "mod_mount": 45,
+                        "mod_mount_000": 35,
+                        "mod_mount_001": 35,
+                        "mod_mount_002": 35,
+                        "mod_mount_003": 35,
+                        "mod_mount_004": 35,
+                        "mod_mount_005": 35,
+                        "mod_mount_006": 35,
                         "mod_muzzle": 75,
                         "mod_muzzle_000": 95,
-                        "mod_muzzle_001": 95
-                    },
-                    
+                        "mod_muzzle_001": 95,
+                        "mod_pistol_grip_akms": 35,
+                        "mod_pistol_grip": 40,
+                        "mod_reciever": 20,
+                        "mod_sight": 100,
+                        "mod_scope": 80,
+                        "mod_scope_000": 45,
+                        "mod_scope_001": 35,
+                        "mod_scope_002": 35,
+                        "mod_scope_003": 25,
+                        "mod_tactical": 15,
+                        "mod_tactical001": 40,
+                        "mod_tactical002": 30,
+                        "mod_tactical_000": 40,
+                        "mod_tactical_001": 30,
+                        "mod_tactical_002": 30,
+                        "mod_tactical_003": 30,
+                        "mod_tactical_2": 15
+                    },                    
                     randomisedArmorSlots: ["Headwear"],
                     randomisedWeaponModSlots: [
                         "mod_sight",
@@ -2194,6 +2262,171 @@ export class PMCs
                 }
             ],
             weightingAdjustmentsByPlayerLevel: [],
+            armorPlateWeighting: [{
+                levelRange: {
+                    min: lvl.loyalty1.min,
+                    max: lvl.loyalty1.max
+                },
+                front_plate: {
+                    2: 15,
+                    3: 85,
+                    4: 0,
+                    5: 0,
+                    6: 0
+                },
+                back_plate: {
+                    2: 15,
+                    3: 85,
+                    4: 0,
+                    5: 0,
+                    6: 0
+                },
+                side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 0,
+                    6: 0
+                },
+                left_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 0,
+                    6: 0
+                },
+                right_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 0,
+                    6: 0
+                }
+            },
+            {
+                levelRange: {
+                    min: lvl.loyalty2.min,
+                    max: lvl.loyalty2.max
+                },
+                front_plate: {
+                    2: 0,
+                    3: 94,
+                    4: 6,
+                    5: 0,
+                    6: 0
+                },
+                back_plate: {
+                    2: 0,
+                    3: 94,
+                    4: 6,
+                    5: 0,
+                    6: 0
+                },
+                side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 90,
+                    6: 10
+                },
+                left_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 90,
+                    6: 10
+                },
+                right_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 90,
+                    6: 10
+                }
+            },
+            {
+                levelRange: {
+                    min: lvl.loyalty3.min,
+                    max: lvl.loyalty3.max
+                },
+                front_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 85,
+                    5: 10,
+                    6: 5
+                },
+                back_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 85,
+                    5: 10,
+                    6: 5
+                },
+                side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 80,
+                    6: 20
+                },
+                left_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 80,
+                    6: 20
+                },
+                right_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 80,
+                    6: 20
+                }
+            },
+            {
+                levelRange: {
+                    min: lvl.loyalty4.min,
+                    max: 100
+                },
+                front_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 50,
+                    6: 50
+                },
+                back_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 50,
+                    6: 50
+                },
+                side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 50,
+                    6: 50
+                },
+                left_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 50,
+                    6: 50
+                },
+                right_side_plate: {
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 50,
+                    6: 50
+                }
+            }
+            ],
             whitelist: [
                 {
                     levelRange: {
@@ -2366,171 +2599,5 @@ export class PMCs
         /* Armor Plate Weighting. Fix from (this.botConfig.equipment.pmc.armorPlateWeighting as any) = 
         when the IArmorPlates[] interface is updated off of Issue #614. Also, Fuck the Rules.
         https://dev.sp-tarkov.com/SPT-AKI/Issues/issues/614 */
-        (this.botConfig.equipment.pmc.armorPlateWeighting as any) = [
-            {
-                "levelRange": {
-                    "min": lvl.loyalty1.min,
-                    "max": lvl.loyalty1.max
-                },
-                "front_plate": {
-                    "2": 15,
-                    "3": 85,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "back_plate": {
-                    "2": 15,
-                    "3": 85,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0
-                }
-            },
-            {
-                "levelRange": {
-                    "min": lvl.loyalty2.min,
-                    "max": lvl.loyalty2.max
-                },
-                "front_plate": {
-                    "2": 0,
-                    "3": 94,
-                    "4": 6,
-                    "5": 0,
-                    "6": 0
-                },
-                "back_plate": {
-                    "2": 0,
-                    "3": 94,
-                    "4": 6,
-                    "5": 0,
-                    "6": 0
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 90,
-                    "6": 10
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 90,
-                    "6": 10
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 90,
-                    "6": 10
-                }
-            },
-            {
-                "levelRange": {
-                    "min": lvl.loyalty3.min,
-                    "max": lvl.loyalty3.max
-                },
-                "front_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 85,
-                    "5": 10,
-                    "6": 5
-                },
-                "back_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 85,
-                    "5": 10,
-                    "6": 5
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 80,
-                    "6": 20
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 80,
-                    "6": 20
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 80,
-                    "6": 20
-                }
-            },
-            {
-                "levelRange": {
-                    "min": lvl.loyalty4.min,
-                    "max": 100
-                },
-                "front_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "back_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "left_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                },
-                "right_side_plate": {
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 50,
-                    "6": 50
-                }
-            }
-        ];
     }
 }
