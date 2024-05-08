@@ -7,12 +7,12 @@
         "loyalty1": 
         {
             "min": 1,
-            "max": 15
+            "max": 14
         },
 
         "loyalty2": 
         {
-            "min": 16,
+            "min": 15,
             "max": 33
         },
 
