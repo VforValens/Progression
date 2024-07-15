@@ -7,18 +7,18 @@ export interface PmcConfig
     vestLoot: GenerationData;
     botRelativeLevelDeltaMax: number;
     botRelativeLevelDeltaMin: number;
-    levelRange: levelRange;
+    levelRange: LevelRange;
 }
 
-export interface levelRange
+export interface LevelRange
 {
-    loyalty1: minMax;
-    loyalty2: minMax;
-    loyalty3: minMax;
-    loyalty4: minMax;
+    loyalty1: MinMax;
+    loyalty2: MinMax;
+    loyalty3: MinMax;
+    loyalty4: MinMax;
 }
 
-export interface minMax
+export interface MinMax
 {
     min: number;
     max: number;
