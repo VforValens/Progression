@@ -1,5 +1,5 @@
-import { ILocationConfig } from "@spt-aki/models/spt/config/ILocationConfig";
-import { BossConfig } from "../config/ts/boss";
+import type { ILocationConfig } from "@spt/models/spt/config/ILocationConfig";
+import type { BossConfig } from "../config/ts/boss";
 
 export class Boss
 {
@@ -18,18 +18,18 @@ export class Boss
         const bossConfig = this.bossConfig;
 
         pmcBoss.factory4_day = [{
-            "sptId": "sptBearFactoryDayBossSpawn",
-            "BossName": "sptBear",
+            "sptId": "pmcBEARFactoryDayBossSpawn",
+            "BossName": "pmcBEAR",
             "BossChance": bossConfig.factoryDayChance,
             "BossZone": "BotZone",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
+            "BossEscortType": "pmcBEAR",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "1",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptBear",
+                "BossEscortType": "pmcBEAR",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -38,20 +38,21 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }, {
-            "sptId": "sptUsecFactoryDayBossSpawn",
-            "BossName": "sptUsec",
+            "sptId": "pmcUSECFactoryDayBossSpawn",
+            "BossName": "pmcUSEC",
             "BossChance": bossConfig.factoryDayChance,
             "BossZone": "BotZone",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
+            "BossEscortType": "pmcUSEC",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "1",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptUsec",
+                "BossEscortType": "pmcUSEC",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -60,24 +61,25 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }
         ];
 
         pmcBoss.bigmap = 
         [{
-            "sptId": "sptBearCustomsScavBaseNormalSpawn",
-            "BossName": "sptBear",
+            "sptId": "pmcBEARCustomsScavBaseNormalSpawn",
+            "BossName": "pmcBEAR",
             "BossChance": bossConfig.customsChance,
             "BossZone": "ZoneScavBase",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
+            "BossEscortType": "pmcBEAR",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "2",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptBear",
+                "BossEscortType": "pmcBEAR",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -86,20 +88,21 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }, {
-            "sptId": "sptUsecCustomsScavBaseNormalSpawn",
-            "BossName": "sptUsec",
+            "sptId": "pmcUSECCustomsScavBaseNormalSpawn",
+            "BossName": "pmcUSEC",
             "BossChance": bossConfig.customsChance,
             "BossZone": "ZoneScavBase",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
+            "BossEscortType": "pmcUSEC",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "2",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptUsec",
+                "BossEscortType": "pmcUSEC",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -108,24 +111,25 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }
         ];
 
         pmcBoss.woods =
         [{
-            "sptId": "sptBearWoodScavBaseNormalSpawn",
-            "BossName": "sptBear",
+            "sptId": "pmcBEARWoodScavBaseNormalSpawn",
+            "BossName": "pmcBEAR",
             "BossChance": bossConfig.woodsChance,
             "BossZone": "ZoneScavBase2",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
+            "BossEscortType": "pmcBEAR",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "2",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptBear",
+                "BossEscortType": "pmcBEAR",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -134,20 +138,21 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }, {
-            "sptId": "sptUsecWoodScavBaseNormalSpawn",
-            "BossName": "sptUsec",
+            "sptId": "pmcUSECWoodScavBaseNormalSpawn",
+            "BossName": "pmcUSEC",
             "BossChance": bossConfig.woodsChance,
             "BossZone": "ZoneScavBase2",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
+            "BossEscortType": "pmcUSEC",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "2",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptUsec",
+                "BossEscortType": "pmcUSEC",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -156,23 +161,24 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }];
 
         pmcBoss.shoreline =
         [{
-            "sptId": "sptBearShorelinePortNormalSpawn",
-            "BossName": "sptBear",
+            "sptId": "pmcBEARShorelinePortNormalSpawn",
+            "BossName": "pmcBEAR",
             "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZonePort",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
+            "BossEscortType": "pmcBEAR",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "2",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptBear",
+                "BossEscortType": "pmcBEAR",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -181,20 +187,21 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }, {
-            "sptId": "sptUsecShorelinePortNormalSpawn",
-            "BossName": "sptUsec",
+            "sptId": "pmcUSECShorelinePortNormalSpawn",
+            "BossName": "pmcUSEC",
             "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZonePort",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
+            "BossEscortType": "pmcUSEC",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "2",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptUsec",
+                "BossEscortType": "pmcUSEC",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -203,21 +210,22 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         },
         {
-            "sptId": "sptUsecShorelineSanatorium1NormalSpawn",
-            "BossName": "sptUsec",
+            "sptId": "pmcUSECShorelineSanatorium1NormalSpawn",
+            "BossName": "pmcUSEC",
             "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium1",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
+            "BossEscortType": "pmcUSEC",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "1",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptUsec",
+                "BossEscortType": "pmcUSEC",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -226,21 +234,22 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         },
         {
-            "sptId": "sptBearShorelineSanatorium1NormalSpawn",
-            "BossName": "sptBear",
+            "sptId": "pmcBEARShorelineSanatorium1NormalSpawn",
+            "BossName": "pmcBEAR",
             "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium1",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
+            "BossEscortType": "pmcBEAR",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "1",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptBear",
+                "BossEscortType": "pmcBEAR",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -249,21 +258,22 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         },
         {
-            "sptId": "sptUsecShorelineSanatorium2NormalSpawn",
-            "BossName": "sptUsec",
+            "sptId": "pmcUSECShorelineSanatorium2NormalSpawn",
+            "BossName": "pmcUSEC",
             "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium2",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptUsec",
+            "BossEscortType": "pmcUSEC",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "1",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptUsec",
+                "BossEscortType": "pmcUSEC",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -272,21 +282,22 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         },
         {
-            "sptId": "sptBearShorelineSanatorium2NormalSpawn",
-            "BossName": "sptBear",
+            "sptId": "pmcBEARShorelineSanatorium2NormalSpawn",
+            "BossName": "pmcBEAR",
             "BossChance": bossConfig.shorelineChance,
             "BossZone": "ZoneSanatorium2",
             "BossPlayer": false,
             "BossDifficult": "normal",
-            "BossEscortType": "sptBear",
+            "BossEscortType": "pmcBEAR",
             "BossEscortDifficult": "normal",
             "BossEscortAmount": "1",
             "Time": -1,
             "Supports": [{
-                "BossEscortType": "sptBear",
+                "BossEscortType": "pmcBEAR",
                 "BossEscortDifficult": [
                     "normal"
                 ],
@@ -295,7 +306,8 @@ export class Boss
             ],
             "RandomTimeSpawn": false,
             "TriggerId": "",
-            "TriggerName": ""
+            "TriggerName": "",
+            spawnMode: []
         }];
     }
 }
