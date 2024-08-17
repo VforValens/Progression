@@ -884,7 +884,7 @@ export class PMCs
             "572b7f1624597762ae139822": 10,
             "5ab8f39486f7745cd93a1cca": 10,
             "5b4325355acfc40019478126": 10,
-            "5ab8f85d86f7745cd93a1cf5": 10, 
+            "5ab8f85d86f7745cd93a1cf5": 10,
             "5b432f3d5acfc4704b4a1dfb": 10,
             "5fd8d28367cb5e077335170f": 10,
             "5e54f76986f7740366043752": 10,
@@ -1421,7 +1421,7 @@ export class PMCs
                         "Eyewear": 20,
                         "Backpack": 69,
                         "Headwear": 85,
-                        "FaceCover": 100,
+                        "FaceCover": 85,
                         "TacticalVest": 70,
                         "clothing": 100
                     },
@@ -1607,13 +1607,13 @@ export class PMCs
                     equipment: {
                         "ArmBand": 100,
                         "FirstPrimaryWeapon": 100,
-                        "SecondPrimaryWeapon": 10,
+                        "SecondPrimaryWeapon": 20,
                         "Holster": 30,
                         "Earpiece": 100,
                         "Eyewear": 50,
                         "Backpack": 90,
-                        "Headwear": 100,
-                        "FaceCover": 100,
+                        "Headwear": 90,
+                        "FaceCover": 85,
                         "Scabbard": 100,
                         "TacticalVest": 90,
                         "clothing": 100
@@ -1869,13 +1869,13 @@ export class PMCs
                     equipment: {
                         "ArmBand": 100,
                         "FirstPrimaryWeapon": 100,
-                        "SecondPrimaryWeapon": 50,
+                        "SecondPrimaryWeapon": 40,
                         "Holster": 60,
                         "Earpiece": 100,
                         "Eyewear": 100,
                         "Backpack": 100,
                         "Headwear": 100,
-                        "FaceCover": 100,
+                        "FaceCover": 90,
                         "Scabbard": 100,
                         "TacticalVest": 90,
                         "clothing": 100
@@ -2142,13 +2142,13 @@ export class PMCs
                     equipment: {
                         "ArmBand": 100,
                         "FirstPrimaryWeapon": 100,
-                        "SecondPrimaryWeapon": 60,
-                        "Holster": 80,
+                        "SecondPrimaryWeapon": 45,
+                        "Holster": 60,
                         "Earpiece": 100,
                         "Eyewear": 100,
                         "Backpack": 100,
                         "Headwear": 100,
-                        "FaceCover": 100,
+                        "FaceCover": 90,
                         "Scabbard": 100,
                         "TacticalVest": 100,
                         "clothing": 100
@@ -2502,6 +2502,46 @@ export class PMCs
             }
         };
 
+        const progressionWhitelistLL2PMCWide: EquipmentFilterDetails = {
+            levelRange: {
+                min: lvl.loyalty2.min,
+                max: lvl.loyalty2.max
+            },
+            equipment: {
+                FirstPrimaryWeapon: [...primaryWeaponLL2 && primaryWeaponFlea && primaryWeaponLL1],
+                SecondPrimaryWeapon: [...primaryWeaponLL2 && primaryWeaponFlea && primaryWeaponLL1],
+                Holster: [...holsterLL2 && holsterFlea && holsterLL1],
+                Backpack: [...backpackLL2 && backpackFlea && backpackLL1],
+                TacticalVest: [...tacticalVestLL2 && tacticalVestFlea && backpackLL1],
+                Earpiece: [...earpieceLL2 && earpieceLL1],
+                Headwear: [...headwearLL2 && headwearFlea && headwearLL1],
+                ArmorVest: [...armorVestLL2 && armorVestFlea && armorVestLL1],
+                Eyewear: [...eyewearLL2 && eyewearLL1],
+                ArmBand: [...armBandLL2 && armBandLL1],
+                FaceCover: [...faceCoverLL2 && faceCoverLL1]
+            },
+            cartridge: {
+                Caliber127x55: [...ammo127x55LL2],
+                Caliber762x54R: [...ammo762x54LL2 && ammo762x54Flea && ammo762x54LL1],
+                Caliber762x51: [...ammo762x51LL2 && ammo762x51Flea && ammo762x51LL1],
+                Caliber762x39: [...ammo762x39LL2 && ammo762x39Flea && ammo762x39LL1],
+                Caliber762x35: [...ammo762x35LL2 && ammo762x35Flea] && ammo762x35LL1,
+                Caliber762x25TT: [...ammo762x25TTLL2 && ammo762x25TTLL1],
+                Caliber366TKM: [...ammo366TKMLL2 && ammo366TKMLL1],
+                Caliber556x45NATO: [...ammo556x45LL2 && ammo556x45LL1],
+                Caliber545x39: [...ammo545x39LL2 && ammo545x39Flea && ammo545x39LL1],
+                Caliber57x28: [...ammo57x28LL2 && ammo57x28Flea],
+                Caliber46x30: [...ammo46x30Flea],
+                Caliber1143x23ACP: [...ammo1143x23ACPLL2 && ammo1143x23ACPLL1],
+                Caliber9x39: [...ammo9x39LL2],
+                Caliber9x33R: [...ammo9x33RLL2],
+                Caliber9x21: [...ammo9x21Flea],
+                Caliber9x19PARA: [...ammo9x19LL2 && ammo9x19LL1],
+                Caliber9x18PM: [...ammo9x18LL2 && ammo9x18LL1],
+                Caliber12g: [...ammo12x70LL2 && ammo12x70Flea && ammo12x70LL1]
+            }
+        };
+
         const progressionWhitelistLL3PMC: EquipmentFilterDetails = {
             levelRange: {
                 min: lvl.loyalty3.min,
@@ -2539,6 +2579,47 @@ export class PMCs
                 Caliber9x19PARA: [...ammo9x19LL3],
                 Caliber9x18PM: [...ammo9x18LL2],
                 Caliber12g: [...ammo12x70LL3],
+                Caliber23x75: [...ammo23x75LL3]
+            }
+        };
+
+        const progressionWhitelistLL3PMCWide: EquipmentFilterDetails = {
+            levelRange: {
+                min: lvl.loyalty3.min,
+                max: lvl.loyalty3.max
+            },
+            equipment: {
+                FirstPrimaryWeapon: [...primaryWeaponLL3 && primaryWeaponFlea && primaryWeaponLL2],
+                SecondPrimaryWeapon: [...primaryWeaponLL3 && primaryWeaponFlea && primaryWeaponLL2],
+                Holster: [...holsterLL3 && holsterFlea && holsterLL2],
+                Backpack: [...backpackLL3 && backpackFlea && backpackLL2],
+                TacticalVest: [...tacticalVestLL3 && tacticalVestFlea && tacticalVestLL2],
+                Earpiece: [...earpieceLL3 && earpieceLL2],
+                Headwear: [...headwearLL3 && headwearFlea && headwearLL2],
+                ArmorVest: [...armorVestFlea && armorVestLL2],
+                Eyewear: [...eyewearLL3] && eyewearLL2,
+                ArmBand: [...armBandLL3 && armBandLL2],
+                FaceCover: [...faceCoverLL3 && faceCoverLL2]
+            },
+            cartridge: {
+                Caliber127x55: [...ammo127x55LL3 && ammo127x55LL2],
+                Caliber762x54R: [...ammo762x54LL3 && ammo762x54LL2],
+                Caliber762x51: [...ammo762x51LL3 && ammo762x51LL2],
+                Caliber762x39: [...ammo762x39LL3 && ammo762x39LL2],
+                Caliber762x35: [...ammo762x35LL3 && ammo762x35LL2],
+                Caliber68x51: [...ammo68x51LL3],
+                Caliber366TKM: [...ammo366TKMLL3 && ammo366TKMLL2],
+                Caliber556x45NATO: [...ammo556x45LL3 && ammo556x45LL2],
+                Caliber545x39: [...ammo545x39LL3 && ammo545x39LL2],
+                Caliber57x28: [...ammo57x28LL3 && ammo57x28LL2 && ammo57x28Flea],
+                Caliber46x30: [...ammo46x30LL3 && ammo46x30Flea],
+                Caliber1143x23ACP: [...ammo1143x23ACPLL3 && ammo1143x23ACPLL2],
+                Caliber9x39: [...ammo9x39LL3] && ammo9x39LL2,
+                Caliber9x33R: [...ammo9x33RLL2],
+                Caliber9x21: [...ammo9x21LL3 && ammo9x21Flea],
+                Caliber9x19PARA: [...ammo9x19LL3 && ammo9x19LL2],
+                Caliber9x18PM: [...ammo9x18LL2],
+                Caliber12g: [...ammo12x70LL3 && ammo12x70Flea && ammo12x70LL2],
                 Caliber23x75: [...ammo23x75LL3]
             }
         };
@@ -2585,11 +2666,61 @@ export class PMCs
             }
         };
 
+        const progressionWhitelistLL4PMCWide: EquipmentFilterDetails = {
+            levelRange: {
+                min: lvl.loyalty4.min,
+                max: 100
+            },
+            equipment: {
+                FirstPrimaryWeapon: [...primaryWeaponLL4 && primaryWeaponLL3 && primaryWeaponFlea],
+                SecondPrimaryWeapon: [...primaryWeaponLL4 && primaryWeaponLL3 && primaryWeaponFlea],
+                Holster: [...holsterLL4 && holsterLL3 && holsterFlea],
+                Backpack: [...backpackLL4 && backpackLL3 && backpackFlea],
+                TacticalVest: [...tacticalVestLL4 && tacticalVestLL3 && tacticalVestFlea],
+                Earpiece: [...earpieceLL4 && earpieceLL3],
+                Headwear: [...headwearLL4 && headwearLL3 && headwearFlea],
+                ArmorVest: [...armorVestLL4 && armorVestFlea],
+                Eyewear: [...eyewearLL4 && eyewearLL3],
+                ArmBand: [...armBandLL4 && armBandLL3],
+                FaceCover: [...faceCoverLL4 && faceCoverLL3]
+            },
+            cartridge: {
+                Caliber40x46: [...ammo40x46LL4],
+                Caliber127x55: [...ammo127x55LL4 && ammo127x55LL3],
+                Caliber86x70: [...ammo86x70LL4],
+                Caliber762x54R: [...ammo762x54LL4 && ammo762x54LL3 && ammo762x54Flea],
+                Caliber762x51: [...ammo762x51LL4 && ammo762x51LL3 && ammo762x51Flea],
+                Caliber762x39: [...ammo762x39LL4 && ammo762x39LL3 && ammo762x39Flea],
+                Caliber762x35: [...ammo762x35LL4 && ammo762x35LL3 && ammo762x35Flea],
+                Caliber68x51: [...ammo68x51LL4 && ammo68x51LL3],
+                Caliber366TKM: [...ammo366TKMLL3],
+                Caliber556x45NATO: [...ammo556x45LL4 && ammo556x45LL3],
+                Caliber545x39: [...ammo545x39LL4 && ammo545x39LL3],
+                Caliber57x28: [...ammo57x28LL4 && ammo57x28LL3 && ammo57x28Flea],
+                Caliber46x30: [...ammo46x30LL4 && ammo46x30LL3 && ammo46x30Flea],
+                Caliber1143x23ACP: [...ammo1143x23ACPLL4 && ammo1143x23ACPLL3],
+                Caliber9x39: [...ammo9x39LL4 && ammo9x39LL3],
+                Caliber9x21: [...ammo9x21LL4 && ammo9x21LL3 && ammo9x21Flea],
+                Caliber9x19PARA: [...ammo9x19LL3],
+                Caliber9x18PM: [...ammo9x18LL2],
+                Caliber12g: [...ammo12x70LL3 && ammo12x70Flea],
+                Caliber23x75: [...ammo23x75LL3]
+            }
+        };
+
         this.botConfig.equipment.pmc = progressionWhitelistLL1PMC;
 
         const whitelist = this.botConfig.equipment.pmc.whitelist;
+
+        if (!this.modConfig.widerWhitelistRange) {
         whitelist.push(progressionWhitelistLL2PMC);
         whitelist.push(progressionWhitelistLL3PMC);
         whitelist.push(progressionWhitelistLL4PMC);
+        }
+        else {
+            whitelist.push(progressionWhitelistLL2PMCWide);
+            whitelist.push(progressionWhitelistLL3PMCWide);
+            whitelist.push(progressionWhitelistLL4PMCWide);
+        }
     }
 }
