@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { EquipmentFilterDetails, EquipmentFilters, IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
-import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
-import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
-import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
-import { PmcConfig } from "../config/ts/pmc";
-import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import type { EquipmentFilterDetails, EquipmentFilters, IBotConfig } from "@spt/models/spt/config/IBotConfig";
+import type { IPmcConfig } from "@spt/models/spt/config/IPmcConfig";
+import type { IDatabaseTables } from "@spt/models/spt/server/IDatabaseTables";
+import type { DatabaseServer } from "@spt/servers/DatabaseServer";
+import type { PmcConfig } from "../config/ts/pmc";
+import type { ProfileHelper } from "@spt/helpers/ProfileHelper";
 
 export class PMCs 
 {
