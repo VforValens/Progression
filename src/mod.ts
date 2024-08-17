@@ -1,15 +1,15 @@
-import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
-import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
-import { IBotConfig } from "@spt-aki/models/spt/config/IBotConfig";
-import { ConfigServer } from "@spt-aki/servers/ConfigServer";
-import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
-import { DependencyContainer } from "tsyringe";
+import { ConfigTypes } from "@spt/models/enums/ConfigTypes";
+import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod";
+import type { IBotConfig } from "@spt/models/spt/config/IBotConfig";
+import type { ConfigServer } from "@spt/servers/ConfigServer";
+import type { DatabaseServer } from "@spt/servers/DatabaseServer";
+import type { DependencyContainer } from "tsyringe";
 //import { Scavs } from "./scavs";
-import { ILocationConfig } from "@spt-aki/models/spt/config/ILocationConfig";
-import { IPmcConfig } from "@spt-aki/models/spt/config/IPmcConfig";
+import type { ILocationConfig } from "@spt/models/spt/config/ILocationConfig";
+import type { IPmcConfig } from "@spt/models/spt/config/IPmcConfig";
 import { Boss } from "./boss";
 import { PMCs } from "./pmc";
-import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
+import type { ProfileHelper } from "@spt/helpers/ProfileHelper";
 
 
 class ValensProgression implements IPostDBLoadMod
