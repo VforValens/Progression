@@ -1,4 +1,4 @@
-import { GenerationData } from "@spt-aki/models/eft/common/tables/IBotType";
+import type { GenerationData } from "@spt/models/eft/common/tables/IBotType";
 
 export interface PmcConfig
 {
@@ -8,6 +8,7 @@ export interface PmcConfig
     botRelativeLevelDeltaMax: number;
     botRelativeLevelDeltaMin: number;
     levelRange: LevelRange;
+    widerWhitelistRange: boolean;
 }
 
 export interface LevelRange
