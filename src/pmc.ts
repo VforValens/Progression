@@ -330,7 +330,6 @@ export class PMCs
                 "63626d904aa74b8fe30ab426",
                 "62963c18dbc8ab5f0d382d0b",
                 "60a7ad2a2198820d95707a2e",
-                "60a7ad3a0c5cb24b0134664a",
                 "635267ab3c89e2112001f826"
             ]);
         const faceCoverLL3 = faceCoverLL2.concat(
@@ -343,7 +342,6 @@ export class PMCs
             "5e54f76986f7740366043752",
             "62a09dd4621468534a797ac7",
             "5b432f3d5acfc4704b4a1dfb",
-            "60a7ad3a0c5cb24b0134664a",
             "60a7ad2a2198820d95707a2e",
             "62963c18dbc8ab5f0d382d0b",
             "62a09e08de7ac81993580532",
@@ -891,7 +889,6 @@ export class PMCs
             "5fd8d28367cb5e077335170f": 10,
             "5e54f76986f7740366043752": 10,
             "62a09dd4621468534a797ac7": 10,
-            "60a7ad3a0c5cb24b0134664a": 10,
             "60a7ad2a2198820d95707a2e": 10,
             "62963c18dbc8ab5f0d382d0b": 10,
             "62a09e08de7ac81993580532": 10,
@@ -1428,7 +1425,7 @@ export class PMCs
                         "TacticalVest": 70,
                         "clothing": 100
                     },
-                    randomisedArmorSlots: ["Headwear"],
+                    randomisedArmorSlots: [],
                     randomisedWeaponModSlots: [],
                     equipmentMods: {
                         "back_plate": 70,
@@ -1621,7 +1618,7 @@ export class PMCs
                         "TacticalVest": 90,
                         "clothing": 100
                     },
-                    randomisedArmorSlots: ["Headwear"],
+                    randomisedArmorSlots: [],
                     randomisedWeaponModSlots: [
                         "mod_sight",
                         "mod_sight_rear",
@@ -1930,7 +1927,7 @@ export class PMCs
                         "mod_tactical_003": 30,
                         "mod_tactical_2": 15
                     },
-                    randomisedArmorSlots: ["Headwear"],
+                    randomisedArmorSlots: [],
                     randomisedWeaponModSlots: [
                         "mod_sight",
                         "mod_sight_rear",
@@ -2203,7 +2200,7 @@ export class PMCs
                         "mod_tactical_003": 30,
                         "mod_tactical_2": 15
                     },                    
-                    randomisedArmorSlots: ["Headwear"],
+                    randomisedArmorSlots: [],
                     randomisedWeaponModSlots: [
                         "mod_sight",
                         "mod_sight_rear",
