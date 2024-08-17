@@ -1,7 +1,8 @@
 {
     "botRelativeLevelDeltaMax": 7,
     "botRelativeLevelDeltaMin": 6,
-    
+    "widerWhitelistRange": false,
+
     "levelRange": 
     {
         "loyalty1": 
@@ -13,18 +14,18 @@
         "loyalty2": 
         {
             "min": 15,
-            "max": 33
+            "max": 34
         },
 
         "loyalty3": 
         {
-            "min": 34,
-            "max": 42
+            "min": 35,
+            "max": 44
         },
 
         "loyalty4": 
         {
-            "min": 43
+            "min": 45
         }
     },
 
@@ -38,10 +39,10 @@
             "5": 1
         },
         "whitelist": {
-            "59fb023c86f7746d0d4b423c": 1,
-            "5aafbde786f774389d0cbc0f": 1,
-            "5c127c4486f7745625356c13": 1,
-            "59fb042886f7746c5005a7b2": 1
+            "59fb023c86f7746d0d4b423c": 2,
+            "5aafbde786f774389d0cbc0f": 3,
+            "5c127c4486f7745625356c13": 2,
+            "59fb042886f7746c5005a7b2": 2
         }
     },
 
