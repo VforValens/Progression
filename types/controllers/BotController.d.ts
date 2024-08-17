@@ -20,8 +20,8 @@ import { DatabaseService } from "@spt/services/DatabaseService";
 import { LocalisationService } from "@spt/services/LocalisationService";
 import { MatchBotDetailsCacheService } from "@spt/services/MatchBotDetailsCacheService";
 import { SeasonalEventService } from "@spt/services/SeasonalEventService";
-import { ICloner } from "@spt/utils/cloners/ICloner";
 import { RandomUtil } from "@spt/utils/RandomUtil";
+import { ICloner } from "@spt/utils/cloners/ICloner";
 export declare class BotController {
     protected logger: ILogger;
     protected databaseService: DatabaseService;
@@ -77,7 +77,7 @@ export declare class BotController {
      * @param sessionId Session id
      * @returns
      */
-    protected generateBotsFirstTime(request: IGenerateBotsRequestData, pmcProfile: IPmcData, sessionId: string): Promise<IBotBase[]>;
+    generateBotsFirstTime(request: IGenerateBotsRequestData, pmcProfile: IPmcData, sessionId: string): Promise<IBotBase[]>;
     /**
      * Create a BotGenerationDetails for the bot generator to use
      * @param condition Client data defining bot type and difficulty
@@ -117,7 +117,7 @@ export declare class BotController {
      * @param request Bot generation request object
      * @returns Single IBotBase object
      */
-    protected returnSingleBotFromCache(sessionId: string, request: IGenerateBotsRequestData): Promise<IBotBase[]>;
+    returnSingleBotFromCache(sessionId: string, request: IGenerateBotsRequestData): Promise<IBotBase[]>;
     protected updateBotGenerationDetailsToRandomBoss(botGenerationDetails: BotGenerationDetails, possibleBossTypeWeights: Record<string, number>): void;
     /**
      * Get the difficulty passed in, if its not "asonline", get selected difficulty from config

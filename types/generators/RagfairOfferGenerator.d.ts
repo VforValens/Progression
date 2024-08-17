@@ -19,10 +19,10 @@ import { FenceService } from "@spt/services/FenceService";
 import { LocalisationService } from "@spt/services/LocalisationService";
 import { RagfairOfferService } from "@spt/services/RagfairOfferService";
 import { RagfairPriceService } from "@spt/services/RagfairPriceService";
-import { ICloner } from "@spt/utils/cloners/ICloner";
 import { HashUtil } from "@spt/utils/HashUtil";
 import { RandomUtil } from "@spt/utils/RandomUtil";
 import { TimeUtil } from "@spt/utils/TimeUtil";
+import { ICloner } from "@spt/utils/cloners/ICloner";
 export declare class RagfairOfferGenerator {
     protected logger: ILogger;
     protected hashUtil: HashUtil;
@@ -70,10 +70,10 @@ export declare class RagfairOfferGenerator {
      * @param items Items in the offer
      * @param barterScheme Cost of item (currency or barter)
      * @param loyalLevel Loyalty level needed to buy item
-     * @param sellInOnePiece Set StackObjectsCount to 1
+     * @param isPackOffer Is offer being created flaged as a pack
      * @returns IRagfairOffer
      */
-    protected createOffer(userID: string, time: number, items: Item[], barterScheme: IBarterScheme[], loyalLevel: number, sellInOnePiece?: boolean): IRagfairOffer;
+    protected createOffer(userID: string, time: number, items: Item[], barterScheme: IBarterScheme[], loyalLevel: number, isPackOffer?: boolean): IRagfairOffer;
     /**
      * Create the user object stored inside each flea offer object
      * @param userID user creating the offer

@@ -121,6 +121,12 @@ export declare class RagfairOfferHelper {
      */
     processOffersOnProfile(sessionID: string): boolean;
     /**
+     * Count up all rootitem StackObjectsCount properties of an array of items
+     * @param itemsInInventoryToList items to sum up
+     * @returns Total count
+     */
+    getTotalStackCountSize(itemsInInventoryToList: Item[][]): number;
+    /**
      * Add amount to players ragfair rating
      * @param sessionId Profile to update
      * @param amountToIncrementBy Raw amount to add to players ragfair rating (excluding the reputation gain multiplier)
@@ -145,7 +151,7 @@ export declare class RagfairOfferHelper {
      * @param boughtAmount Amount item was purchased for
      * @returns IItemEventRouterResponse
      */
-    protected completeOffer(sessionID: string, offer: IRagfairOffer, boughtAmount: number): IItemEventRouterResponse;
+    completeOffer(sessionID: string, offer: IRagfairOffer, boughtAmount: number): IItemEventRouterResponse;
     /**
      * Get a localised message for when players offer has sold on flea
      * @param itemTpl Item sold
