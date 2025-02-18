@@ -416,7 +416,12 @@ export class PMCs {
 			"6033fa48ffd42c541047f728",
 			"5b432b965acfc47a8774094e",
 		];
-		const earpieceLL2 = earpieceLL1.concat(...["5645bcc04bdc2d363b8b4572"]);
+		const earpieceLL2 = earpieceLL1.concat(...[
+			"5645bcc04bdc2d363b8b4572",
+			"66b5f6985891c84aab75ca76",
+			"66b5f693acff495a294927e3",
+			"628e4e576d783146b124c64d"
+		]);
 		const earpieceLL3 = earpieceLL2.concat(
 			...[
 				"5f60cd6cf2bcbb675b00dac6",
@@ -429,6 +434,9 @@ export class PMCs {
 			"5f60cd6cf2bcbb675b00dac6",
 			"628e4e576d783146b124c64d",
 			"5c165d832e2216398b5a7e36",
+			"66b5f6985891c84aab75ca76",
+			"66b5f693acff495a294927e3",
+			"628e4e576d783146b124c64d"
 		];
 
 		// Tacvest Array
@@ -1129,14 +1137,16 @@ export class PMCs {
 
 		// PMC Earpiece Weighting
 		pmcEquipment.Earpiece = {
-			"6033fa48ffd42c541047f728": 10,
+			"6033fa48ffd42c541047f728": 20,
 			"5b432b965acfc47a8774094e": 10,
 			"5645bcc04bdc2d363b8b4572": 10,
-			"5f60cd6cf2bcbb675b00dac6": 10,
-			"628e4e576d783146b124c64d": 10,
-			"5e4d34ca86f774264f758330": 10,
-			"5aa2ba71e5b5b000137b758f": 10,
+			"5f60cd6cf2bcbb675b00dac6": 5,
+			"628e4e576d783146b124c64d": 4,
+			"5e4d34ca86f774264f758330": 7,
+			"5aa2ba71e5b5b000137b758f": 6,
 			"5c165d832e2216398b5a7e36": 10,
+			"66b5f6985891c84aab75ca76": 5,
+			"66b5f693acff495a294927e3": 5,
 		};
 
 		this.databaseServer.bots.types.usec.inventory.equipment.Earpiece =
