@@ -331,17 +331,21 @@ export class PMCs {
 		const faceCoverLL1 = ["572b7f1624597762ae139822"];
 		const faceCoverLL2 = faceCoverLL1.concat(
 			...[
+				"5b432f3d5acfc4704b4a1dfb",
 				"5ab8f39486f7745cd93a1cca",
 				"5b4325355acfc40019478126",
-				"62963c18dbc8ab5f0d382d0b",
-				"60a7ad2a2198820d95707a2e",
+				"6571bde39837cc51b800c212",
+				"5bd073a586f7747e6f135799",
+				"5fd8d28367cb5e077335170f",
+				"5ab8f4ff86f77431c60d91ba",
 				"635267ab3c89e2112001f826",
+				"6570aead4d84f81fd002a033"
 			],
 		);
 		const faceCoverLL3 = faceCoverLL2.concat(
 			...[
 				"5ab8f85d86f7745cd93a1cf5", 
-				"5b432f3d5acfc4704b4a1dfb"
+				"657089638db3adca1009f4ca"
 			],
 		);
 		const faceCoverLL4 = [
@@ -357,6 +361,7 @@ export class PMCs {
 			"657089638db3adca1009f4ca",
 			"635267ab3c89e2112001f826",
 			"63626d904aa74b8fe30ab426",
+			"60a7ad3a0c5cb24b0134664a"
 		];
 
 		// Headwear Array
@@ -1054,21 +1059,25 @@ export class PMCs {
 		// PMC FaceCover Weighting
 		pmcEquipment.FaceCover = {
 			"572b7f1624597762ae139822": 10,
+			"6571bde39837cc51b800c212": 6,
+			"5bd073a586f7747e6f135799": 6,
+			"5fd8d28367cb5e077335170f": 4,
+			"5ab8f4ff86f77431c60d91ba": 5,
 			"5ab8f39486f7745cd93a1cca": 10,
-			"5b4325355acfc40019478126": 10,
-			"5ab8f85d86f7745cd93a1cf5": 10,
+			"5b4325355acfc40019478126": 5,
+			"5ab8f85d86f7745cd93a1cf5": 5,
 			"5b432f3d5acfc4704b4a1dfb": 10,
-			"5fd8d28367cb5e077335170f": 10,
-			"5e54f76986f7740366043752": 10,
-			"62a09dd4621468534a797ac7": 10,
-			"60a7ad2a2198820d95707a2e": 10,
-			"62963c18dbc8ab5f0d382d0b": 10,
-			"62a09e08de7ac81993580532": 10,
-			"5b432b2f5acfc4771e1c6622": 10,
-			"6570aead4d84f81fd002a033": 10,
-			"657089638db3adca1009f4ca": 10,
-			"635267ab3c89e2112001f826": 10,
-			"63626d904aa74b8fe30ab426": 10,
+			"5e54f76986f7740366043752": 4,
+			"62a09dd4621468534a797ac7": 4,
+			"60a7ad2a2198820d95707a2e": 5,
+			"62963c18dbc8ab5f0d382d0b": 6,
+			"62a09e08de7ac81993580532": 1,
+			"5b432b2f5acfc4771e1c6622": 3,
+			"6570aead4d84f81fd002a033": 6,
+			"657089638db3adca1009f4ca": 6,
+			"635267ab3c89e2112001f826": 5,
+			"63626d904aa74b8fe30ab426": 2,
+			"60a7ad3a0c5cb24b0134664a": 5
 		};
 
 		this.databaseServer.bots.types.usec.inventory.equipment.FaceCover =
