@@ -1,6 +1,6 @@
 {
     "name": "Valens-Progression",
-    "version": "2.1.5",
+    "version": "2.1.6",
     "sptVersion": "~3.10",
     "loadBefore": [],
     "loadAfter": [],
