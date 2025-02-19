@@ -35,7 +35,8 @@ export class PMCs {
 
 	private generatePmcs() {
 		// Set Bot Level Delta to 1 from Default of 10
-		// Doing this fixes the issue with bots being up to 10 levels higher than character level, by default, and thus generating with gear they **should not** have.
+		// Doing this fixes the issue with bots being up to 10 levels higher than character level, 
+		// by default, and thus generating with gear they **should not** have.
 		this.pmcConfig.botRelativeLevelDeltaMax =
 			this.modConfig.botRelativeLevelDeltaMax;
 		this.pmcConfig.botRelativeLevelDeltaMin =
@@ -1102,32 +1103,32 @@ export class PMCs {
 			"5c06c6a80db834001b735491": 10,
 			"5645bc214bdc2d363b8b4571": 10,
 			"5aa7d193e5b5b000171d063f": 10,
-			"5b432d215acfc4771e1c6624": 10,
+			"5b432d215acfc4771e1c6624": 20,
 			"5f60b34a41e30a4ab12a6947": 10,
-			"5a7c4850e899ef00150be885": 10,
-			"5b4329f05acfc47a86086aa1": 10,
-			"5d5e7d28a4b936645d161203": 10,
-			"5d5e9c74a4b9364855191c40": 10,
-			"5e4bfc1586f774264f7582d3": 10,
+			"5a7c4850e899ef00150be885": 15,
+			"5b4329f05acfc47a86086aa1": 6,
+			"5d5e7d28a4b936645d161203": 15,
+			"5d5e9c74a4b9364855191c40": 15,
+			"5e4bfc1586f774264f7582d3": 15,
 			"5aa7e454e5b5b0214e506fa2": 10,
 			"65709d2d21b9f815e208ff95": 10,
 			"65719f0775149d62ce0a670b": 10,
-			"5b40e3f35acfc40016388218": 10,
-			"5b40e4035acfc47a87740943": 10,
-			"5ea17ca01412a1425304d1c0": 10,
-			"5aa7e4a4e5b5b000137b76f2": 10,
-			"5c091a4e0db834001d5addc8": 10,
-			"5a154d5cfcdbcb001a3b00da": 10,
-			"5ac8d6885acfc400180ae7b0": 10,
-			"5c17a7ed2e2216152142459c": 10,
-			"5e00c1ad86f774747333222c": 10,
-			"5e01ef6886f77445f643baa4": 10,
-			"5b40e1525acfc4771e1c6611": 10,
-			"5b40e2bc5acfc40016388216": 10,
+			"5b40e3f35acfc40016388218": 6,
+			"5b40e4035acfc47a87740943": 6,
+			"5ea17ca01412a1425304d1c0": 5,
+			"5aa7e4a4e5b5b000137b76f2": 6,
+			"5c091a4e0db834001d5addc8": 5,
+			"5a154d5cfcdbcb001a3b00da": 5,
+			"5ac8d6885acfc400180ae7b0": 5,
+			"5c17a7ed2e2216152142459c": 5,
+			"5e00c1ad86f774747333222c": 5,
+			"5e01ef6886f77445f643baa4": 5,
+			"5b40e1525acfc4771e1c6611": 7,
+			"5b40e2bc5acfc40016388216": 7,
 			"5d6d3716a4b9361bc8618872": 10,
-			"5aa7e276e5b5b000171d0647": 10,
-			"5f60c74e3b85f6263c145586": 10,
-			"5ca20ee186f774799474abc2": 10,
+			"5aa7e276e5b5b000171d0647": 5,
+			"5f60c74e3b85f6263c145586": 5,
+			"5ca20ee186f774799474abc2": 5,
 		};
 
 		this.databaseServer.bots.types.usec.inventory.equipment.Headwear =
