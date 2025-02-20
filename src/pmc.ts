@@ -1522,8 +1522,6 @@ export class PMCs {
 								1: 1,
 							},
 							whitelist: {
-								//"544fb37f4bdc2dee738b4567" Analgin
-								//"590c695186f7741e566b64a2" Augmentin
 								"544fb37f4bdc2dee738b4567": 1,
 								"590c695186f7741e566b64a2": 3,
 							},
@@ -1535,7 +1533,6 @@ export class PMCs {
 								2: 2,
 							},
 							whitelist: {
-								//"5710c24ad2720bc3458b45a3" F-1 grenade
 								"5710c24ad2720bc3458b45a3": 10,
 							},
 						},
@@ -1548,12 +1545,6 @@ export class PMCs {
 								4: 3,
 							},
 							whitelist: {
-								//"5e831507ea0a7c419c2f9bd9" esmarch
-								//"5755356824597772cb798962" AI-2
-								//"590c661e86f7741e566b646a" Car first aid kit
-								//"544fb3364bdc2d34748b456a" Splint
-								//"544fb25a4bdc2dfb738b4567" Bandage
-								//"5d02778e86f774203e7dedbe" CMS
 								"5e831507ea0a7c419c2f9bd9": 8,
 								"5755356824597772cb798962": 8,
 								"590c661e86f7741e566b646a": 4,
@@ -1688,8 +1679,6 @@ export class PMCs {
 								1: 1,
 							},
 							whitelist: {
-								//"590c695186f7741e566b64a2" Augmentin
-								//"5755383e24597772cb798966" Vaseline
 								"590c695186f7741e566b64a2": 3,
 								"5755383e24597772cb798966": 1,
 							},
@@ -1703,7 +1692,6 @@ export class PMCs {
 								4: 2,
 							},
 							whitelist: {
-								//"5710c24ad2720bc3458b45a3" F-1 Hand grenade
 								"5710c24ad2720bc3458b45a3": 10,
 							},
 						},
@@ -1717,12 +1705,6 @@ export class PMCs {
 								5: 2,
 							},
 							whitelist: {
-								//"60098af40accd37ef2175f27" CAT tourniquet
-								//"5751a25924597722c463c472" Army bandage
-								//"5af0454c86f7746bf20992e8" Aluminum splint
-								//"590c678286f77426c9660122" IFAK
-								//"544fb45d4bdc2dee738b4568" Salewa
-								//"5d02778e86f774203e7dedbe" CMS
 								"60098af40accd37ef2175f27": 50,
 								"5751a25924597722c463c472": 50,
 								"5af0454c86f7746bf20992e8": 20,
@@ -1777,16 +1759,6 @@ export class PMCs {
 								1: 1,
 							},
 							whitelist: {
-								//"544fb3f34bdc2d03748b456a" Morphine
-								//"5c0e531286f7747fa54205c2" SJ1
-								//"5fca138c2a7b221b2852a5c6" x-TG-12 antidote
-								//"5c10c8fd86f7743d7d706df3" Adrenaline
-								//"5c0e530286f7747fa1419862" Propital
-								//"5ed515f6915ec335206e4152" AHF1-M
-								//"5ed5160a87bb8443d10680b5" Meldonin
-								//"5ed515c8d380ab312177c0fa" 3b-TG
-								//"5ed5166ad380ab312177c100" Obdolbos
-								//"637b60c3b7afa97bfc3d7001" Obdolbos 2
 								"544fb3f34bdc2d03748b456a": 1,
 								"5c0e531286f7747fa54205c2": 1,
 								"5fca138c2a7b221b2852a5c6": 1,
@@ -1915,9 +1887,6 @@ export class PMCs {
 								1: 1,
 							},
 							whitelist: {
-								//"5af0548586f7743a532b7e99" Ibuprofen
-								//"5755383e24597772cb798966" Vaseline
-								//"5751a89d24597722aa0e8db0" Golden star
 								"5af0548586f7743a532b7e99": 50,
 								"5755383e24597772cb798966": 30,
 								"5751a89d24597722aa0e8db0": 20,
@@ -1932,13 +1901,6 @@ export class PMCs {
 								4: 3,
 							},
 							whitelist: {
-								//"5710c24ad2720bc3458b45a3" F1 Grenade
-								//"58d3db5386f77426186285a0" M67 Grenade
-								//"5448be9a4bdc2dfd2f8b456a" RGD-5
-								//"617fd91e5539a84ec44ce155" RGN Impact
-								//"618a431df1eb8e24b8741deb" RGO Impact
-								//"5e32f56fcb6d5863cc5e5ee4" VOG17
-								//"5e340dcdcb6d5863cc5e5efb" VOG25
 								"5710c24ad2720bc3458b45a3": 5,
 								"58d3db5386f77426186285a0": 5,
 								"5448be9a4bdc2dfd2f8b456a": 20,
@@ -1958,13 +1920,6 @@ export class PMCs {
 								5: 3,
 							},
 							whitelist: {
-								//"5e8488fa988a8701445df1e4" CALOK-B
-								//"5751a25924597722c463c472" Army bandage
-								//"5af0454c86f7746bf20992e8" Aluminum splint
-								//"590c678286f77426c9660122" IFAK
-								//"544fb45d4bdc2dee738b4568" Salewa
-								//"60098ad7c2240c0fe85c570a" AFAK
-								//"590c657e86f77412b013051d" Grizzly
 								"5e8488fa988a8701445df1e4": 50,
 								"5751a25924597722c463c472": 50,
 								"5af0454c86f7746bf20992e8": 20,
@@ -2023,24 +1978,6 @@ export class PMCs {
 								2: 1,
 							},
 							whitelist: {
-								//"5c0e531286f7747fa54205c2" SJ1
-								//"5fca138c2a7b221b2852a5c6" x-TG-12 antidote
-								//"5c10c8fd86f7743d7d706df3" Adrenaline
-								//"5c0e530286f7747fa1419862" Propital
-								//"5ed515f6915ec335206e4152" AHF1-M
-								//"5ed5160a87bb8443d10680b5" Meldonin
-								//"5ed515c8d380ab312177c0fa" 3b-TG
-								//"5ed5166ad380ab312177c100" Obdolbos
-								//"637b60c3b7afa97bfc3d7001" Obdolbos 2
-								//"5ed515e03a40a50460332579" L1
-								//"637b620db7afa97bfc3d7009" Trimadol
-								//"5c0e534186f7747fa1419867" eTG
-								//"637b6251104668754b72f8f9" Perfotoran
-								//"637b6179104668754b72f8f5" PNB
-								//"5ed515ece452db0eb56fc028" P22
-								//"5c0e531d86f7747fa23f4d42" SJ6
-								//"5ed51652f6c34d2cc26336a1" MULE
-								//"5fca13ca637ee0341a484f46" SJ9
 								"5c0e531286f7747fa54205c2": 1,
 								"5fca138c2a7b221b2852a5c6": 1,
 								"5c10c8fd86f7743d7d706df3": 1,
@@ -2181,9 +2118,6 @@ export class PMCs {
 								1: 1,
 							},
 							whitelist: {
-								//"5755383e24597772cb798966" Vaseline
-								//"5af0548586f7743a532b7e99" Ibuprofen
-								//"5751a89d24597722aa0e8db0" Golden star
 								"5755383e24597772cb798966": 1,
 								"5af0548586f7743a532b7e99": 1,
 								"5751a89d24597722aa0e8db0": 1,
@@ -2199,13 +2133,6 @@ export class PMCs {
 								5: 1,
 							},
 							whitelist: {
-								//"5710c24ad2720bc3458b45a3" F1 grenade
-								//"58d3db5386f77426186285a0" M67 grenade
-								//"5448be9a4bdc2dfd2f8b456a" RGD-5
-								//"617fd91e5539a84ec44ce155" RGN
-								//"618a431df1eb8e24b8741deb" RGO
-								//"5e32f56fcb6d5863cc5e5ee4" VOG17
-								//"5e340dcdcb6d5863cc5e5efb" VOG25
 								"5710c24ad2720bc3458b45a3": 1,
 								"58d3db5386f77426186285a0": 1,
 								"5448be9a4bdc2dfd2f8b456a": 1,
@@ -2225,12 +2152,6 @@ export class PMCs {
 								5: 1,
 							},
 							whitelist: {
-								//"5e8488fa988a8701445df1e4" CALOK-B
-								//"5751a25924597722c463c472" Army bandage
-								//"5af0454c86f7746bf20992e8" Aluminum splint
-								//"60098ad7c2240c0fe85c570a" AFAK
-								//"590c657e86f77412b013051d" Grizzly
-								//"5d02797c86f774203f38e30a" Surv12
 								"5e8488fa988a8701445df1e4": 2,
 								"5751a25924597722c463c472": 2,
 								"5af0454c86f7746bf20992e8": 1,
@@ -2290,27 +2211,6 @@ export class PMCs {
 								2: 1,
 							},
 							whitelist: {
-								//"544fb3f34bdc2d03748b456a" Morphine
-								//"5c0e531286f7747fa54205c2" SJ1
-								//"5fca138c2a7b221b2852a5c6" x-TG-12 antidote
-								//"5c10c8fd86f7743d7d706df3" Adrenaline
-								//"5c0e530286f7747fa1419862" Propital
-								//"5ed515f6915ec335206e4152" AHF1-M
-								//"5ed5160a87bb8443d10680b5" Meldonin
-								//"5ed515c8d380ab312177c0fa" 3b-TG
-								//"5ed5166ad380ab312177c100" Obdolbos
-								//"637b60c3b7afa97bfc3d7001" Obdolbos 2
-								//"5ed515e03a40a50460332579" L1
-								//"637b620db7afa97bfc3d7009" Trimadol
-								//"5c0e534186f7747fa1419867" eTG
-								//"637b6251104668754b72f8f9" Perfotoran
-								//"637b6179104668754b72f8f5" PNB
-								//"5ed515ece452db0eb56fc028" P22
-								//"5c0e531d86f7747fa23f4d42" SJ6
-								//"5ed51652f6c34d2cc26336a1" MULE
-								//"5fca13ca637ee0341a484f46" SJ9
-								//"5c0e533786f7747fa23f4d47" Zagustin
-								//"637b612fb7afa97bfc3d7005" SJ12
 								"544fb3f34bdc2d03748b456a": 1,
 								"5c0e531286f7747fa54205c2": 1,
 								"5fca138c2a7b221b2852a5c6": 1,
