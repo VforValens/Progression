@@ -1,5 +1,4 @@
 import type { ProfileHelper } from "@spt/helpers/ProfileHelper";
-import { IEquipment } from "@spt/models/eft/common/tables/IBotType";
 import type {
 	EquipmentFilters,
 	IBotConfig,
@@ -14,19 +13,16 @@ export class PMCs {
 	private botConfig: IBotConfig;
 	private pmcConfig: IPmcConfig;
 	private databaseServer: IDatabaseTables;
-	private profileHelper: ProfileHelper;
 	private modConfig: PmcConfig = require("../config/pmc.json");
 
 	constructor(
 		botConfig: IBotConfig,
 		pmcConfig: IPmcConfig,
 		databaseServer: DatabaseServer,
-		profileHelper: ProfileHelper,
 	) {
 		this.botConfig = botConfig;
 		this.pmcConfig = pmcConfig;
 		this.databaseServer = databaseServer.getTables();
-		this.profileHelper = profileHelper;
 	}
 
 	public updatePmcs(): void {
