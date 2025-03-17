@@ -1003,13 +1003,13 @@ export class PMCs {
 
 		// PMC Armor Vest Weighting
 		pmcEquipment.ArmorVest = {
-			"64be79e2bf8412471d0d9bcc": 10,
-			"5ab8e4ed86f7742d8e50c7fa": 10,
-			"62a09d79de7ac81993580530": 10,
+			"64be79e2bf8412471d0d9bcc": 3,
+			"5ab8e4ed86f7742d8e50c7fa": 3,
+			"62a09d79de7ac81993580530": 3,
 			"5df8a2ca86f7740bfe6df777": 10,
 			"59e7635f86f7742cbf2c1095": 10,
 			"5648a7494bdc2d9d488b4583": 10,
-			"5c0e5edb86f77461f55ed1f7": 10,
+			"5c0e5edb86f77461f55ed1f7": 3,
 			"609e8540d5c319764c2bc2e9": 10,
 			"64abd93857958b4249003418": 10,
 			"5b44d22286f774172b0c9de8": 10,
