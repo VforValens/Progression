@@ -1,10 +1,10 @@
-import type { GenerationData } from "@spt/models/eft/common/tables/IBotType";
+import type { IGenerationData } from "@spt/models/eft/common/tables/IBotType";
 
 export interface PmcConfig
 {
-    pocketLoot: GenerationData;
-    backpackLoot: GenerationData;
-    vestLoot: GenerationData;
+    pocketLoot: IGenerationData;
+    backpackLoot: IGenerationData;
+    vestLoot: IGenerationData;
     botRelativeLevelDeltaMax: number;
     botRelativeLevelDeltaMin: number;
     levelRange: LevelRange;
